@@ -1,0 +1,347 @@
+package com.piyak.english
+
+import com.piyak.english.audio.Sfx
+import com.piyak.english.model.ContentRepo
+import com.piyak.english.model.Question
+import com.piyak.english.model.Subject
+import com.piyak.english.ui.game.BubbleChoiceView
+import org.json.JSONObject
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
+import org.junit.Test
+import java.io.File
+
+/** 일반 문제의 상호작용(버블 보기 / 선 잇기)이 실제 콘텐츠에 잘 맞는지 */
+class InteractionTest {
+
+    private fun packsDir(): File {
+        val candidates = listOf(
+            File("src/main/assets/packs"),
+            File("app/src/main/assets/packs"),
+            File(System.getProperty("user.dir"), "src/main/assets/packs"),
+        )
+        return candidates.firstOrNull { it.isDirectory } ?: error("packs 디렉터리 없음")
+    }
+
+    @Test fun effectSoundDefaultsQuietEnoughForSpeech() {
+        // 효과음이 크면 듣기·말하기 음성을 덮는다
+        assertTrue("기본 효과음이 너무 큼", Sfx.DEFAULT_VOLUME_PERCENT <= 40)
+        assertTrue("기본 효과음이 0이면 피드백이 사라진다", Sfx.DEFAULT_VOLUME_PERCENT > 0)
+    }
+
+    @Test fun bubbleModeOnlyForShortChoices() {
+        assertTrue(BubbleChoiceView.fits(listOf("12", "13", "14", "15")))
+        assertTrue(BubbleChoiceView.fits(listOf("🍎", "🍌", "🐶", "🐱")))
+        assertTrue(BubbleChoiceView.fits(listOf("apple", "banana", "dog", "cat")))
+        // 짧은 한글 낱말은 버블에 들어간다
+        assertTrue(BubbleChoiceView.fits(listOf("사과", "고양이", "무지개", "아이스크림")))
+        // 긴 문장은 버블에 안 들어간다 → 읽기 편한 버튼 목록으로
+        assertFalse(
+            BubbleChoiceView.fits(
+                listOf(
+                    "나는 사과를 좋아해요.", "이것은 내 개예요.",
+                    "해는 뜨거워요.", "나는 별을 봐요."
+                )
+            )
+        )
+        // 보기가 4개가 아니면 버블 배치가 깨진다
+        assertFalse(BubbleChoiceView.fits(listOf("1", "2", "3")))
+    }
+
+    /** 한글은 글자 수가 적어도 폭이 넓다 — 글자 수로 재면 문장이 버블에 들어가 버린다 */
+    @Test fun widthScoreCountsWideCharactersAsTwo() {
+        assertEquals(4, BubbleChoiceView.widthScore("사과"))
+        assertEquals(5, BubbleChoiceView.widthScore("apple"))
+        assertEquals(2, BubbleChoiceView.widthScore("🍎"))
+        assertEquals(2, BubbleChoiceView.widthScore("12"))
+        // 11자짜리 한글 문장은 폭 점수가 기준을 훌쩍 넘는다
+        assertTrue(BubbleChoiceView.widthScore("나는 사과를 좋아해요.") > BubbleChoiceView.MAX_WIDTH_SCORE)
+    }
+
+    /** 실제 팩에서 버블이 얼마나 쓰이는지 — 아예 안 쓰이면 의미가 없다 */
+    @Test fun realContentActuallyUsesBubbles() {
+        val dir = packsDir()
+        var bubble = 0
+        var list = 0
+        for (tid in Subject.ENGLISH.tracks + Subject.MATH.tracks) {
+            val f = File(dir, "$tid.json")
+            if (!f.isFile) continue
+            val t = ContentRepo.parseTrack(JSONObject(f.readText()))
+            for (u in t.units) for (l in u.lessons) for (q in l.questions) {
+                val choices = when (q) {
+                    is Question.Mcq -> q.choices
+                    is Question.ListenMcq -> q.choices
+                    is Question.ListenDialog -> q.choices
+                    is Question.Math -> if (q.input == "choice") q.choices else null
+                    else -> null
+                } ?: continue
+                if (BubbleChoiceView.fits(choices)) bubble++ else list++
+            }
+        }
+        println("버블로 뜨는 문제 $bubble · 목록으로 뜨는 문제 $list")
+        assertTrue("버블이 전혀 안 쓰인다", bubble > 500)
+        // 긴 보기는 버튼 목록으로 남아야 읽기 편하다
+        assertTrue("모든 문제가 버블이면 문장형 보기가 답답해진다", list > 0)
+    }
+
+    /**
+     * 저학년 수학의 숫자 답이 버블 4개로 낼 수 있는 범위인지.
+     * 정수가 아니거나 너무 크면 버블이 아니라 키패드로 가야 한다.
+     */
+    @Test fun lowGradeMathAnswersFitBubbles() {
+        val dir = packsDir()
+        val lowGrades = listOf("math_k", "math_g1", "math_g2", "math_g3")
+        var bubbleable = 0
+        var keypad = 0
+        for (tid in lowGrades) {
+            val f = File(dir, "$tid.json")
+            if (!f.isFile) continue
+            val t = ContentRepo.parseTrack(JSONObject(f.readText()))
+            for (u in t.units) for (l in u.lessons) for (q in l.questions) {
+                val m = q as? Question.Math ?: continue
+                if (m.input != "number") continue
+                val n = m.answer.toIntOrNull()
+                if (n != null && n in 0..200 && m.unit.isEmpty()) {
+                    // 버블로 낼 문제 — 오답 3개를 실제로 만들 수 있어야 한다
+                    val opts = com.piyak.english.engine.MiniGames.wrongNumbers(n, 4)
+                    assertEquals("${m.id}: 보기 4개를 못 만듦", 4, opts.size)
+                    assertEquals("${m.id}: 보기 중복", 4, opts.toSet().size)
+                    assertTrue("${m.id}: 정답이 보기에 없음", opts.contains(n))
+                    bubbleable++
+                } else keypad++
+            }
+        }
+        println("저학년 숫자문제 — 버블 $bubbleable · 키패드 $keypad")
+        assertTrue("저학년인데 버블로 낼 문제가 거의 없다", bubbleable > 300)
+    }
+
+    /**
+     * 그림을 직접 조작해 답하는 문제(input=visual)가 앱이 읽을 수 있는 꼴인지.
+     * 시계는 "H:MM", 끌어서 나누기는 나눠떨어지는 정수여야 채점이 성립한다.
+     */
+    @Test fun visualInputQuestionsAreWellFormed() {
+        val dir = packsDir()
+        var clocks = 0
+        var groups = 0
+        var paints = 0
+        var sorts = 0
+        var lines = 0
+        var angles = 0
+        var balances = 0
+        var bars = 0
+        var gathers = 0
+        for (tid in Subject.MATH.tracks) {
+            val f = File(dir, "$tid.json")
+            if (!f.isFile) continue
+            val t = ContentRepo.parseTrack(JSONObject(f.readText()))
+            for (u in t.units) for (l in u.lessons) for (q in l.questions) {
+                val m = q as? Question.Math ?: continue
+                if (m.input != "visual") continue
+                val v = m.visual ?: error("${m.id}: visual 입력인데 그림이 없다")
+                when (v.kind) {
+                    com.piyak.english.model.MathVisual.CLOCK_SET -> {
+                        val parts = m.answer.split(":")
+                        assertEquals("${m.id}: 답이 H:MM 꼴이 아님", 2, parts.size)
+                        val h = parts[0].toIntOrNull() ?: error("${m.id}: 시 없음")
+                        val mm = parts[1].toIntOrNull() ?: error("${m.id}: 분 없음")
+                        assertTrue("${m.id}: 시 범위", h in 1..12)
+                        assertTrue("${m.id}: 분 범위", mm in 0..59)
+                        // 손가락으로는 5분 단위까지만 맞출 수 있다
+                        assertEquals("${m.id}: 5분 단위가 아니라 맞출 수 없다", 0, mm % 5)
+                        clocks++
+                    }
+                    com.piyak.english.model.MathVisual.GROUP -> {
+                        val per = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        assertTrue("${m.id}: 묶음 수 범위", v.bb in 2..4)
+                        assertTrue("${m.id}: 화면에 안 들어갈 만큼 많다", v.a in 4..18)
+                        assertEquals("${m.id}: 똑같이 나눠지지 않는다", 0, v.a % v.bb)
+                        assertEquals("${m.id}: 답이 몫과 다르다", v.a / v.bb, per)
+                        groups++
+                    }
+                    com.piyak.english.model.MathVisual.FRACTION_PAINT -> {
+                        val n = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        val d = v.q.toInt()
+                        assertTrue("${m.id}: 분모 범위(조각이 너무 잘다)", d in 2..12)
+                        assertTrue("${m.id}: 칠할 칸이 분모보다 많다", n in 1..d)
+                        assertEquals("${m.id}: 답이 분자와 다르다", v.p.toInt(), n)
+                        paints++
+                    }
+                    com.piyak.english.model.MathVisual.SHAPE_SORT -> {
+                        assertEquals(
+                            "${m.id}: 도형 수와 바구니 지정 수가 다르다",
+                            v.items.size, v.kinds.size
+                        )
+                        assertTrue("${m.id}: 바구니가 2~3개여야 화면에 맞는다", v.labels.size in 2..3)
+                        assertTrue("${m.id}: 도형이 너무 많다", v.items.size in 4..12)
+                        assertTrue(
+                            "${m.id}: 없는 바구니를 가리킨다",
+                            v.kinds.all { it in v.labels.indices }
+                        )
+                        // 빈 바구니가 있으면 분류가 아니라 몰아 담기가 된다
+                        assertEquals(
+                            "${m.id}: 아무 도형도 안 들어가는 바구니가 있다",
+                            v.labels.size, v.kinds.toSet().size
+                        )
+                        // 같은 이모지가 두 번 나오면 어느 걸 옮겼는지 헷갈린다
+                        assertEquals("${m.id}: 같은 도형이 중복", v.items.size, v.items.toSet().size)
+                        assertEquals("${m.id}: 답이 도형 수와 다르다", v.items.size, m.answer.toIntOrNull())
+                        sorts++
+                    }
+                    com.piyak.english.model.MathVisual.NUMBER_LINE_DRAG -> {
+                        val t = m.answer.toDoubleOrNull() ?: error("${m.id}: 답이 수가 아님")
+                        assertTrue("${m.id}: 수직선 범위가 뒤집혔다", v.q > v.p)
+                        assertTrue("${m.id}: 답이 수직선 밖에 있다", t >= v.p && t <= v.q)
+                        assertTrue("${m.id}: 눈금이 없거나 너무 촘촘하다", v.a in 2..20)
+                        // 눈금에 딱 붙는 값만 손가락으로 만들 수 있다
+                        val step = (v.q - v.p) / v.a
+                        val k = Math.round((t - v.p) / step)
+                        assertTrue(
+                            "${m.id}: 눈금에 없는 값이라 짚을 수 없다",
+                            kotlin.math.abs(v.p + k * step - t) < 1e-6
+                        )
+                        // 점은 왼쪽 끝에서 시작한다 — 답이 거기면 안 움직여도 맞아 버린다
+                        assertTrue("${m.id}: 답이 점의 시작 위치와 같다", t > v.p)
+                        lines++
+                    }
+                    com.piyak.english.model.MathVisual.ANGLE_SET -> {
+                        val deg = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        assertEquals("${m.id}: 답이 그림의 각도와 다르다", v.p.toInt(), deg)
+                        assertTrue("${m.id}: 각도 범위", deg in 5..180)
+                        // 손가락 조작은 5° 단위로 붙는다
+                        assertEquals("${m.id}: 5° 단위가 아니라 맞출 수 없다", 0, deg % 5)
+                        angles++
+                    }
+                    com.piyak.english.model.MathVisual.BALANCE -> {
+                        val x = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        val right = v.p.toInt()
+                        assertTrue("${m.id}: x 상자가 없다", v.a >= 1)
+                        assertEquals(
+                            "${m.id}: 저울이 그 값에서 평형이 되지 않는다",
+                            right, v.a * x + v.bb
+                        )
+                        assertTrue("${m.id}: 손잡이 눈금 밖의 답", x in 1..20)
+                        assertTrue("${m.id}: 접시에 추가 너무 많다", right <= 45)
+                        balances++
+                    }
+                    com.piyak.english.model.MathVisual.BAR_BUILD -> {
+                        val want = m.answer.split(",").map { it.trim().toInt() }
+                        assertEquals("${m.id}: 막대 수와 이름 수가 다르다", v.labels.size, v.values.size)
+                        assertEquals("${m.id}: 답이 막대 높이와 다르다", v.values.map { it.toInt() }, want)
+                        assertTrue("${m.id}: 막대가 3~5개여야 화면에 맞는다", v.values.size in 3..5)
+                        // 0 이면 세울 게 없고, 너무 높으면 화면 밖으로 나간다
+                        assertTrue("${m.id}: 막대 높이 범위", v.values.all { it >= 1 && it <= 9 })
+                        assertEquals("${m.id}: 항목 이름 중복", v.labels.size, v.labels.toSet().size)
+                        bars++
+                    }
+                    com.piyak.english.model.MathVisual.GATHER -> {
+                        val ans = m.answer.toIntOrNull() ?: error("${m.id}: 답이 정수가 아님")
+                        assertTrue("${m.id}: 상자에 담을 개수가 전체보다 많다", v.bb <= v.a)
+                        assertTrue("${m.id}: 옮길 게 없다", v.bb >= 1)
+                        assertTrue("${m.id}: 화면에 안 들어갈 만큼 많다", v.a in 3..10)
+                        assertTrue("${m.id}: 상자 이름이 없다", v.labels.isNotEmpty())
+                        // 모으기(전부 담기)면 답은 전체, 덜어내기면 답은 남은 것
+                        val expect = if (v.bb == v.a) v.a else v.a - v.bb
+                        assertEquals("${m.id}: 답이 옮긴 결과와 다르다", expect, ans)
+                        gathers++
+                    }
+                    else -> error("${m.id}: 조작할 수 없는 그림인데 visual 입력")
+                }
+            }
+        }
+        println(
+            "바늘 $clocks · 나누기 $groups · 색칠 $paints · 분류 $sorts · " +
+                "수직선 $lines · 각도 $angles · 저울 $balances · 그래프 $bars · 옮겨담기 $gathers"
+        )
+        assertTrue("시계 바늘 돌리기 문제가 없다", clocks > 50)
+        assertTrue("끌어서 나누기 문제가 없다", groups > 50)
+        assertTrue("분수 색칠 문제가 없다", paints > 40)
+        assertTrue("도형 분류 문제가 없다", sorts > 40)
+        assertTrue("수직선 점 끌기 문제가 없다", lines > 40)
+        assertTrue("각도 만들기 문제가 없다", angles > 20)
+        assertTrue("저울 문제가 없다", balances > 20)
+        assertTrue("그래프 세우기 문제가 없다", bars > 20)
+        assertTrue("옮겨 담기 문제가 없다", gathers > 40)
+    }
+
+    /**
+     * 그림이 뷰 밖으로 삐져나오지 않는지.
+     *
+     * 실기기에서 `끌어서 나누기` 한 화면에만 겹침·넘침이 3건 있었다. 값이 틀린 게 아니라
+     * **자리 계산이 칸을 넘은 것**이라 기존 테스트로는 안 잡혔다. 그래서 자리 계산에 쓰는
+     * 비율을 상수로 빼고, 그 사이의 관계를 여기서 못 박아 둔다.
+     */
+    @Test fun drawingsStayInsideTheirView() {
+        // 각: 둔각이면 변이 왼쪽으로 뻗는다. 꼭짓점에서 변 길이를 뺀 자리가 0 보다 작으면
+        // 화면 밖으로 나가 손잡이를 잡을 수도 없다 (v2.0 부터 있던 버그였다).
+        val cx = com.piyak.english.ui.MathVisualView.ANGLE_CX_RATIO
+        val len = com.piyak.english.ui.MathVisualView.ANGLE_LEN_RATIO
+        assertTrue("180°일 때 변이 왼쪽으로 삐져나온다", cx - len >= 0f)
+        assertTrue("0°일 때 변이 오른쪽으로 삐져나온다", cx + len <= 1f)
+
+        // 저울: 저울대 끝에 접시 절반이 더 붙는다
+        val arm = com.piyak.english.ui.BalanceScaleView.ARM_RATIO
+        val pan = com.piyak.english.ui.BalanceScaleView.PAN_RATIO
+        assertTrue("접시가 화면 밖으로 나간다", arm + pan / 2f <= 0.5f)
+
+        // 시계·분수: 원 밑에 두 줄이 붙는다. 비워 둔 공간이 둘째 줄보다 좁으면 글자가 잘린다
+        val block = com.piyak.english.ui.MathVisualView.LABEL_BLOCK_DP
+        val line2 = com.piyak.english.ui.MathVisualView.LABEL_LINE2_DP
+        assertTrue("둘째 줄이 뷰 밖으로 잘린다", block >= line2 + 8f)
+        assertTrue(
+            "두 줄이 서로 겹친다",
+            line2 - com.piyak.english.ui.MathVisualView.LABEL_LINE1_DP >= 14f
+        )
+    }
+
+    /**
+     * 이모지 그림은 **셀 수 있으면 옮길 수도** 있어야 한다.
+     *
+     * 처음엔 곱셈·나눗셈 배열만 빼 놨었다 — 행·열 자리가 그림의 뜻이라 옮기면
+     * 안내선과 어긋난다고 봤기 때문이다. 그런데 `24 ÷ 8` 에서 강아지를 끌어다
+     * 여덟 묶음으로 갈라 보는 것이야말로 그 그림의 본래 뜻이었다.
+     * 지금은 배열도 옮을 수 있고, 하나라도 옮기면 안내선을 지운다.
+     */
+    @Test fun everyCountablePictureIsAlsoMovable() {
+        val countable = setOf(
+            com.piyak.english.model.MathVisual.EMOJI,
+            com.piyak.english.model.MathVisual.EMOJI_OP,
+            com.piyak.english.model.MathVisual.ARRAY,
+        )
+        assertTrue(
+            "나눗셈 배열을 못 옮기면 그림을 갈라 볼 수가 없다",
+            countable.contains(com.piyak.english.model.MathVisual.ARRAY)
+        )
+        // 조작해서 답하는 그림은 전용 화면이 따로 있으므로 이 목록에 들어오면 안 된다
+        assertTrue(
+            "조작 전용 그림이 세기·옮기기 대상에 섞였다",
+            countable.none { it in com.piyak.english.model.MathVisual.INPUT_KINDS }
+        )
+    }
+
+    /** 톡톡 누를 때 나는 소리는 자주 울리므로 정답·오답 소리보다 작아야 한다 */
+    @Test fun tapSoundIsQuieterThanFeedbackSounds() {
+        assertTrue("삐약 소리가 정답 소리만큼 크다", Sfx.TAP_VOLUME_SCALE < 0.5f)
+        assertTrue("삐약 소리가 아예 안 들린다", Sfx.TAP_VOLUME_SCALE > 0f)
+    }
+
+    /** 짝 맞추기는 선 잇기로 바뀌었다 — 5쌍이어야 좌우 배치가 맞는다 */
+    @Test fun matchQuestionsHaveConsistentPairCount() {
+        val dir = packsDir()
+        var checked = 0
+        for (tid in Subject.ENGLISH.tracks) {
+            val f = File(dir, "$tid.json")
+            if (!f.isFile) continue
+            val t = ContentRepo.parseTrack(JSONObject(f.readText()))
+            for (u in t.units) for (l in u.lessons) for (q in l.questions) {
+                val m = q as? Question.Match ?: continue
+                assertEquals("${m.id}: 5쌍이 아님", 5, m.pairs.size)
+                // 오른쪽 값이 겹치면 아무 데나 이어도 맞아 버린다
+                assertEquals("${m.id}: 오른쪽 값 중복", 5, m.pairs.map { it.second }.toSet().size)
+                checked++
+            }
+        }
+        println("짝 맞추기 문제 수: $checked")
+        assertTrue("짝 맞추기 문제가 없다", checked > 0)
+    }
+}
