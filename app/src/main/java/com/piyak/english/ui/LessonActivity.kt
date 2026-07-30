@@ -17,13 +17,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.piyak.english.R
 import com.piyak.english.audio.Sfx
-import com.piyak.english.audio.Stt
 import com.piyak.english.audio.Tts
 import com.piyak.english.databinding.ActivityLessonBinding
 import com.piyak.english.db.Db
 import com.piyak.english.engine.Badges
 import com.piyak.english.engine.Economy
-import com.piyak.english.engine.Grader
 import com.piyak.english.engine.LessonSession
 import com.piyak.english.engine.StatsSnapshot
 import com.piyak.english.engine.Wallet
@@ -35,7 +33,6 @@ class LessonActivity : AppCompatActivity() {
     private lateinit var b: ActivityLessonBinding
     private lateinit var db: Db
     private lateinit var tts: Tts
-    private lateinit var stt: Stt
     private lateinit var sfx: Sfx
 
     private var session: LessonSession? = null
@@ -82,7 +79,6 @@ class LessonActivity : AppCompatActivity() {
         sfx = Sfx(this)
         tts = Tts(this)
         tts.rate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
-        stt = Stt(this)
 
         reviewMode = intent.getStringExtra("mode") == "review"
         val questions: List<Question>
@@ -135,7 +131,7 @@ class LessonActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        tts.shutdown(); stt.stop(); sfx.release()
+        tts.shutdown(); sfx.release()
     }
 
     @Deprecated("Deprecated in Java")
@@ -169,15 +165,9 @@ class LessonActivity : AppCompatActivity() {
         tts.stop()
 
         when (q) {
-            is Question.Mcq -> showMcq(q)
-            is Question.ListenMcq -> showListenMcq(q)
-            is Question.ListenDialog -> showListenDialog(q)
-            is Question.Dictation -> showDictation(q)
-            is Question.TypeTranslate -> showTypeTranslate(q)
-            is Question.Order -> showOrder(q)
-            is Question.Match -> showMatch(q)
-            is Question.Speak -> showSpeak(q)
             is Question.Math -> showMath(q)
+            // 수학 전용 앱 — 영어 문제 타입은 팩에 없어 도달하지 않는다
+            else -> Unit
         }
         // 선택지가 만들어진 뒤에 힌트 버튼 상태를 갱신한다
         refreshHintButton()
@@ -260,301 +250,6 @@ class LessonActivity : AppCompatActivity() {
         val v = LayoutInflater.from(this).inflate(layout, b.questionBox, false)
         b.questionBox.addView(v)
         return v
-    }
-
-    private fun choiceButton(text: String): Button = Button(this).apply {
-        this.text = text
-        textSize = 16f
-        isAllCaps = false
-        setTextColor(Color.parseColor("#4E342E"))
-        backgroundTintList = ColorStateList.valueOf(Color.WHITE)
-        layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
-        ).apply { topMargin = dp(8) }
-    }
-
-    /** 공용 4지선다 렌더링 */
-    private fun renderChoices(
-        box: LinearLayout, choices: List<String>, answer: Int,
-        explain: String?, answerText: String,
-    ) {
-        // 보기가 짧으면 둥둥 떠다니는 버블로 (만지는 재미), 길면 읽기 편한 버튼 목록으로
-        if (com.piyak.english.ui.game.BubbleChoiceView.fits(choices)) {
-            renderBubbleChoices(box, choices, answer, explain, answerText)
-            return
-        }
-        var selected = -1
-        val buttons = ArrayList<Button>()
-        choices.forEachIndexed { i, c ->
-            val btn = choiceButton(c)
-            btn.setOnClickListener {
-                selected = i
-                buttons.forEach {
-                    if (it.isEnabled) it.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
-                }
-                btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFD54F"))
-                b.btnCheck.isEnabled = true
-            }
-            buttons.add(btn)
-            box.addView(btn)
-        }
-        choiceButtons = buttons
-        choiceAnswer = answer
-        checkAction = {
-            val ok = selected == answer
-            submitAnswer(ok, if (ok) null else "정답: $answerText", explain)
-        }
-    }
-
-    /** 짧은 보기: 버블로 띄운다. 시간 압박은 없고 움직임과 터치감만 더한다. */
-    private fun renderBubbleChoices(
-        box: LinearLayout, choices: List<String>, answer: Int,
-        explain: String?, answerText: String,
-    ) {
-        val view = com.piyak.english.ui.game.BubbleChoiceView(this).apply {
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, dp(290)
-            )
-        }
-        var selected = -1
-        view.onPick = {
-            selected = it
-            sfx.piyak()
-            b.btnCheck.isEnabled = true
-        }
-        view.setChoices(choices)
-        box.addView(view)
-        checkAction = {
-            val ok = selected == answer
-            view.reveal(answer)
-            view.lock()
-            submitAnswer(ok, if (ok) null else "정답: $answerText", explain)
-        }
-    }
-
-    private fun showMcq(q: Question.Mcq) {
-        val v = inflate(R.layout.view_q_mcq)
-        v.findViewById<TextView>(R.id.txtKind).text = when {
-            q.passage != null -> "📖 독해"
-            q.bigEmoji != null -> "🎨 그림 문제"
-            else -> "🔤 고르기"
-        }
-        if (q.bigEmoji != null) {
-            v.findViewById<TextView>(R.id.txtBigEmoji).apply {
-                visibility = View.VISIBLE
-                text = q.bigEmoji
-            }
-        }
-        if (q.passage != null) {
-            v.findViewById<TextView>(R.id.txtPassage).apply { visibility = View.VISIBLE; text = q.passage }
-        }
-        v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
-        renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain, q.choices[q.answer])
-    }
-
-    private fun showListenMcq(q: Question.ListenMcq) {
-        val v = inflate(R.layout.view_q_mcq)
-        v.findViewById<TextView>(R.id.txtKind).text = "🎧 듣기"
-        v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
-        val play = v.findViewById<Button>(R.id.btnPlay)
-        val slow = v.findViewById<Button>(R.id.btnPlaySlow)
-        play.visibility = View.VISIBLE; slow.visibility = View.VISIBLE
-        play.setOnClickListener { tts.speak(q.tts) }
-        slow.setOnClickListener { tts.speak(q.tts, slow = true) }
-        renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain,
-            "${q.choices[q.answer]}  (들려준 말: ${q.tts})")
-        b.root.postDelayed({ tts.speak(q.tts) }, 350)
-    }
-
-    private fun showListenDialog(q: Question.ListenDialog) {
-        val v = inflate(R.layout.view_q_mcq)
-        v.findViewById<TextView>(R.id.txtKind).text = "🎧 대화 듣기"
-        v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
-        val play = v.findViewById<Button>(R.id.btnPlay)
-        play.visibility = View.VISIBLE
-        val lines = q.lines.map { (spk, text) -> (if (spk == "A") 0.9f else 1.2f) to text }
-        play.setOnClickListener { tts.speakLines(lines) }
-        val script = q.lines.joinToString("\n") { (s, t) -> "$s: $t" }
-        renderChoices(v.findViewById(R.id.choicesBox), q.choices, q.answer, q.explain,
-            "${q.choices[q.answer]}\n\n대본:\n$script")
-        b.root.postDelayed({ tts.speakLines(lines) }, 350)
-    }
-
-    private fun showDictation(q: Question.Dictation) {
-        val v = inflate(R.layout.view_q_type)
-        v.findViewById<TextView>(R.id.txtKind).text = "✍️ 받아쓰기"
-        v.findViewById<TextView>(R.id.txtPrompt).text = "들리는 대로 영어로 써 보세요"
-        if (q.hintKo != null) {
-            v.findViewById<TextView>(R.id.txtHint).apply { visibility = View.VISIBLE; text = "힌트: ${q.hintKo}" }
-        }
-        val play = v.findViewById<Button>(R.id.btnPlay)
-        val slow = v.findViewById<Button>(R.id.btnPlaySlow)
-        play.visibility = View.VISIBLE; slow.visibility = View.VISIBLE
-        play.setOnClickListener { tts.speak(q.tts) }
-        slow.setOnClickListener { tts.speak(q.tts, slow = true) }
-        val edit = v.findViewById<EditText>(R.id.editAnswer)
-        edit.addTextChangedListener(SimpleWatcher { b.btnCheck.isEnabled = it.isNotBlank() })
-        checkAction = {
-            val r = Grader.grade(edit.text.toString(), q.answer, q.alts)
-            val extra = if (r.typo) "오타가 조금 있었지만 인정! ✔ ${q.answer}" else null
-            submitAnswer(r.correct, if (r.correct) extra else "정답: ${q.answer}", q.explain)
-        }
-        b.root.postDelayed({ tts.speak(q.tts) }, 350)
-    }
-
-    private fun showTypeTranslate(q: Question.TypeTranslate) {
-        val v = inflate(R.layout.view_q_type)
-        v.findViewById<TextView>(R.id.txtKind).text = "✍️ 영작"
-        v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
-        val edit = v.findViewById<EditText>(R.id.editAnswer)
-        edit.addTextChangedListener(SimpleWatcher { b.btnCheck.isEnabled = it.isNotBlank() })
-        checkAction = {
-            val r = Grader.grade(edit.text.toString(), q.answer, q.alts)
-            val extra = if (r.typo) "오타가 조금 있었지만 인정! ✔ ${q.answer}" else null
-            submitAnswer(r.correct, if (r.correct) extra else "정답: ${q.answer}", q.explain)
-        }
-    }
-
-    private fun showOrder(q: Question.Order) {
-        val v = inflate(R.layout.view_q_order)
-        v.findViewById<TextView>(R.id.txtPrompt).text = q.ko
-        val answerFlow = v.findViewById<FlowLayout>(R.id.answerFlow)
-        val bankFlow = v.findViewById<FlowLayout>(R.id.bankFlow)
-
-        val selected = ArrayList<String>()
-        val tiles = (q.tokens + q.extras).shuffled()
-
-        fun tileButton(word: String): Button = Button(this).apply {
-            text = word; textSize = 15f; isAllCaps = false
-            setTextColor(Color.parseColor("#4E342E"))
-            background = getDrawable(R.drawable.bg_tile)
-            backgroundTintList = null
-            minWidth = 0; minimumWidth = 0
-            setPadding(dp(14), dp(8), dp(14), dp(8))
-        }
-
-        fun refreshCheck() { b.btnCheck.isEnabled = selected.isNotEmpty() }
-
-        for (word in tiles) {
-            val tile = tileButton(word)
-            tile.setOnClickListener {
-                if (tile.parent == bankFlow) {
-                    bankFlow.removeView(tile); answerFlow.addView(tile)
-                    selected.add(word)
-                } else {
-                    answerFlow.removeView(tile); bankFlow.addView(tile)
-                    selected.remove(word)
-                }
-                refreshCheck()
-            }
-            bankFlow.addView(tile)
-        }
-        checkAction = {
-            val ok = Grader.gradeOrder(selected.toList(), q.tokens)
-            submitAnswer(ok, if (ok) null else "정답: ${q.en}", q.explain)
-        }
-    }
-
-    /**
-     * 짝 맞추기 — 탭-탭 대신 **손가락으로 선을 그어** 잇는다.
-     * 놀이터의 선 잇기와 같은 조작이라 아이가 한 번 익히면 어디서든 통한다.
-     */
-    private fun showMatch(q: Question.Match) {
-        b.btnCheck.visibility = View.GONE
-
-        val hint = TextView(this).apply {
-            text = "🔗 짝이 맞는 것끼리 손가락으로 이어요"
-            textSize = 15f
-            setTextColor(Color.parseColor("#8D6E63"))
-            setPadding(dp(4), 0, 0, dp(6))
-        }
-        val view = com.piyak.english.ui.game.LineMatchView(this).apply {
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, dp(400)
-            )
-        }
-        val wrap = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            addView(hint)
-            addView(view)
-        }
-        b.questionBox.addView(wrap)
-
-        var mistakes = 0
-        view.onHit = { sfx.piyak() }
-        view.onMiss = { mistakes++; sfx.wrong() }
-        view.onFinish = {
-            val ok = mistakes == 0
-            recordSkill(q, ok)
-            session?.submitNoPenalty(ok)
-            showFeedback(
-                ok,
-                if (ok) null else "${mistakes}번 헷갈렸지만 다 이었어요!",
-                q.explain, penalty = false
-            )
-        }
-        view.setPairs(q.pairs)
-        view.startLoop()
-    }
-
-    private fun showSpeak(q: Question.Speak) {
-        val v = inflate(R.layout.view_q_speak)
-        v.findViewById<TextView>(R.id.txtEn).text = q.en
-        v.findViewById<TextView>(R.id.txtKo).text = q.ko ?: ""
-        val txtHeard = v.findViewById<TextView>(R.id.txtHeard)
-        val btnMic = v.findViewById<Button>(R.id.btnMic)
-        val btnSkip = v.findViewById<Button>(R.id.btnCantSpeak)
-        b.btnCheck.visibility = View.GONE
-
-        v.findViewById<Button>(R.id.btnListen).setOnClickListener { tts.speak(q.en) }
-
-        btnMic.setOnClickListener {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), 77)
-                return@setOnClickListener
-            }
-            tts.stop()
-            txtHeard.text = "🎙 듣고 있어요… 문장을 읽어 주세요!"
-            btnMic.isEnabled = false
-            stt.start(
-                onResult = { heard ->
-                    runOnUiThread {
-                        btnMic.isEnabled = true
-                        val score = Grader.speakScore(heard, q.en)
-                        txtHeard.text = "들린 말: \"$heard\" (유사도 ${score}%)"
-                        if (Grader.gradeSpeak(heard, q.en)) {
-                            submitAnswer(true, "발음 인식 성공! 유사도 ${score}%", q.explain)
-                        } else {
-                            speakFails++
-                            sfx.wrong()
-                            if (speakFails >= 2) btnSkip.visibility = View.VISIBLE
-                            Toast.makeText(this, "조금 달라요! 다시 시도해 보세요 🐥", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                },
-                onError = { code ->
-                    runOnUiThread {
-                        btnMic.isEnabled = true
-                        speakFails++
-                        if (speakFails >= 2) btnSkip.visibility = View.VISIBLE
-                        txtHeard.text = when (code) {
-                            android.speech.SpeechRecognizer.ERROR_NO_MATCH,
-                            android.speech.SpeechRecognizer.ERROR_SPEECH_TIMEOUT ->
-                                "잘 안 들렸어요. 다시 눌러서 또박또박 읽어 주세요!"
-                            -1 -> "이 기기에서 음성인식을 쓸 수 없어요."
-                            else -> "음성인식 오류($code). 다시 시도해 주세요."
-                        }
-                    }
-                }
-            )
-        }
-        btnSkip.setOnClickListener {
-            recordSkill(q, false)
-            session?.submitNoPenalty(false)
-            showFeedback(false, "괜찮아요! 다음에 말해 봐요. 정답 문장: ${q.en}", q.explain, penalty = false)
-        }
     }
 
     // ---------------- 수학 ----------------

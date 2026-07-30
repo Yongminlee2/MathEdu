@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
-    <queries>
-        <intent>
-            <action android:name="android.speech.RecognitionService" />
-        </intent>
-    </queries>
 
     <application
         android:name=".PiyakApp"
@@ -35,10 +28,6 @@
         <activity android:name=".ui.PlacementActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".ui.StatsActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".ui.SettingsActivity" android:exported="false" android:screenOrientation="portrait" />
-        <activity android:name=".ui.AlphabetActivity" android:exported="false" android:screenOrientation="portrait" />
-        <activity android:name=".ui.TraceActivity" android:exported="false" android:screenOrientation="portrait" />
         <activity android:name=".ui.WalletActivity" android:exported="false" android:screenOrientation="portrait" />
-        <activity android:name=".ui.PlaygroundActivity" android:exported="false" android:screenOrientation="portrait" />
-        <activity android:name=".ui.GameActivity" android:exported="false" android:screenOrientation="portrait" />
     </application>
 </manifest>
