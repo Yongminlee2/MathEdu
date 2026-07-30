@@ -75,7 +75,8 @@ class MathTest {
         assertTrue(eng.isNotEmpty() && math.isNotEmpty())
         assertTrue("과목 간 트랙이 겹치면 안 됨", eng.intersect(math.toSet()).isEmpty())
         assertEquals(13, math.size)
-        assertEquals(ContentRepo.TRACK_IDS.size, eng.size + math.size)
+        // 삐약수학은 수학 트랙만 싣는다
+        assertEquals(ContentRepo.TRACK_IDS.size, math.size)
     }
 
     @Test fun mathGradesAreOrderedAndComplete() {

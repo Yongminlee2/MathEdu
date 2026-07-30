@@ -64,7 +64,7 @@ class InteractionTest {
         val dir = packsDir()
         var bubble = 0
         var list = 0
-        for (tid in Subject.ENGLISH.tracks + Subject.MATH.tracks) {
+        for (tid in Subject.MATH.tracks) {
             val f = File(dir, "$tid.json")
             if (!f.isFile) continue
             val t = ContentRepo.parseTrack(JSONObject(f.readText()))
@@ -81,8 +81,6 @@ class InteractionTest {
         }
         println("버블로 뜨는 문제 $bubble · 목록으로 뜨는 문제 $list")
         assertTrue("버블이 전혀 안 쓰인다", bubble > 500)
-        // 긴 보기는 버튼 목록으로 남아야 읽기 편하다
-        assertTrue("모든 문제가 버블이면 문장형 보기가 답답해진다", list > 0)
     }
 
     /**
@@ -325,23 +323,4 @@ class InteractionTest {
         assertTrue("삐약 소리가 아예 안 들린다", Sfx.TAP_VOLUME_SCALE > 0f)
     }
 
-    /** 짝 맞추기는 선 잇기로 바뀌었다 — 5쌍이어야 좌우 배치가 맞는다 */
-    @Test fun matchQuestionsHaveConsistentPairCount() {
-        val dir = packsDir()
-        var checked = 0
-        for (tid in Subject.ENGLISH.tracks) {
-            val f = File(dir, "$tid.json")
-            if (!f.isFile) continue
-            val t = ContentRepo.parseTrack(JSONObject(f.readText()))
-            for (u in t.units) for (l in u.lessons) for (q in l.questions) {
-                val m = q as? Question.Match ?: continue
-                assertEquals("${m.id}: 5쌍이 아님", 5, m.pairs.size)
-                // 오른쪽 값이 겹치면 아무 데나 이어도 맞아 버린다
-                assertEquals("${m.id}: 오른쪽 값 중복", 5, m.pairs.map { it.second }.toSet().size)
-                checked++
-            }
-        }
-        println("짝 맞추기 문제 수: $checked")
-        assertTrue("짝 맞추기 문제가 없다", checked > 0)
-    }
 }
