@@ -54,16 +54,8 @@ class MainActivity : AppCompatActivity() {
         b.btnStats.setOnClickListener { startActivity(Intent(this, StatsActivity::class.java)) }
         b.btnSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
         b.txtGoalEdit.setOnClickListener { pickDailyGoal() }
-        b.cardAlphabet.setOnClickListener {
-            startActivity(Intent(this, AlphabetActivity::class.java))
-        }
         b.cardWallet.setOnClickListener {
             startActivity(Intent(this, WalletActivity::class.java))
-        }
-        b.cardPlayground.setOnClickListener {
-            startActivity(
-                Intent(this, PlaygroundActivity::class.java).putExtra("subject", subject.id)
-            )
         }
     }
 
@@ -117,14 +109,6 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = theme
 
         b.txtCoins.text = com.piyak.english.engine.Wallet.format(db.coins())
-        b.txtAlphabetCount.text = "${db.lettersDoneCount()}/${com.piyak.english.engine.Letters.ALL.size * 2}"
-        // 알파벳 쓰기는 영어 전용
-        b.cardAlphabet.visibility =
-            if (subject == com.piyak.english.model.Subject.ENGLISH) View.VISIBLE else View.GONE
-        b.txtPlayground.text =
-            com.piyak.english.engine.MiniGames.forSubject(subject).joinToString(" · ") {
-                "${it.emoji} ${it.title}"
-            }
         buildGrowth(db)
         buildTrackCards(db)
     }
