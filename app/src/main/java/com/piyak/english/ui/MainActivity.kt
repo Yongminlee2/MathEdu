@@ -25,21 +25,19 @@ class MainActivity : AppCompatActivity() {
     private var subject: com.piyak.english.model.Subject = com.piyak.english.model.Subject.ENGLISH
     private val greetings = listOf(
         "오늘도 삐약삐약 공부해요!", "꾸준함이 최고의 재능이에요 🐥",
-        "한 문제라도 풀면 오늘은 성공!", "삐약! 영어가 무서우면 저를 봐요!",
-        "어제의 나보다 한 단어 더!", "여행 가서 써먹을 그날까지 ✈️",
+        "한 문제라도 풀면 오늘은 성공!", "삐약! 수학이 무서우면 저를 봐요!",
+        "어제의 나보다 한 문제 더!", "숫자와 친해지는 그날까지 🔢",
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
-        subject = com.piyak.english.model.Subject.of(
-            intent.getStringExtra("subject") ?: Db.get(this).meta("subject_last", "english")
-        )
+        // 삐약수학은 수학 전용 앱 — 과목 대문 없이 항상 수학
+        subject = com.piyak.english.model.Subject.MATH
 
         b.txtGreeting.text = greetings.random()
-        b.btnSwitchSubject.text = "${subject.emoji} ${subject.title}  ▾"
-        b.btnSwitchSubject.setOnClickListener { finish() }
+        b.btnSwitchSubject.visibility = View.GONE
         b.bannerPlacement.setOnClickListener {
             startActivity(
                 Intent(this, PlacementActivity::class.java).putExtra("subject", subject.id)
