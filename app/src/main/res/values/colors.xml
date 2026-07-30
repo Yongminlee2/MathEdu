@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="cream">#FFF8E7</color>
+    <!-- 삐약수학 아이콘 배경 — 삐약영어(크림색)와 홈 화면에서 구분되게 분홍 -->
+    <color name="launcher_bg">#F7C6C7</color>
     <color name="cream_dark">#FFF0CC</color>
     <color name="chick_yellow">#FFD54F</color>
     <color name="chick_yellow_deep">#FFB300</color>

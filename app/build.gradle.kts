@@ -7,11 +7,13 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.piyak.english"
+        // 삐약수학. namespace(소스 패키지)는 com.piyak.english 그대로 두고
+        // applicationId 만 바꾼다 — 이걸로 삐약영어와 데이터·설치가 완전히 분리된다.
+        applicationId = "com.piyak.math"
         minSdk = 26
         targetSdk = 36
-        versionCode = 18
-        versionName = "2.10.1"
+        versionCode = 1
+        versionName = "1.0"
     }
 
     buildTypes {
