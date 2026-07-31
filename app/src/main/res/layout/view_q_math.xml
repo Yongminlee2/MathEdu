@@ -15,8 +15,13 @@
     </LinearLayout>
 
     <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" android:textSize="22sp" android:textStyle="bold"
+        android:layout_marginTop="8dp" android:textSize="23sp" android:textStyle="bold"
         android:lineSpacingMultiplier="1.25" />
+
+    <!-- 수식이 감지되면 txtPrompt 대신 진짜 수학 기호로 그린다 -->
+    <com.piyak.english.ui.FormulaView android:id="@+id/formulaView"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:visibility="gone" />
 
     <com.piyak.english.ui.MathVisualView android:id="@+id/visual"
         android:layout_width="match_parent" android:layout_height="wrap_content"
