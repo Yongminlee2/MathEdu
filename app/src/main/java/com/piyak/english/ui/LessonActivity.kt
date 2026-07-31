@@ -363,7 +363,7 @@ class LessonActivity : AppCompatActivity() {
                 val bubbles = com.piyak.english.ui.game.BubbleChoiceView(this).apply {
                     layoutParams = android.widget.GridLayout.LayoutParams().apply {
                         width = android.widget.GridLayout.LayoutParams.MATCH_PARENT
-                        height = dp(280)
+                        height = dp(180)
                         columnSpec = android.widget.GridLayout.spec(0, 2)
                     }
                 }
@@ -391,7 +391,7 @@ class LessonActivity : AppCompatActivity() {
                         backgroundTintList = ColorStateList.valueOf(Color.WHITE)
                         layoutParams = android.widget.GridLayout.LayoutParams().apply {
                             width = 0
-                            height = dp(76)
+                            height = dp(60)
                             columnSpec = android.widget.GridLayout.spec(
                                 android.widget.GridLayout.UNDEFINED, 1f
                             )
@@ -438,7 +438,7 @@ class LessonActivity : AppCompatActivity() {
                 val bubbles = com.piyak.english.ui.game.BubbleChoiceView(this).apply {
                     layoutParams = android.widget.GridLayout.LayoutParams().apply {
                         width = android.widget.GridLayout.LayoutParams.MATCH_PARENT
-                        height = dp(280)
+                        height = dp(180)
                         columnSpec = android.widget.GridLayout.spec(0, 2)
                     }
                 }
