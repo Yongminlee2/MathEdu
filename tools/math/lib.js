@@ -48,7 +48,19 @@ const VISUAL_KINDS = new Set([
   "number_line_drag", "angle_set", "balance", "bar_build", "gather",
 ]);
 
+/**
+ * 계수 1 표기 정리: "1x² + 1x" → "x² + x", "-1x" → "-x".
+ * 앞이 숫자·소수점이면 건드리지 않는다 (21x, 0.1x 는 그대로).
+ * prompt 와 explain 양쪽에 적용 — 진짜 수학책 표기를 위해.
+ */
+function tidyCoef(s) {
+  if (!s) return s;
+  return s.replace(/(^|[^0-9.])1([xn])(?=[²³⁴⁵^ +\-=)\/,]|[가-힣]|$)/g, "$1$2");
+}
+
 function validate(q) {
+  q.prompt = tidyCoef(q.prompt);
+  if (q.explain) q.explain = tidyCoef(q.explain);
   const fail = (m) => {
     throw new Error(`검증 실패 [${q.id}] ${m}: ${JSON.stringify(q).slice(0, 220)}`);
   };
@@ -184,6 +196,15 @@ const ANIMALS = ["🐥", "🐶", "🐱", "🐰", "🐸", "🐼", "🐧", "🦊"]
 const THINGS = ["⭐", "🎈", "🍪", "🚗", "✏️", "🌸", "🧸", "⚽"];
 const ALL_EMOJI = [...FRUITS, ...ANIMALS, ...THINGS];
 
+
+// ---------- 수식 표기 ----------
+/** 계수를 수학 표기로: 1x² → x², -1x → -x, 5x² → 5x² */
+function coef(n, sym) {
+  if (n === 1) return sym;
+  if (n === -1) return "-" + sym;
+  return n + sym;
+}
+
 // ---------- 오답 만들기 ----------
 /** 정답 근처의 그럴듯한 오답 3개 (중복·음수 방지) */
 function nearWrong(answer, spread = 3, allowNegative = false) {
@@ -258,6 +279,6 @@ module.exports = {
   rng, ri, rint, pick, shuffled,
   numQ, choiceQ, textQ, visualQ, V,
   FRUITS, ANIMALS, THINGS, ALL_EMOJI, SHAPE_POOL, SHAPE_HINT,
-  nearWrong, packLessons, makeUnit, gen, chunk, SCALE,
+  coef, nearWrong, packLessons, makeUnit, gen, chunk, SCALE,
   stats: () => ({ total }),
 };
