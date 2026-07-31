@@ -1,6 +1,6 @@
 // 고등학교 1~3학년 수학 생성기
 const L = require("./lib");
-const { rint, pick, shuffled, numQ, choiceQ, textQ, V, makeUnit, gen } = L;
+const { rint, pick, shuffled, numQ, choiceQ, textQ, V, makeUnit, gen, coef } = L;
 
 const SK = {
   calc: "m_calc", number: "m_number", shape: "m_shape",
@@ -19,7 +19,7 @@ function high1() {
     const a = rint(1, 5), b = rint(-9, 9), c = rint(-9, 9), k = rint(-4, 4);
     const val = a * k * k + b * k + c;
     return numQ(
-      `f(x) = ${a}x² ${b >= 0 ? "+ " + b : "- " + -b}x ${c >= 0 ? "+ " + c : "- " + -c} 를 x ${k >= 0 ? "- " + k : "+ " + -k} 로 나눈 나머지는?`,
+      `f(x) = ${coef(a, "x²")} ${b >= 0 ? "+ " + b : "- " + -b}x ${c >= 0 ? "+ " + c : "- " + -c} 를 x ${k >= 0 ? "- " + k : "+ " + -k} 로 나눈 나머지는?`,
       val,
       `나머지정리: f(x)를 (x - k)로 나눈 나머지는 f(k)예요.\nf(${k}) = ${a}×${k * k} ${b >= 0 ? "+" : "-"} ${Math.abs(b)}×${k} ${c >= 0 ? "+" : "-"} ${Math.abs(c)} = ${val}`,
       { skill: SK.calc }
@@ -30,7 +30,7 @@ function high1() {
     const a = rint(1, 4), b = rint(-10, 10), c = rint(-10, 10);
     const D = b * b - 4 * a * c;
     return numQ(
-      `${a}x² ${b >= 0 ? "+ " + b : "- " + -b}x ${c >= 0 ? "+ " + c : "- " + -c} = 0 의 판별식 D의 값은?`,
+      `${coef(a, "x²")} ${b >= 0 ? "+ " + b : "- " + -b}x ${c >= 0 ? "+ " + c : "- " + -c} = 0 의 판별식 D의 값은?`,
       D,
       `D = b² - 4ac = ${b}² - 4×${a}×${c} = ${b * b} - ${4 * a * c} = ${D}\n${D > 0 ? "D > 0 이므로 서로 다른 두 실근" : D === 0 ? "D = 0 이므로 중근" : "D < 0 이므로 실근이 없어요"}`,
       { skill: SK.calc }
@@ -116,7 +116,7 @@ function high2() {
 
   units.push(makeUnit("함수의 극한", "➡️", 12, gen(40, () => {
     const a = rint(1, 6), b = rint(-8, 8), k = rint(-4, 4);
-    return numQ(`lim(x→${k}) (${a}x ${b >= 0 ? "+ " + b : "- " + -b}) 의 값은?`, a * k + b,
+    return numQ(`lim(x→${k}) (${coef(a, "x")} ${b >= 0 ? "+ " + b : "- " + -b}) 의 값은?`, a * k + b,
       `다항함수는 연속이라 그대로 대입해요. ${a}×${k} ${b >= 0 ? "+" : "-"} ${Math.abs(b)} = ${a * k + b}`,
       { skill: SK.calc });
   }), 10));
@@ -126,7 +126,7 @@ function high2() {
     // f(x) = ax³ + bx² + c → f'(x) = 3ax² + 2bx
     const d = 3 * a * x * x + 2 * b * x;
     return numQ(
-      `f(x) = ${a}x³ + ${b}x² ${c >= 0 ? "+ " + c : "- " + -c} 일 때 f'(${x})의 값은?`,
+      `f(x) = ${coef(a, "x³")} + ${coef(b, "x²")} ${c >= 0 ? "+ " + c : "- " + -c} 일 때 f'(${x})의 값은?`,
       d,
       `f'(x) = ${3 * a}x² + ${2 * b}x\nf'(${x}) = ${3 * a}×${x * x} + ${2 * b}×${x} = ${3 * a * x * x} + ${2 * b * x} = ${d}`,
       { skill: SK.calc }
@@ -138,7 +138,7 @@ function high2() {
     // ∫₀^up a x^n dx = a * up^(n+1) / (n+1)
     const val = (a * up ** (n + 1)) / (n + 1);
     return numQ(
-      `∫₀^${up} ${a}x^${n} dx 의 값은?`,
+      `∫₀^${up} ${coef(a, "x")}^${n} dx 의 값은?`,
       Math.round(val * 1000) / 1000,
       `부정적분은 ${a}x^${n + 1}/${n + 1} 이에요.\n${up}을 대입: ${a}×${up ** (n + 1)}/${n + 1} = ${Math.round(val * 1000) / 1000}`,
       { skill: SK.calc }
@@ -154,7 +154,7 @@ function high3() {
 
   units.push(makeUnit("수열의 극한", "➡️", 13, gen(40, () => {
     const a = rint(1, 9), b = rint(1, 9);
-    return numQ(`lim(n→∞) (${a}n + 5)/(${b}n + 2) 의 값은? (소수 셋째 자리까지)`,
+    return numQ(`lim(n→∞) (${coef(a, "n")} + 5)/(${coef(b, "n")} + 2) 의 값은? (소수 셋째 자리까지)`,
       Math.round((a / b) * 1000) / 1000,
       `분자·분모를 n으로 나눠요. (${a} + 5/n)/(${b} + 2/n) → ${a}/${b} = ${Math.round((a / b) * 1000) / 1000}\n최고차항의 계수 비가 답이에요.`,
       { skill: SK.calc });
@@ -164,10 +164,10 @@ function high3() {
     const a = rint(2, 8), x = rint(1, 5);
     const t = L.rng();
     if (t < 0.5) {
-      return numQ(`f(x) = ${a}x⁴ 일 때 f'(${x})의 값은?`, 4 * a * x ** 3,
+      return numQ(`f(x) = ${coef(a, "x⁴")} 일 때 f'(${x})의 값은?`, 4 * a * x ** 3,
         `f'(x) = ${4 * a}x³\nf'(${x}) = ${4 * a} × ${x ** 3} = ${4 * a * x ** 3}`, { skill: SK.calc });
     }
-    return numQ(`f(x) = ${a}x² 일 때 x = ${x} 에서의 접선의 기울기는?`, 2 * a * x,
+    return numQ(`f(x) = ${coef(a, "x²")} 일 때 x = ${x} 에서의 접선의 기울기는?`, 2 * a * x,
       `접선의 기울기는 f'(${x})예요. f'(x) = ${2 * a}x 이므로 ${2 * a}×${x} = ${2 * a * x}`,
       { skill: SK.calc });
   }), 10));
@@ -175,7 +175,7 @@ function high3() {
   units.push(makeUnit("정적분과 넓이", "📐", 13, gen(40, () => {
     const a = rint(1, 5), up = rint(2, 6);
     const val = (a * up ** 3) / 3;
-    return numQ(`곡선 y = ${a}x² 과 x축, x = ${up} 로 둘러싸인 부분의 넓이는? (소수 셋째 자리까지)`,
+    return numQ(`곡선 y = ${coef(a, "x²")} 과 x축, x = ${up} 로 둘러싸인 부분의 넓이는? (소수 셋째 자리까지)`,
       Math.round(val * 1000) / 1000,
       `넓이 = ∫₀^${up} ${a}x² dx = ${a}x³/3 을 ${up}에 대입 = ${a}×${up ** 3}/3 = ${Math.round(val * 1000) / 1000}`,
       { skill: SK.measure });
