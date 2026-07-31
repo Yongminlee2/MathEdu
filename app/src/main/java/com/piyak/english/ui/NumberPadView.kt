@@ -63,7 +63,7 @@ class NumberPadView @JvmOverloads constructor(
         val row = LinearLayout(context).apply {
             orientation = HORIZONTAL
             layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-                .apply { topMargin = dp(6) }
+                .apply { topMargin = dp(4) }
         }
         for (k in keys) {
             val btn = Button(context).apply {
@@ -81,7 +81,7 @@ class NumberPadView @JvmOverloads constructor(
                     )
                 )
                 isEnabled = k != " "
-                layoutParams = LayoutParams(0, dp(52), 1f).apply {
+                layoutParams = LayoutParams(0, dp(44), 1f).apply {
                     marginStart = dp(4); marginEnd = dp(4)
                 }
                 setOnClickListener { press(k) }
