@@ -256,7 +256,16 @@ class LessonActivity : AppCompatActivity() {
 
     private fun showMath(q: Question.Math) {
         val v = inflate(R.layout.view_q_math)
-        v.findViewById<TextView>(R.id.txtPrompt).text = q.prompt
+        // 수식이면 진짜 수학 기호로 그린다 (세로 분수·아래첨자·근호·적분 상하한)
+        val txtPrompt = v.findViewById<TextView>(R.id.txtPrompt)
+        val formulaView = v.findViewById<FormulaView>(R.id.formulaView)
+        if (com.piyak.english.engine.Formula.looksLikeMath(q.prompt)) {
+            txtPrompt.visibility = View.GONE
+            formulaView.visibility = View.VISIBLE
+            formulaView.setFormula(q.prompt)
+        } else {
+            txtPrompt.text = q.prompt
+        }
         v.findViewById<TextView>(R.id.txtKind).text = when (q.visual?.kind) {
             com.piyak.english.model.MathVisual.CLOCK -> "🕐 시계 보기"
             com.piyak.english.model.MathVisual.CLOCK_SET -> "🕐 시계 바늘 돌리기"
