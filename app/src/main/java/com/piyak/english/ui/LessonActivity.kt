@@ -157,10 +157,8 @@ class LessonActivity : AppCompatActivity() {
         bouncy(b.btnContinue)
         b.btnDone.setOnClickListener { finish() }
 
-        // 고등(h1~h3)은 캐릭터 없이 깔끔하게 — 초·중등만 병아리가 함께한다
-        if (trackId in setOf("math_h1", "math_h2", "math_h3")) {
-            b.chickView.visibility = View.GONE
-        }
+        // 병아리는 전 학년 상주 — "고등은 깔끔하게"를 시도했다가
+        // 사용자가 "전부 귀염뽀짝"으로 결정해서 게이트를 걷어냈다
 
         showQuestion()
     }
@@ -356,16 +354,14 @@ class LessonActivity : AppCompatActivity() {
         val visualView = v.findViewById<MathVisualView>(R.id.visual)
         if (q.visual != null) visualView.visual = q.visual else {
             visualView.visibility = View.GONE
-            // 그림이 없는 문제도 글만 덜렁 있지 않게 — 영역 테마 삽화를 크게 (고등은 깔끔 유지)
-            if (trackId !in setOf("math_h1", "math_h2", "math_h3")) {
-                val deco = android.widget.TextView(this).apply {
-                    text = decoArt(q)
-                    textSize = 46f
-                    gravity = android.view.Gravity.CENTER
-                    setPadding(0, dp(6), 0, dp(2))
-                }
-                (v as? android.widget.LinearLayout)?.addView(deco, 2)
+            // 그림이 없는 문제도 글만 덜렁 있지 않게 — 전 학년 영역 테마 삽화
+            val deco = android.widget.TextView(this).apply {
+                text = decoArt(q)
+                textSize = 46f
+                gravity = android.view.Gravity.CENTER
+                setPadding(0, dp(6), 0, dp(2))
             }
+            (v as? android.widget.LinearLayout)?.addView(deco, 2)
         }
 
         // 그림을 손가락으로 하나씩 짚어 셀 수 있게 (정지 그림을 보기만 하는 것과 다르다)
