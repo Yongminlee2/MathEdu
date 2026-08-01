@@ -306,6 +306,9 @@ class LessonActivity : AppCompatActivity() {
 
     private fun inflate(layout: Int): View {
         val v = LayoutInflater.from(this).inflate(layout, b.questionBox, false)
+        // 내용이 화면보다 짧을 때 위로 쏠리지 않도록 세로 중앙에 놓는다
+        (v.layoutParams as? android.widget.FrameLayout.LayoutParams)?.gravity =
+            android.view.Gravity.CENTER_VERTICAL
         b.questionBox.addView(v)
         return v
     }
@@ -351,7 +354,19 @@ class LessonActivity : AppCompatActivity() {
         }
 
         val visualView = v.findViewById<MathVisualView>(R.id.visual)
-        if (q.visual != null) visualView.visual = q.visual else visualView.visibility = View.GONE
+        if (q.visual != null) visualView.visual = q.visual else {
+            visualView.visibility = View.GONE
+            // 그림이 없는 문제도 글만 덜렁 있지 않게 — 영역 테마 삽화를 크게 (고등은 깔끔 유지)
+            if (trackId !in setOf("math_h1", "math_h2", "math_h3")) {
+                val deco = android.widget.TextView(this).apply {
+                    text = decoArt(q)
+                    textSize = 46f
+                    gravity = android.view.Gravity.CENTER
+                    setPadding(0, dp(6), 0, dp(2))
+                }
+                (v as? android.widget.LinearLayout)?.addView(deco, 2)
+            }
+        }
 
         // 그림을 손가락으로 하나씩 짚어 셀 수 있게 (정지 그림을 보기만 하는 것과 다르다)
         if (q.visual != null && visualView.countable) {
@@ -897,6 +912,20 @@ class LessonActivity : AppCompatActivity() {
                 "${total}마리를 모두 모아야 해요."
             submitAnswer(ok, why, q.explain)
         }
+    }
+
+    /**
+     * 그림 없는 문제의 테마 삽화. 문제 속 숫자·사물과 무관한 **분위기용**이라
+     * 개수를 오해할 사물 나열은 피하고 장면 하나짜리 이모지를 쓴다.
+     */
+    private fun decoArt(q: Question.Math): String = when (q.skill) {
+        "m_calc" -> listOf("🐥✏️", "🧮🐥", "✏️📄").random()
+        "m_number" -> listOf("🔢🐥", "🐥💭", "⭐🔢").random()
+        "m_shape" -> listOf("📐🐥", "🐥🔺", "✂️📐").random()
+        "m_measure" -> listOf("📏🐥", "⏰🐥", "🐥⚖️").random()
+        "m_data" -> listOf("📊🐥", "🐥📋", "🔍📊").random()
+        "m_word" -> listOf("📖🐥", "🐥💬", "🧩📖").random()
+        else -> "🐥"
     }
 
     /** 소수점 뒤 0 을 떼서 보기 좋게 (3.0 → 3) */
