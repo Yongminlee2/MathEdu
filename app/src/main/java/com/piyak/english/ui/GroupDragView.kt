@@ -24,6 +24,11 @@ class GroupDragView @JvmOverloads constructor(
     ctx: Context, attrs: AttributeSet? = null,
 ) : View(ctx, attrs) {
 
+    init {
+        contentDescription = "사물을 알맞은 바구니로 끌어 옮기는 수학 활동판"
+        isFocusable = true
+    }
+
     private class Item(
         val emoji: String,
         /** 들어가야 할 바구니. -1 이면 아무 데나 (나눠 담기 모드) */
@@ -266,6 +271,7 @@ class GroupDragView @JvmOverloads constructor(
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 val d = dragging ?: return true
                 dragging = null
+                if (event.actionMasked == MotionEvent.ACTION_UP) performClick()
                 val gi = groupRects.indexOfFirst { it.contains(d.x, d.y) }
                 if (gi >= 0) {
                     d.group = gi
@@ -282,6 +288,11 @@ class GroupDragView @JvmOverloads constructor(
             }
         }
         return false
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
+        return true
     }
 
     /** 바구니 안에서 겹치지 않게 자리 잡기 */

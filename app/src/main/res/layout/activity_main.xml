@@ -1,153 +1,637 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:fillViewport="true">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/paper"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/homeScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="24dp">
+
+            <Button
+                android:id="@+id/btnSwitchSubject"
+                style="@style/Widget.Piyak.SecondaryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="과목 바꾸기"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="삐약수학"
+                        android:textAppearance="@style/TextAppearance.Piyak.Display"
+                        android:textColor="@color/ink" />
+
+                    <TextView
+                        android:id="@+id/txtGreeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:maxLines="2"
+                        android:text="오늘도 신나는 수학 모험을 떠나요!"
+                        android:textAppearance="@style/TextAppearance.Piyak.Body"
+                        android:textColor="@color/ink_muted" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgMascot"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:contentDescription="탐험가 병아리 삐약이"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/chick_explorer" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Widget.Piyak.StatPill"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:contentDescription="@null"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_favorite_rounded"
+                        app:tint="@color/coral_deep" />
+
+                    <TextView
+                        android:id="@+id/txtHearts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="5"
+                        android:textAppearance="@style/TextAppearance.Piyak.Stat"
+                        android:textColor="@color/ink" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Widget.Piyak.StatPill"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:contentDescription="@null"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_local_fire_department_rounded"
+                        app:tint="@color/primary_deep" />
+
+                    <TextView
+                        android:id="@+id/txtStreak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="0"
+                        android:textAppearance="@style/TextAppearance.Piyak.Stat"
+                        android:textColor="@color/ink" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Widget.Piyak.StatPill"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:contentDescription="@null"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_star_rounded"
+                        app:tint="@color/primary_deep" />
+
+                    <TextView
+                        android:id="@+id/txtLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Lv.0"
+                        android:textAppearance="@style/TextAppearance.Piyak.Stat"
+                        android:textColor="@color/ink" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/xpBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_sticker" />
+
+            <FrameLayout
+                android:id="@+id/heroCard"
+                android:layout_width="match_parent"
+                android:layout_height="386dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_card_paper"
+                android:clipToPadding="false"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/storybook_journey_bg" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_chip_mint"
+                    android:paddingStart="12dp"
+                    android:paddingTop="7dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="7dp"
+                    android:text="오늘의 모험"
+                    android:textAppearance="@style/TextAppearance.Piyak.Caption"
+                    android:textColor="@color/ink" />
+
+                <ImageView
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="188dp"
+                    android:background="@drawable/bg_node_complete"
+                    android:contentDescription="완료한 모험"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_star_rounded"
+                    app:tint="@color/primary_deep" />
+
+                <ImageView
+                    android:id="@+id/heroCurrentNode"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="118dp"
+                    android:background="@drawable/bg_node_current"
+                    android:clickable="true"
+                    android:contentDescription="지금 도전할 모험"
+                    android:elevation="5dp"
+                    android:focusable="true"
+                    android:padding="7dp"
+                    android:src="@drawable/chick_explorer" />
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="72dp"
+                    android:layout_marginEnd="38dp"
+                    android:alpha="0.72"
+                    android:background="@drawable/bg_node_locked"
+                    android:contentDescription="아직 잠긴 모험"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_lock_rounded"
+                    app:tint="@color/ink_muted" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/bg_question_surface"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:id="@+id/txtNextAdventure"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="첫 번째 수학 모험"
+                        android:textAppearance="@style/TextAppearance.Piyak.Title"
+                        android:textColor="@color/ink" />
+
+                    <TextView
+                        android:id="@+id/txtNextSubtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="숫자 지도를 따라 한 걸음씩 가요"
+                        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+                        android:textColor="@color/ink_muted" />
+
+                    <Button
+                        android:id="@+id/btnStartAdventure"
+                        style="@style/Widget.Piyak.PrimaryButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="10dp"
+                        android:text="다음 모험 시작" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="104dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card_paper"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이번 주 스티커"
+                        android:textAppearance="@style/TextAppearance.Piyak.Section"
+                        android:textColor="@color/ink" />
+
+                    <TextView
+                        android:id="@+id/txtWeeklySticker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="첫 스티커를 모아 볼까요?"
+                        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+                        android:textColor="@color/ink_muted" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="82dp"
+                    android:contentDescription="별, 무지개, 연필 스티커"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/reward_sticker_strip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/goalBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card_paper"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtGoal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="오늘의 목표  0 / 50 XP"
+                        android:textAppearance="@style/TextAppearance.Piyak.Section"
+                        android:textColor="@color/ink" />
+
+                    <TextView
+                        android:id="@+id/txtGoalEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_chip_sky"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:minWidth="72dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:text="목표 바꾸기"
+                        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+                        android:textColor="@color/ink" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/goalBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:layout_marginTop="8dp"
+                    android:max="100"
+                    android:progressDrawable="@drawable/progress_sticker" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="모험 도구"
+                android:textAppearance="@style/TextAppearance.Piyak.Section"
+                android:textColor="@color/ink" />
+
+            <LinearLayout
+                android:id="@+id/cardWallet"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_chip_mint"
+                android:clickable="true"
+                android:contentDescription="스티커 상점과 지갑 열기"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_account_balance_wallet_rounded"
+                    app:tint="@color/mint_deep" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스티커 상점"
+                        android:textAppearance="@style/TextAppearance.Piyak.Body"
+                        android:textColor="@color/ink"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtCoins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0코인"
+                        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+                        android:textColor="@color/ink_muted" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_chevron_right_rounded"
+                    app:tint="@color/ink" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bannerPlacement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_chip_coral"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:minHeight="72dp"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/txtPlacement"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="레벨테스트로 나에게 딱 맞는 학년을 찾아요"
+                    android:textAppearance="@style/TextAppearance.Piyak.Body"
+                    android:textColor="@color/ink"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_chevron_right_rounded"
+                    app:tint="@color/ink" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="나의 성장 기록"
+                android:textAppearance="@style/TextAppearance.Piyak.Section"
+                android:textColor="@color/ink" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_card_paper"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtRank"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="새싹 탐험가"
+                        android:textAppearance="@style/TextAppearance.Piyak.Title"
+                        android:textColor="@color/ink" />
+
+                    <TextView
+                        android:id="@+id/txtWeakest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chip_lavender"
+                        android:maxLines="1"
+                        android:paddingStart="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="6dp"
+                        android:textAppearance="@style/TextAppearance.Piyak.Caption"
+                        android:textColor="@color/ink" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtOverall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="종합 실력 Lv.0"
+                    android:textAppearance="@style/TextAppearance.Piyak.Caption"
+                    android:textColor="@color/ink_muted" />
+
+                <ProgressBar
+                    android:id="@+id/rankBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="8dp"
+                    android:max="100"
+                    android:progressDrawable="@drawable/progress_sticker" />
+
+                <LinearLayout
+                    android:id="@+id/skillsBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="전체 학습 코스"
+                android:textAppearance="@style/TextAppearance.Piyak.Section"
+                android:textColor="@color/ink" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="유치원부터 고등학교까지 원하는 지도를 골라 보세요"
+                android:textAppearance="@style/TextAppearance.Piyak.Caption"
+                android:textColor="@color/ink_muted" />
+
+            <LinearLayout
+                android:id="@+id/tracksBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical" android:padding="16dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_nav_bar"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="6dp">
 
-        <!-- 과목 전환 -->
-        <Button android:id="@+id/btnSwitchSubject"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="📘 영어  ▾" android:textSize="15sp"
-            android:backgroundTint="@color/white" android:textColor="@color/brown_text" />
+        <Button
+            android:id="@+id/btnHome"
+            style="@style/Widget.Piyak.BottomNavButton"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/ic_home_rounded"
+            android:drawableTint="@color/primary_deep"
+            android:includeFontPadding="false"
+            android:paddingTop="4dp"
+            android:paddingBottom="2dp"
+            android:text="홈"
+            android:textColor="@color/ink" />
 
-        <!-- 상단 스탯 바 -->
-        <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal" android:gravity="center_vertical">
-            <TextView android:id="@+id/txtHearts" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:textSize="16sp" android:text="❤️ 5" />
-            <TextView android:id="@+id/txtStreak" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:gravity="center" android:textSize="16sp" android:text="🔥 0" />
-            <TextView android:id="@+id/txtLevel" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:gravity="end" android:textSize="16sp" android:text="⭐ Lv.0" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnReview"
+            style="@style/Widget.Piyak.BottomNavButton"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/ic_replay_rounded"
+            android:drawableTint="@color/ink_muted"
+            android:includeFontPadding="false"
+            android:paddingTop="4dp"
+            android:paddingBottom="2dp"
+            android:text="오답 0" />
 
-        <ProgressBar android:id="@+id/xpBar" style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent" android:layout_height="10dp"
-            android:layout_marginTop="6dp" android:max="100"
-            android:progressTint="@color/chick_yellow_deep" android:progressBackgroundTint="@color/cream_dark" />
+        <Button
+            android:id="@+id/btnStats"
+            style="@style/Widget.Piyak.BottomNavButton"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/ic_bar_chart_rounded"
+            android:drawableTint="@color/ink_muted"
+            android:includeFontPadding="false"
+            android:paddingTop="4dp"
+            android:paddingBottom="2dp"
+            android:text="기록" />
 
-        <!-- 마스코트 헤더 + 칭호 -->
-        <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:gravity="center_vertical"
-            android:layout_marginTop="14dp">
-            <ImageView android:id="@+id/imgMascot" android:layout_width="86dp" android:layout_height="86dp"
-                android:src="@drawable/chick_neutral" android:contentDescription="삐약이" />
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
-                <TextView android:id="@+id/txtRank" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="🥚 알 속의 새싹" android:textSize="22sp" android:textStyle="bold" />
-                <TextView android:id="@+id/txtOverall" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="종합 실력 Lv.0" android:textSize="14sp" android:textColor="@color/brown_soft" />
-                <ProgressBar android:id="@+id/rankBar" style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="match_parent" android:layout_height="8dp"
-                    android:layout_marginTop="4dp" android:max="100"
-                    android:progressTint="@color/lavender_deep" android:progressBackgroundTint="@color/cream_dark" />
-                <TextView android:id="@+id/txtGreeting" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="오늘도 삐약삐약 공부해요!" android:textSize="13sp" android:textColor="@color/brown_soft" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- 오늘의 목표 -->
-        <LinearLayout android:id="@+id/goalBox"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:layout_marginTop="12dp"
-            android:padding="14dp" android:background="@drawable/bg_tile">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="horizontal" android:gravity="center_vertical">
-                <TextView android:id="@+id/txtGoal" android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:text="🎯 오늘의 목표  0 / 50 XP"
-                    android:textSize="15sp" android:textStyle="bold" />
-                <TextView android:id="@+id/txtGoalEdit" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="변경" android:textSize="13sp" android:textColor="@color/sky_deep" />
-            </LinearLayout>
-            <ProgressBar android:id="@+id/goalBar" style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent" android:layout_height="12dp"
-                android:layout_marginTop="8dp" android:max="100"
-                android:progressTint="@color/coral" android:progressBackgroundTint="@color/cream_dark" />
-        </LinearLayout>
-
-        <!-- 지갑 -->
-        <LinearLayout android:id="@+id/cardWallet"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:gravity="center_vertical"
-            android:layout_marginTop="12dp" android:padding="16dp"
-            android:background="@drawable/bg_wallet">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="💰" android:textSize="32sp" />
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
-                <TextView android:id="@+id/txtCoins" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="0원" android:textSize="22sp" android:textStyle="bold"
-                    android:textColor="@color/brown_text" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="상점 · 현금으로 바꾸기" android:textSize="12sp"
-                    android:textColor="@color/brown_soft" />
-            </LinearLayout>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="🛒 ▶" android:textSize="16sp" android:textStyle="bold"
-                android:textColor="@color/brown_text" />
-        </LinearLayout>
-
-        
-
-        
-
-        <!-- 내 실력 대시보드 -->
-        <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:layout_marginTop="12dp"
-            android:padding="14dp" android:background="@drawable/bg_tile">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="horizontal" android:gravity="center_vertical">
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                    android:text="📊 내 실력" android:textSize="16sp" android:textStyle="bold" />
-                <TextView android:id="@+id/txtWeakest" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:textSize="12sp" android:textColor="@color/brown_soft" />
-            </LinearLayout>
-            <LinearLayout android:id="@+id/skillsBox"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="vertical" android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-        <!-- 레벨테스트 배너 -->
-        <LinearLayout
-            android:id="@+id/bannerPlacement"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="14dp" android:background="@drawable/bg_banner"
-            android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
-            <TextView android:id="@+id/txtPlacement"
-                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="🎯 레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
-                android:textColor="@color/white" android:textSize="15sp" android:textStyle="bold" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="GO ▶" android:textColor="@color/white" android:textSize="18sp" android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- 트랙 카드 컨테이너 (코드 생성) -->
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="18dp" android:text="📚 학습 코스"
-            android:textSize="16sp" android:textStyle="bold" />
-        <LinearLayout android:id="@+id/tracksBox"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:layout_marginTop="4dp" />
-
-        <!-- 하단 버튼들 -->
-        <LinearLayout
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal" android:layout_marginTop="12dp">
-            <Button android:id="@+id/btnReview" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:text="💊 오답 0" />
-            <Button android:id="@+id/btnStats" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:layout_marginStart="8dp" android:text="📊 통계" />
-            <Button android:id="@+id/btnSettings" android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:layout_marginStart="8dp" android:text="⚙️ 설정" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnSettings"
+            style="@style/Widget.Piyak.BottomNavButton"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/ic_settings_rounded"
+            android:drawableTint="@color/ink_muted"
+            android:includeFontPadding="false"
+            android:paddingTop="4dp"
+            android:paddingBottom="2dp"
+            android:text="설정" />
     </LinearLayout>
-</ScrollView>
+</LinearLayout>
