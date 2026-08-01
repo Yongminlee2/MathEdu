@@ -3,7 +3,7 @@
 
 const L = require("./lib");
 const { rint, pick, shuffled, numQ, choiceQ, visualQ, V, FRUITS, ANIMALS, THINGS, ALL_EMOJI,
-  SHAPE_POOL, SHAPE_HINT, nearWrong, makeUnit, gen } = L;
+  SHAPE_POOL, SHAPE_HINT, nearWrong, makeUnit, gen, sceneAdd, sceneSub, sceneMul } = L;
 
 /**
  * 도형을 이름 붙은 바구니로 끌어 담는 문제.
@@ -288,14 +288,14 @@ function grade2() {
 
   units.push(makeUnit("받아올림 덧셈", "➕", 3, gen(55, () => {
     const a = rint(11, 89), b = rint(11, 89);
-    return numQ(`${a} + ${b} = ?`, a + b,
+    return numQ(sceneAdd(a, b), a + b,
       `일의 자리 ${a % 10} + ${b % 10} = ${(a % 10) + (b % 10)}${(a % 10) + (b % 10) >= 10 ? " (10 넘으면 십의 자리로 받아올림!)" : ""}\n답은 ${a + b}이에요.`,
       { skill: SK.calc });
   }), 10));
 
   units.push(makeUnit("받아내림 뺄셈", "➖", 3, gen(55, () => {
     const a = rint(30, 99), b = rint(11, a - 1);
-    return numQ(`${a} - ${b} = ?`, a - b,
+    return numQ(sceneSub(a, b), a - b,
       `${a % 10 < b % 10 ? "일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요. " : ""}답은 ${a - b}이에요.`,
       { skill: SK.calc });
   }), 10));
@@ -409,7 +409,7 @@ function grade3() {
 
   units.push(makeUnit("두 자리 × 한 자리", "✖️", 4, gen(45, () => {
     const a = rint(11, 99), b = rint(2, 9);
-    return numQ(`${a} × ${b} = ?`, a * b,
+    return numQ(sceneMul(a, b), a * b,
       `${a}를 ${Math.floor(a / 10) * 10}와 ${a % 10}으로 나눠 곱해요.\n${Math.floor(a / 10) * 10}×${b}=${Math.floor(a / 10) * 10 * b}, ${a % 10}×${b}=${(a % 10) * b}\n합하면 ${a * b}이에요.`,
       { skill: SK.calc });
   }), 10));

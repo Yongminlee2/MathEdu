@@ -205,6 +205,46 @@ function coef(n, sym) {
   return n + sym;
 }
 
+
+// ---------- 미니 상황 랩핑 ----------
+// "식만 덜렁 있어 계산기 같다"는 피드백. 계산 문제 일부를 작은 이야기로 감싼다.
+// 시드 난수 대신 숫자 해시로 골라 문제 ID 순서(진행도 호환)를 흔들지 않는다.
+const CAST = ["삐약이", "토끼", "펭귄", "고양이", "곰돌이", "다람쥐"];
+const OBJS = ["쿠키", "사탕", "구슬", "딸기", "풍선", "도토리", "블록", "스티커"];
+function scenePick(key, arr) {
+  let h = 0;
+  for (const c of String(key)) h = (h * 31 + c.charCodeAt(0)) | 0;
+  return arr[Math.abs(h) % arr.length];
+}
+/** 덧셈 프롬프트 — 절반쯤은 순수 계산으로 남긴다 (계산 훈련도 중요) */
+function sceneAdd(a, b) {
+  const w = scenePick(a * 100 + b, CAST), o = scenePick(a * 7 + b * 3, OBJS);
+  return scenePick(`${a}+${b}`, [
+    () => `${a} + ${b} = ?`,
+    () => `${a} + ${b} = ?`,
+    () => `${w}가 ${o} ${a}개를 모았는데 친구가 ${b}개를 더 줬어요. 모두 몇 개일까요? (${a} + ${b})`,
+    () => `바구니에 ${o} ${a}개, 상자에 ${b}개가 있어요. 모두 몇 개일까요? (${a} + ${b})`,
+  ])();
+}
+function sceneSub(a, b) {
+  const w = scenePick(a * 100 + b, CAST), o = scenePick(a * 7 + b * 3, OBJS);
+  return scenePick(`${a}-${b}`, [
+    () => `${a} - ${b} = ?`,
+    () => `${a} - ${b} = ?`,
+    () => `${w}가 ${o} ${a}개 중 ${b}개를 먹었어요. 몇 개 남았을까요? (${a} - ${b})`,
+    () => `${o} ${a}개에서 ${b}개를 동생에게 줬어요. 몇 개 남았을까요? (${a} - ${b})`,
+  ])();
+}
+function sceneMul(a, b) {
+  const w = scenePick(a * 100 + b, CAST), o = scenePick(a * 7 + b * 3, OBJS);
+  return scenePick(`${a}x${b}`, [
+    () => `${a} × ${b} = ?`,
+    () => `${a} × ${b} = ?`,
+    () => `${o}를 한 상자에 ${b}개씩 ${a}상자에 담으면 모두 몇 개일까요? (${a} × ${b})`,
+    () => `${w}네 반 ${a}명이 ${o}를 ${b}개씩 가졌어요. 모두 몇 개일까요? (${a} × ${b})`,
+  ])();
+}
+
 // ---------- 오답 만들기 ----------
 /** 정답 근처의 그럴듯한 오답 3개 (중복·음수 방지) */
 function nearWrong(answer, spread = 3, allowNegative = false) {
@@ -280,5 +320,6 @@ module.exports = {
   numQ, choiceQ, textQ, visualQ, V,
   FRUITS, ANIMALS, THINGS, ALL_EMOJI, SHAPE_POOL, SHAPE_HINT,
   coef, nearWrong, packLessons, makeUnit, gen, chunk, SCALE,
+  scenePick, sceneAdd, sceneSub, sceneMul, CAST, OBJS,
   stats: () => ({ total }),
 };
