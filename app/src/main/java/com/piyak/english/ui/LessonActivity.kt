@@ -354,14 +354,26 @@ class LessonActivity : AppCompatActivity() {
         val visualView = v.findViewById<MathVisualView>(R.id.visual)
         if (q.visual != null) visualView.visual = q.visual else {
             visualView.visibility = View.GONE
-            // 그림이 없는 문제도 글만 덜렁 있지 않게 — 전 학년 영역 테마 삽화
-            val deco = android.widget.TextView(this).apply {
-                text = decoArt(q)
-                textSize = 46f
-                gravity = android.view.Gravity.CENTER
-                setPadding(0, dp(6), 0, dp(2))
+            // 그림 없는 문제도 글만 덜렁 있지 않게.
+            // 이야기 속 사물·동물(쿠키·토끼…)이 그림 사전에 있으면 진짜 일러스트를,
+            // 없으면 영역 테마 이모지를 쓴다.
+            val storyImg = storyArt(q.prompt)
+            if (storyImg != 0) {
+                val img = android.widget.ImageView(this).apply {
+                    setImageResource(storyImg)
+                    layoutParams = android.widget.LinearLayout.LayoutParams(dp(120), dp(120))
+                        .apply { gravity = android.view.Gravity.CENTER_HORIZONTAL; topMargin = dp(6) }
+                }
+                (v as? android.widget.LinearLayout)?.addView(img, 2)
+            } else {
+                val deco = android.widget.TextView(this).apply {
+                    text = decoArt(q)
+                    textSize = 46f
+                    gravity = android.view.Gravity.CENTER
+                    setPadding(0, dp(6), 0, dp(2))
+                }
+                (v as? android.widget.LinearLayout)?.addView(deco, 2)
             }
-            (v as? android.widget.LinearLayout)?.addView(deco, 2)
         }
 
         // 그림을 손가락으로 하나씩 짚어 셀 수 있게 (정지 그림을 보기만 하는 것과 다르다)
@@ -908,6 +920,22 @@ class LessonActivity : AppCompatActivity() {
                 "${total}마리를 모두 모아야 해요."
             submitAnswer(ok, why, q.explain)
         }
+    }
+
+    /** 이야기 문제 속 사물·동물 → 그림 사전 일러스트 (없으면 0) */
+    private fun storyArt(prompt: String): Int {
+        val map = listOf(
+            "쿠키" to "word_cookie", "사탕" to "word_candy", "토끼" to "word_rabbit",
+            "고양이" to "word_cat", "곰돌이" to "word_bear", "강아지" to "word_dog",
+            "달걀" to "word_egg", "계란" to "word_egg", "우유" to "word_milk", "물고기" to "word_fish",
+        )
+        for ((ko, res) in map) {
+            if (prompt.contains(ko)) {
+                val id = resources.getIdentifier(res, "drawable", packageName)
+                if (id != 0) return id
+            }
+        }
+        return 0
     }
 
     /**
