@@ -20,6 +20,11 @@ class BarBuildView @JvmOverloads constructor(
     ctx: Context, attrs: AttributeSet? = null,
 ) : View(ctx, attrs) {
 
+    init {
+        contentDescription = "손가락으로 막대 높이를 조절해 그래프를 완성하는 판"
+        isFocusable = true
+    }
+
     private var labels = listOf<String>()
     private var target = listOf<Int>()
     private val current = ArrayList<Int>()
@@ -29,13 +34,13 @@ class BarBuildView @JvmOverloads constructor(
     private val stroke = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.STROKE }
     private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textAlign = Paint.Align.CENTER
-        color = Color.parseColor("#4E342E")
+        color = Color.parseColor("#3B2922")
     }
 
     private val palette = listOf(
-        Color.parseColor("#FF8A65"), Color.parseColor("#4DB6AC"),
-        Color.parseColor("#BA68C8"), Color.parseColor("#FFD54F"),
-        Color.parseColor("#7986CB"), Color.parseColor("#AED581"),
+        Color.parseColor("#F2766B"), Color.parseColor("#75C9BD"),
+        Color.parseColor("#B79BE4"), Color.parseColor("#FFD24A"),
+        Color.parseColor("#77C4EB"), Color.parseColor("#91C788"),
     )
 
     private var plotLeft = 0f
@@ -138,7 +143,11 @@ class BarBuildView @JvmOverloads constructor(
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.actionMasked) {
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> return true
+            MotionEvent.ACTION_UP -> {
+                performClick()
+                return true
+            }
+            MotionEvent.ACTION_CANCEL -> return true
         }
         if (current.isEmpty() || plotRight <= plotLeft) return false
         if (event.x < plotLeft - dp(20f) || event.y > plotBottom + dp(30f)) return false
@@ -155,6 +164,11 @@ class BarBuildView @JvmOverloads constructor(
             onChanged?.invoke(current.toList())
             invalidate()
         }
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
         return true
     }
 

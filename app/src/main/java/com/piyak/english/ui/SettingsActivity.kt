@@ -26,7 +26,7 @@ class SettingsActivity : AppCompatActivity() {
 
         b.btnBack.setOnClickListener { finish() }
 
-        // 발음 속도: 0.5x ~ 1.9x (0.1 단위)
+        // 문제 읽기 속도: 0.5x ~ 1.9x (0.1 단위)
         val savedRate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
         b.seekRate.progress = ((savedRate - 0.5f) / 0.1f).toInt().coerceIn(0, 14)
         b.txtRate.text = String.format("%.1fx", savedRate)
@@ -41,7 +41,7 @@ class SettingsActivity : AppCompatActivity() {
         })
         b.btnTtsTest.setOnClickListener {
             tts.rate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
-            tts.speak("Hello! Nice to meet you. Let's study English together!")
+            tts.speakKo("십이 더하기 칠은 얼마일까요?")
         }
 
         // 효과음 크기 (TTS 를 덮지 않게 기본 30%)
@@ -65,7 +65,10 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         b.btnPlacement.setOnClickListener {
-            startActivity(Intent(this, PlacementActivity::class.java))
+            startActivity(
+                Intent(this, PlacementActivity::class.java)
+                    .putExtra("subject", "math")
+            )
         }
 
         // 앱이 죽은 적이 있으면 그 기록을 꺼내 볼 수 있게 (USB 로 로그를 못 뽑을 때가 잦다)
@@ -96,7 +99,7 @@ class SettingsActivity : AppCompatActivity() {
                 .setMessage("모든 진행도·XP·배지·오답이 삭제돼요.\n되돌릴 수 없어요!")
                 .setPositiveButton("초기화") { _, _ ->
                     db.resetAll()
-                    android.widget.Toast.makeText(this, "초기화 완료! 처음부터 삐약! 🐣", android.widget.Toast.LENGTH_SHORT).show()
+                    android.widget.Toast.makeText(this, "초기화 완료! 첫 모험부터 다시 시작해요.", android.widget.Toast.LENGTH_SHORT).show()
                 }
                 .setNegativeButton("취소", null).show()
         }

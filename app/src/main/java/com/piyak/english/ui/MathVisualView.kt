@@ -43,7 +43,7 @@ class MathVisualView @JvmOverloads constructor(
     }
 
     private val palette = listOf(
-        "#FF8A80", "#FFD54F", "#80CBC4", "#81D4FA", "#B39DDB", "#A5D6A7",
+        "#F2766B", "#FFD24A", "#75C9BD", "#77C4EB", "#B79BE4", "#91C788",
     ).map { Color.parseColor(it) }
 
     private val fill = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.FILL }
@@ -51,13 +51,18 @@ class MathVisualView @JvmOverloads constructor(
         style = Paint.Style.STROKE
         strokeCap = Paint.Cap.ROUND
         strokeJoin = Paint.Join.ROUND
-        color = Color.parseColor("#5D4037")
+        color = Color.parseColor("#705B52")
     }
     private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textAlign = Paint.Align.CENTER
-        color = Color.parseColor("#4E342E")
+        color = Color.parseColor("#3B2922")
     }
     private val emojiPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { textAlign = Paint.Align.CENTER }
+
+    init {
+        contentDescription = "문제를 직접 만져 보고 조절하는 수학 그림"
+        isFocusable = true
+    }
 
     var visual: MathVisual? = null
         set(v) {
@@ -172,6 +177,7 @@ class MathVisualView @JvmOverloads constructor(
     }
 
     override fun onTouchEvent(event: android.view.MotionEvent): Boolean {
+        if (event.actionMasked == android.view.MotionEvent.ACTION_UP) performClick()
         when (visual?.kind) {
             MathVisual.CLOCK_SET -> return handleClockTouch(event)
             MathVisual.FRACTION_PAINT -> return handlePaintTouch(event)
@@ -222,6 +228,11 @@ class MathVisualView @JvmOverloads constructor(
             }
         }
         return false
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
+        return true
     }
 
     /** 손가락에 가장 가까운 이모지 (너무 멀면 -1) */

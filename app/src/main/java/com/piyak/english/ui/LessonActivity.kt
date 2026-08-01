@@ -2,7 +2,6 @@ package com.piyak.english.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
 import com.piyak.english.R
 import com.piyak.english.audio.Sfx
@@ -80,13 +80,16 @@ class LessonActivity : AppCompatActivity() {
         if (skillRecorded.add(q.id)) db.recordSkill(q.skill, correct)
     }
 
-    private val okLines = listOf("삐약! 정답이에요!", "완벽해요! 🐥", "역시 천재!", "삐약삐약~ 좋아요!", "굿굿! 최고예요!")
-    private val noLines = listOf("아쉬워요 😢", "괜찮아요, 다시 나와요!", "삐약… 다음엔 맞혀요!", "조금만 더 힘내요!")
+    private val okLines = listOf("삐약! 정답이에요!", "완벽해요!", "역시 천재!", "아주 멋진 풀이예요!", "굿굿! 최고예요!")
+    private val noLines = listOf("조금 아쉬워요", "괜찮아요, 다시 만날 거예요!", "다음에는 꼭 맞힐 수 있어요!", "해설을 보고 한 번 더 힘내요!")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityLessonBinding.inflate(layoutInflater)
         setContentView(b.root)
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() { confirmQuit() }
+        })
         db = Db.get(this)
         sfx = Sfx(this)
         tts = Tts(this)
@@ -137,6 +140,12 @@ class LessonActivity : AppCompatActivity() {
         b.btnContinue.setOnClickListener { hideFeedback(); showQuestion() }
         b.btnCheck.setOnClickListener { checkAction?.invoke() }
         b.btnDone.setOnClickListener { finish() }
+        b.txtLessonTitle.text = lessonTitle
+        listOf(
+            b.btnClose, b.btnHint, b.btnScratch, b.btnContinue, b.btnCheck, b.btnDone,
+            b.btnClosePad, b.btnUndo, b.btnClearPad, b.btnEraser,
+            b.btnPenDark, b.btnPenRed, b.btnPenBlue,
+        ).forEach(UiKit::addPressMotion)
 
         // 고등(h1~h3)은 캐릭터 없이 깔끔하게 — 초·중등만 병아리가 함께한다
         if (trackId in setOf("math_h1", "math_h2", "math_h3")) {
@@ -152,12 +161,9 @@ class LessonActivity : AppCompatActivity() {
         b.root.removeCallbacks(encourageRun)
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() { confirmQuit() }
-
     private fun confirmQuit() {
         AlertDialog.Builder(this)
-            .setMessage("레슨을 그만둘까요?\n진행 상황은 저장되지 않아요 🐥")
+            .setMessage("레슨을 그만둘까요?\n진행 상황은 저장되지 않아요.")
             .setPositiveButton("그만두기") { _, _ -> finish() }
             .setNegativeButton("계속하기", null).show()
     }
@@ -191,7 +197,11 @@ class LessonActivity : AppCompatActivity() {
         b.root.postDelayed(encourageRun, 15_000L)
 
         b.progressBar.progress = (s.progress * 100).toInt()
-        b.txtHearts.text = if (reviewMode) "💊 복습" else "❤️ ${s.hearts}"
+        val step = ((s.progress * s.totalCount).toInt() + 1).coerceAtMost(s.totalCount)
+        b.txtStep.text = "$step / ${s.totalCount}"
+        b.progressBar.contentDescription = "레슨 진행률 ${(s.progress * 100).toInt()}퍼센트"
+        b.txtHearts.text = if (reviewMode) "복습" else s.hearts.toString()
+        b.txtHearts.contentDescription = if (reviewMode) "오답 복습 중" else "남은 하트 ${s.hearts}개"
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
         b.btnCheck.text = "확인"
@@ -259,7 +269,8 @@ class LessonActivity : AppCompatActivity() {
 
     private fun refreshHintButton() {
         val n = db.itemCount("hint")
-        b.btnHint.text = "💡 $n"
+        b.btnHint.text = n.toString()
+        b.btnHint.contentDescription = "힌트 ${n}개, 눌러서 사용"
         b.btnHint.isEnabled = n > 0 && choiceButtons.size >= 4 && !hintUsedHere
         b.btnHint.alpha = if (b.btnHint.isEnabled) 1f else 0.45f
     }
@@ -268,7 +279,7 @@ class LessonActivity : AppCompatActivity() {
     private fun useHint() {
         if (hintUsedHere || choiceButtons.size < 4 || choiceAnswer < 0) return
         if (db.itemCount("hint") <= 0) {
-            Toast.makeText(this, "힌트권이 없어요. 상점에서 살 수 있어요! 💡", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "힌트권이 없어요. 상점에서 살 수 있어요!", Toast.LENGTH_SHORT).show()
             return
         }
         if (!db.useItem("hint")) return
@@ -306,29 +317,29 @@ class LessonActivity : AppCompatActivity() {
             txtPrompt.text = q.prompt
         }
         v.findViewById<TextView>(R.id.txtKind).text = when (q.visual?.kind) {
-            com.piyak.english.model.MathVisual.CLOCK -> "🕐 시계 보기"
-            com.piyak.english.model.MathVisual.CLOCK_SET -> "🕐 시계 바늘 돌리기"
-            com.piyak.english.model.MathVisual.GROUP -> "🧺 끌어서 똑같이 나누기"
-            com.piyak.english.model.MathVisual.FRACTION_PAINT -> "🍰 분수만큼 색칠하기"
-            com.piyak.english.model.MathVisual.SHAPE_SORT -> "🔺 도형 분류하기"
-            com.piyak.english.model.MathVisual.NUMBER_LINE_DRAG -> "📏 수직선에서 찾기"
-            com.piyak.english.model.MathVisual.ANGLE_SET -> "📐 각도 만들기"
-            com.piyak.english.model.MathVisual.BALANCE -> "⚖️ 저울 맞추기"
-            com.piyak.english.model.MathVisual.BAR_BUILD -> "📊 그래프 세우기"
+            com.piyak.english.model.MathVisual.CLOCK -> "시계 보기"
+            com.piyak.english.model.MathVisual.CLOCK_SET -> "시계 바늘 돌리기"
+            com.piyak.english.model.MathVisual.GROUP -> "끌어서 똑같이 나누기"
+            com.piyak.english.model.MathVisual.FRACTION_PAINT -> "분수만큼 색칠하기"
+            com.piyak.english.model.MathVisual.SHAPE_SORT -> "도형 분류하기"
+            com.piyak.english.model.MathVisual.NUMBER_LINE_DRAG -> "수직선에서 찾기"
+            com.piyak.english.model.MathVisual.ANGLE_SET -> "각도 만들기"
+            com.piyak.english.model.MathVisual.BALANCE -> "저울 맞추기"
+            com.piyak.english.model.MathVisual.BAR_BUILD -> "그래프 세우기"
             com.piyak.english.model.MathVisual.GATHER ->
-                if (q.prompt.contains("-")) "➖ 덜어내고 세기" else "➕ 모아서 세기"
-            com.piyak.english.model.MathVisual.SHAPES -> "🔺 도형"
-            com.piyak.english.model.MathVisual.FRACTION -> "🍰 분수"
-            com.piyak.english.model.MathVisual.BAR_GRAPH -> "📊 그래프"
-            com.piyak.english.model.MathVisual.NUMBER_LINE -> "📏 수직선"
-            com.piyak.english.model.MathVisual.ANGLE -> "📐 각도"
+                if (q.prompt.contains("-")) "덜어내고 세기" else "모아서 세기"
+            com.piyak.english.model.MathVisual.SHAPES -> "도형"
+            com.piyak.english.model.MathVisual.FRACTION -> "분수"
+            com.piyak.english.model.MathVisual.BAR_GRAPH -> "그래프"
+            com.piyak.english.model.MathVisual.NUMBER_LINE -> "수직선"
+            com.piyak.english.model.MathVisual.ANGLE -> "각도"
             // 배열 그림은 곱셈·나눗셈에 모두 쓰인다 — 문제 기호로 구분한다
             com.piyak.english.model.MathVisual.ARRAY ->
-                if (q.prompt.contains("÷")) "➗ 나눗셈" else "✖️ 곱셈"
+                if (q.prompt.contains("÷")) "나눗셈" else "곱셈"
             com.piyak.english.model.MathVisual.EMOJI_OP ->
-                if (q.prompt.contains("-")) "➖ 빼기" else "➕ 더하기"
-            null -> "🔢 수학"
-            else -> "🐥 그림 문제"
+                if (q.prompt.contains("-")) "빼기" else "더하기"
+            null -> "수학 문제"
+            else -> "그림 문제"
         }
 
         val visualView = v.findViewById<MathVisualView>(R.id.visual)
@@ -341,11 +352,11 @@ class LessonActivity : AppCompatActivity() {
             countBox.visibility = View.VISIBLE
             // 옮길 수 있는 그림이면 그렇다고 알려 준다 — 모르면 아무도 안 끌어 본다
             val hint = if (visualView.movable)
-                "👆 톡 누르면 세어지고, 끌면 옮겨져요"
-            else "👆 그림을 하나씩 짚어 세어 보세요"
+                "톡 누르면 세어지고, 끌면 옮겨져요"
+            else "그림을 하나씩 짚어 세어 보세요"
             txtCount.text = hint
             visualView.onCountChanged = { n ->
-                txtCount.text = if (n == 0) hint else "👆 지금까지 $n 개 세었어요"
+                txtCount.text = if (n == 0) hint else "지금까지 $n 개 세었어요"
                 if (n > 0) sfx.piyak()
             }
             v.findViewById<Button>(R.id.btnCountReset).apply {
@@ -356,6 +367,7 @@ class LessonActivity : AppCompatActivity() {
 
         // 한국어로 문제를 읽어 준다 (아이용)
         val sayBtn = v.findViewById<Button>(R.id.btnSay)
+        UiKit.addPressMotion(sayBtn)
         sayBtn.setOnClickListener { speakKorean(q.prompt) }
         @Suppress("KotlinConstantConditions")
         if (autoReadMath) b.root.postDelayed({ speakKorean(q.prompt) }, 350)
@@ -426,8 +438,9 @@ class LessonActivity : AppCompatActivity() {
                         text = c
                         textSize = 19f
                         isAllCaps = false
-                        setTextColor(Color.parseColor("#4E342E"))
-                        backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+                        setTextColor(getColor(R.color.ink))
+                        background = UiKit.choice(this@LessonActivity)
+                        UiKit.addPressMotion(this)
                         layoutParams = android.widget.GridLayout.LayoutParams().apply {
                             width = 0
                             height = dp(60)
@@ -439,9 +452,9 @@ class LessonActivity : AppCompatActivity() {
                         setOnClickListener {
                             selected = i
                             buttons.forEach {
-                                it.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+                                it.background = UiKit.choice(this@LessonActivity, selected = false)
                             }
-                            backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFD54F"))
+                            background = UiKit.choice(this@LessonActivity, selected = true)
                             b.btnCheck.isEnabled = true
                         }
                     }
@@ -762,7 +775,7 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "⚖️ 손잡이를 끌어 x 를 바꿔 보세요"
+        txtCount.text = "저울 손잡이를 끌어 x 를 바꿔 보세요"
         v.findViewById<Button>(R.id.btnCountReset).apply {
             text = "처음으로"
             setOnClickListener { sv.reset(); b.btnCheck.isEnabled = false }
@@ -771,7 +784,7 @@ class LessonActivity : AppCompatActivity() {
         b.btnCheck.isEnabled = false
         sv.onChanged = { x ->
             txtCount.text = if (sv.isBalanced())
-                "⚖️ x = $x — 평형이에요!" else "⚖️ 지금 x = $x"
+                "x = $x — 평형이에요!" else "지금 x = $x"
             sfx.piyak()
             b.btnCheck.isEnabled = true
         }
@@ -937,7 +950,7 @@ class LessonActivity : AppCompatActivity() {
         b.btnCheck.visibility = View.GONE
         b.feedbackPanel.visibility = View.VISIBLE
         b.feedbackPanel.background = getDrawable(
-            if (correct) R.drawable.bg_feedback_ok else R.drawable.bg_feedback_no
+            if (correct) R.drawable.bg_feedback_correct else R.drawable.bg_feedback_wrong
         )
         b.imgFeedback.setImageResource(if (correct) R.drawable.chick_happy else R.drawable.chick_sad)
         b.txtFeedback.text = if (correct) okLines.random() else noLines.random()
@@ -949,10 +962,9 @@ class LessonActivity : AppCompatActivity() {
             b.txtExplain.movementMethod = android.text.method.ScrollingMovementMethod()
             b.txtExplain.scrollTo(0, 0)
         } else b.txtExplain.visibility = View.GONE
-        b.btnContinue.backgroundTintList = ColorStateList.valueOf(
-            Color.parseColor(if (correct) "#66BB6A" else "#FF5252")
-        )
-        b.txtHearts.text = if (reviewMode) "💊 복습" else "❤️ ${session?.hearts ?: 0}"
+        b.btnContinue.text = if (correct) "다음 문제" else "해설 보고 계속"
+        b.txtHearts.text = if (reviewMode) "복습" else (session?.hearts ?: 0).toString()
+        b.txtHearts.contentDescription = if (reviewMode) "오답 복습 중" else "남은 하트 ${session?.hearts ?: 0}개"
     }
 
     private fun hideFeedback() {
@@ -990,7 +1002,7 @@ class LessonActivity : AppCompatActivity() {
                 db.addBonusCountToday("review")
             }
             b.txtResultTitle.text = "복습 완료! 💊"
-            b.txtResultStats.text = "정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP\n하트 1개 회복! ❤️ $h"
+            b.txtResultStats.text = "정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP\n하트 1개 회복 · 현재 ${h}개"
         } else {
             db.setHearts(s.hearts)
             db.addXp(xp)
@@ -1004,15 +1016,15 @@ class LessonActivity : AppCompatActivity() {
                     "$lessonTitle (첫 시도 정답 ${s.firstTryCorrect}문제)"
                 )
             }
-            b.txtResultTitle.text = if (s.isPerfect) "퍼펙트! 💯" else "레슨 완료! 🎉"
+            b.txtResultTitle.text = if (s.isPerfect) "완벽해요!" else "레슨 완료!"
             b.txtResultStats.text =
-                "$lessonTitle\n${"⭐".repeat(s.stars())}\n정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP" +
+                "$lessonTitle\n별 ${s.stars()}개\n정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP" +
                     if (s.isPerfect) " (퍼펙트 +5 포함)" else ""
         }
         if (coins > 0) {
-            b.txtResultStats.append("\n\n💰 용돈 +${Wallet.format(coins)}  (지갑 ${Wallet.format(db.coins())})")
+            b.txtResultStats.append("\n\n용돈 +${Wallet.format(coins)}  (지갑 ${Wallet.format(db.coins())})")
         } else if (!reviewMode) {
-            b.txtResultStats.append("\n\n💰 이미 깬 레슨이라 용돈은 없어요")
+            b.txtResultStats.append("\n\n이미 깬 레슨이라 용돈은 없어요")
         }
         b.txtResultStats.append(growthReport())
         checkBadges()
@@ -1026,7 +1038,7 @@ class LessonActivity : AppCompatActivity() {
         for (st in states) {
             val before = startSkillLevels[st.def.id] ?: 0
             if (st.level > before) {
-                sb.append("\n\n🎉 ${st.def.emoji} ${st.def.title} 실력이 Lv.${st.level} 로 올랐어요!")
+                sb.append("\n\n${st.def.title} 실력이 Lv.${st.level} 로 올랐어요!")
             }
         }
         val overall = com.piyak.english.engine.Skills.overallLevel(states)
@@ -1038,13 +1050,13 @@ class LessonActivity : AppCompatActivity() {
         val todayXp = db.xpToday()
         sb.append("\n\n🎯 오늘의 목표 $todayXp / $goal XP")
         if (com.piyak.english.engine.DailyGoal.isDone(todayXp, goal)) {
-            sb.append("  ✅ 달성!")
+            sb.append("  달성!")
             // 목표 달성은 하루 한 번만 집계 + 용돈 보너스
             if (db.metaLong("goal_met_day", -1) != Db.today()) {
                 db.setMeta("goal_met_day", Db.today().toString())
                 db.setMeta("goals_met", (db.metaInt("goals_met") + 1).toString())
                 val bonus = db.earnCoins(Wallet.DAILY_GOAL_BONUS, "GOAL", "오늘의 목표 달성")
-                if (bonus > 0) sb.append("\n💰 목표 달성 보너스 +${Wallet.format(bonus)}")
+                if (bonus > 0) sb.append("\n목표 달성 보너스 +${Wallet.format(bonus)}")
             }
         }
         return sb.toString()

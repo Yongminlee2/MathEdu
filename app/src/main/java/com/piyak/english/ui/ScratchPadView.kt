@@ -44,7 +44,7 @@ class ScratchPadView @JvmOverloads constructor(
     private val clearMode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
 
     /** 지금 쓰고 있는 펜 */
-    var penColor: Int = Color.parseColor("#3E2723")
+    var penColor: Int = Color.parseColor("#3B2922")
     var penWidth: Float = 6f
     var eraserMode: Boolean = false
 
@@ -56,6 +56,8 @@ class ScratchPadView @JvmOverloads constructor(
     init {
         setLayerType(LAYER_TYPE_SOFTWARE, null) // PorterDuff.CLEAR 는 소프트웨어 레이어에서 안전하다
         isClickable = true
+        isFocusable = true
+        contentDescription = "풀이를 손으로 쓰는 연습장"
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -126,10 +128,16 @@ class ScratchPadView @JvmOverloads constructor(
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 current = null
+                if (event.actionMasked == MotionEvent.ACTION_UP) performClick()
                 return true
             }
         }
         return false
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
+        return true
     }
 
     /** 지금 획만 비트맵에 덧그린다 (매번 전체를 다시 그리면 느리다) */

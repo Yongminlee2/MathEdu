@@ -26,6 +26,11 @@ class BalanceScaleView @JvmOverloads constructor(
     ctx: Context, attrs: AttributeSet? = null,
 ) : View(ctx, attrs) {
 
+    init {
+        contentDescription = "손잡이를 움직여 방정식의 균형을 맞추는 저울"
+        isFocusable = true
+    }
+
     private var coef = 3        // x 상자 개수 (a)
     private var leftConst = 2   // 왼쪽 추 (b)
     private var rightConst = 11 // 오른쪽 추 (c)
@@ -42,7 +47,7 @@ class BalanceScaleView @JvmOverloads constructor(
     private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textAlign = Paint.Align.CENTER
         isFakeBoldText = true
-        color = Color.parseColor("#4E342E")
+        color = Color.parseColor("#3B2922")
     }
 
     private var sliderLeft = 0f
@@ -128,7 +133,7 @@ class BalanceScaleView @JvmOverloads constructor(
         text.textSize = dp(17f)
         text.color = if (isBalanced()) Color.parseColor("#2E7D32") else Color.parseColor("#8D6E63")
         canvas.drawText(
-            if (isBalanced()) "⚖️ 평형이에요!"
+            if (isBalanced()) "평형이에요!"
             else if (diff > 0) "왼쪽이 더 무거워요" else "오른쪽이 더 무거워요",
             cx, h * 0.93f, text
         )
@@ -223,7 +228,11 @@ class BalanceScaleView @JvmOverloads constructor(
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.actionMasked) {
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> return true
+            MotionEvent.ACTION_UP -> {
+                performClick()
+                return true
+            }
+            MotionEvent.ACTION_CANCEL -> return true
         }
         if (abs(event.y - sliderY) > dp(46f)) return false
         if (sliderRight <= sliderLeft) return false
@@ -236,6 +245,11 @@ class BalanceScaleView @JvmOverloads constructor(
             onChanged?.invoke(v)
             invalidate()
         }
+        return true
+    }
+
+    override fun performClick(): Boolean {
+        super.performClick()
         return true
     }
 
