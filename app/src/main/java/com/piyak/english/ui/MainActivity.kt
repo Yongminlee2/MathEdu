@@ -233,7 +233,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             val row = card
-            row.addView(TextView(this).apply { text = t.emoji; textSize = 34f })
+            // 학년마다 어울리는 일러스트 (유치원~초등=사물, 중등=생각·연필, 고등=책·시험)
+            val tArt = trackArt(tid)
+            if (tArt != 0) row.addView(android.widget.ImageView(this).apply {
+                setImageResource(tArt)
+                layoutParams = LinearLayout.LayoutParams(dp(52f).toInt(), dp(52f).toInt())
+            }) else row.addView(TextView(this).apply { text = t.emoji; textSize = 34f })
             val col = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
                 layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
@@ -257,6 +262,27 @@ class MainActivity : AppCompatActivity() {
             })
             b.tracksBox.addView(card)
         }
+    }
+
+    /** 학년 카드 일러스트 — 저학년은 세는 사물, 위로 갈수록 공부하는 병아리 */
+    private fun trackArt(tid: String): Int {
+        val name = when (tid) {
+            "math_k" -> "word_blocks"
+            "math_g1" -> "word_cookie"
+            "math_g2" -> "word_candy"
+            "math_g3" -> "word_marble"
+            "math_g4" -> "word_strawberry"
+            "math_g5" -> "word_balloon"
+            "math_g6" -> "word_acorn"
+            "math_m1" -> "ck_think"
+            "math_m2" -> "ck_write"
+            "math_m3" -> "ck_book"
+            "math_h1" -> "ck_write"
+            "math_h2" -> "ck_think"
+            "math_h3" -> "ck_book"
+            else -> return 0
+        }
+        return resources.getIdentifier(name, "drawable", packageName)
     }
 
     private fun dp(v: Float): Float = v * resources.displayMetrics.density
