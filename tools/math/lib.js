@@ -42,7 +42,7 @@ function lessonId() {
 let total = 0;
 const VISUAL_KINDS = new Set([
   "emoji", "emoji_op", "array", "shapes", "clock", "fraction",
-  "number_line", "bar_graph", "angle", "compare", "coord3d", "coord2d",
+  "number_line", "bar_graph", "angle", "compare", "coord3d", "coord2d", "geom",
   // 그림을 손으로 조작해서 답하는 종류
   "clock_set", "group", "fraction_paint", "shape_sort",
   "number_line_drag", "angle_set", "balance", "bar_build", "gather",
@@ -183,6 +183,19 @@ const V = {
   parabola: (a, p, q) => ({ kind: "coord2d", op: "parab", a, p, q }),
   /** 타원 x²/a² + y²/b² = 1 */
   ellipse: (a, b) => ({ kind: "coord2d", op: "ellipse", p: a, q: b }),
+  /** 직선 y = ax + b 와 y절편 */
+  line: (a, b) => ({ kind: "coord2d", op: "line", values: [a, b] }),
+  /** 곡선(계수 내림차순) + x=x0 의 점과 접선 */
+  tangent: (coeffs, x0) => ({ kind: "coord2d", op: "tangent", values: coeffs, p: x0 }),
+  /** 곡선과 x축 사이 [lo, hi] 넓이 음영 */
+  area: (coeffs, lo, hi) => ({ kind: "coord2d", op: "area", values: coeffs, p: lo, q: hi }),
+  /** 치수 표기 도형들 */
+  geomRect: (w, h) => ({ kind: "geom", op: "rect", p: w, q: h }),
+  geomTri: (b, h) => ({ kind: "geom", op: "tri", p: b, q: h }),
+  geomTrap: (a, b, h) => ({ kind: "geom", op: "trap", values: [a, b, h] }),
+  geomCircle: (r) => ({ kind: "geom", op: "circle", p: r }),
+  geomCyl: (r, h) => ({ kind: "geom", op: "cyl", p: r, q: h }),
+  rtri: (aL, bL, cL) => ({ kind: "geom", op: "rtri", labels: [String(aL), String(bL), String(cL)] }),
 };
 
 /** 모양별 이모지 — 같은 종류라도 색·방향이 달라야 "모양"으로 분류하게 된다 */

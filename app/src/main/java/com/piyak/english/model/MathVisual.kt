@@ -31,6 +31,8 @@ data class MathVisual(
     val kinds: List<Int> = emptyList(),
 ) {
     companion object {
+        /** 치수 표기 도형: op = rect|tri|trap|circle|rtri|cyl (교과서 그림처럼) */
+        const val GEOM = "geom"
         /** 공간좌표: 오른손 좌표계 + 점 (values = [x, y, z]) */
         const val COORD3D = "coord3d"
         /** 좌표평면: op = "vec"(벡터 2개) | "parab"(포물선 a·p·q) | "ellipse"(타원 p=a, q=b) */
