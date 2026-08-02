@@ -363,6 +363,8 @@ class LessonActivity : AppCompatActivity() {
             com.piyak.english.model.MathVisual.FRACTION -> "🍰 분수"
             com.piyak.english.model.MathVisual.BAR_GRAPH -> "📊 그래프"
             com.piyak.english.model.MathVisual.NUMBER_LINE -> "📏 수직선"
+            com.piyak.english.model.MathVisual.COORD3D -> "🧊 공간좌표"
+            com.piyak.english.model.MathVisual.COORD2D -> "📈 좌표평면"
             com.piyak.english.model.MathVisual.ANGLE -> "📐 각도"
             // 배열 그림은 곱셈·나눗셈에 모두 쓰인다 — 문제 기호로 구분한다
             com.piyak.english.model.MathVisual.ARRAY ->

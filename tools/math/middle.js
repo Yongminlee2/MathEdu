@@ -264,7 +264,7 @@ function middle3() {
       return numQ(`y = ${a}(x ${p >= 0 ? "- " + p : "+ " + -p})² ${q >= 0 ? "+ " + q : "- " + -q} 의 꼭짓점의 x좌표는?`,
         p,
         `y = a(x-p)² + q 꼴에서 꼭짓점은 (p, q)예요.\n꼭짓점은 (${p}, ${q})이고 x좌표는 ${p}이에요.`,
-        { skill: SK.calc });
+        { skill: SK.calc, visual: V.parabola(a, p, q) });
     }
     const x = rint(-4, 6);
     return numQ(`y = ${a}x² 에서 x = ${x}일 때 y는?`, a * x * x,

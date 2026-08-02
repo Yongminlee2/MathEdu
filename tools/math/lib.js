@@ -42,7 +42,7 @@ function lessonId() {
 let total = 0;
 const VISUAL_KINDS = new Set([
   "emoji", "emoji_op", "array", "shapes", "clock", "fraction",
-  "number_line", "bar_graph", "angle", "compare",
+  "number_line", "bar_graph", "angle", "compare", "coord3d", "coord2d",
   // 그림을 손으로 조작해서 답하는 종류
   "clock_set", "group", "fraction_paint", "shape_sort",
   "number_line_drag", "angle_set", "balance", "bar_build", "gather",
@@ -175,6 +175,14 @@ const V = {
   /** 사물을 상자로 옮겨 담기 — total 개 중 need 개를 담는다 */
   gather: (emoji, total, need, label) =>
     ({ kind: "gather", emoji, a: total, b: need, labels: [label] }),
+  /** 공간좌표 점 (교과서식 오른손 좌표계 그림) */
+  coord3d: (x, y, z) => ({ kind: "coord3d", values: [x, y, z] }),
+  /** 좌표평면 벡터 화살표 2개 */
+  vec2: (x1, y1, x2, y2) => ({ kind: "coord2d", op: "vec", values: [x1, y1, x2, y2] }),
+  /** 포물선 y = a(x-p)² + q 와 꼭짓점 */
+  parabola: (a, p, q) => ({ kind: "coord2d", op: "parab", a, p, q }),
+  /** 타원 x²/a² + y²/b² = 1 */
+  ellipse: (a, b) => ({ kind: "coord2d", op: "ellipse", p: a, q: b }),
 };
 
 /** 모양별 이모지 — 같은 종류라도 색·방향이 달라야 "모양"으로 분류하게 된다 */
