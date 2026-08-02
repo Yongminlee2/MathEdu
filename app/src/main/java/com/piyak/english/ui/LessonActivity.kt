@@ -389,6 +389,10 @@ class LessonActivity : AppCompatActivity() {
                         .apply { gravity = android.view.Gravity.CENTER_HORIZONTAL; topMargin = dp(6) }
                 }
                 (v as? android.widget.LinearLayout)?.addView(img, 2)
+                // 뿅 하고 등장
+                img.scaleX = 0.7f; img.scaleY = 0.7f; img.alpha = 0f
+                img.animate().scaleX(1f).scaleY(1f).alpha(1f)
+                    .setDuration(260L).setInterpolator(android.view.animation.OvershootInterpolator(1.6f)).start()
             } else {
                 // 이야기 그림이 없으면 영역별 병아리 포즈 일러스트 — 이모지는 최후 폴백
                 val pose = decoPose(q)
@@ -399,6 +403,10 @@ class LessonActivity : AppCompatActivity() {
                             .apply { gravity = android.view.Gravity.CENTER_HORIZONTAL; topMargin = dp(6) }
                     }
                     (v as? android.widget.LinearLayout)?.addView(img, 2)
+                    // 뿅 하고 등장
+                    img.scaleX = 0.7f; img.scaleY = 0.7f; img.alpha = 0f
+                    img.animate().scaleX(1f).scaleY(1f).alpha(1f)
+                        .setDuration(260L).setInterpolator(android.view.animation.OvershootInterpolator(1.6f)).start()
                 } else {
                     val deco = android.widget.TextView(this).apply {
                         text = decoArt(q)
