@@ -932,6 +932,8 @@ class LessonActivity : AppCompatActivity() {
             "쿠키" to "word_cookie", "사탕" to "word_candy", "토끼" to "word_rabbit",
             "고양이" to "word_cat", "곰돌이" to "word_bear", "강아지" to "word_dog",
             "달걀" to "word_egg", "계란" to "word_egg", "우유" to "word_milk", "물고기" to "word_fish",
+            "구슬" to "word_marble", "풍선" to "word_balloon", "도토리" to "word_acorn",
+            "블록" to "word_blocks", "스티커" to "word_sticker", "딸기" to "word_strawberry",
         )
         for ((ko, res) in map) {
             if (prompt.contains(ko)) {
