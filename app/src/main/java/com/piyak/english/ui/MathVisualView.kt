@@ -288,6 +288,7 @@ class MathVisualView @JvmOverloads constructor(
             // 전용 뷰가 따로 그린다
             MathVisual.BALANCE, MathVisual.BAR_BUILD, MathVisual.GATHER -> 0
             MathVisual.BAR_GRAPH -> (w * 0.58f).toInt()
+            MathVisual.COORD3D, MathVisual.COORD2D -> (w * 0.72f).toInt()
             MathVisual.ANGLE -> (w * 0.50f).toInt()
             else -> dp(100)
         }
@@ -303,6 +304,8 @@ class MathVisualView @JvmOverloads constructor(
         itemEmojis.clear()
         when (v.kind) {
             MathVisual.EMOJI -> drawEmojiGrid(canvas, v.emoji, v.a, w, h)
+            MathVisual.COORD3D -> drawCoord3d(canvas, v, w, h)
+            MathVisual.COORD2D -> drawCoord2d(canvas, v, w, h)
             MathVisual.EMOJI_OP -> drawEmojiOp(canvas, v, w, h)
             MathVisual.ARRAY -> drawArray(canvas, v, w, h)
             MathVisual.SHAPES -> drawShapes(canvas, v, w, h)
@@ -331,7 +334,7 @@ class MathVisualView @JvmOverloads constructor(
         itemEmojis.add(emoji)
         itemCenterDy = centerDy
         // 지금 끌고 있는 것은 맨 위에 크게 다시 그린다
-        if (i != dragIndex) canvas.drawText(emoji, ox, oy, emojiPaint)
+        if (i != dragIndex) drawItem(canvas, emoji, ox, oy - centerDy, emojiPaint.textSize)
     }
 
     /** 끌고 있는 이모지를 가장 위에 (다른 것에 가리지 않게) */
@@ -339,10 +342,40 @@ class MathVisualView @JvmOverloads constructor(
         val i = dragIndex
         if (i < 0 || i >= itemCenters.size) return
         val c = itemCenters[i]
-        val base = emojiPaint.textSize
-        emojiPaint.textSize = base * 1.2f
-        canvas.drawText(itemEmojis[i], c.x, c.y + itemCenterDy, emojiPaint)
-        emojiPaint.textSize = base
+        drawItem(canvas, itemEmojis[i], c.x, c.y, emojiPaint.textSize * 1.2f)
+    }
+
+    // ---------- 이모지 → codex 일러스트 ----------
+
+    /** 세고 끄는 사물: 그림 사전 일러스트가 있으면 이모지 대신 그린다 (훨씬 예쁘다) */
+    private val artNames = mapOf(
+        "🍎" to "word_apple", "🍓" to "word_strawberry", "🍌" to "word_banana",
+        "🐥" to "ck_idle", "🐶" to "word_dog", "🐱" to "word_cat", "🐰" to "word_rabbit",
+        "🐧" to "word_penguin", "⭐" to "word_star", "🎈" to "word_balloon",
+        "🍪" to "word_cookie", "🚗" to "word_car", "✏️" to "word_pencil",
+        "🌸" to "word_flower", "🧸" to "word_toy", "⚽" to "word_soccer",
+    )
+    private val artCache = HashMap<String, android.graphics.drawable.Drawable?>()
+    private fun artFor(emoji: String): android.graphics.drawable.Drawable? =
+        artCache.getOrPut(emoji) {
+            val name = artNames[emoji] ?: return@getOrPut null
+            val id = resources.getIdentifier(name, "drawable", context.packageName)
+            if (id == 0) null else context.getDrawable(id)
+        }
+
+    /** (cx, cy) 를 중심으로 일러스트 또는 이모지 하나를 그린다. ts = 이모지 글자 크기 기준 */
+    private fun drawItem(canvas: Canvas, emoji: String, cx: Float, cy: Float, ts: Float) {
+        val d = artFor(emoji)
+        if (d != null) {
+            val half = (ts * 0.62f).toInt()
+            d.setBounds((cx - half).toInt(), (cy - half).toInt(), (cx + half).toInt(), (cy + half).toInt())
+            d.draw(canvas)
+        } else {
+            val base = emojiPaint.textSize
+            emojiPaint.textSize = ts
+            canvas.drawText(emoji, cx, cy + ts * 0.35f, emojiPaint)
+            emojiPaint.textSize = base
+        }
     }
 
     // ---------- 이모지 세기 ----------
@@ -896,5 +929,173 @@ class MathVisualView @JvmOverloads constructor(
         if (d == d.toInt().toDouble()) d.toInt().toString() else "%.1f".format(d)
 
     private fun dp(v: Int): Int = (v * resources.displayMetrics.density).toInt()
+    // ---------- 좌표 도해 (교과서 그림처럼, 문제 속 숫자와 정확히 일치) ----------
+
+    /** 공간좌표: 오른손 좌표계 축 3개 + 점 P(x,y,z) 까지 안내 직육면체 */
+    private fun drawCoord3d(canvas: Canvas, v: MathVisual, w: Float, h: Float) {
+        val x = (v.values.getOrNull(0) ?: 0.0).toFloat()
+        val y = (v.values.getOrNull(1) ?: 0.0).toFloat()
+        val z = (v.values.getOrNull(2) ?: 0.0).toFloat()
+        val m = maxOf(kotlin.math.abs(x), kotlin.math.abs(y), kotlin.math.abs(z), 1f)
+        val cx = w * 0.46f
+        val cy = h * 0.55f
+        val u = minOf(w, h) * 0.30f / m
+        // 투영: y = 오른쪽, z = 위, x = 왼쪽 아래로 비스듬히 (오른손 좌표계)
+        fun pt(px: Float, py: Float, pz: Float) = PointF(
+            cx + py * u - px * u * 0.55f,
+            cy - pz * u + px * u * 0.38f
+        )
+        val axis = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#6D4C41"); strokeWidth = dp(2f); style = Paint.Style.STROKE
+        }
+        val dash = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#B39F8C"); strokeWidth = dp(1.5f); style = Paint.Style.STROKE
+            pathEffect = android.graphics.DashPathEffect(floatArrayOf(dp(5f), dp(4f)), 0f)
+        }
+        val lbl = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#4E342E"); textSize = dp(13f); textAlign = Paint.Align.CENTER
+            isFakeBoldText = true
+        }
+        fun line(a: PointF, b: PointF, p: Paint) = canvas.drawLine(a.x, a.y, b.x, b.y, p)
+        val o = pt(0f, 0f, 0f)
+        val ax = m + 1.3f
+        val xe = pt(ax, 0f, 0f); val ye = pt(0f, ax, 0f); val ze = pt(0f, 0f, ax)
+        line(o, xe, axis); line(o, ye, axis); line(o, ze, axis)
+        canvas.drawText("x", xe.x - dp(9f), xe.y + dp(11f), lbl)
+        canvas.drawText("y", ye.x + dp(10f), ye.y + dp(4f), lbl)
+        canvas.drawText("z", ze.x, ze.y - dp(7f), lbl)
+        canvas.drawText("O", o.x - dp(10f), o.y + dp(13f), lbl)
+        // 점까지 가는 직육면체 모서리 (점선)
+        val pX = pt(x, 0f, 0f); val pY = pt(0f, y, 0f); val pZ = pt(0f, 0f, z)
+        val pXY = pt(x, y, 0f); val pXZ = pt(x, 0f, z); val pYZ = pt(0f, y, z)
+        val pp = pt(x, y, z)
+        line(pX, pXY, dash); line(pY, pXY, dash); line(pXY, pp, dash)
+        line(pZ, pXZ, dash); line(pZ, pYZ, dash); line(pXZ, pp, dash); line(pYZ, pp, dash)
+        line(pX, pXZ, dash); line(pY, pYZ, dash)
+        val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#FF7043") }
+        canvas.drawCircle(pp.x, pp.y, dp(5f), dot)
+        lbl.textAlign = Paint.Align.LEFT
+        canvas.drawText("P(${fmtC(x)}, ${fmtC(y)}, ${fmtC(z)})", pp.x + dp(8f), pp.y - dp(7f), lbl)
+    }
+
+    /** 좌표평면: 벡터 화살표 2개 / 포물선과 꼭짓점 / 타원 */
+    private fun drawCoord2d(canvas: Canvas, v: MathVisual, w: Float, h: Float) {
+        val cx = w / 2f; val cy = h / 2f
+        var m = 1f
+        when (v.op) {
+            "vec" -> for (i in 0 until 4) m = maxOf(m, kotlin.math.abs(vAt(v, i)))
+            "parab" -> m = maxOf(kotlin.math.abs(v.p.toFloat()), kotlin.math.abs(v.q.toFloat()) * 0.6f, 3f)
+            "ellipse" -> m = maxOf(v.p.toFloat(), v.q.toFloat())
+        }
+        m += 1.5f
+        val u = minOf(w, h) * 0.44f / m
+        fun X(x: Float) = cx + x * u
+        fun Y(y: Float) = cy - y * u
+        val grid = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#EADFCE"); strokeWidth = dp(1f)
+        }
+        val axis = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#8D6E63"); strokeWidth = dp(2f)
+        }
+        val lbl = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#4E342E"); textSize = dp(12f); textAlign = Paint.Align.CENTER
+            isFakeBoldText = true
+        }
+        // 눈금 (너무 촘촘하지 않게 정수 간격을 고른다)
+        val step = kotlin.math.ceil(m / 6f).toInt().coerceAtLeast(1)
+        var g = step
+        while (g < m) {
+            canvas.drawLine(X(g.toFloat()), Y(-m), X(g.toFloat()), Y(m), grid)
+            canvas.drawLine(X(-g.toFloat()), Y(-m), X(-g.toFloat()), Y(m), grid)
+            canvas.drawLine(X(-m), Y(g.toFloat()), X(m), Y(g.toFloat()), grid)
+            canvas.drawLine(X(-m), Y(-g.toFloat()), X(m), Y(-g.toFloat()), grid)
+            g += step
+        }
+        canvas.drawLine(X(-m), cy, X(m), cy, axis)
+        canvas.drawLine(cx, Y(-m), cx, Y(m), axis)
+        canvas.drawText("x", X(m) - dp(6f), cy - dp(6f), lbl)
+        canvas.drawText("y", cx + dp(10f), Y(m) + dp(10f), lbl)
+        canvas.drawText("O", cx - dp(8f), cy + dp(13f), lbl)
+
+        when (v.op) {
+            "vec" -> {
+                val colors = listOf("#FF7043", "#42A5F5")
+                for (k in 0..1) {
+                    val vx = vAt(v, k * 2); val vy = vAt(v, k * 2 + 1)
+                    val p = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                        color = Color.parseColor(colors[k]); strokeWidth = dp(3f)
+                    }
+                    drawArrow(canvas, cx, cy, X(vx), Y(vy), p)
+                    lbl.color = p.color
+                    canvas.drawText(
+                        "(${fmtC(vx)}, ${fmtC(vy)})",
+                        X(vx), Y(vy) + (if (vy >= 0) -dp(9f) else dp(16f)), lbl
+                    )
+                }
+                lbl.color = Color.parseColor("#4E342E")
+            }
+            "parab" -> {
+                val a = v.a.toFloat(); val p0 = v.p.toFloat(); val q0 = v.q.toFloat()
+                val path = android.graphics.Path()
+                var first = true
+                var xx = -m
+                while (xx <= m) {
+                    val yy = a * (xx - p0) * (xx - p0) + q0
+                    if (yy in -m..m) {
+                        if (first) { path.moveTo(X(xx), Y(yy)); first = false }
+                        else path.lineTo(X(xx), Y(yy))
+                    } else first = true
+                    xx += 0.05f
+                }
+                val curve = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FF7043"); strokeWidth = dp(3f); style = Paint.Style.STROKE
+                }
+                canvas.drawPath(path, curve)
+                val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
+                canvas.drawCircle(X(p0), Y(q0), dp(5f), dot)
+                canvas.drawText("(${fmtC(p0)}, ${fmtC(q0)})", X(p0), Y(q0) + dp(18f), lbl)
+            }
+            "ellipse" -> {
+                val a = v.p.toFloat(); val b = v.q.toFloat()
+                val oval = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FF7043"); strokeWidth = dp(3f); style = Paint.Style.STROKE
+                }
+                canvas.drawOval(X(-a), Y(b), X(a), Y(-b), oval)
+                val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
+                canvas.drawCircle(X(a), cy, dp(4f), dot)
+                canvas.drawCircle(X(-a), cy, dp(4f), dot)
+                canvas.drawText(fmtC(a), X(a), cy + dp(15f), lbl)
+                canvas.drawText(fmtC(-a), X(-a), cy + dp(15f), lbl)
+                canvas.drawText(fmtC(b), cx + dp(13f), Y(b) + dp(4f), lbl)
+            }
+        }
+    }
+
+    private fun vAt(v: MathVisual, i: Int): Float = (v.values.getOrNull(i) ?: 0.0).toFloat()
+
+    private fun fmtC(f: Float): String =
+        if (f == kotlin.math.floor(f)) f.toInt().toString() else f.toString()
+
+    /** 화살표: 선 + 끝 삼각형 */
+    private fun drawArrow(canvas: Canvas, x1: Float, y1: Float, x2: Float, y2: Float, p: Paint) {
+        canvas.drawLine(x1, y1, x2, y2, p)
+        val ang = kotlin.math.atan2((y2 - y1).toDouble(), (x2 - x1).toDouble())
+        val len = dp(9f)
+        val spread = 0.5
+        val path = android.graphics.Path()
+        path.moveTo(x2, y2)
+        path.lineTo(
+            (x2 - len * kotlin.math.cos(ang - spread)).toFloat(),
+            (y2 - len * kotlin.math.sin(ang - spread)).toFloat()
+        )
+        path.lineTo(
+            (x2 - len * kotlin.math.cos(ang + spread)).toFloat(),
+            (y2 - len * kotlin.math.sin(ang + spread)).toFloat()
+        )
+        path.close()
+        val fill = Paint(p).apply { style = Paint.Style.FILL }
+        canvas.drawPath(path, fill)
+    }
+
     private fun dp(v: Float): Float = v * resources.displayMetrics.density
 }

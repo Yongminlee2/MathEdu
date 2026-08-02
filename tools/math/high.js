@@ -200,19 +200,19 @@ function high3() {
       const x = rint(-6, 6), y = rint(-6, 6), z = rint(-6, 6);
       return numQ(`점 (${x}, ${y}, ${z}) 와 원점 사이 거리의 제곱은?`, x * x + y * y + z * z,
         `거리² = x² + y² + z² = ${x * x} + ${y * y} + ${z * z} = ${x * x + y * y + z * z}`,
-        { skill: SK.shape });
+        { skill: SK.shape, visual: V.coord3d(x, y, z) });
     }
     const a1 = rint(-5, 5), a2 = rint(-5, 5), b1 = rint(-5, 5), b2 = rint(-5, 5);
     return numQ(`두 벡터 (${a1}, ${a2}) 와 (${b1}, ${b2}) 의 내적은?`, a1 * b1 + a2 * b2,
       `내적 = x₁x₂ + y₁y₂ = ${a1}×${b1} + ${a2}×${b2} = ${a1 * b1} + ${a2 * b2} = ${a1 * b1 + a2 * b2}`,
-      { skill: SK.shape });
+      { skill: SK.shape, visual: V.vec2(a1, a2, b1, b2) });
   }), 10));
 
   units.push(makeUnit("이차곡선", "⭕", 13, gen(35, () => {
     const a = rint(2, 8), b = rint(1, 6);
     return numQ(`타원 x²/${a * a} + y²/${b * b} = 1 의 장축의 길이는?`, 2 * a,
       `x²/a² + y²/b² = 1 에서 a = ${a}, b = ${b}\n장축의 길이는 2a = ${2 * a}예요.`,
-      { skill: SK.shape });
+      { skill: SK.shape, visual: V.ellipse(a, b) });
   }), 8));
 
   return units.filter(Boolean);
