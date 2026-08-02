@@ -235,12 +235,24 @@ class GroupDragView @JvmOverloads constructor(
 
         for (it in items) {
             if (it === dragging) continue
-            emojiPaint.textSize = if (it.group >= 0) itemSize * 0.74f else itemSize
-            canvas.drawText(it.emoji, it.x, it.y + emojiPaint.textSize * 0.35f, emojiPaint)
+            drawEmojiItem(canvas, it.emoji, it.x, it.y, if (it.group >= 0) itemSize * 0.74f else itemSize)
         }
         dragging?.let {
-            emojiPaint.textSize = itemSize * 1.18f
-            canvas.drawText(it.emoji, it.x, it.y + emojiPaint.textSize * 0.35f, emojiPaint)
+            drawEmojiItem(canvas, it.emoji, it.x, it.y, itemSize * 1.18f)
+        }
+    }
+
+    /** 일러스트가 있으면 그림을, 없으면 이모지를 (ts = 이모지 글자 크기 기준) */
+    private fun drawEmojiItem(canvas: Canvas, emoji: String, x: Float, y: Float, ts: Float) {
+        val d = EmojiArt.of(context, emoji)
+        if (d != null) {
+            // 이모지 글자의 눈에 보이는 중심이 (x, y) — 그림도 같은 자리에 놓는다
+            val half = (ts * 0.62f).toInt()
+            d.setBounds((x - half).toInt(), (y - half).toInt(), (x + half).toInt(), (y + half).toInt())
+            d.draw(canvas)
+        } else {
+            emojiPaint.textSize = ts
+            canvas.drawText(emoji, x, y + ts * 0.35f, emojiPaint)
         }
     }
 

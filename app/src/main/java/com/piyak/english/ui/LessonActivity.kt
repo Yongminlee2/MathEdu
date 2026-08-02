@@ -384,10 +384,10 @@ class LessonActivity : AppCompatActivity() {
             val storyImg = storyArt(q.prompt)
             if (storyImg != 0) {
                 val img = android.widget.ImageView(this).apply {
-                    setImageResource(storyImg)
                     layoutParams = android.widget.LinearLayout.LayoutParams(dp(155), dp(155))
                         .apply { gravity = android.view.Gravity.CENTER_HORIZONTAL; topMargin = dp(6) }
                 }
+                PoseAnim.applyTo(img, storyImg)
                 (v as? android.widget.LinearLayout)?.addView(img, 2)
                 // 뿅 하고 등장
                 img.scaleX = 0.7f; img.scaleY = 0.7f; img.alpha = 0f
@@ -398,10 +398,10 @@ class LessonActivity : AppCompatActivity() {
                 val pose = decoPose(q)
                 if (pose != 0) {
                     val img = android.widget.ImageView(this).apply {
-                        setImageResource(pose)
                         layoutParams = android.widget.LinearLayout.LayoutParams(dp(130), dp(130))
                             .apply { gravity = android.view.Gravity.CENTER_HORIZONTAL; topMargin = dp(6) }
                     }
+                    PoseAnim.applyTo(img, pose)
                     (v as? android.widget.LinearLayout)?.addView(img, 2)
                     // 뿅 하고 등장
                     img.scaleX = 0.7f; img.scaleY = 0.7f; img.alpha = 0f
@@ -1080,10 +1080,11 @@ class LessonActivity : AppCompatActivity() {
         )
         // 정답 공개 후에는 낱말 그림으로 한 번 더 각인 (없으면 병아리)
         val fbArt = feedbackArtRes
-        b.imgFeedback.setImageResource(
+        PoseAnim.applyTo(
+            b.imgFeedback,
             when {
                 fbArt != 0 -> fbArt
-                correct -> R.drawable.ck_cheer
+                correct -> R.drawable.ck_cheer   // 날갯짓하며 축하
                 else -> R.drawable.ck_sad
             }
         )
@@ -1137,7 +1138,7 @@ class LessonActivity : AppCompatActivity() {
         }
 
         sfx.done()
-        b.imgResult.setImageResource(if (s.isPerfect) R.drawable.ck_cheer else R.drawable.ck_clap)
+        PoseAnim.applyTo(b.imgResult, if (s.isPerfect) R.drawable.ck_cheer else R.drawable.ck_clap)
         b.celebrate.finale()
         val xp = s.xpEarned()
         var coins = 0

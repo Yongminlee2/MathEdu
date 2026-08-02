@@ -347,21 +347,9 @@ class MathVisualView @JvmOverloads constructor(
 
     // ---------- 이모지 → codex 일러스트 ----------
 
-    /** 세고 끄는 사물: 그림 사전 일러스트가 있으면 이모지 대신 그린다 (훨씬 예쁘다) */
-    private val artNames = mapOf(
-        "🍎" to "word_apple", "🍓" to "word_strawberry", "🍌" to "word_banana",
-        "🐥" to "ck_idle", "🐶" to "word_dog", "🐱" to "word_cat", "🐰" to "word_rabbit",
-        "🐧" to "word_penguin", "⭐" to "word_star", "🎈" to "word_balloon",
-        "🍪" to "word_cookie", "🚗" to "word_car", "✏️" to "word_pencil",
-        "🌸" to "word_flower", "🧸" to "word_toy", "⚽" to "word_soccer",
-    )
-    private val artCache = HashMap<String, android.graphics.drawable.Drawable?>()
+    /** 세고 끄는 사물: 그림 사전 일러스트가 있으면 이모지 대신 그린다 (목록은 EmojiArt) */
     private fun artFor(emoji: String): android.graphics.drawable.Drawable? =
-        artCache.getOrPut(emoji) {
-            val name = artNames[emoji] ?: return@getOrPut null
-            val id = resources.getIdentifier(name, "drawable", context.packageName)
-            if (id == 0) null else context.getDrawable(id)
-        }
+        EmojiArt.of(context, emoji)
 
     /** (cx, cy) 를 중심으로 일러스트 또는 이모지 하나를 그린다. ts = 이모지 글자 크기 기준 */
     private fun drawItem(canvas: Canvas, emoji: String, cx: Float, cy: Float, ts: Float) {
