@@ -196,6 +196,24 @@ const V = {
   geomCircle: (r) => ({ kind: "geom", op: "circle", p: r }),
   geomCyl: (r, h) => ({ kind: "geom", op: "cyl", p: r, q: h }),
   rtri: (aL, bL, cL) => ({ kind: "geom", op: "rtri", labels: [String(aL), String(bL), String(cL)] }),
+  /** 연립방정식: 두 직선(기울기·절편)과 교점 */
+  line2: (s1, i1, s2, i2, px, py) => ({ kind: "coord2d", op: "line2", values: [s1, i1, s2, i2, px, py] }),
+  /** 두 점 사이 거리 (선분 + 점선 직각변) */
+  seg: (x1, y1, x2, y2) => ({ kind: "coord2d", op: "seg", values: [x1, y1, x2, y2] }),
+  /** 좌표평면 위의 원 (중심 a,b 반지름 r) */
+  circ: (a, b, r) => ({ kind: "coord2d", op: "circ", values: [a, b, r] }),
+  /** 반비례 쌍곡선 y = k/x */
+  hyper: (k) => ({ kind: "coord2d", op: "hyper", values: [k] }),
+  /** 다항식 곡선 (계수 내림차순) — 이차식이면 실근도 점으로 */
+  poly: (coeffs) => ({ kind: "coord2d", op: "poly", values: coeffs }),
+  /** 정n각형 (diag=1 이면 한 꼭짓점의 대각선) */
+  ngon: (n, diag) => ({ kind: "geom", op: "ngon", p: n, q: diag }),
+  /** 수직선 부등식 x > k */
+  ineq: (k) => ({ kind: "geom", op: "ineq", p: k }),
+  /** 단위원과 각 (삼각비·삼각함수) */
+  ucircle: (deg) => ({ kind: "geom", op: "ucircle", p: deg }),
+  /** 중심각·원주각 그림 */
+  inscribed: (central) => ({ kind: "geom", op: "inscribed", p: central }),
 };
 
 /** 모양별 이모지 — 같은 종류라도 색·방향이 달라야 "모양"으로 분류하게 된다 */

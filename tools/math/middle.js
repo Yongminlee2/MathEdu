@@ -95,11 +95,13 @@ function middle1() {
     const k = rint(2, 12), x = rint(2, 9);
     if (L.rng() < 0.5) {
       return numQ(`y = ${k}x 에서 x = ${x}일 때 y는?`, k * x,
-        `정비례식에 x = ${x}를 넣어요. y = ${k} × ${x} = ${k * x}`, { skill: SK.calc });
+        `정비례식에 x = ${x}를 넣어요. y = ${k} × ${x} = ${k * x}`,
+        { skill: SK.calc, visual: V.line(k, 0) });
     }
     const prod = k * x;
     return numQ(`y = ${prod}/x 에서 x = ${x}일 때 y는?`, k,
-      `반비례식에 x = ${x}를 넣어요. y = ${prod} ÷ ${x} = ${k}`, { skill: SK.calc });
+      `반비례식에 x = ${x}를 넣어요. y = ${prod} ÷ ${x} = ${k}`,
+      { skill: SK.calc, visual: V.hyper(prod) });
   }), 8));
 
   units.push(makeUnit("평면도형의 성질", "📐", 8, gen(40, () => {
@@ -107,10 +109,11 @@ function middle1() {
     if (L.rng() < 0.5) {
       return numQ(`${n}각형의 내각의 크기의 합은? (단위 °)`, (n - 2) * 180,
         `n각형의 내각의 합 = (n - 2) × 180°\n(${n} - 2) × 180 = ${(n - 2) * 180}°`,
-        { unit: "°", skill: SK.shape });
+        { unit: "°", skill: SK.shape, visual: V.ngon(n, 0) });
     }
     return numQ(`${n}각형의 대각선의 개수는?`, (n * (n - 3)) / 2,
-      `대각선 개수 = n(n-3)/2 = ${n}×${n - 3}/2 = ${(n * (n - 3)) / 2}개`, { skill: SK.shape });
+      `대각선 개수 = n(n-3)/2 = ${n}×${n - 3}/2 = ${(n * (n - 3)) / 2}개`,
+      { skill: SK.shape, visual: V.ngon(n, 1) });
   }), 8));
 
   units.push(makeUnit("입체도형의 겉넓이와 부피", "🧊", 8, gen(35, () => {
@@ -154,7 +157,7 @@ function middle2() {
     const c = a * x + b;
     return numQ(`${a}x ${b >= 0 ? "+ " + b : "- " + -b} > ${c} 를 만족하는 x의 범위는 x > ? `, x,
       `양변에서 ${b}를 ${b >= 0 ? "빼면" : "더하면"} ${a}x > ${c - b}\n양변을 양수 ${a}로 나누면 x > ${x}\n(음수로 나눌 때는 부등호 방향이 바뀌어요!)`,
-      { skill: SK.calc });
+      { skill: SK.calc, visual: V.ineq(x) });
   }), 10));
 
   units.push(makeUnit("연립방정식", "🟰", 9, gen(45, () => {
@@ -165,7 +168,7 @@ function middle2() {
       `${a}x + ${b}y = ${a * x + b * y}\n${c}x + ${d}y = ${c * x + d * y}\n일 때 x의 값은?`,
       x,
       `가감법으로 y를 없애요.\n첫 식 × ${d}, 둘째 식 × ${b} 한 뒤 빼면 x = ${x}\n대입하면 y = ${y}예요.`,
-      { skill: SK.calc }
+      { skill: SK.calc, visual: V.line2(-a / b, (a * x + b * y) / b, -c / d, (c * x + d * y) / d, x, y) }
     );
   }), 10));
 
@@ -254,7 +257,7 @@ function middle3() {
       `x² - ${p + q}x + ${p * q} = 0 의 두 근 중 큰 값은?`,
       Math.max(p, q),
       `인수분해하면 (x-${p})(x-${q}) = 0\n근은 ${p}, ${q}이고 큰 값은 ${Math.max(p, q)}예요.`,
-      { skill: SK.calc }
+      { skill: SK.calc, visual: V.poly([1, -(p + q), p * q]) }
     );
   }), 10));
 
@@ -280,13 +283,14 @@ function middle3() {
     const [f, deg, val] = pick(table);
     return textQ(`${f} ${deg}° 의 값은? (분수는 1/2 처럼)`, val,
       `특수각의 삼각비예요. ${f}${deg}° = ${val}\n30°·45°·60°의 값은 외워 두면 편해요.`,
-      { skill: SK.shape });
+      { skill: SK.shape, visual: V.ucircle(deg) });
   }), 8));
 
   units.push(makeUnit("원의 성질", "⭕", 10, gen(35, () => {
     const c = rint(10, 80);
     return numQ(`원에서 중심각이 ${c * 2}°인 호에 대한 원주각은? (단위 °)`, c,
-      `원주각은 중심각의 절반이에요. ${c * 2}° ÷ 2 = ${c}°`, { unit: "°", skill: SK.shape });
+      `원주각은 중심각의 절반이에요. ${c * 2}° ÷ 2 = ${c}°`,
+      { unit: "°", skill: SK.shape, visual: V.inscribed(c * 2) });
   }), 8));
 
   units.push(makeUnit("통계 (대푯값)", "📊", 10, gen(35, () => {

@@ -289,7 +289,7 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.BALANCE, MathVisual.BAR_BUILD, MathVisual.GATHER -> 0
             MathVisual.BAR_GRAPH -> (w * 0.58f).toInt()
             MathVisual.COORD3D, MathVisual.COORD2D -> (w * 0.72f).toInt()
-            MathVisual.GEOM -> (w * 0.56f).toInt()
+            MathVisual.GEOM -> if (v.op == "ineq") (w * 0.30f).toInt() else (w * 0.56f).toInt()
             MathVisual.ANGLE -> (w * 0.50f).toInt()
             else -> dp(100)
         }
@@ -307,7 +307,7 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.EMOJI -> drawEmojiGrid(canvas, v.emoji, v.a, w, h)
             MathVisual.COORD3D -> drawCoord3d(canvas, v, w, h)
             MathVisual.COORD2D ->
-                if (v.op == "tangent" || v.op == "area") drawCurveOp(canvas, v, w, h)
+                if (v.op == "tangent" || v.op == "area" || v.op == "poly") drawCurveOp(canvas, v, w, h)
                 else drawCoord2d(canvas, v, w, h)
             MathVisual.GEOM -> drawGeom(canvas, v, w, h)
             MathVisual.EMOJI_OP -> drawEmojiOp(canvas, v, w, h)
@@ -979,6 +979,16 @@ class MathVisualView @JvmOverloads constructor(
             "parab" -> m = maxOf(kotlin.math.abs(v.p.toFloat()), kotlin.math.abs(v.q.toFloat()) * 0.6f, 3f)
             "ellipse" -> m = maxOf(v.p.toFloat(), v.q.toFloat())
             "line" -> m = maxOf(kotlin.math.abs(vAt(v, 1)) + 1.5f, 4f)
+            "line2" -> m = maxOf(
+                kotlin.math.abs(vAt(v, 4)), kotlin.math.abs(vAt(v, 5)),
+                kotlin.math.abs(vAt(v, 1)), kotlin.math.abs(vAt(v, 3)), 4f
+            )
+            "seg" -> for (i in 0 until 4) m = maxOf(m, kotlin.math.abs(vAt(v, i)))
+            "circ" -> m = maxOf(
+                kotlin.math.abs(vAt(v, 0)) + vAt(v, 2),
+                kotlin.math.abs(vAt(v, 1)) + vAt(v, 2), 3f
+            )
+            "hyper" -> m = maxOf(kotlin.math.sqrt(kotlin.math.abs(vAt(v, 0))) + 2f, 5f)
         }
         m += 1.5f
         val u = minOf(w, h) * 0.44f / m
@@ -1047,6 +1057,81 @@ class MathVisualView @JvmOverloads constructor(
                 val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
                 canvas.drawCircle(X(p0), Y(q0), dp(5f), dot)
                 canvas.drawText("(${fmtC(p0)}, ${fmtC(q0)})", X(p0), Y(q0) + dp(18f), lbl)
+            }
+            "line2" -> {
+                // 연립방정식: 두 직선과 교점 — 시험지 그림처럼
+                val colors = listOf("#FF7043", "#42A5F5")
+                for (k in 0..1) {
+                    val sl = vAt(v, k * 2); val ic = vAt(v, k * 2 + 1)
+                    val p = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                        color = Color.parseColor(colors[k]); strokeWidth = dp(3f)
+                    }
+                    var xs = -m; var xe = m
+                    if (sl != 0f) {
+                        val cands = listOf(-m, m, (m - ic) / sl, (-m - ic) / sl).sorted()
+                        xs = cands[1]; xe = cands[2]
+                    }
+                    canvas.drawLine(X(xs), Y(sl * xs + ic), X(xe), Y(sl * xe + ic), p)
+                }
+                val px = vAt(v, 4); val py = vAt(v, 5)
+                canvas.drawCircle(X(px), Y(py), dp(5f), Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#5C6BC0")
+                })
+                canvas.drawText("(${fmtC(px)}, ${fmtC(py)})", X(px), Y(py) - dp(9f), lbl)
+            }
+            "seg" -> {
+                // 두 점 사이 거리 — 선분과 점선 직각변
+                val x1 = vAt(v, 0); val y1 = vAt(v, 1); val x2 = vAt(v, 2); val y2 = vAt(v, 3)
+                val dashP = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#B39F8C"); strokeWidth = dp(1.5f); style = Paint.Style.STROKE
+                    pathEffect = android.graphics.DashPathEffect(floatArrayOf(dp(5f), dp(4f)), 0f)
+                }
+                canvas.drawLine(X(x1), Y(y1), X(x2), Y(y1), dashP)
+                canvas.drawLine(X(x2), Y(y1), X(x2), Y(y2), dashP)
+                canvas.drawLine(X(x1), Y(y1), X(x2), Y(y2), Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FF7043"); strokeWidth = dp(3f)
+                })
+                val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
+                canvas.drawCircle(X(x1), Y(y1), dp(5f), dot)
+                canvas.drawCircle(X(x2), Y(y2), dp(5f), dot)
+                canvas.drawText("(${fmtC(x1)}, ${fmtC(y1)})", X(x1), Y(y1) + dp(17f), lbl)
+                canvas.drawText("(${fmtC(x2)}, ${fmtC(y2)})", X(x2), Y(y2) - dp(9f), lbl)
+            }
+            "circ" -> {
+                // 좌표평면 위의 원 (중심 (a,b), 반지름 r)
+                val a = vAt(v, 0); val b0 = vAt(v, 1); val r = vAt(v, 2)
+                val ring = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FF7043"); strokeWidth = dp(3f); style = Paint.Style.STROKE
+                }
+                canvas.drawCircle(X(a), Y(b0), r * u, ring)
+                val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
+                canvas.drawCircle(X(a), Y(b0), dp(4f), dot)
+                canvas.drawLine(X(a), Y(b0), X(a + r), Y(b0), Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#8D6E63"); strokeWidth = dp(2f)
+                })
+                canvas.drawText("(${fmtC(a)}, ${fmtC(b0)})", X(a), Y(b0) + dp(17f), lbl)
+                canvas.drawText("r", X(a + r / 2f), Y(b0) - dp(7f), lbl)
+            }
+            "hyper" -> {
+                // 반비례 y = k/x — 쌍곡선 두 가지
+                val k = vAt(v, 0)
+                val curve = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FF7043"); strokeWidth = dp(3f); style = Paint.Style.STROKE
+                }
+                for (sign in listOf(1f, -1f)) {
+                    val path = android.graphics.Path()
+                    var first = true
+                    var x = 0.25f
+                    while (x <= m) {
+                        val yy = k / (x * sign)
+                        if (kotlin.math.abs(yy) <= m) {
+                            if (first) { path.moveTo(X(x * sign), Y(yy)); first = false }
+                            else path.lineTo(X(x * sign), Y(yy))
+                        } else first = true
+                        x += m / 90f
+                    }
+                    canvas.drawPath(path, curve)
+                }
             }
             "line" -> {
                 // y = ax + b 직선과 y절편 — 교과서 일차함수 그림
@@ -1122,11 +1207,17 @@ class MathVisualView @JvmOverloads constructor(
             return r
         }
         val isArea = v.op == "area"
+        val isPoly = v.op == "poly"
         val x0 = v.p.toFloat()
         val x1 = v.q.toFloat()
         val xLo: Float; val xHi: Float
         if (isArea) { xLo = minOf(x0, x1) - 1f; xHi = maxOf(x0, x1) + 1f }
-        else { val r = maxOf(kotlin.math.abs(x0) + 2f, 3f); xLo = -r; xHi = r }
+        else if (isPoly && coeffs.size == 3 && coeffs[0] != 0f) {
+            // 이차식: 꼭짓점과 근이 다 보이게
+            val vx = -coeffs[1] / (2 * coeffs[0])
+            val r = maxOf(kotlin.math.abs(vx) + 3f, 4f)
+            xLo = -r; xHi = r
+        } else { val r = maxOf(kotlin.math.abs(x0) + 2f, 3f); xLo = -r; xHi = r }
         var yMax = 1f
         run {
             var x = xLo
@@ -1176,6 +1267,23 @@ class MathVisualView @JvmOverloads constructor(
             color = Color.parseColor("#FF7043"); strokeWidth = dp(3f); style = Paint.Style.STROKE
         })
         canvas.drawText("y = f(x)", X(xHi) - dp(26f), Y(f(xHi)) - dp(8f), lbl)
+        // 이차식의 실근 표시 (판별식·이차방정식)
+        if (isPoly) {
+            if (coeffs.size == 3 && coeffs[0] != 0f) {
+                val disc = coeffs[1] * coeffs[1] - 4 * coeffs[0] * coeffs[2]
+                if (disc >= 0f) {
+                    val sq = kotlin.math.sqrt(disc)
+                    val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
+                    for (root in listOf((-coeffs[1] - sq) / (2 * coeffs[0]), (-coeffs[1] + sq) / (2 * coeffs[0]))) {
+                        if (root in xLo..xHi) {
+                            canvas.drawCircle(X(root), Y(0f), dp(5f), dot)
+                            canvas.drawText(fmtC(root), X(root), Y(0f) + dp(16f), lbl)
+                        }
+                    }
+                }
+            }
+            return
+        }
         // 접선 + 접점
         if (!isArea) {
             val k = fp(x0); val y0 = f(x0)
@@ -1296,6 +1404,110 @@ class MathVisualView @JvmOverloads constructor(
                 lbl.textAlign = Paint.Align.LEFT
                 canvas.drawText("${num(v.q)}", body.right + dp(8f), cy + dp(5f), lbl)
                 lbl.textAlign = Paint.Align.CENTER
+            }
+            "ngon" -> {
+                // 정n각형 (+ 한 꼭짓점에서 뻗는 대각선)
+                val n = v.p.toInt().coerceIn(3, 12)
+                val r = minOf(w, h) * 0.36f
+                val pts = (0 until n).map { i ->
+                    val ang = Math.PI * 2 * i / n - Math.PI / 2
+                    PointF(cx + r * Math.cos(ang).toFloat(), cy + r * Math.sin(ang).toFloat())
+                }
+                val path = android.graphics.Path().apply {
+                    moveTo(pts[0].x, pts[0].y)
+                    for (i in 1 until n) lineTo(pts[i].x, pts[i].y)
+                    close()
+                }
+                canvas.drawPath(path, fill); canvas.drawPath(path, edge)
+                if (v.q >= 1.0) {
+                    // 대각선: 0번 꼭짓점에서 이웃 아닌 모든 꼭짓점으로
+                    for (i in 2..n - 2) canvas.drawLine(pts[0].x, pts[0].y, pts[i].x, pts[i].y, dash)
+                } else {
+                    // 내각 하나에 호 표시
+                    canvas.drawArc(
+                        pts[0].x - dp(16f), pts[0].y - dp(16f), pts[0].x + dp(16f), pts[0].y + dp(16f),
+                        40f, 100f, false, dash
+                    )
+                }
+                canvas.drawText("정${n}각형", cx, cy + r + dp(20f), lbl)
+            }
+            "ineq" -> {
+                // 수직선 위의 부등식: x > k (열린 원 + 오른쪽 화살표)
+                val k = v.p
+                val yLine = cy
+                val axis = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#8D6E63"); strokeWidth = dp(2f)
+                }
+                canvas.drawLine(w * 0.08f, yLine, w * 0.92f, yLine, axis)
+                val kx = w * 0.42f
+                // 눈금 (k-1, k, k+1)
+                for ((i, t) in listOf(-1, 0, 1).withIndex()) {
+                    val tx = kx + (i - 1) * w * 0.18f
+                    canvas.drawLine(tx, yLine - dp(5f), tx, yLine + dp(5f), axis)
+                    canvas.drawText(num(k + t), tx, yLine + dp(20f), lbl)
+                }
+                // 오른쪽으로 뻗는 굵은 반직선 + 열린 원
+                val ray = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FF7043"); strokeWidth = dp(4f)
+                }
+                canvas.drawLine(kx, yLine, w * 0.88f, yLine, ray)
+                canvas.drawCircle(kx, yLine, dp(6f), Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.WHITE
+                })
+                canvas.drawCircle(kx, yLine, dp(6f), Paint(ray).apply {
+                    style = Paint.Style.STROKE; strokeWidth = dp(2.5f)
+                })
+            }
+            "ucircle" -> {
+                // 단위원과 각 — 삼각비·삼각함수
+                val deg = v.p.toFloat()
+                val r = minOf(w, h) * 0.33f
+                val axis = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#B39F8C"); strokeWidth = dp(1.5f)
+                }
+                canvas.drawLine(cx - r - dp(14f), cy, cx + r + dp(14f), cy, axis)
+                canvas.drawLine(cx, cy - r - dp(14f), cx, cy + r + dp(14f), axis)
+                canvas.drawCircle(cx, cy, r, edge.apply { style = Paint.Style.STROKE })
+                val rad = Math.toRadians(deg.toDouble())
+                val ex = cx + r * Math.cos(rad).toFloat()
+                val ey = cy - r * Math.sin(rad).toFloat()
+                canvas.drawLine(cx, cy, ex, ey, Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FF7043"); strokeWidth = dp(3f)
+                })
+                canvas.drawCircle(ex, ey, dp(5f), Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#5C6BC0")
+                })
+                // 각 호
+                canvas.drawArc(cx - r * 0.3f, cy - r * 0.3f, cx + r * 0.3f, cy + r * 0.3f,
+                    0f, -deg, false, dash)
+                canvas.drawText("${num(v.p)}°", cx + r * 0.48f, cy - dp(10f), lbl)
+            }
+            "inscribed" -> {
+                // 중심각과 원주각 (원주각 = 중심각의 절반)
+                val r = minOf(w, h) * 0.36f
+                canvas.drawCircle(cx, cy, r, fill)
+                canvas.drawCircle(cx, cy, r, edge.apply { style = Paint.Style.STROKE })
+                fun onCircle(deg: Double) = PointF(
+                    cx + r * Math.cos(Math.toRadians(deg)).toFloat(),
+                    cy - r * Math.sin(Math.toRadians(deg)).toFloat()
+                )
+                val a = onCircle(-35.0); val b = onCircle(215.0); val pTop = onCircle(90.0)
+                val lineP = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FF7043"); strokeWidth = dp(2.5f)
+                }
+                // 중심각 (빨강)
+                canvas.drawLine(cx, cy, a.x, a.y, lineP)
+                canvas.drawLine(cx, cy, b.x, b.y, lineP)
+                // 원주각 (파랑)
+                val lineB = Paint(lineP).apply { color = Color.parseColor("#42A5F5") }
+                canvas.drawLine(pTop.x, pTop.y, a.x, a.y, lineB)
+                canvas.drawLine(pTop.x, pTop.y, b.x, b.y, lineB)
+                canvas.drawCircle(cx, cy, dp(3.5f), Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#6D4C41")
+                })
+                canvas.drawText("${num(v.p)}°", cx, cy + dp(22f), lbl)
+                canvas.drawText("?", pTop.x, pTop.y + dp(26f), lbl)
+                canvas.drawText("O", cx - dp(11f), cy + dp(3f), lbl)
             }
         }
     }

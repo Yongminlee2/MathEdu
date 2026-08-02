@@ -33,7 +33,7 @@ function high1() {
       `${coef(a, "x²")} ${b >= 0 ? "+ " + b : "- " + -b}x ${c >= 0 ? "+ " + c : "- " + -c} = 0 의 판별식 D의 값은?`,
       D,
       `D = b² - 4ac = ${b}² - 4×${a}×${c} = ${b * b} - ${4 * a * c} = ${D}\n${D > 0 ? "D > 0 이므로 서로 다른 두 실근" : D === 0 ? "D = 0 이므로 중근" : "D < 0 이므로 실근이 없어요"}`,
-      { skill: SK.calc }
+      { skill: SK.calc, visual: V.poly([a, b, c]) }
     );
   }), 10));
 
@@ -58,13 +58,13 @@ function high1() {
       const d2 = (x2 - x1) ** 2 + (y2 - y1) ** 2;
       return numQ(`두 점 (${x1}, ${y1}), (${x2}, ${y2}) 사이 거리의 제곱은?`, d2,
         `거리² = (x₂-x₁)² + (y₂-y₁)² = ${(x2 - x1) ** 2} + ${(y2 - y1) ** 2} = ${d2}`,
-        { skill: SK.shape });
+        { skill: SK.shape, visual: V.seg(x1, y1, x2, y2) });
     }
     const a = rint(-6, 6), b = rint(-6, 6), r = rint(1, 9);
     return numQ(`원 (x ${a >= 0 ? "- " + a : "+ " + -a})² + (y ${b >= 0 ? "- " + b : "+ " + -b})² = ${r * r} 의 반지름은?`,
       r,
       `표준형 (x-a)² + (y-b)² = r² 에서 r² = ${r * r} 이므로 반지름은 ${r}이에요. 중심은 (${a}, ${b})예요.`,
-      { skill: SK.shape });
+      { skill: SK.shape, visual: V.circ(a, b, r) });
   }), 10));
 
   units.push(makeUnit("집합과 명제", "🔗", 11, gen(35, () => {
@@ -100,7 +100,8 @@ function high2() {
     ];
     const [f, deg, val] = pick(table);
     return textQ(`${f} ${deg}° 의 값은?`, val,
-      `단위원에서 ${deg}°의 위치를 생각해요. ${f}${deg}° = ${val}`, { skill: SK.calc });
+      `단위원에서 ${deg}°의 위치를 생각해요. ${f}${deg}° = ${val}`,
+      { skill: SK.calc, visual: V.ucircle(deg) });
   }), 8));
 
   units.push(makeUnit("수열", "📈", 12, gen(50, () => {
