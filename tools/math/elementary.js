@@ -714,12 +714,12 @@ function grade6() {
     if (L.rng() < 0.5) {
       return numQ(`가로 ${a}cm, 세로 ${b}cm, 높이 ${c}cm인 직육면체의 부피는?`, a * b * c,
         `부피 = 가로 × 세로 × 높이 = ${a} × ${b} × ${c} = ${a * b * c}cm³`,
-        { unit: "cm³", skill: SK.measure });
+        { unit: "cm³", skill: SK.measure, visual: V.geomBox(a, b, c) });
     }
     const s = 2 * (a * b + b * c + a * c);
     return numQ(`가로 ${a}cm, 세로 ${b}cm, 높이 ${c}cm인 직육면체의 겉넓이는?`, s,
       `겉넓이 = 2 × (${a}×${b} + ${b}×${c} + ${a}×${c}) = 2 × ${a * b + b * c + a * c} = ${s}cm²`,
-      { unit: "cm²", skill: SK.measure });
+      { unit: "cm²", skill: SK.measure, visual: V.geomBox(a, b, c) });
   }), 8));
 
   units.push(makeUnit("여러 가지 그래프", "📊", 7, gen(30, () => {
