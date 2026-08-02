@@ -206,6 +206,8 @@ const V = {
   hyper: (k) => ({ kind: "coord2d", op: "hyper", values: [k] }),
   /** 다항식 곡선 (계수 내림차순) — 이차식이면 실근도 점으로 */
   poly: (coeffs) => ({ kind: "coord2d", op: "poly", values: coeffs }),
+  /** 직육면체 (가로 w, 세로(깊이) d, 높이 h) */
+  geomBox: (w, d, h) => ({ kind: "geom", op: "box", p: w, q: h, values: [d] }),
   /** 정n각형 (diag=1 이면 한 꼭짓점의 대각선) */
   ngon: (n, diag) => ({ kind: "geom", op: "ngon", p: n, q: diag }),
   /** 수직선 부등식 x > k */

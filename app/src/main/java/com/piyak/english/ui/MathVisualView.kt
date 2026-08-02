@@ -1405,6 +1405,40 @@ class MathVisualView @JvmOverloads constructor(
                 canvas.drawText("${num(v.q)}", body.right + dp(8f), cy + dp(5f), lbl)
                 lbl.textAlign = Paint.Align.CENTER
             }
+            "box" -> {
+                // 직육면체 — 앞면 + 위·옆으로 비스듬한 깊이 (교과서 그림)
+                val fw = w * 0.40f; val fh = h * 0.42f
+                val dx = fw * 0.38f; val dy = fh * 0.34f
+                val lx = cx - (fw + dx) / 2f
+                val by = cy + (fh + dy) / 2f
+                val f = android.graphics.RectF(lx, by - fh, lx + fw, by)
+                // 뒷면 모서리 점들
+                val tlb = PointF(f.left + dx, f.top - dy)
+                val trb = PointF(f.right + dx, f.top - dy)
+                val brb = PointF(f.right + dx, f.bottom - dy)
+                // 윗면·옆면 (채움 살짝 다르게)
+                val topPath = android.graphics.Path().apply {
+                    moveTo(f.left, f.top); lineTo(tlb.x, tlb.y); lineTo(trb.x, trb.y)
+                    lineTo(f.right, f.top); close()
+                }
+                val sidePath = android.graphics.Path().apply {
+                    moveTo(f.right, f.top); lineTo(trb.x, trb.y); lineTo(brb.x, brb.y)
+                    lineTo(f.right, f.bottom); close()
+                }
+                val fill2 = Paint(fill).apply { color = Color.parseColor("#FFE9C4") }
+                canvas.drawRect(f, fill)
+                canvas.drawPath(topPath, fill2)
+                canvas.drawPath(sidePath, fill2)
+                canvas.drawRect(f, edge)
+                canvas.drawPath(topPath, edge)
+                canvas.drawPath(sidePath, edge)
+                canvas.drawText("${num(v.p)}cm", cx - dx / 2f, f.bottom + dp(18f), lbl)
+                lbl.textAlign = Paint.Align.LEFT
+                canvas.drawText("${num(v.values.getOrNull(0) ?: 0.0)}cm",
+                    f.right + dx / 2f + dp(4f), f.bottom - dy / 2f + dp(4f), lbl)
+                canvas.drawText("${num(v.q)}cm", f.right + dx + dp(6f), (f.top + f.bottom - dy) / 2f, lbl)
+                lbl.textAlign = Paint.Align.CENTER
+            }
             "ngon" -> {
                 // 정n각형 (+ 한 꼭짓점에서 뻗는 대각선)
                 val n = v.p.toInt().coerceIn(3, 12)
