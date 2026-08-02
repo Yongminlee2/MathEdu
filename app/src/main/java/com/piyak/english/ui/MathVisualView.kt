@@ -287,7 +287,7 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.ANGLE_SET -> (w * 0.68f).toInt()
             // 전용 뷰가 따로 그린다
             MathVisual.BALANCE, MathVisual.BAR_BUILD, MathVisual.GATHER -> 0
-            MathVisual.BAR_GRAPH -> (w * 0.58f).toInt()
+            MathVisual.BAR_GRAPH -> (w * 0.50f).toInt()
             MathVisual.COORD3D, MathVisual.COORD2D -> (w * 0.72f).toInt()
             MathVisual.GEOM -> when (v.op) {
                 "ineq" -> (w * 0.30f).toInt()
@@ -769,7 +769,15 @@ class MathVisualView @JvmOverloads constructor(
     private fun drawBarGraph(canvas: Canvas, v: MathVisual, w: Float, h: Float) {
         if (v.values.isEmpty()) return
         val maxV = (v.values.maxOrNull() ?: 1.0).coerceAtLeast(1.0)
-        val left = dp(34).toFloat()
+        val gridSteps = 4
+
+        // 눈금 글자 크기를 먼저 정하고, 가장 긴 눈금값을 재서 왼쪽 여백을 잡는다.
+        // (고정 여백을 쓰면 "12.8" 같은 값이 화면 밖으로 잘려 나간다)
+        text.textSize = (h * 0.085f).coerceIn(dp(11f).toFloat(), dp(15f).toFloat())
+        text.isFakeBoldText = false
+        val gridLabels = (1..gridSteps).map { fmt(maxV * it / gridSteps) }
+        val labelW = gridLabels.maxOf { text.measureText(it) }
+        val left = labelW + dp(14)
         val bottom = h - dp(30)
         val top = dp(14).toFloat()
         val right = w - dp(14)
@@ -777,15 +785,13 @@ class MathVisualView @JvmOverloads constructor(
         canvas.drawLine(left, top, left, bottom, stroke)
         canvas.drawLine(left, bottom, right, bottom, stroke)
 
-        text.textSize = h * 0.10f
-        text.isFakeBoldText = false
-        // 눈금
-        val gridSteps = 4
-        for (i in 1..gridSteps) {
-            val yy = bottom - (bottom - top) * i / gridSteps
-            val label = (maxV * i / gridSteps)
-            canvas.drawText(fmt(label), left - dp(16), yy + text.textSize * 0.35f, text)
+        // 눈금 — 축 왼쪽에 오른쪽 정렬
+        text.textAlign = Paint.Align.RIGHT
+        for ((i, label) in gridLabels.withIndex()) {
+            val yy = bottom - (bottom - top) * (i + 1) / gridSteps
+            canvas.drawText(label, left - dp(6), yy + text.textSize * 0.35f, text)
         }
+        text.textAlign = Paint.Align.CENTER
 
         val n = v.values.size
         val slot = (right - left) / n
@@ -797,7 +803,12 @@ class MathVisualView @JvmOverloads constructor(
             val rect = RectF(cx - barW / 2f, bottom - bh, cx + barW / 2f, bottom)
             canvas.drawRoundRect(rect, dp(6f).toFloat(), dp(6f).toFloat(), fill)
             v.labels.getOrNull(i)?.let {
-                canvas.drawText(it, cx, bottom + text.textSize * 1.4f, text)
+                val base = text.textSize
+                if (text.measureText(it) > slot * 0.92f) {
+                    text.textSize = base * (slot * 0.92f / text.measureText(it))
+                }
+                canvas.drawText(it, cx, bottom + base * 1.4f, text)
+                text.textSize = base
             }
         }
     }

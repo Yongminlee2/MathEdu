@@ -94,7 +94,9 @@ class BarBuildView @JvmOverloads constructor(
             val y = plotBottom - (plotBottom - plotTop) * i / maxV
             canvas.drawLine(plotLeft, y, plotRight, y, stroke)
             text.color = Color.parseColor("#8D6E63")
-            canvas.drawText("$i", plotLeft - dp(12f), y + text.textSize * 0.35f, text)
+            text.textAlign = android.graphics.Paint.Align.RIGHT
+            canvas.drawText("$i", plotLeft - dp(6f), y + text.textSize * 0.35f, text)
+            text.textAlign = android.graphics.Paint.Align.CENTER
         }
 
         val slot = (plotRight - plotLeft) / current.size
