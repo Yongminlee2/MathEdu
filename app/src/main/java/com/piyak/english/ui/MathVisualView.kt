@@ -306,9 +306,11 @@ class MathVisualView @JvmOverloads constructor(
         when (v.kind) {
             MathVisual.EMOJI -> drawEmojiGrid(canvas, v.emoji, v.a, w, h)
             MathVisual.COORD3D -> drawCoord3d(canvas, v, w, h)
-            MathVisual.COORD2D ->
-                if (v.op == "tangent" || v.op == "area" || v.op == "poly") drawCurveOp(canvas, v, w, h)
-                else drawCoord2d(canvas, v, w, h)
+            MathVisual.COORD2D -> when (v.op) {
+                "tangent", "area", "poly" -> drawCurveOp(canvas, v, w, h)
+                "exp", "log", "seqlim" -> drawFuncMisc(canvas, v, w, h)
+                else -> drawCoord2d(canvas, v, w, h)
+            }
             MathVisual.GEOM -> drawGeom(canvas, v, w, h)
             MathVisual.EMOJI_OP -> drawEmojiOp(canvas, v, w, h)
             MathVisual.ARRAY -> drawArray(canvas, v, w, h)
@@ -978,7 +980,13 @@ class MathVisualView @JvmOverloads constructor(
             "vec" -> for (i in 0 until 4) m = maxOf(m, kotlin.math.abs(vAt(v, i)))
             "parab" -> m = maxOf(kotlin.math.abs(v.p.toFloat()), kotlin.math.abs(v.q.toFloat()) * 0.6f, 3f)
             "ellipse" -> m = maxOf(v.p.toFloat(), v.q.toFloat())
-            "line" -> m = maxOf(kotlin.math.abs(vAt(v, 1)) + 1.5f, 4f)
+            "line" -> {
+                m = maxOf(kotlin.math.abs(vAt(v, 1)) + 1.5f, 4f)
+                if (v.values.size >= 3) m = maxOf(
+                    m, kotlin.math.abs(vAt(v, 2)) + 1.5f,
+                    kotlin.math.abs(vAt(v, 0) * vAt(v, 2) + vAt(v, 1)) + 1.5f
+                )
+            }
             "line2" -> m = maxOf(
                 kotlin.math.abs(vAt(v, 4)), kotlin.math.abs(vAt(v, 5)),
                 kotlin.math.abs(vAt(v, 1)), kotlin.math.abs(vAt(v, 3)), 4f
@@ -1150,6 +1158,20 @@ class MathVisualView @JvmOverloads constructor(
                 val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
                 canvas.drawCircle(X(0f), Y(b0), dp(5f), dot)
                 canvas.drawText("(0, ${fmtC(b0)})", X(0f) + dp(34f), Y(b0) - dp(6f), lbl)
+                if (v.values.size >= 3) {
+                    // x → k 로 다가가는 점 (함수의 극한)
+                    val k = vAt(v, 2); val yk = a * k + b0
+                    val guide = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                        color = Color.parseColor("#B39F8C"); strokeWidth = dp(1.5f); style = Paint.Style.STROKE
+                        pathEffect = android.graphics.DashPathEffect(floatArrayOf(dp(5f), dp(4f)), 0f)
+                    }
+                    canvas.drawLine(X(k), Y(0f), X(k), Y(yk), guide)
+                    canvas.drawLine(X(0f), Y(yk), X(k), Y(yk), guide)
+                    canvas.drawCircle(X(k), Y(yk), dp(5f), Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                        color = Color.parseColor("#FF7043")
+                    })
+                    canvas.drawText("x=${fmtC(k)}", X(k), Y(0f) + dp(15f), lbl)
+                }
             }
             "ellipse" -> {
                 val a = v.p.toFloat(); val b = v.q.toFloat()
@@ -1542,6 +1564,156 @@ class MathVisualView @JvmOverloads constructor(
                 canvas.drawText("${num(v.p)}°", cx, cy + dp(22f), lbl)
                 canvas.drawText("?", pTop.x, pTop.y + dp(26f), lbl)
                 canvas.drawText("O", cx - dp(11f), cy + dp(3f), lbl)
+            }
+            "sqarea" -> {
+                // 넓이가 주어진 정사각형 — 한 변은 ? (제곱근 도입 그림)
+                val side = minOf(w, h) * 0.5f
+                val r = android.graphics.RectF(cx - side / 2, cy - side / 2, cx + side / 2, cy + side / 2)
+                canvas.drawRect(r, fill); canvas.drawRect(r, edge)
+                canvas.drawText("넓이 ${num(v.p)}", cx, cy + dp(5f), lbl)
+                canvas.drawText("?", cx, r.bottom + dp(18f), lbl)
+                lbl.textAlign = Paint.Align.LEFT
+                canvas.drawText("?", r.right + dp(8f), cy + dp(5f), lbl)
+                lbl.textAlign = Paint.Align.CENTER
+            }
+            "ratio" -> {
+                // 비 a : b — 길이가 비례하는 막대 두 개
+                val a = (v.values.getOrNull(0) ?: 1.0).toFloat()
+                val b = (v.values.getOrNull(1) ?: 1.0).toFloat()
+                val maxLen = w * 0.62f
+                val unitLen = maxLen / maxOf(a, b)
+                val bh = h * 0.16f
+                val left = w * 0.16f
+                val barA = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#FF8A80") }
+                val barB = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#81D4FA") }
+                val y1 = cy - bh * 1.1f; val y2 = cy + bh * 0.5f
+                canvas.drawRoundRect(left, y1, left + a * unitLen, y1 + bh, dp(6f), dp(6f), barA)
+                canvas.drawRoundRect(left, y2, left + b * unitLen, y2 + bh, dp(6f), dp(6f), barB)
+                lbl.textAlign = Paint.Align.LEFT
+                canvas.drawText(num(v.values.getOrNull(0) ?: 0.0), left + a * unitLen + dp(8f), y1 + bh * 0.72f, lbl)
+                canvas.drawText(num(v.values.getOrNull(1) ?: 0.0), left + b * unitLen + dp(8f), y2 + bh * 0.72f, lbl)
+                lbl.textAlign = Paint.Align.CENTER
+            }
+            "percent" -> {
+                // 전체 중 부분 — 가로 막대 (몇 % 인지는 아이가 계산)
+                val part = v.p.toFloat(); val total = v.q.toFloat().coerceAtLeast(1f)
+                val left = w * 0.1f; val right = w * 0.9f
+                val bh = h * 0.2f
+                val barBg = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#EADFCE") }
+                val barFg = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#FFB74D") }
+                canvas.drawRoundRect(left, cy - bh / 2, right, cy + bh / 2, dp(8f), dp(8f), barBg)
+                canvas.drawRoundRect(left, cy - bh / 2,
+                    left + (right - left) * (part / total), cy + bh / 2, dp(8f), dp(8f), barFg)
+                canvas.drawText("${num(v.p)}", left + (right - left) * (part / total) / 2f, cy + dp(5f), lbl)
+                canvas.drawText("전체 ${num(v.q)}", (left + right) / 2f, cy + bh / 2 + dp(18f), lbl)
+            }
+            "setdots" -> {
+                // 원소 n개인 집합 — 큰 원 안의 점들
+                val n = v.p.toInt().coerceIn(1, 12)
+                val r = minOf(w, h) * 0.36f
+                canvas.drawCircle(cx, cy, r, fill)
+                canvas.drawCircle(cx, cy, r, edge)
+                val dotP = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
+                for (i in 0 until n) {
+                    val ang = Math.PI * 2 * i / n
+                    val rr = if (n == 1) 0f else r * 0.55f
+                    canvas.drawCircle(
+                        cx + rr * Math.cos(ang).toFloat(),
+                        cy + rr * Math.sin(ang).toFloat(), dp(5f), dotP
+                    )
+                }
+                canvas.drawText("원소 ${n}개", cx, cy + r + dp(20f), lbl)
+            }
+        }
+    }
+
+    // ---------- 지수·로그 곡선과 수열의 극한 ----------
+
+    private fun drawFuncMisc(canvas: Canvas, v: MathVisual, w: Float, h: Float) {
+        val axis = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#8D6E63"); strokeWidth = dp(2f)
+        }
+        val curveP = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#FF7043"); strokeWidth = dp(3f); style = Paint.Style.STROKE
+        }
+        val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
+        val lbl = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#4E342E"); textSize = dp(12f); textAlign = Paint.Align.CENTER
+            isFakeBoldText = true
+        }
+        val dash = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#B39F8C"); strokeWidth = dp(1.5f); style = Paint.Style.STROKE
+            pathEffect = android.graphics.DashPathEffect(floatArrayOf(dp(5f), dp(4f)), 0f)
+        }
+        when (v.op) {
+            "exp" -> {
+                // y = a^x : (0,1) 과 (1,a) 를 지나며 치솟는 곡선
+                val base = v.p.toFloat().coerceAtLeast(1.2f)
+                val xLo = -2.5f; val xHi = 2.6f
+                val yMax = Math.pow(base.toDouble(), 2.6).toFloat()
+                val ux = w * 0.86f / (xHi - xLo); val padL = w * 0.07f
+                val uy = h * 0.82f / yMax
+                fun X(x: Float) = padL + (x - xLo) * ux
+                fun Y(y: Float) = h * 0.9f - y * uy
+                canvas.drawLine(X(xLo), Y(0f), X(xHi), Y(0f), axis)
+                canvas.drawLine(X(0f), dp(4f), X(0f), h - dp(4f), axis)
+                val path = android.graphics.Path(); var first = true
+                var x = xLo
+                while (x <= xHi) {
+                    val yy = Math.pow(base.toDouble(), x.toDouble()).toFloat()
+                    if (first) { path.moveTo(X(x), Y(yy)); first = false } else path.lineTo(X(x), Y(yy))
+                    x += 0.06f
+                }
+                canvas.drawPath(path, curveP)
+                canvas.drawCircle(X(1f), Y(base), dp(5f), dot)
+                canvas.drawText("(1, ${fmtC(base)})", X(1f) - dp(26f), Y(base) - dp(6f), lbl)
+                canvas.drawText("y = ${fmtC(base)}ˣ", X(xHi) - dp(30f), dp(16f), lbl)
+            }
+            "log" -> {
+                // y = log_a x : (1,0) 과 (a,1) 을 지나 천천히 자라는 곡선
+                val base = v.p.toFloat().coerceAtLeast(1.2f)
+                val xHi = maxOf(base * 2.2f, 7f)
+                val lnB = Math.log(base.toDouble())
+                val yMax = (Math.log(xHi.toDouble()) / lnB).toFloat()
+                val yMin = -1.6f
+                val ux = w * 0.86f / xHi; val padL = w * 0.09f
+                val uy = h * 0.8f / (yMax - yMin)
+                fun X(x: Float) = padL + x * ux
+                fun Y(y: Float) = h * 0.86f - (y - yMin) * uy
+                canvas.drawLine(X(0f), Y(0f), X(xHi), Y(0f), axis)
+                canvas.drawLine(X(0f), dp(4f), X(0f), h - dp(4f), axis)
+                val path = android.graphics.Path(); var first = true
+                var x = 0.15f
+                while (x <= xHi) {
+                    val yy = (Math.log(x.toDouble()) / lnB).toFloat()
+                    if (yy >= yMin) {
+                        if (first) { path.moveTo(X(x), Y(yy)); first = false } else path.lineTo(X(x), Y(yy))
+                    }
+                    x += xHi / 130f
+                }
+                canvas.drawPath(path, curveP)
+                canvas.drawCircle(X(base), Y(1f), dp(5f), dot)
+                canvas.drawText("(${fmtC(base)}, 1)", X(base), Y(1f) - dp(9f), lbl)
+                canvas.drawText("y = log_${fmtC(base)} x", X(xHi) - dp(36f), Y(yMax) + dp(2f), lbl)
+            }
+            "seqlim" -> {
+                // 수열 (an+b)/(cn+d) 의 점들이 극한값에 다가가는 모습
+                val a = vAt(v, 0); val b0 = vAt(v, 1); val c = vAt(v, 2); val d0 = vAt(v, 3)
+                fun term(n: Int) = (a * n + b0) / (c * n + d0)
+                val lim = a / c
+                var yMax = lim
+                for (n in 1..12) yMax = maxOf(yMax, term(n))
+                yMax *= 1.15f
+                val ux = w * 0.86f / 13f; val padL = w * 0.08f
+                val uy = h * 0.78f / yMax
+                fun X(n: Float) = padL + n * ux
+                fun Y(y: Float) = h * 0.88f - y * uy
+                canvas.drawLine(X(0f), Y(0f), X(12.6f), Y(0f), axis)
+                canvas.drawLine(X(0f), dp(4f), X(0f), h - dp(4f), axis)
+                canvas.drawLine(X(0f), Y(lim), X(12.6f), Y(lim), dash)
+                for (n in 1..12) canvas.drawCircle(X(n.toFloat()), Y(term(n)), dp(4f), dot)
+                canvas.drawText("n", X(12.4f), Y(0f) + dp(15f), lbl)
+                canvas.drawText("aₙ이 점점 다가가요", X(6f), Y(lim) - dp(9f), lbl)
             }
         }
     }

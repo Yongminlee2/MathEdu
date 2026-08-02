@@ -669,7 +669,7 @@ function grade6() {
     const [rn, rd] = reduce(a * d, b * c);
     return numQ(`${a}/${b} ÷ ${c}/${d} = ? (기약분수의 분자)`, rn,
       `나눗셈은 뒤 분수를 뒤집어 곱해요. ${a}/${b} × ${d}/${c} = ${a * d}/${b * c}\n약분하면 ${rn}/${rd}예요.`,
-      { skill: SK.calc });
+      { skill: SK.calc, ...(a < b ? { visual: V.fraction(a, b) } : {}) });
   }), 10));
 
   units.push(makeUnit("소수의 나눗셈", "0️⃣", 7, gen(40, () => {
@@ -685,7 +685,7 @@ function grade6() {
     const b = a * k;
     return numQ(`${a} : ${b}를 가장 간단한 자연수의 비로 나타내면 ${1} : ?`, k,
       `두 수를 최대공약수 ${a}로 나눠요. ${a}÷${a}=1, ${b}÷${a}=${k}\n답은 1 : ${k}예요.`,
-      { skill: SK.number });
+      { skill: SK.number, visual: V.ratio(a, b) });
   }), 8));
 
   units.push(makeUnit("백분율", "💯", 7, gen(35, () => {
@@ -694,7 +694,7 @@ function grade6() {
     const pct = Math.round((part / total) * 100);
     return numQ(`전체 ${total} 중 ${part}은 몇 %일까요?`, pct,
       `비율 = ${part} ÷ ${total} = ${(part / total).toFixed(2)}\n백분율은 100을 곱해서 ${pct}%예요.`,
-      { unit: "%", skill: SK.number });
+      { unit: "%", skill: SK.number, visual: V.percent(part, total) });
   }), 8));
 
   units.push(makeUnit("원의 넓이와 둘레", "⭕", 7, gen(40, () => {

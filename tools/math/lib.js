@@ -216,6 +216,22 @@ const V = {
   ucircle: (deg) => ({ kind: "geom", op: "ucircle", p: deg }),
   /** 중심각·원주각 그림 */
   inscribed: (central) => ({ kind: "geom", op: "inscribed", p: central }),
+  /** 넓이가 주어진 정사각형 (한 변 = ?) — 제곱근 */
+  sqarea: (area) => ({ kind: "geom", op: "sqarea", p: area }),
+  /** 비 a : b 막대 */
+  ratio: (a, b) => ({ kind: "geom", op: "ratio", values: [a, b] }),
+  /** 전체 중 부분 막대 (백분율) */
+  percent: (part, total) => ({ kind: "geom", op: "percent", p: part, q: total }),
+  /** 원소 n개인 집합 */
+  setdots: (n) => ({ kind: "geom", op: "setdots", p: n }),
+  /** y = a^x 지수함수 곡선 */
+  expCurve: (base) => ({ kind: "coord2d", op: "exp", p: base }),
+  /** y = log_a x 로그함수 곡선 */
+  logCurve: (base) => ({ kind: "coord2d", op: "log", p: base }),
+  /** 수열 (an+b)/(cn+d) 가 극한값에 다가가는 점들 */
+  seqlim: (a, b, c, d) => ({ kind: "coord2d", op: "seqlim", values: [a, b, c, d] }),
+  /** 직선 + x=k 의 점 (함수의 극한) */
+  linePt: (a, b, k) => ({ kind: "coord2d", op: "line", values: [a, b, k] }),
 };
 
 /** 모양별 이모지 — 같은 종류라도 색·방향이 달라야 "모양"으로 분류하게 된다 */
