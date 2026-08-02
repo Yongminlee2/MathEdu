@@ -953,7 +953,8 @@ class LessonActivity : AppCompatActivity() {
             "블록" to "word_blocks", "스티커" to "word_sticker",
             "달걀" to "word_egg", "계란" to "word_egg", "우유" to "word_milk", "물고기" to "word_fish",
             "토끼" to "word_rabbit", "고양이" to "word_cat", "곰돌이" to "word_bear",
-            "강아지" to "word_dog", "삐약이" to "ck_idle",
+            "강아지" to "word_dog", "펭귄" to "word_penguin", "다람쥐" to "word_squirrel",
+            "삐약이" to "ck_idle",
         )
         for ((ko, res) in map) {
             if (prompt.contains(ko)) {
