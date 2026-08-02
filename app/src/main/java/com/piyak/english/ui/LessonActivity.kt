@@ -388,13 +388,24 @@ class LessonActivity : AppCompatActivity() {
                 }
                 (v as? android.widget.LinearLayout)?.addView(img, 2)
             } else {
-                val deco = android.widget.TextView(this).apply {
-                    text = decoArt(q)
-                    textSize = 58f
-                    gravity = android.view.Gravity.CENTER
-                    setPadding(0, dp(6), 0, dp(2))
+                // 이야기 그림이 없으면 영역별 병아리 포즈 일러스트 — 이모지는 최후 폴백
+                val pose = decoPose(q)
+                if (pose != 0) {
+                    val img = android.widget.ImageView(this).apply {
+                        setImageResource(pose)
+                        layoutParams = android.widget.LinearLayout.LayoutParams(dp(130), dp(130))
+                            .apply { gravity = android.view.Gravity.CENTER_HORIZONTAL; topMargin = dp(6) }
+                    }
+                    (v as? android.widget.LinearLayout)?.addView(img, 2)
+                } else {
+                    val deco = android.widget.TextView(this).apply {
+                        text = decoArt(q)
+                        textSize = 58f
+                        gravity = android.view.Gravity.CENTER
+                        setPadding(0, dp(6), 0, dp(2))
+                    }
+                    (v as? android.widget.LinearLayout)?.addView(deco, 2)
                 }
-                (v as? android.widget.LinearLayout)?.addView(deco, 2)
             }
         }
 
@@ -977,6 +988,21 @@ class LessonActivity : AppCompatActivity() {
         "m_data" -> listOf("📊🐥", "🐥📋", "🔍📊").random()
         "m_word" -> listOf("📖🐥", "🐥💬", "🧩📖").random()
         else -> "🐥"
+    }
+
+    /** 그림 없는 문제의 병아리 포즈 — 영역별로 어울리는 포즈를 문제마다 번갈아 쓴다 */
+    private fun decoPose(q: Question.Math): Int {
+        val names = when (q.skill) {
+            "m_calc" -> listOf("ck_write", "ck_think")
+            "m_number" -> listOf("ck_think", "ck_idle")
+            "m_shape" -> listOf("ck_book", "ck_think")
+            "m_measure" -> listOf("ck_think", "ck_write")
+            "m_data" -> listOf("ck_book", "ck_think")
+            "m_word" -> listOf("ck_book", "ck_idle")
+            else -> listOf("ck_idle")
+        }
+        val name = names[Math.abs(q.prompt.hashCode()) % names.size]
+        return resources.getIdentifier(name, "drawable", packageName)
     }
 
     /** 소수점 뒤 0 을 떼서 보기 좋게 (3.0 → 3) */
