@@ -114,12 +114,9 @@ class LessonActivity : AppCompatActivity() {
         setContentView(b.root)
         db = Db.get(this)
         sfx = Sfx(this)
-        // 잠든 병아리를 톡 치면 삐약! 하고 일어난다
-        b.chickView.onWake = {
-            sfx.piyak()
-            b.root.removeCallbacks(sleepRun)
-            b.root.postDelayed(sleepRun, 45_000L)
-        }
+        // 수학은 화면 위 상주 병아리를 뺀다 — 그림·수식과 겹치고,
+        // 리액션은 정답 화면 병아리·색종이로 충분하다 (사용자 결정 2026-08-03)
+        b.chickView.visibility = View.GONE
         tts = Tts(this)
         tts.rate = db.meta("tts_rate", "1.0").toFloatOrNull() ?: 1.0f
 
