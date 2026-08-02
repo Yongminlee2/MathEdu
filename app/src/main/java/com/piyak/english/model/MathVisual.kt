@@ -83,6 +83,8 @@ data class MathVisual(
             NUMBER_LINE, BAR_GRAPH, ANGLE, COMPARE,
             CLOCK_SET, GROUP, FRACTION_PAINT, SHAPE_SORT,
             NUMBER_LINE_DRAG, ANGLE_SET, BALANCE, BAR_BUILD, GATHER,
+            // 좌표·함수·도형 도해 (v1.17~) — 여기 빠뜨리면 fromJson 이 조용히 버린다!
+            COORD3D, COORD2D, GEOM,
         )
 
         /** 그림 자체가 답을 입력받는 종류 (키패드·보기가 필요 없다) */
