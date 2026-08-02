@@ -71,7 +71,7 @@ function high1() {
     const n = rint(3, 8);
     return numQ(`원소가 ${n}개인 집합의 부분집합의 개수는?`, 2 ** n,
       `부분집합의 개수 = 2ⁿ = 2^${n} = ${2 ** n}개예요.\n(진부분집합은 ${2 ** n - 1}개)`,
-      { skill: SK.number });
+      { skill: SK.number, visual: V.setdots(n) });
   }), 8));
 
   return units.filter(Boolean);
@@ -86,10 +86,11 @@ function high2() {
     if (L.rng() < 0.5) {
       return numQ(`log_${a} ${a ** n} 의 값은?`, n,
         `log_${a} ${a ** n} 은 "${a}를 몇 번 곱해야 ${a ** n}이 되는가"예요. ${a}^${n} = ${a ** n} 이므로 답은 ${n}이에요.`,
-        { skill: SK.calc });
+        { skill: SK.calc, visual: V.logCurve(a) });
     }
     return numQ(`${a}^${n} 의 값은?`, a ** n,
-      `${a}를 ${n}번 곱해요. ${Array(n).fill(a).join(" × ")} = ${a ** n}`, { skill: SK.calc });
+      `${a}를 ${n}번 곱해요. ${Array(n).fill(a).join(" × ")} = ${a ** n}`,
+      { skill: SK.calc, visual: V.expCurve(a) });
   }), 10));
 
   units.push(makeUnit("삼각함수", "📐", 12, gen(40, () => {
@@ -108,18 +109,22 @@ function high2() {
     const a = rint(1, 12), d = rint(1, 9), n = rint(5, 20);
     if (L.rng() < 0.5) {
       return numQ(`첫째항 ${a}, 공차 ${d}인 등차수열의 제${n}항은?`, a + (n - 1) * d,
-        `aₙ = a + (n-1)d = ${a} + ${n - 1}×${d} = ${a + (n - 1) * d}`, { skill: SK.calc });
+        `aₙ = a + (n-1)d = ${a} + ${n - 1}×${d} = ${a + (n - 1) * d}`,
+        { skill: SK.calc, visual: V.barGraph(["a₁", "a₂", "a₃", "a₄", "a₅"],
+          [a, a + d, a + 2 * d, a + 3 * d, a + 4 * d]) });
     }
     const sum = (n * (2 * a + (n - 1) * d)) / 2;
     return numQ(`첫째항 ${a}, 공차 ${d}인 등차수열의 첫 ${n}항의 합은?`, sum,
-      `Sₙ = n(2a + (n-1)d)/2 = ${n}(${2 * a} + ${(n - 1) * d})/2 = ${sum}`, { skill: SK.calc });
+      `Sₙ = n(2a + (n-1)d)/2 = ${n}(${2 * a} + ${(n - 1) * d})/2 = ${sum}`,
+      { skill: SK.calc, visual: V.barGraph(["a₁", "a₂", "a₃", "a₄", "a₅"],
+        [a, a + d, a + 2 * d, a + 3 * d, a + 4 * d]) });
   }), 10));
 
   units.push(makeUnit("함수의 극한", "➡️", 12, gen(40, () => {
     const a = rint(1, 6), b = rint(-8, 8), k = rint(-4, 4);
     return numQ(`lim(x→${k}) (${coef(a, "x")} ${b >= 0 ? "+ " + b : "- " + -b}) 의 값은?`, a * k + b,
       `다항함수는 연속이라 그대로 대입해요. ${a}×${k} ${b >= 0 ? "+" : "-"} ${Math.abs(b)} = ${a * k + b}`,
-      { skill: SK.calc });
+      { skill: SK.calc, visual: V.linePt(a, b, k) });
   }), 10));
 
   units.push(makeUnit("미분", "📉", 12, gen(50, () => {
@@ -158,7 +163,7 @@ function high3() {
     return numQ(`lim(n→∞) (${coef(a, "n")} + 5)/(${coef(b, "n")} + 2) 의 값은? (소수 셋째 자리까지)`,
       Math.round((a / b) * 1000) / 1000,
       `분자·분모를 n으로 나눠요. (${a} + 5/n)/(${b} + 2/n) → ${a}/${b} = ${Math.round((a / b) * 1000) / 1000}\n최고차항의 계수 비가 답이에요.`,
-      { skill: SK.calc });
+      { skill: SK.calc, visual: V.seqlim(a, 5, b, 2) });
   }), 10));
 
   units.push(makeUnit("여러 가지 함수의 미분", "📉", 13, gen(45, () => {

@@ -219,7 +219,8 @@ function middle2() {
     const [rn, rd] = reduce(r, r + b);
     return numQ(`빨강 ${r}개, 파랑 ${b}개인 주머니에서 하나를 꺼낼 때 빨강일 확률은? (기약분수의 분자)`,
       rn,
-      `전체 ${r + b}개 중 빨강 ${r}개예요. ${r}/${r + b} = ${rn}/${rd}`, { skill: SK.data });
+      `전체 ${r + b}개 중 빨강 ${r}개예요. ${r}/${r + b} = ${rn}/${rd}`,
+      { skill: SK.data, visual: V.compare("🔴", r, "🔵", b) });
   }), 8));
 
   return units.filter(Boolean);
@@ -233,7 +234,8 @@ function middle3() {
     const n = rint(2, 20);
     if (L.rng() < 0.5) {
       return numQ(`√${n * n} 의 값은?`, n,
-        `${n} × ${n} = ${n * n}이므로 √${n * n} = ${n}이에요.`, { skill: SK.number });
+        `${n} × ${n} = ${n * n}이므로 √${n * n} = ${n}이에요.`,
+        { skill: SK.number, visual: V.sqarea(n * n) });
     }
     const a = rint(2, 9), b = rint(2, 9);
     return numQ(`√${a * a * b} = k√${b} 일 때 k는?`, a,
