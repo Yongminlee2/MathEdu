@@ -15,7 +15,7 @@
     </LinearLayout>
 
     <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" android:textSize="23sp" android:textStyle="bold"
+        android:layout_marginTop="8dp" android:textSize="25sp" android:textStyle="bold"
         android:lineSpacingMultiplier="1.25" />
 
     <!-- 수식이 감지되면 txtPrompt 대신 진짜 수학 기호로 그린다 -->

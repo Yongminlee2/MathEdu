@@ -365,14 +365,14 @@ class LessonActivity : AppCompatActivity() {
             if (storyImg != 0) {
                 val img = android.widget.ImageView(this).apply {
                     setImageResource(storyImg)
-                    layoutParams = android.widget.LinearLayout.LayoutParams(dp(120), dp(120))
+                    layoutParams = android.widget.LinearLayout.LayoutParams(dp(155), dp(155))
                         .apply { gravity = android.view.Gravity.CENTER_HORIZONTAL; topMargin = dp(6) }
                 }
                 (v as? android.widget.LinearLayout)?.addView(img, 2)
             } else {
                 val deco = android.widget.TextView(this).apply {
                     text = decoArt(q)
-                    textSize = 46f
+                    textSize = 58f
                     gravity = android.view.Gravity.CENTER
                     setPadding(0, dp(6), 0, dp(2))
                 }
