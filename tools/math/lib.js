@@ -224,6 +224,10 @@ const V = {
   percent: (part, total) => ({ kind: "geom", op: "percent", p: part, q: total }),
   /** 원소 n개인 집합 */
   setdots: (n) => ({ kind: "geom", op: "setdots", p: n }),
+  /** 주머니 속 빨강·파랑 구슬 */
+  bag: (r, b) => ({ kind: "geom", op: "bag", values: [r, b] }),
+  /** 주사위 눈 1~6, n 이하 강조 */
+  dice: (n) => ({ kind: "geom", op: "dice", p: n }),
   /** y = a^x 지수함수 곡선 */
   expCurve: (base) => ({ kind: "coord2d", op: "exp", p: base }),
   /** y = log_a x 로그함수 곡선 */

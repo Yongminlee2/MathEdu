@@ -289,7 +289,11 @@ class MathVisualView @JvmOverloads constructor(
             MathVisual.BALANCE, MathVisual.BAR_BUILD, MathVisual.GATHER -> 0
             MathVisual.BAR_GRAPH -> (w * 0.58f).toInt()
             MathVisual.COORD3D, MathVisual.COORD2D -> (w * 0.72f).toInt()
-            MathVisual.GEOM -> if (v.op == "ineq") (w * 0.30f).toInt() else (w * 0.56f).toInt()
+            MathVisual.GEOM -> when (v.op) {
+                "ineq" -> (w * 0.30f).toInt()
+                "dice" -> (w * 0.34f).toInt()
+                else -> (w * 0.56f).toInt()
+            }
             MathVisual.ANGLE -> (w * 0.50f).toInt()
             else -> dp(100)
         }
@@ -947,8 +951,9 @@ class MathVisualView @JvmOverloads constructor(
             pathEffect = android.graphics.DashPathEffect(floatArrayOf(dp(5f), dp(4f)), 0f)
         }
         val lbl = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#4E342E"); textSize = dp(13f); textAlign = Paint.Align.CENTER
+            color = Color.parseColor("#4E342E"); textSize = dp(14f); textAlign = Paint.Align.CENTER
             isFakeBoldText = true
+            setShadowLayer(dp(3f), 0f, 0f, Color.WHITE)
         }
         fun line(a: PointF, b: PointF, p: Paint) = canvas.drawLine(a.x, a.y, b.x, b.y, p)
         val o = pt(0f, 0f, 0f)
@@ -1009,8 +1014,10 @@ class MathVisualView @JvmOverloads constructor(
             color = Color.parseColor("#8D6E63"); strokeWidth = dp(2f)
         }
         val lbl = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#4E342E"); textSize = dp(12f); textAlign = Paint.Align.CENTER
+            color = Color.parseColor("#4E342E"); textSize = dp(14f); textAlign = Paint.Align.CENTER
             isFakeBoldText = true
+            // 격자·곡선 위에서도 읽히도록 흰 테두리를 두른다
+            setShadowLayer(dp(3f), 0f, 0f, Color.WHITE)
         }
         // 눈금 (너무 촘촘하지 않게 정수 간격을 고른다)
         val step = kotlin.math.ceil(m / 6f).toInt().coerceAtLeast(1)
@@ -1024,8 +1031,8 @@ class MathVisualView @JvmOverloads constructor(
         }
         canvas.drawLine(X(-m), cy, X(m), cy, axis)
         canvas.drawLine(cx, Y(-m), cx, Y(m), axis)
-        canvas.drawText("x", X(m) - dp(6f), cy - dp(6f), lbl)
-        canvas.drawText("y", cx + dp(10f), Y(m) + dp(10f), lbl)
+        canvas.drawText("x", X(m) - dp(9f), cy - dp(8f), lbl)
+        canvas.drawText("y", cx + dp(11f), Y(m) + dp(13f), lbl)
         canvas.drawText("O", cx - dp(8f), cy + dp(13f), lbl)
 
         when (v.op) {
@@ -1255,8 +1262,10 @@ class MathVisualView @JvmOverloads constructor(
             color = Color.parseColor("#8D6E63"); strokeWidth = dp(2f)
         }
         val lbl = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#4E342E"); textSize = dp(12f); textAlign = Paint.Align.CENTER
+            color = Color.parseColor("#4E342E"); textSize = dp(14f); textAlign = Paint.Align.CENTER
             isFakeBoldText = true
+            // 격자·곡선 위에서도 읽히도록 흰 테두리를 두른다
+            setShadowLayer(dp(3f), 0f, 0f, Color.WHITE)
         }
         canvas.drawLine(X(xLo), Y(0f), X(xHi), Y(0f), axis)
         if (0f in xLo..xHi) canvas.drawLine(X(0f), dp(4f), X(0f), h - dp(4f), axis)
@@ -1333,8 +1342,9 @@ class MathVisualView @JvmOverloads constructor(
             pathEffect = android.graphics.DashPathEffect(floatArrayOf(dp(5f), dp(4f)), 0f)
         }
         val lbl = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#4E342E"); textSize = dp(13f); textAlign = Paint.Align.CENTER
+            color = Color.parseColor("#4E342E"); textSize = dp(14f); textAlign = Paint.Align.CENTER
             isFakeBoldText = true
+            setShadowLayer(dp(3f), 0f, 0f, Color.WHITE)
         }
         val cx = w / 2f; val cy = h / 2f
         fun num(d: Double): String = if (d == Math.floor(d)) d.toInt().toString() else d.toString()
@@ -1607,6 +1617,85 @@ class MathVisualView @JvmOverloads constructor(
                 canvas.drawText("${num(v.p)}", left + (right - left) * (part / total) / 2f, cy + dp(5f), lbl)
                 canvas.drawText("전체 ${num(v.q)}", (left + right) / 2f, cy + bh / 2 + dp(18f), lbl)
             }
+            "bag" -> {
+                // 주머니 속 빨강·파랑 구슬 (values = [빨강, 파랑])
+                val rCnt = (v.values.getOrNull(0) ?: 1.0).toInt().coerceIn(0, 12)
+                val bCnt = (v.values.getOrNull(1) ?: 1.0).toInt().coerceIn(0, 12)
+                val bw = w * 0.52f; val bhh = h * 0.66f
+                val top = cy - bhh / 2
+                // 주머니: 위가 오므라진 자루 모양
+                val bag = android.graphics.Path().apply {
+                    moveTo(cx - bw * 0.16f, top)
+                    quadTo(cx - bw * 0.55f, top + bhh * 0.25f, cx - bw * 0.5f, top + bhh * 0.62f)
+                    quadTo(cx - bw * 0.45f, top + bhh, cx, top + bhh)
+                    quadTo(cx + bw * 0.45f, top + bhh, cx + bw * 0.5f, top + bhh * 0.62f)
+                    quadTo(cx + bw * 0.55f, top + bhh * 0.25f, cx + bw * 0.16f, top)
+                    close()
+                }
+                canvas.drawPath(bag, Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FFE9C4")
+                })
+                canvas.drawPath(bag, edge)
+                // 주머니 입구 묶음
+                canvas.drawLine(cx - bw * 0.16f, top, cx + bw * 0.16f, top, edge)
+                // 구슬 배치 (4개씩 줄지어)
+                val total = rCnt + bCnt
+                val perRow = 4
+                val rows = (total + perRow - 1) / perRow
+                val mr = minOf(bw * 0.09f, bhh * 0.4f / maxOf(rows, 1))
+                val startY = top + bhh * 0.42f
+                val red = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#EF5350") }
+                val blue = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#42A5F5") }
+                val ring = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#6D4C41"); style = Paint.Style.STROKE; strokeWidth = dp(1.5f)
+                }
+                for (i in 0 until total) {
+                    val row = i / perRow
+                    val col = i % perRow
+                    val inRow = minOf(perRow, total - row * perRow)
+                    val gx = cx + (col - (inRow - 1) / 2f) * mr * 2.3f
+                    val gy = startY + row * mr * 2.3f
+                    canvas.drawCircle(gx, gy, mr, if (i < rCnt) red else blue)
+                    canvas.drawCircle(gx, gy, mr, ring)
+                }
+            }
+            "dice" -> {
+                // 주사위 눈 1~6 을 늘어놓고, p 이하를 강조
+                val upto = v.p.toInt().coerceIn(1, 6)
+                val size = minOf(w / 7.2f, h * 0.4f)
+                val gap = size * 0.18f
+                val totalW = size * 6 + gap * 5
+                val startX = cx - totalW / 2
+                val dy = cy - size / 2
+                val pip = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#4E342E") }
+                val okFill = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#FFE9C4") }
+                val noFill = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.WHITE }
+                val okEdge = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#FF7043"); style = Paint.Style.STROKE; strokeWidth = dp(2.5f)
+                }
+                val noEdge = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                    color = Color.parseColor("#BCAAA4"); style = Paint.Style.STROKE; strokeWidth = dp(1.5f)
+                }
+                for (face in 1..6) {
+                    val x0 = startX + (face - 1) * (size + gap)
+                    val r = android.graphics.RectF(x0, dy, x0 + size, dy + size)
+                    val ok = face <= upto
+                    canvas.drawRoundRect(r, size * 0.18f, size * 0.18f, if (ok) okFill else noFill)
+                    canvas.drawRoundRect(r, size * 0.18f, size * 0.18f, if (ok) okEdge else noEdge)
+                    // 눈 배치
+                    val c = size * 0.5f; val o = size * 0.26f; val pr = size * 0.08f
+                    fun dot(dxr: Float, dyr: Float) =
+                        canvas.drawCircle(x0 + c + dxr, dy + c + dyr, pr, pip)
+                    when (face) {
+                        1 -> dot(0f, 0f)
+                        2 -> { dot(-o, -o); dot(o, o) }
+                        3 -> { dot(-o, -o); dot(0f, 0f); dot(o, o) }
+                        4 -> { dot(-o, -o); dot(o, -o); dot(-o, o); dot(o, o) }
+                        5 -> { dot(-o, -o); dot(o, -o); dot(0f, 0f); dot(-o, o); dot(o, o) }
+                        else -> { dot(-o, -o); dot(o, -o); dot(-o, 0f); dot(o, 0f); dot(-o, o); dot(o, o) }
+                    }
+                }
+            }
             "setdots" -> {
                 // 원소 n개인 집합 — 큰 원 안의 점들
                 val n = v.p.toInt().coerceIn(1, 12)
@@ -1638,8 +1727,10 @@ class MathVisualView @JvmOverloads constructor(
         }
         val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#5C6BC0") }
         val lbl = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#4E342E"); textSize = dp(12f); textAlign = Paint.Align.CENTER
+            color = Color.parseColor("#4E342E"); textSize = dp(14f); textAlign = Paint.Align.CENTER
             isFakeBoldText = true
+            // 격자·곡선 위에서도 읽히도록 흰 테두리를 두른다
+            setShadowLayer(dp(3f), 0f, 0f, Color.WHITE)
         }
         val dash = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             color = Color.parseColor("#B39F8C"); strokeWidth = dp(1.5f); style = Paint.Style.STROKE

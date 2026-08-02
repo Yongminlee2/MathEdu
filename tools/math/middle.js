@@ -213,14 +213,14 @@ function middle2() {
       return numQ(`주사위를 한 번 던져 ${n} 이하의 눈이 나올 확률은? (기약분수의 분자)`,
         reduce(n, 6)[0],
         `${n} 이하는 ${n}가지, 전체는 6가지예요. ${n}/6 = ${reduce(n, 6)[0]}/${reduce(n, 6)[1]}`,
-        { skill: SK.data });
+        { skill: SK.data, visual: V.dice(n) });
     }
     const r = rint(2, 8), b = rint(2, 8);
     const [rn, rd] = reduce(r, r + b);
     return numQ(`빨강 ${r}개, 파랑 ${b}개인 주머니에서 하나를 꺼낼 때 빨강일 확률은? (기약분수의 분자)`,
       rn,
       `전체 ${r + b}개 중 빨강 ${r}개예요. ${r}/${r + b} = ${rn}/${rd}`,
-      { skill: SK.data, visual: V.compare("🔴", r, "🔵", b) });
+      { skill: SK.data, visual: V.bag(r, b) });
   }), 8));
 
   return units.filter(Boolean);
