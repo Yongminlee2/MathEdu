@@ -118,7 +118,7 @@ function middle1() {
     return numQ(`밑면의 반지름 ${r}, 높이 ${h}인 원기둥의 부피는? (원주율 3.14)`,
       Math.round(3.14 * r * r * h * 100) / 100,
       `원기둥의 부피 = 밑넓이 × 높이 = (${r}×${r}×3.14) × ${h} = ${Math.round(3.14 * r * r * h * 100) / 100}`,
-      { skill: SK.measure });
+      { skill: SK.measure, visual: V.geomCyl(r, h) });
   }), 8));
 
   units.push(makeUnit("자료의 정리와 해석", "📊", 8, gen(30, () => {
@@ -175,10 +175,11 @@ function middle2() {
     if (t < 0.5) {
       return numQ(`y = ${a}x ${b >= 0 ? "+ " + b : "- " + -b} 에서 x = ${x}일 때 y는?`, a * x + b,
         `x = ${x}을 대입해요. y = ${a}×${x} ${b >= 0 ? "+ " + b : "- " + -b} = ${a * x + b}`,
-        { skill: SK.calc });
+        { skill: SK.calc, visual: V.line(a, b) });
     }
     return numQ(`y = ${a}x ${b >= 0 ? "+ " + b : "- " + -b} 의 y절편은?`, b,
-      `y절편은 x = 0일 때의 y값이에요. y = ${b}\n기울기는 ${a}이고요.`, { skill: SK.calc });
+      `y절편은 x = 0일 때의 y값이에요. y = ${b}\n기울기는 ${a}이고요.`,
+      { skill: SK.calc, visual: V.line(a, b) });
   }), 10));
 
   units.push(makeUnit("피타고라스 정리", "📐", 9, gen(40, () => {
@@ -186,13 +187,13 @@ function middle2() {
     const [a, b, c] = pick(triples);
     const k = rint(1, 3);
     if (L.rng() < 0.6) {
-      return numQ(`직각삼각형의 두 변이 ${a * k}, ${b * k}일 때 빗변의 길이는?`, c * k,
+      return numQ(`직각삼각형의 두 변이 ${a * k}, ${b * k}일 때 빗변의 길이는? (그림 참고)`, c * k,
         `피타고라스 정리: a² + b² = c²\n${a * k}² + ${b * k}² = ${(a * k) ** 2} + ${(b * k) ** 2} = ${(c * k) ** 2}\n빗변 = ${c * k}`,
-        { skill: SK.shape });
+        { skill: SK.shape, visual: V.rtri(`${a * k}`, `${b * k}`, "?") });
     }
     return numQ(`빗변이 ${c * k}, 한 변이 ${a * k}인 직각삼각형의 나머지 변은?`, b * k,
       `c² - a² = b²\n${(c * k) ** 2} - ${(a * k) ** 2} = ${(b * k) ** 2}\n나머지 변 = ${b * k}`,
-      { skill: SK.shape });
+      { skill: SK.shape, visual: V.rtri(`${a * k}`, "?", `${c * k}`) });
   }), 10));
 
   units.push(makeUnit("도형의 닮음", "🔺", 9, gen(35, () => {

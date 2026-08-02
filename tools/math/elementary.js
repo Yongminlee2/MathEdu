@@ -633,17 +633,17 @@ function grade5() {
       const w = rint(2, 20), h = rint(2, 20);
       return numQ(`가로 ${w}cm, 세로 ${h}cm인 직사각형의 넓이는?`, w * h,
         `직사각형의 넓이 = 가로 × 세로 = ${w} × ${h} = ${w * h}cm²`,
-        { unit: "cm²", skill: SK.measure });
+        { unit: "cm²", skill: SK.measure, visual: V.geomRect(w, h) });
     } else if (t < 0.7) {
       const b = rint(2, 10) * 2, h = rint(2, 15);
       return numQ(`밑변 ${b}cm, 높이 ${h}cm인 삼각형의 넓이는?`, (b * h) / 2,
         `삼각형의 넓이 = 밑변 × 높이 ÷ 2 = ${b} × ${h} ÷ 2 = ${(b * h) / 2}cm²`,
-        { unit: "cm²", skill: SK.measure });
+        { unit: "cm²", skill: SK.measure, visual: V.geomTri(b, h) });
     }
     const a = rint(2, 12), b = rint(2, 12), h = rint(2, 10) * 2;
     return numQ(`윗변 ${a}cm, 아랫변 ${b}cm, 높이 ${h}cm인 사다리꼴의 넓이는?`, ((a + b) * h) / 2,
       `사다리꼴 넓이 = (윗변 + 아랫변) × 높이 ÷ 2 = (${a}+${b}) × ${h} ÷ 2 = ${((a + b) * h) / 2}cm²`,
-      { unit: "cm²", skill: SK.measure });
+      { unit: "cm²", skill: SK.measure, visual: V.geomTrap(a, b, h) });
   }), 8));
 
   units.push(makeUnit("평균 구하기", "📊", 6, gen(35, () => {
@@ -702,11 +702,11 @@ function grade6() {
     if (L.rng() < 0.5) {
       return numQ(`반지름이 ${r}cm인 원의 넓이는? (원주율 3.14)`, Math.round(3.14 * r * r * 100) / 100,
         `원의 넓이 = 반지름 × 반지름 × 3.14 = ${r} × ${r} × 3.14 = ${Math.round(3.14 * r * r * 100) / 100}cm²`,
-        { unit: "cm²", skill: SK.measure });
+        { unit: "cm²", skill: SK.measure, visual: V.geomCircle(r) });
     }
     return numQ(`반지름이 ${r}cm인 원의 둘레는? (원주율 3.14)`, Math.round(2 * 3.14 * r * 100) / 100,
       `원의 둘레 = 지름 × 3.14 = ${2 * r} × 3.14 = ${Math.round(2 * 3.14 * r * 100) / 100}cm`,
-      { unit: "cm", skill: SK.measure });
+      { unit: "cm", skill: SK.measure, visual: V.geomCircle(r) });
   }), 8));
 
   units.push(makeUnit("직육면체의 부피와 겉넓이", "🧊", 7, gen(40, () => {

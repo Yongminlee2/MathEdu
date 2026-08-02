@@ -129,7 +129,7 @@ function high2() {
       `f(x) = ${coef(a, "x³")} + ${coef(b, "x²")} ${c >= 0 ? "+ " + c : "- " + -c} 일 때 f'(${x})의 값은?`,
       d,
       `f'(x) = ${3 * a}x² + ${2 * b}x\nf'(${x}) = ${3 * a}×${x * x} + ${2 * b}×${x} = ${3 * a * x * x} + ${2 * b * x} = ${d}`,
-      { skill: SK.calc }
+      { skill: SK.calc, visual: V.tangent([a, b, 0, c], x) }
     );
   }), 10));
 
@@ -141,7 +141,7 @@ function high2() {
       `∫₀^${up} ${coef(a, "x")}^${n} dx 의 값은?`,
       Math.round(val * 1000) / 1000,
       `부정적분은 ${a}x^${n + 1}/${n + 1} 이에요.\n${up}을 대입: ${a}×${up ** (n + 1)}/${n + 1} = ${Math.round(val * 1000) / 1000}`,
-      { skill: SK.calc }
+      { skill: SK.calc, visual: V.area([a, ...Array(n).fill(0)], 0, up) }
     );
   }), 10));
 
@@ -165,11 +165,12 @@ function high3() {
     const t = L.rng();
     if (t < 0.5) {
       return numQ(`f(x) = ${coef(a, "x⁴")} 일 때 f'(${x})의 값은?`, 4 * a * x ** 3,
-        `f'(x) = ${4 * a}x³\nf'(${x}) = ${4 * a} × ${x ** 3} = ${4 * a * x ** 3}`, { skill: SK.calc });
+        `f'(x) = ${4 * a}x³\nf'(${x}) = ${4 * a} × ${x ** 3} = ${4 * a * x ** 3}`,
+        { skill: SK.calc, visual: V.tangent([a, 0, 0, 0, 0], x) });
     }
     return numQ(`f(x) = ${coef(a, "x²")} 일 때 x = ${x} 에서의 접선의 기울기는?`, 2 * a * x,
       `접선의 기울기는 f'(${x})예요. f'(x) = ${2 * a}x 이므로 ${2 * a}×${x} = ${2 * a * x}`,
-      { skill: SK.calc });
+      { skill: SK.calc, visual: V.tangent([a, 0, 0], x) });
   }), 10));
 
   units.push(makeUnit("정적분과 넓이", "📐", 13, gen(40, () => {
@@ -178,7 +179,7 @@ function high3() {
     return numQ(`곡선 y = ${coef(a, "x²")} 과 x축, x = ${up} 로 둘러싸인 부분의 넓이는? (소수 셋째 자리까지)`,
       Math.round(val * 1000) / 1000,
       `넓이 = ∫₀^${up} ${a}x² dx = ${a}x³/3 을 ${up}에 대입 = ${a}×${up ** 3}/3 = ${Math.round(val * 1000) / 1000}`,
-      { skill: SK.measure });
+      { skill: SK.measure, visual: V.area([a, 0, 0], 0, up) });
   }), 10));
 
   units.push(makeUnit("확률과 통계", "🎲", 13, gen(45, () => {
