@@ -1649,12 +1649,19 @@ class MathVisualView @JvmOverloads constructor(
                 canvas.drawPath(bag, edge)
                 // 주머니 입구 묶음
                 canvas.drawLine(cx - bw * 0.16f, top, cx + bw * 0.16f, top, edge)
-                // 구슬 배치 (4개씩 줄지어)
+                // 구슬 배치 — 주머니 안쪽 상자에 꼭 맞게 (밖으로 삐져나오지 않게)
                 val total = rCnt + bCnt
-                val perRow = 4
-                val rows = (total + perRow - 1) / perRow
-                val mr = minOf(bw * 0.09f, bhh * 0.4f / maxOf(rows, 1))
-                val startY = top + bhh * 0.42f
+                val innerW = bw * 0.72f
+                val innerH = bhh * 0.46f
+                var mr = 0f; var perRow = 1
+                for (rows in 1..maxOf(total, 1)) {
+                    val pr = kotlin.math.ceil(total / rows.toFloat()).toInt()
+                    val cell = minOf(innerW / pr, innerH / rows)
+                    if (cell > mr) { mr = cell; perRow = pr }
+                }
+                mr = (mr / 2f) * 0.86f
+                val rows = kotlin.math.ceil(total / perRow.toFloat()).toInt()
+                val startY = top + bhh * 0.58f - (rows - 1) * mr * 1.15f
                 val red = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#EF5350") }
                 val blue = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#42A5F5") }
                 val ring = Paint(Paint.ANTI_ALIAS_FLAG).apply {
