@@ -1093,7 +1093,8 @@ class LessonActivity : AppCompatActivity() {
             if (penalty && b.chickView.visibility == View.VISIBLE) b.chickView.oops()
         }
         showScratch(false)   // 채점 결과를 가리지 않도록 연습장을 접는다
-        b.btnCheck.visibility = View.GONE
+        // GONE 으로 없애면 그만큼 자리가 남아 문제가 아래로 밀린다 — 자리는 남겨 둔다
+        b.btnCheck.visibility = View.INVISIBLE
         b.feedbackPanel.visibility = View.VISIBLE
         b.feedbackPanel.background = getDrawable(
             if (correct) R.drawable.bg_feedback_ok else R.drawable.bg_feedback_no
