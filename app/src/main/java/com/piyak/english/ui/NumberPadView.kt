@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.widget.Button
 import android.widget.LinearLayout
+import com.piyak.english.R
 
 /** 아이도 누르기 쉬운 큰 숫자 키패드 */
 class NumberPadView @JvmOverloads constructor(
@@ -68,20 +69,27 @@ class NumberPadView @JvmOverloads constructor(
         for (k in keys) {
             val btn = Button(context).apply {
                 text = k
-                textSize = if (k.length > 1) 15f else 22f
+                textSize = if (k.length > 1) 15f else 21f
                 isAllCaps = false
                 setTextColor(Color.parseColor("#4E342E"))
-                backgroundTintList = ColorStateList.valueOf(
-                    Color.parseColor(
-                        when (k) {
-                            "⌫", "지우기" -> "#FFCCBC"
-                            " " -> "#00000000"
-                            else -> "#FFFFFF"
-                        }
-                    )
-                )
+                // 기본 버튼 배경에는 눈에 안 보이는 위아래 여백이 있어 글자가 잘린다 —
+                // 배경을 직접 지정하고 패딩·최소높이를 0으로 둔다
+                background = when (k) {
+                    "⌫", "지우기" -> context.getDrawable(R.drawable.bg_key_del)
+                    " " -> null
+                    else -> context.getDrawable(R.drawable.bg_key)
+                }
+                backgroundTintList = null
+                stateListAnimator = null
+                setPadding(0, 0, 0, 0)
+                minHeight = 0
+                minimumHeight = 0
+                minWidth = 0
+                minimumWidth = 0
+                includeFontPadding = false
+                gravity = android.view.Gravity.CENTER
                 isEnabled = k != " "
-                layoutParams = LayoutParams(0, dp(40), 1f).apply {
+                layoutParams = LayoutParams(0, dp(46), 1f).apply {
                     marginStart = dp(3); marginEnd = dp(3)
                 }
                 setOnClickListener { press(k) }
