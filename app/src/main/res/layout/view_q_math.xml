@@ -6,9 +6,18 @@
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal" android:gravity="center_vertical">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical">
         <TextView android:id="@+id/txtKind" android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="13sp" android:textColor="@color/brown_soft" android:text="🔢 수학" />
+        <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+        <ImageView android:layout_width="22dp" android:layout_height="22dp"
+            android:src="@drawable/ck_idle" android:contentDescription="삐약이" />
+        <TextView android:id="@+id/txtCountInline" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginStart="4dp" android:textSize="13sp" android:textStyle="bold"
+            android:textColor="@color/brown_soft" android:text="1 / 12" />
+    </LinearLayout>
         <!-- 읽어주기는 수학에서 뺐다 (사용자 결정 2026-08-03) — 코드가 참조하므로 gone 으로만 숨긴다 -->
         <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnSay" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="읽어주기" android:drawableStart="@drawable/ic_listen" android:drawablePadding="6dp" android:textSize="14sp" android:visibility="gone"
