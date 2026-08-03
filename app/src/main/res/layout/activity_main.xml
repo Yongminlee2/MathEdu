@@ -82,6 +82,14 @@
                 android:progressTint="@color/coral" android:progressBackgroundTint="@color/cream_dark" />
         </LinearLayout>
 
+        <!-- 트랙 카드 컨테이너 (코드 생성) -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="18dp" android:text="학습 코스" android:drawableStart="@drawable/ic_course" android:drawablePadding="6dp" android:drawableTint="@null"
+            android:textSize="16sp" android:textStyle="bold" />
+        <LinearLayout android:id="@+id/tracksBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:layout_marginTop="4dp" />
+
         <!-- 지갑 -->
         <LinearLayout android:id="@+id/cardWallet"
             android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -138,14 +146,6 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="GO ▶" android:textColor="@color/white" android:textSize="18sp" android:textStyle="bold" />
         </LinearLayout>
-
-        <!-- 트랙 카드 컨테이너 (코드 생성) -->
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="18dp" android:text="학습 코스" android:drawableStart="@drawable/ic_course" android:drawablePadding="6dp" android:drawableTint="@null"
-            android:textSize="16sp" android:textStyle="bold" />
-        <LinearLayout android:id="@+id/tracksBox"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:orientation="vertical" android:layout_marginTop="4dp" />
 
         <!-- 하단 버튼들 -->
         <LinearLayout
