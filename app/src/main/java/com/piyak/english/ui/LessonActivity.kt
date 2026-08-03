@@ -351,7 +351,11 @@ class LessonActivity : AppCompatActivity() {
         (v.layoutParams as? android.widget.FrameLayout.LayoutParams)?.gravity =
             android.view.Gravity.TOP
         v.findViewById<TextView>(R.id.txtCountInline)?.text = questionNo
+        // 입력칸(받아쓰기·영작)이 포커스를 채가면 스크롤이 아래로 끌려가 문제 위쪽이 잘린다
+        v.isFocusableInTouchMode = true
         b.questionBox.addView(v)
+        v.requestFocus()
+        b.questionScroll.post { b.questionScroll.scrollTo(0, 0) }
         v.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
             override fun onLayoutChange(
                 view: View, l: Int, t: Int, r: Int, bo: Int,
