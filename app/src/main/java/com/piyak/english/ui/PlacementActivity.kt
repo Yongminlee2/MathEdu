@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.piyak.english.R
 import com.piyak.english.audio.Tts
 import com.piyak.english.databinding.ActivityPlacementBinding
 import com.piyak.english.db.Db
@@ -56,7 +57,7 @@ class PlacementActivity : AppCompatActivity() {
                 layoutParams = LinearLayout.LayoutParams((96 * den).toInt(), (96 * den).toInt())
             })
             box.addView(android.widget.TextView(this).apply {
-                text = "레벨테스트를 그만둘까요?"
+                text = getString(R.string.placement_quit_ask)
                 textSize = 15f
                 gravity = android.view.Gravity.CENTER
                 setTextColor(Color.parseColor("#4E342E"))
@@ -64,8 +65,8 @@ class PlacementActivity : AppCompatActivity() {
             })
             AlertDialog.Builder(this)
                 .setView(box)
-                .setPositiveButton("그만두기") { _, _ -> finish() }
-                .setNegativeButton("계속", null).show()
+                .setPositiveButton(getString(R.string.lesson_quit)) { _, _ -> finish() }
+                .setNegativeButton(getString(R.string.lesson_continue), null).show()
         }
         b.btnDone.setOnClickListener { finish() }
         showNext()

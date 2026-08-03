@@ -12,14 +12,14 @@
             android:maxLines="1" android:ellipsize="end"
             android:textSize="13sp" android:textColor="@color/brown_soft" android:text="🔤 뜻 고르기" />
         <ImageView android:layout_width="22dp" android:layout_height="22dp"
-            android:src="@drawable/ck_idle" android:contentDescription="삐약이" />
+            android:src="@drawable/ck_idle" android:contentDescription="@string/chick" />
         <TextView android:id="@+id/txtCountInline" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_marginStart="4dp" android:textSize="13sp" android:textStyle="bold"
             android:textColor="@color/brown_soft" android:text="1 / 12" />
     </LinearLayout>
         <!-- 읽어주기는 수학에서 뺐다 (사용자 결정 2026-08-03) — 코드가 참조하므로 gone 으로만 숨긴다 -->
         <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnSay" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="읽어주기" android:drawableStart="@drawable/ic_listen" android:drawablePadding="6dp" android:textSize="14sp" android:visibility="gone"
+            android:text="@string/lesson_read_aloud" android:drawableStart="@drawable/ic_listen" android:drawablePadding="6dp" android:textSize="14sp" android:visibility="gone"
             android:background="@drawable/bg_pill_sky" android:backgroundTint="@null"
             android:textColor="@color/brown_text" android:stateListAnimator="@null" />
     </LinearLayout>
@@ -44,10 +44,10 @@
         android:visibility="gone">
         <TextView android:id="@+id/txtCount" android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_weight="1" android:textSize="14sp" android:textColor="@color/brown_soft"
-            android:text="👆 그림을 하나씩 짚어 세어 보세요" />
+            android:text="@string/lesson_count_hint" />
         <Button android:id="@+id/btnCountReset" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:minWidth="0dp" android:paddingHorizontal="12dp"
-            android:text="다시 세기" android:textSize="12sp"
+            android:text="@string/lesson_count_reset" android:textSize="12sp"
             android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
     </LinearLayout>
 
@@ -76,6 +76,6 @@
         android:layout_marginTop="14dp" android:padding="14dp"
         android:background="@drawable/bg_tile" android:textSize="18sp"
         android:inputType="textNoSuggestions|textVisiblePassword" android:imeOptions="actionDone"
-        android:hint="답을 입력하세요" android:importantForAutofill="no"
+        android:hint="@string/lesson_answer_hint" android:importantForAutofill="no"
         android:visibility="gone" />
 </LinearLayout>

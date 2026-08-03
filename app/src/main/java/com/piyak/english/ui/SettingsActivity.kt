@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.SeekBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.piyak.english.R
 import com.piyak.english.audio.Tts
 import com.piyak.english.databinding.ActivitySettingsBinding
 import com.piyak.english.db.Db
@@ -95,13 +96,12 @@ class SettingsActivity : AppCompatActivity() {
 
         b.btnReset.setOnClickListener {
             AlertDialog.Builder(this)
-                .setTitle("정말 초기화할까요?")
-                .setMessage("모든 진행도·XP·배지·오답이 삭제돼요.\n되돌릴 수 없어요!")
-                .setPositiveButton("초기화") { _, _ ->
+                .setMessage(getString(R.string.set_reset_ask))
+                .setPositiveButton(getString(R.string.set_reset)) { _, _ ->
                     db.resetAll()
                     android.widget.Toast.makeText(this, "초기화 완료! 처음부터 삐약! 🐣", android.widget.Toast.LENGTH_SHORT).show()
                 }
-                .setNegativeButton("취소", null).show()
+                .setNegativeButton(getString(R.string.cancel), null).show()
         }
     }
 
