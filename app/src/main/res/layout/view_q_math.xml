@@ -11,8 +11,9 @@
             android:textSize="13sp" android:textColor="@color/brown_soft" android:text="🔢 수학" />
         <!-- 읽어주기는 수학에서 뺐다 (사용자 결정 2026-08-03) — 코드가 참조하므로 gone 으로만 숨긴다 -->
         <Button android:id="@+id/btnSay" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="🔊 읽어주기" android:textSize="13sp" android:visibility="gone"
-            android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
+            android:text="🔊 읽어주기" android:textSize="14sp" android:visibility="gone"
+            android:background="@drawable/bg_pill_sky" android:backgroundTint="@null"
+            android:textColor="@color/brown_text" android:stateListAnimator="@null" />
     </LinearLayout>
 
     <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"
