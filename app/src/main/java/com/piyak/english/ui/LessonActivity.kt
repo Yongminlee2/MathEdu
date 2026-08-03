@@ -60,6 +60,9 @@ class LessonActivity : AppCompatActivity() {
     /** 연속 정답 수 (오답이면 조용히 리셋) */
     private var combo = 0
 
+    /** "3 / 12" — 문제 뷰가 만들어질 때 종류 라벨 옆에 채운다 */
+    private var questionNo = ""
+
     /** 첫 문제는 전환 애니메이션 없이 바로 */
     private var firstQuestion = true
 
@@ -244,7 +247,7 @@ class LessonActivity : AppCompatActivity() {
         b.root.postDelayed(sleepRun, 45_000L)
 
         b.progressBar.progress = (s.progress * 100).toInt()
-        b.txtCount.text = "${(s.solvedCount + 1).coerceAtMost(s.totalCount)} / ${s.totalCount}"
+        questionNo = "${(s.solvedCount + 1).coerceAtMost(s.totalCount)} / ${s.totalCount}"
         showHearts(if (reviewMode) null else if (db.heartsEnabled()) s.hearts else -1)
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
@@ -347,6 +350,7 @@ class LessonActivity : AppCompatActivity() {
         // 그냥 가운데 정렬하면 진행바와 문제 사이가 손가락 두 마디만큼 벌어진다
         (v.layoutParams as? android.widget.FrameLayout.LayoutParams)?.gravity =
             android.view.Gravity.TOP
+        v.findViewById<TextView>(R.id.txtCountInline)?.text = questionNo
         b.questionBox.addView(v)
         v.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
             override fun onLayoutChange(
