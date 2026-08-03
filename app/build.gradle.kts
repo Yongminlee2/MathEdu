@@ -12,8 +12,8 @@ android {
         applicationId = "com.piyak.math"
         minSdk = 26
         targetSdk = 36
-        versionCode = 42
-        versionName = "1.41"
+        versionCode = 43
+        versionName = "1.42"
     }
 
     buildTypes {
