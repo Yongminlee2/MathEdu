@@ -26,9 +26,7 @@ class MainActivity : AppCompatActivity() {
     private var sfx: com.piyak.english.audio.Sfx? = null
     private var subject: com.piyak.english.model.Subject = com.piyak.english.model.Subject.ENGLISH
     private val greetings = listOf(
-        "오늘도 삐약삐약 공부해요!", "꾸준함이 최고의 재능이에요 🐥",
-        "한 문제라도 풀면 오늘은 성공!", "삐약! 수학이 무서우면 저를 봐요!",
-        "어제의 나보다 한 문제 더!", "숫자와 친해지는 그날까지 🔢",
+        getString(R.string.home_greeting),
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         b.btnReview.setOnClickListener {
             val db = Db.get(this)
             if (db.wrongCount() == 0) {
-                android.widget.Toast.makeText(this, "복습할 오답이 없어요! 삐약 🐥", android.widget.Toast.LENGTH_SHORT).show()
+                android.widget.Toast.makeText(this, getString(R.string.home_no_review), android.widget.Toast.LENGTH_SHORT).show()
             } else {
                 startActivity(Intent(this, LessonActivity::class.java).putExtra("mode", "review"))
             }
@@ -136,7 +134,7 @@ class MainActivity : AppCompatActivity() {
         b.txtStreak.text = "$streak"
         b.txtLevel.text = "Lv.$lv"
         b.xpBar.progress = (Economy.levelProgress(xp) * 100).toInt()
-        b.txtReview.text = "오답 ${db.wrongCount()}"
+        b.txtReview.text = getString(R.string.home_wrong_count, db.wrongCount())
         // 배치고사 배너: 과목별로 아직 안 본 경우에만
         val placedKey = if (subject == com.piyak.english.model.Subject.MATH)
             "math_placement_done" else "placement_done"
@@ -164,13 +162,14 @@ class MainActivity : AppCompatActivity() {
         b.txtRank.text = "${rank.emoji} ${rank.title}" + if (sticker.isNotEmpty()) " $sticker" else ""
         b.rankBar.progress = (Ranks.progress(overall) * 100).toInt()
         val next = Ranks.next(overall)
-        b.txtOverall.text = String.format("종합 실력 Lv.%.1f", overall) +
+        b.txtOverall.text = getString(R.string.home_overall_lv, String.format("%.1f", overall)) +
             if (next != null) "  →  다음 칭호 ${next.emoji} ${next.title}" else "  (최고 칭호!)"
 
         val goal = db.dailyGoal()
         val todayXp = db.xpToday()
         val done = DailyGoal.isDone(todayXp, goal)
-        b.txtGoal.text = "오늘의 목표  $todayXp / $goal XP" + if (done) "   ✅ 달성!" else ""
+        b.txtGoal.text = getString(R.string.home_daily_goal, todayXp, goal) +
+            if (done) getString(R.string.home_goal_done) else ""
         b.goalBar.progress = (DailyGoal.progress(todayXp, goal) * 100).toInt()
         b.goalBar.progressTintList = ColorStateList.valueOf(
             Color.parseColor(if (done) "#66BB6A" else "#FF8A80")

@@ -11,7 +11,7 @@
             <Button android:id="@+id/btnClose" style="?attr/materialIconButtonStyle"
                 android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✖" />
             <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="🎯 레벨테스트" android:textSize="20sp" android:textStyle="bold" />
+                android:text="@string/placement_title" android:textSize="20sp" android:textStyle="bold" />
             <TextView android:id="@+id/txtCount" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:textSize="15sp" android:textColor="@color/brown_soft" android:text="1 / 25" />
         </LinearLayout>
@@ -43,14 +43,14 @@
         android:orientation="vertical" android:gravity="center"
         android:background="@color/cream" android:visibility="gone" android:padding="24dp">
         <ImageView android:layout_width="150dp" android:layout_height="150dp"
-            android:src="@drawable/ck_cheer" android:contentDescription="삐약이" />
+            android:src="@drawable/ck_cheer" android:contentDescription="@string/chick" />
         <TextView android:id="@+id/txtResultTitle" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_marginTop="16dp" android:textSize="26sp" android:textStyle="bold" android:text="" />
         <TextView android:id="@+id/txtResultDesc" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_marginTop="10dp" android:textSize="16sp" android:gravity="center" android:text="" />
         <Button android:id="@+id/btnDone"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="28dp" android:text="시작하기" android:textSize="18sp"
+            android:layout_marginTop="28dp" android:text="@string/start" android:textSize="18sp"
             android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
     </LinearLayout>
 </FrameLayout>

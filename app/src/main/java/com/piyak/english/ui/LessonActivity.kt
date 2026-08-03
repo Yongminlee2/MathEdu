@@ -174,6 +174,7 @@ class LessonActivity : AppCompatActivity() {
         // 병아리는 전 학년 상주 — "고등은 깔끔하게"를 시도했다가
         // 사용자가 "전부 귀염뽀짝"으로 결정해서 게이트를 걷어냈다
 
+        registerBackHandler()
         showQuestion()
     }
 
@@ -184,14 +185,22 @@ class LessonActivity : AppCompatActivity() {
         b.root.removeCallbacks(sleepRun)
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() { confirmQuit() }
+    /**
+     * 뒤로가기 — 예전 방식(onBackPressed 재정의)은 안드로이드 13+ 의 예측형 뒤로가기와
+     * 어긋나고 린트 오류도 난다. 콜백을 등록하는 방식으로 바꿨다.
+     */
+    private fun registerBackHandler() {
+        onBackPressedDispatcher.addCallback(this,
+            object : androidx.activity.OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() = confirmQuit()
+            })
+    }
 
     private fun confirmQuit() {
         AlertDialog.Builder(this)
-            .setView(cuteDialogView("레슨을 그만둘까요?\n진행 상황은 저장되지 않아요"))
-            .setPositiveButton("그만두기") { _, _ -> finish() }
-            .setNegativeButton("계속하기", null).show()
+            .setView(cuteDialogView(getString(R.string.lesson_quit_ask)))
+            .setPositiveButton(getString(R.string.lesson_quit)) { _, _ -> finish() }
+            .setNegativeButton(getString(R.string.lesson_continue), null).show()
     }
 
     /** 응원 병아리가 있는 확인 대화상자 내용 (이모지 대신 진짜 일러스트) */
@@ -1159,7 +1168,7 @@ class LessonActivity : AppCompatActivity() {
         val icon = if (n != null && n >= 0) R.drawable.ic_heart else 0
         b.txtHearts.setCompoundDrawablesRelativeWithIntrinsicBounds(icon, 0, 0, 0)
         b.txtHearts.text = when {
-            n == null -> "복습"
+            n == null -> getString(R.string.lesson_review_mode)
             n < 0 -> ""
             else -> "$n"
         }
