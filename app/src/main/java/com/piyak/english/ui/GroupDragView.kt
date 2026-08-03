@@ -32,6 +32,8 @@ class GroupDragView @JvmOverloads constructor(
         var homeX: Float, var homeY: Float,
         /** 지금 담긴 바구니. -1 이면 아직 안 담김 */
         var group: Int = -1,
+        /** 바구니 안에서 그릴 크기 (0 이면 기본 크기) */
+        var size: Float = 0f,
     )
 
     private val items = ArrayList<Item>()
@@ -235,7 +237,8 @@ class GroupDragView @JvmOverloads constructor(
 
         for (it in items) {
             if (it === dragging) continue
-            drawEmojiItem(canvas, it.emoji, it.x, it.y, if (it.group >= 0) itemSize * 0.74f else itemSize)
+            val sz = if (it.group >= 0 && it.size > 0f) it.size else itemSize
+            drawEmojiItem(canvas, it.emoji, it.x, it.y, sz)
         }
         dragging?.let {
             drawEmojiItem(canvas, it.emoji, it.x, it.y, itemSize * 1.18f)
@@ -247,7 +250,7 @@ class GroupDragView @JvmOverloads constructor(
         val d = EmojiArt.of(context, emoji)
         if (d != null) {
             // 이모지 글자의 눈에 보이는 중심이 (x, y) — 그림도 같은 자리에 놓는다
-            val half = (ts * 0.62f).toInt()
+            val half = (ts * 0.52f).toInt()
             d.setBounds((x - half).toInt(), (y - half).toInt(), (x + half).toInt(), (y + half).toInt())
             d.draw(canvas)
         } else {
@@ -297,17 +300,44 @@ class GroupDragView @JvmOverloads constructor(
     }
 
     /** 바구니 안에서 겹치지 않게 자리 잡기 */
-    private fun placeInGroup(item: Item, g: Int) {
+    /**
+     * 바구니에 담긴 것들을 다시 줄 세운다.
+     *
+     * ⚠️ 예전에는 칸 크기를 고정해 두고 순서대로 놓기만 해서, 많이 담으면
+     *    아래·옆으로 밀려나 **바구니 밖에 그려져 사라진 것처럼** 보였다.
+     *    이제는 담긴 개수에 맞춰 칸(과 그림)을 줄여 항상 바구니 안에 들어온다.
+     */
+    private fun placeInGroup(item: Item, g: Int) = relayoutGroup(g)
+
+    private fun relayoutGroup(g: Int) {
         val rect = groupRects.getOrNull(g) ?: return
-        val idx = items.filter { it.group == g }.indexOf(item).coerceAtLeast(0)
+        val mine = items.filter { it.group == g }
+        if (mine.isEmpty()) return
         val top = rect.top + textPaint.textSize * 1.5f
-        val stepX = itemSize * 0.84f
-        // 세로는 더 벌린다 — 담긴 이모지도 지정 크기보다 크게 그려져 윗줄과 닿는다
-        val stepY = itemSize * 1.05f
-        // 바구니가 넓으면 한 줄에 더 많이 (모으기는 바구니가 하나뿐이라 아주 넓다)
-        val perRow = (rect.width() / stepX).toInt().coerceIn(2, 8)
-        item.x = rect.left + stepX * (idx % perRow) + stepX * 0.6f
-        item.y = top + stepY * (idx / perRow) + stepY * 0.5f
+        val bottom = rect.bottom - if (sortMode) dp(6f) else textPaint.textSize * 1.3f
+        val availW = rect.width() - dp(8f)
+        val availH = (bottom - top).coerceAtLeast(dp(24f))
+        val n = mine.size
+
+        // 줄 수를 늘려 가며 바구니에 들어가는 가장 큰 칸을 고른다
+        var best = 0f; var bestPerRow = 1
+        for (rows in 1..n) {
+            val perRow = kotlin.math.ceil(n / rows.toFloat()).toInt()
+            val cell = minOf(availW / perRow, availH / rows)
+            if (cell > best) { best = cell; bestPerRow = perRow }
+        }
+        val cell = best.coerceAtMost(itemSize * 1.05f)
+        val perRow = bestPerRow
+        val rows = kotlin.math.ceil(n / perRow.toFloat()).toInt()
+        val startY = top + (availH - cell * rows) / 2f + cell / 2f
+        mine.forEachIndexed { idx, it ->
+            val r = idx / perRow
+            val c = idx % perRow
+            val inRow = minOf(perRow, n - r * perRow)
+            it.x = rect.centerX() + (c - (inRow - 1) / 2f) * cell
+            it.y = startY + r * cell
+            it.size = cell * 0.82f
+        }
     }
 
     private fun dp(v: Float): Float = v * resources.displayMetrics.density
