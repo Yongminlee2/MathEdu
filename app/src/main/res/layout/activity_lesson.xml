@@ -67,27 +67,27 @@
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="horizontal" android:gravity="center">
         <!-- 색 펜: 글자 없이 색만 (좁은 폭에서 글자가 깨지지 않게) -->
-        <Button android:id="@+id/btnPenDark" android:layout_width="42dp" android:layout_height="42dp"
+        <Button android:id="@+id/btnPenDark" android:layout_width="42dp" android:layout_height="46dp"
             android:layout_marginEnd="6dp" android:minWidth="0dp" android:insetLeft="0dp"
             android:insetRight="0dp" android:insetTop="0dp" android:insetBottom="0dp"
             android:backgroundTint="#3E2723" />
-        <Button android:id="@+id/btnPenRed" android:layout_width="42dp" android:layout_height="42dp"
+        <Button android:id="@+id/btnPenRed" android:layout_width="42dp" android:layout_height="46dp"
             android:layout_marginEnd="6dp" android:minWidth="0dp" android:insetLeft="0dp"
             android:insetRight="0dp" android:insetTop="0dp" android:insetBottom="0dp"
             android:backgroundTint="#E53935" />
-        <Button android:id="@+id/btnPenBlue" android:layout_width="42dp" android:layout_height="42dp"
+        <Button android:id="@+id/btnPenBlue" android:layout_width="42dp" android:layout_height="46dp"
             android:layout_marginEnd="6dp" android:minWidth="0dp" android:insetLeft="0dp"
             android:insetRight="0dp" android:insetTop="0dp" android:insetBottom="0dp"
             android:backgroundTint="#1E88E5" />
-        <Button android:id="@+id/btnEraser" android:layout_width="0dp" android:layout_height="44dp"
+        <Button android:id="@+id/btnEraser" android:layout_width="0dp" android:layout_height="46dp"
             android:layout_weight="1" android:layout_marginEnd="5dp" android:minWidth="0dp"
             android:paddingHorizontal="2dp" android:text="🧽 지우개" android:textSize="12sp"
             android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
-        <Button android:id="@+id/btnUndo" android:layout_width="0dp" android:layout_height="44dp"
+        <Button android:id="@+id/btnUndo" android:layout_width="0dp" android:layout_height="46dp"
             android:layout_weight="1" android:layout_marginEnd="5dp" android:minWidth="0dp"
             android:paddingHorizontal="2dp" android:text="↩ 되돌리기" android:textSize="12sp"
             android:backgroundTint="@color/white" android:textColor="@color/brown_text" />
-        <Button android:id="@+id/btnClearPad" android:layout_width="0dp" android:layout_height="44dp"
+        <Button android:id="@+id/btnClearPad" android:layout_width="0dp" android:layout_height="46dp"
             android:layout_weight="1" android:minWidth="0dp"
             android:paddingHorizontal="2dp" android:text="🗑 모두 지움" android:textSize="12sp"
             android:backgroundTint="@color/white" android:textColor="@color/brown_text" />
