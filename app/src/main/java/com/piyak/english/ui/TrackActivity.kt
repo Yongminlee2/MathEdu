@@ -30,7 +30,11 @@ class TrackActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         val t = ContentRepo.track(this, trackId) ?: run { finish(); return }
-        b.txtTitle.text = "${t.emoji} ${t.title}"
+        // 트랙 이름은 팩(한국어)이 아니라 학년 리소스에서 — 폰 언어를 따라야 한다
+        val grade = com.piyak.english.model.MathGrades.of(trackId)
+        b.txtTitle.text = "${t.emoji} " + (
+            // 한국어 폰은 팩 제목 그대로("유치원 수학") — 지금까지의 화면이 하나도 안 바뀐다
+            if (grade != null && !com.piyak.english.i18n.Tpl.isKorean) getString(grade.titleRes) else t.title)
         build(t)
     }
 

@@ -23,6 +23,12 @@ object Tpl {
     private var pkg: String = ""
     private var passthrough = true
 
+    /**
+     * 이 폰이 한국어인가.
+     * 한국어면 팩에 실린 한국어를 **그대로** 쓴다 — 지금까지의 화면이 하나도 안 바뀐다.
+     */
+    val isKorean: Boolean get() = passthrough
+
     /** "tpl_<키>" → 리소스 id. 0 은 "번역 없음"으로 캐시된다 */
     private val ids = HashMap<String, Int>()
 

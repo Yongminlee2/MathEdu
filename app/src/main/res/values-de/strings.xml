@@ -659,6 +659,8 @@
     <string name="tpl_a98236e0">%1$s liegt %2$s Schritte rechts von 0.</string>
     <string name="tpl_e7144613">%1$s ist %2$s kleiner als 0. Gehe von 0 aus %3$s Schritte nach links.</string>
     <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
+    <string name="tpl_t_word">%1$s</string>
+    <string name="tpl_t_num">%1$s %2$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">
@@ -749,6 +751,122 @@
         <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|Die Einer reichen nicht, also borge 10 von den Zehnern.</item>
         <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|Bei verschiedenen Vorzeichen gilt das Vorzeichen des größeren Betrags.</item>
         <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|Sind beide negativ, addiere die Beträge und setze ein Minus davor.</item>
+        <item>몇 개일까요? (1~10)|Wie viele? (1–10)</item>
+        <item>몇 개일까요? (10~20)|Wie viele? (10–20)</item>
+        <item>어느 쪽이 더 많을까?|Welche Seite hat mehr?</item>
+        <item>모양을 찾아요|Finde die Form</item>
+        <item>옮기면서 세기|Verschieben und zählen</item>
+        <item>모양 나누어 담기|Formen sortieren</item>
+        <item>다음 수는 무엇일까?|Welche Zahl kommt?</item>
+        <item>규칙을 찾아요|Finde die Regel</item>
+        <item>그림 덧셈|Bild-Addition</item>
+        <item>모아서 더하기|Zusammenlegen und addieren</item>
+        <item>그림 뺄셈|Bild-Subtraktion</item>
+        <item>덜어내고 빼기|Wegnehmen und subtrahieren</item>
+        <item>10을 만들어요|Mach die 10 voll</item>
+        <item>100까지의 수|Zahlen bis 100</item>
+        <item>어느 수가 더 클까?|Welche Zahl ist größer?</item>
+        <item>몇 시일까요?|Wie spät ist es?</item>
+        <item>수직선에서 찾기|Auf dem Zahlenstrahl finden</item>
+        <item>시계 바늘 돌리기|Zeiger drehen</item>
+        <item>이야기 문제 (더하기·빼기)|Textaufgaben (+ und −)</item>
+        <item>받아올림 덧셈|Addition mit Übertrag</item>
+        <item>받아내림 뺄셈|Subtraktion mit Entlehnen</item>
+        <item>2단 곱셈구구|Zweierreihe</item>
+        <item>3단 곱셈구구|Dreierreihe</item>
+        <item>4단 곱셈구구|Viererreihe</item>
+        <item>5단 곱셈구구|Fünferreihe</item>
+        <item>6단 곱셈구구|Sechserreihe</item>
+        <item>7단 곱셈구구|Siebenerreihe</item>
+        <item>8단 곱셈구구|Achterreihe</item>
+        <item>9단 곱셈구구|Neunerreihe</item>
+        <item>세 자리 수|Dreistellige Zahlen</item>
+        <item>길이 재기 (cm·m)|Länge messen (cm·m)</item>
+        <item>몇 시 몇 분|Stunden und Minuten</item>
+        <item>시계 바늘 돌리기 (5분)|Zeiger drehen (5 Min.)</item>
+        <item>표와 그래프|Tabellen und Diagramme</item>
+        <item>그래프 세우기|Diagramm bauen</item>
+        <item>수직선에서 찾기 (100까지)|Auf dem Zahlenstrahl (bis 100)</item>
+        <item>나눗셈 (똑같이 나누기)|Division (gleich aufteilen)</item>
+        <item>끌어서 똑같이 나누기|Ziehen und gleich aufteilen</item>
+        <item>두 자리 × 한 자리|Zweistellig × einstellig</item>
+        <item>분수 알아보기|Brüche verstehen</item>
+        <item>분수만큼 색칠하기|Bruch anmalen</item>
+        <item>소수 알아보기|Dezimalzahlen verstehen</item>
+        <item>수직선에서 소수 찾기|Dezimalzahlen am Zahlenstrahl</item>
+        <item>소수만큼 색칠하기|Dezimalzahl anmalen</item>
+        <item>직각과 평면도형|Rechte Winkel und Flächenformen</item>
+        <item>도형 분류하기|Formen einteilen</item>
+        <item>길이와 시간|Länge und Zeit</item>
+        <item>무게와 들이|Gewicht und Fassungsvermögen</item>
+        <item>이야기 문제 (곱하기·나누기)|Textaufgaben (× und ÷)</item>
+        <item>큰 수|Große Zahlen</item>
+        <item>각도 만들기|Winkel bilden</item>
+        <item>각도 재기|Winkel messen</item>
+        <item>세 자리 × 두 자리|Dreistellig × zweistellig</item>
+        <item>나눗셈 (몫과 나머지)|Division (Quotient und Rest)</item>
+        <item>분수의 덧셈과 뺄셈|Brüche addieren und subtrahieren</item>
+        <item>소수의 덧셈과 뺄셈|Dezimalzahlen addieren und subtrahieren</item>
+        <item>그래프 세우기 (큰 수)|Diagramm bauen (große Zahlen)</item>
+        <item>막대그래프 읽기|Balkendiagramme lesen</item>
+        <item>이야기 문제 (두 단계)|Zweischrittige Textaufgaben</item>
+        <item>자연수의 혼합 계산|Gemischte Rechnungen</item>
+        <item>약수와 배수|Teiler und Vielfache</item>
+        <item>약분과 통분|Kürzen und gleichnamig machen</item>
+        <item>분수의 곱셈|Brüche multiplizieren</item>
+        <item>다각형의 넓이|Flächeninhalt von Vielecken</item>
+        <item>평균 구하기|Durchschnitt berechnen</item>
+        <item>이야기 문제 (평균·비율)|Textaufgaben (Durchschnitt, Anteil)</item>
+        <item>분수의 나눗셈|Brüche dividieren</item>
+        <item>소수의 나눗셈|Dezimalzahlen dividieren</item>
+        <item>비와 비율|Verhältnis und Anteil</item>
+        <item>백분율|Prozent</item>
+        <item>원의 넓이와 둘레|Kreisfläche und Umfang</item>
+        <item>직육면체의 부피와 겉넓이|Volumen und Oberfläche des Quaders</item>
+        <item>여러 가지 그래프|Verschiedene Diagramme</item>
+        <item>이야기 문제 (비율·속력)|Textaufgaben (Anteil, Geschwindigkeit)</item>
+        <item>소인수분해|Primfaktorzerlegung</item>
+        <item>정수와 유리수의 계산|Ganze und rationale Zahlen</item>
+        <item>문자와 식|Variablen und Terme</item>
+        <item>일차방정식|Lineare Gleichungen</item>
+        <item>저울로 방정식 풀기|Gleichungen mit der Waage lösen</item>
+        <item>수직선에서 정수 찾기|Ganze Zahlen am Zahlenstrahl</item>
+        <item>정비례와 반비례|Direkte und umgekehrte Proportionalität</item>
+        <item>평면도형의 성질|Eigenschaften ebener Figuren</item>
+        <item>입체도형의 겉넓이와 부피|Oberfläche und Volumen von Körpern</item>
+        <item>자료의 정리와 해석|Daten ordnen und deuten</item>
+        <item>방정식 문장제|Gleichungs-Textaufgaben</item>
+        <item>지수법칙|Potenzgesetze</item>
+        <item>일차부등식|Lineare Ungleichungen</item>
+        <item>연립방정식|Gleichungssysteme</item>
+        <item>일차함수와 그래프|Lineare Funktionen und Graphen</item>
+        <item>피타고라스 정리|Satz des Pythagoras</item>
+        <item>도형의 닮음|Ähnliche Figuren</item>
+        <item>확률|Wahrscheinlichkeit</item>
+        <item>제곱근과 실수|Quadratwurzeln und reelle Zahlen</item>
+        <item>인수분해|Faktorisierung</item>
+        <item>이차방정식|Quadratische Gleichungen</item>
+        <item>이차함수|Quadratische Funktionen</item>
+        <item>삼각비|Trigonometrische Verhältnisse</item>
+        <item>원의 성질|Eigenschaften des Kreises</item>
+        <item>통계 (대푯값)|Statistik (Mittelwerte)</item>
+        <item>다항식과 나머지정리|Polynome und Restsatz</item>
+        <item>이차방정식과 판별식|Quadratische Gleichungen und Diskriminante</item>
+        <item>순열과 조합|Permutationen und Kombinationen</item>
+        <item>도형의 방정식|Gleichungen von Figuren</item>
+        <item>집합과 명제|Mengen und Aussagen</item>
+        <item>지수와 로그|Exponenten und Logarithmen</item>
+        <item>삼각함수|Trigonometrische Funktionen</item>
+        <item>수열|Folgen</item>
+        <item>함수의 극한|Grenzwerte von Funktionen</item>
+        <item>미분|Differentiation</item>
+        <item>적분|Integration</item>
+        <item>수열의 극한|Grenzwerte von Folgen</item>
+        <item>여러 가지 함수의 미분|Ableitungen verschiedener Funktionen</item>
+        <item>정적분과 넓이|Bestimmte Integrale und Fläche</item>
+        <item>확률과 통계|Wahrscheinlichkeit und Statistik</item>
+        <item>공간도형과 벡터|Raumgeometrie und Vektoren</item>
+        <item>이차곡선|Kegelschnitte</item>
     </string-array>
     <string-array name="tpl_units">
         <item>개|</item>
