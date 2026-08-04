@@ -88,6 +88,16 @@ console.log(missing === 0 ? "UI 번역 누락 없음" : `UI에서 영어로 대�
 // 뼈대 번역의 서식(%n$s) 개수가 원문과 다르면 앱에서 문장이 깨진다 — 여기서 잡는다
 let bad = 0;
 const slots = (s) => new Set((s.match(/%\d+\$s/g) || [])).size;
+
+// 영어가 없으면 다른 언어도 기댈 곳이 없다 — 그 문장은 한국어로 떨어진다.
+// "번역이 없으면 영어" 규칙을 지키려면 영어만큼은 반드시 있어야 한다.
+for (const key of Object.keys(tplKo)) {
+  if (!tplTr[key] || !tplTr[key].en) {
+    console.log(`  ⚠ 영어 번역 없음: tpl_${key} — "${tplKo[key].ko.slice(0, 50)}"`);
+    bad++;
+  }
+}
+
 for (const [key, byLang] of Object.entries(tplTr)) {
   const src = tplKo[key];
   if (!src) { console.log(`  ⚠ 없는 뼈대: ${key}`); bad++; continue; }

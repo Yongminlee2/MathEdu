@@ -347,6 +347,9 @@
     <string name="tpl_cc9224e2">是从0向右走 %1$s 格的位置。\n%2$s 比10小。</string>
     <string name="tpl_298087b1">是从0向右走 %1$s 格的位置。\n%2$s 比10大。</string>
     <string name="tpl_c9b3271e">是从0向右走 %1$s 格的位置。\n%2$s 正好是10。</string>
+    <string name="tpl_a98236e0">%1$s 是从0向右走 %2$s 格的位置。</string>
+    <string name="tpl_e7144613">%1$s 比0小 %2$s。从0向左走 %3$s 格。</string>
+    <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">

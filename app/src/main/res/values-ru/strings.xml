@@ -347,6 +347,9 @@
     <string name="tpl_cc9224e2">Это %1$s шагов вправо от 0.\n%2$s меньше 10.</string>
     <string name="tpl_298087b1">Это %1$s шагов вправо от 0.\n%2$s больше 10.</string>
     <string name="tpl_c9b3271e">Это %1$s шагов вправо от 0.\n%2$s — это ровно 10.</string>
+    <string name="tpl_a98236e0">%1$s находится на %2$s шагов правее 0.</string>
+    <string name="tpl_e7144613">%1$s меньше 0 на %2$s. Отсчитай %3$s шагов влево от 0.</string>
+    <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">

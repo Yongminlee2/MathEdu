@@ -347,6 +347,9 @@
     <string name="tpl_cc9224e2">Letaknya %1$s langkah ke kanan dari 0.\n%2$s lebih kecil dari 10.</string>
     <string name="tpl_298087b1">Letaknya %1$s langkah ke kanan dari 0.\n%2$s lebih besar dari 10.</string>
     <string name="tpl_c9b3271e">Letaknya %1$s langkah ke kanan dari 0.\n%2$s tepat 10.</string>
+    <string name="tpl_a98236e0">%1$s berada %2$s langkah ke kanan dari 0.</string>
+    <string name="tpl_e7144613">%1$s lebih kecil %2$s dari 0. Melangkahlah %3$s ke kiri dari 0.</string>
+    <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">

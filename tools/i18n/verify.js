@@ -74,18 +74,28 @@ for (const lang of targets) {
   const wd = makeDict(wordTr, lang);
   const ud = makeDict(unitTr, lang);
   const leftover = new Map();      // 남은 한글 → 예시
+  const noTrSample = new Map();    // 뼈대가 없어 한국어로 떨어지는 문장 → 예시
   let noTr = 0, badArgs = 0, done = 0;
 
   for (const q of questions) {
     for (const [kf, af, text] of [["tk", "ta", q.prompt], ["ek", "ea", q.explain]]) {
       if (!text) continue;
       const key = q[kf];
+      const short = () => text.replace(/\n/g, " ").slice(0, 80);
       if (!key) {
-        if (/[가-힣]/.test(text)) noTr++;      // 키가 없어 한국어로 남는 문제
+        // 뼈대 키가 없다 = 이 문장은 어떤 언어에서도 한국어로 나온다
+        if (/[가-힣]/.test(text) && !noTrSample.has(short())) {
+          noTr++; noTrSample.set(short(), q.id);
+        } else if (/[가-힣]/.test(text)) noTr++;
         continue;
       }
       const by = tplTr[key];
-      if (!by || !by.en) { noTr++; continue; }
+      if (!by || !by.en) {
+        // 영어 번역이 없으면 나머지 언어도 기댈 곳이 없다 → 한국어로 떨어진다
+        noTr++;
+        if (!noTrSample.has(short())) noTrSample.set(short(), key);
+        continue;
+      }
       const tpl = by[lang] == null ? by.en : by[lang];
       const args = (q[af] || []).map((a) => word(String(a), wd));
       const { out, missing } = format(tpl, args);
@@ -108,11 +118,19 @@ for (const lang of targets) {
     }
   }
 
-  const ok = leftover.size === 0 && badArgs === 0;
+  // 셋 다 0이어야 한다. 하나라도 남으면 그 폰에는 한국어가 그대로 뜬다
+  const ok = leftover.size === 0 && badArgs === 0 && noTr === 0;
   if (!ok) failed++;
-  console.log(`[${lang}] 조립 ${done}건 · 번역없음 ${noTr} · 자리값오류 ${badArgs} · 한글잔여 ${leftover.size}종 ${ok ? "✔" : "✘"}`);
-  for (const [w, sample] of [...leftover].slice(0, 12)) console.log(`      ${w}  ← ${sample}`);
+  console.log(`[${lang}] 조립 ${done}건 · 뼈대없음 ${noTr} · 자리값오류 ${badArgs} · 한글잔여 ${leftover.size}종 ${ok ? "✔" : "✘"}`);
+  for (const [w, sample] of [...leftover].slice(0, 12)) console.log(`      한글잔여: ${w}  ← ${sample}`);
+  for (const [t, where] of [...noTrSample].slice(0, 12)) console.log(`      뼈대없음(${where}): ${t}`);
 }
 
-console.log(failed === 0 ? "\n전 언어 통과" : `\n${failed}개 언어에 문제가 남아 있다`);
-process.exit(failed === 0 ? 0 : 1);
+if (failed === 0) {
+  console.log("\n전 언어 통과 — 어느 폰에서도 한국어가 새어 나오지 않는다");
+  process.exit(0);
+}
+console.error(`\n${failed}개 언어에서 한국어가 그대로 뜬다.`);
+console.error("고치는 법: 해당 문장을 tp(\"?\", [값들], `원문`) 으로 감싸고");
+console.error("  node tools/i18n/keyify.js --write → tools/i18n/tpl/ 에 영어부터 번역을 넣는다.");
+process.exit(1);

@@ -347,6 +347,9 @@
     <string name="tpl_cc9224e2">0 から 右へ %1$s めもり すすんだ ところです。\n%2$s は 10 より 小さいです。</string>
     <string name="tpl_298087b1">0 から 右へ %1$s めもり すすんだ ところです。\n%2$s は 10 より 大きいです。</string>
     <string name="tpl_c9b3271e">0 から 右へ %1$s めもり すすんだ ところです。\n%2$s は ちょうど 10 です。</string>
+    <string name="tpl_a98236e0">%1$s は 0 から 右へ %2$s めもり すすんだ ところです。</string>
+    <string name="tpl_e7144613">%1$s は 0 より %2$s 小さいです。0 から 左へ %3$s めもり すすみます。</string>
+    <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">
