@@ -105,8 +105,8 @@ class LessonActivity : AppCompatActivity() {
         if (skillRecorded.add(q.id)) db.recordSkill(q.skill, correct)
     }
 
-    private val okLines = listOf("삐약! 정답이에요!", "완벽해요! 🐥", "역시 천재!", "삐약삐약~ 좋아요!", "굿굿! 최고예요!")
-    private val noLines = listOf("아쉬워요 😢", "괜찮아요, 다시 나와요!", "삐약… 다음엔 맞혀요!", "조금만 더 힘내요!")
+    private val okLines = listOf(getString(R.string.praise_correct), getString(R.string.praise_perfect), getString(R.string.praise_genius), getString(R.string.praise_nice), getString(R.string.praise_great))
+    private val noLines = listOf(getString(R.string.cheer_close), getString(R.string.cheer_again), getString(R.string.cheer_next), getString(R.string.cheer_more))
 
     /** 정답 공개 후 피드백 패널에 보여줄 낱말 그림 — 문제에서 미리 보여주면 답이 새는 유형용 */
     private var feedbackArtRes = 0
@@ -128,9 +128,9 @@ class LessonActivity : AppCompatActivity() {
         if (reviewMode) {
             val wrongs = db.wrongList(12)
             questions = wrongs.mapNotNull { (qid, lid, tid) -> ContentRepo.findQuestion(this, tid, lid, qid) }
-            lessonTitle = "오답 복습"
+            lessonTitle = getString(R.string.review_mode)
             if (questions.isEmpty()) {
-                Toast.makeText(this, "복습할 오답이 없어요!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.lesson_no_review), Toast.LENGTH_SHORT).show()
                 finish(); return
             }
         } else {
@@ -143,8 +143,8 @@ class LessonActivity : AppCompatActivity() {
             questions = pair.second.questions
             if (db.heartsEnabled() && db.hearts() <= 0) {
                 AlertDialog.Builder(this)
-                    .setTitle("하트가 없어요 💔")
-                    .setMessage("30분마다 하트가 1개씩 차요.\n오답 복습을 완료하면 하트 1개를 받을 수 있어요!")
+                    .setTitle(getString(R.string.heart_empty_title))
+                    .setMessage(getString(R.string.heart_empty_msg))
                     .setPositiveButton("확인") { _, _ -> finish() }
                     .setCancelable(false).show()
                 return
@@ -260,7 +260,7 @@ class LessonActivity : AppCompatActivity() {
         showHearts(if (reviewMode) null else if (db.heartsEnabled()) s.hearts else -1)
         b.questionBox.removeAllViews()
         b.btnCheck.isEnabled = false
-        b.btnCheck.text = "확인"
+        b.btnCheck.text = getString(R.string.lesson_check)
         b.btnCheck.visibility = View.VISIBLE
         checkAction = null
         speakFails = 0
@@ -504,15 +504,15 @@ class LessonActivity : AppCompatActivity() {
             countBox.visibility = View.VISIBLE
             // 옮길 수 있는 그림이면 그렇다고 알려 준다 — 모르면 아무도 안 끌어 본다
             val hint = if (visualView.movable)
-                "👆 톡 누르면 세어지고, 끌면 옮겨져요"
-            else "👆 그림을 하나씩 짚어 세어 보세요"
+                getString(R.string.play_count_move)
+            else getString(R.string.play_count_tap)
             txtCount.text = hint
             visualView.onCountChanged = { n ->
-                txtCount.text = if (n == 0) hint else "👆 지금까지 $n 개 세었어요"
+                txtCount.text = if (n == 0) hint else getString(R.string.play_count_now, n)
                 if (n > 0) sfx.piyak()
             }
             v.findViewById<Button>(R.id.btnCountReset).apply {
-                text = if (visualView.movable) "처음으로" else "다시 세기"
+                text = getString(if (visualView.movable) R.string.play_reset_move else R.string.play_reset_count)
                 setOnClickListener { visualView.clearCount() }
             }
         }
@@ -577,7 +577,7 @@ class LessonActivity : AppCompatActivity() {
                     val ok = selected == q.answerIndex
                     bubbles.reveal(q.answerIndex)
                     bubbles.lock()
-                    submitAnswer(ok, if (ok) null else "정답: ${q.choices.getOrNull(q.answerIndex)}", q.explain)
+                    submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, q.choices.getOrNull(q.answerIndex) ?: ""), q.explain)
                 }
             } else {
                 val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
@@ -615,7 +615,7 @@ class LessonActivity : AppCompatActivity() {
                 choiceAnswer = q.answerIndex
                 checkAction = {
                     val ok = selected == q.answerIndex
-                    submitAnswer(ok, if (ok) null else "정답: ${q.choices.getOrNull(q.answerIndex)}", q.explain)
+                    submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, q.choices.getOrNull(q.answerIndex) ?: ""), q.explain)
                 }
             }
             "text" -> {
@@ -626,7 +626,7 @@ class LessonActivity : AppCompatActivity() {
                     val ok = com.piyak.english.engine.MathGrader.grade(
                         edit.text.toString(), q.answer, q.alts
                     )
-                    submitAnswer(ok, if (ok) null else "정답: ${q.answer}", q.explain)
+                    submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, q.answer), q.explain)
                 }
             }
             // 저학년은 키패드 대신 버블을 탭한다 (자판을 치는 것보다 만지는 재미가 크다)
@@ -653,7 +653,7 @@ class LessonActivity : AppCompatActivity() {
                     bubbles.reveal(answerIdx)
                     bubbles.lock()
                     val shown = q.answer + if (q.unit.isNotEmpty()) " ${q.unit}" else ""
-                    submitAnswer(ok, if (ok) null else "정답: $shown", q.explain)
+                    submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, shown), q.explain)
                 }
             } else {
                 val box = v.findViewById<LinearLayout>(R.id.numberBox)
@@ -670,7 +670,7 @@ class LessonActivity : AppCompatActivity() {
                 checkAction = {
                     val ok = com.piyak.english.engine.MathGrader.grade(pad.value, q.answer, q.alts)
                     val shown = q.answer + if (q.unit.isNotEmpty()) " ${q.unit}" else ""
-                    submitAnswer(ok, if (ok) null else "정답: $shown", q.explain)
+                    submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, shown), q.explain)
                 }
             }
         }
@@ -691,7 +691,7 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "🕐 바늘을 끌어서 시각을 맞춰 보세요"
+        txtCount.text = getString(R.string.play_clock)
         v.findViewById<Button>(R.id.btnCountReset).apply {
             text = "12시로"
             setOnClickListener { visualView.resetClock() }
@@ -699,13 +699,13 @@ class LessonActivity : AppCompatActivity() {
 
         b.btnCheck.isEnabled = false
         visualView.onClockChanged = { h, m ->
-            txtCount.text = "🕐 지금 맞춘 시각: ${h}시 ${m}분"
+            txtCount.text = getString(R.string.play_clock_now, h, m)
             sfx.piyak()
             b.btnCheck.isEnabled = true
         }
         checkAction = {
             val ok = visualView.setHour == wantH && visualView.setMinute == wantM
-            submitAnswer(ok, if (ok) null else "정답: ${wantH}시 ${wantM}분", q.explain)
+            submitAnswer(ok, if (ok) null else getString(R.string.fb_answer_time, wantH, wantM), q.explain)
         }
     }
 
@@ -734,9 +734,9 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "🧺 ${vis.emoji} 를 끌어서 ${vis.bb}개의 바구니에 똑같이 나눠 담아요"
+        txtCount.text = getString(R.string.play_group, vis.emoji, vis.bb)
         v.findViewById<Button>(R.id.btnCountReset).apply {
-            text = "다시 담기"
+            text = getString(R.string.play_reset_put)
             setOnClickListener { gv.reset(); b.btnCheck.isEnabled = false }
         }
 
@@ -754,8 +754,8 @@ class LessonActivity : AppCompatActivity() {
             val ok = gv.isCorrect() && gv.perGroup() == perGroupAnswer
             val why = when {
                 ok -> null
-                gv.counts().sum() < vis.a -> "아직 다 담지 않았어요. 정답: 한 바구니에 ${perGroupAnswer}개"
-                else -> "바구니마다 개수가 같아야 해요. 정답: 한 바구니에 ${perGroupAnswer}개"
+                gv.counts().sum() < vis.a -> getString(R.string.fb_group_left, perGroupAnswer)
+                else -> getString(R.string.fb_group_uneven, perGroupAnswer)
             }
             submitAnswer(ok, why, q.explain)
         }
@@ -773,15 +773,15 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "🍰 조각을 눌러서 색칠해 보세요"
+        txtCount.text = getString(R.string.play_paint)
         v.findViewById<Button>(R.id.btnCountReset).apply {
-            text = "지우기"
+            text = getString(R.string.clear)
             setOnClickListener { visualView.clearPaint(); b.btnCheck.isEnabled = false }
         }
 
         b.btnCheck.isEnabled = false
         visualView.onPaintChanged = { n ->
-            txtCount.text = "🍰 지금 $n / $denom 칸을 칠했어요"
+            txtCount.text = getString(R.string.play_paint_now, n, denom)
             sfx.piyak()
             b.btnCheck.isEnabled = n > 0
         }
@@ -790,8 +790,8 @@ class LessonActivity : AppCompatActivity() {
             val ok = n == want
             val why = when {
                 ok -> null
-                n < want -> "${want - n}칸 더 칠해야 해요. 정답: $want / $denom"
-                else -> "${n - want}칸을 더 칠했어요. 정답: $want / $denom"
+                n < want -> getString(R.string.fb_paint_under, want - n, want, denom)
+                else -> getString(R.string.fb_paint_over, n - want, want, denom)
             }
             submitAnswer(ok, why, q.explain)
         }
@@ -820,9 +820,9 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "🔺 도형을 알맞은 바구니로 끌어 담아요"
+        txtCount.text = getString(R.string.play_sort)
         v.findViewById<Button>(R.id.btnCountReset).apply {
-            text = "다시 담기"
+            text = getString(R.string.play_reset_put)
             setOnClickListener { gv.reset(); b.btnCheck.isEnabled = false }
         }
 
@@ -830,13 +830,13 @@ class LessonActivity : AppCompatActivity() {
         gv.onPlace = { sfx.piyak() }
         gv.onChanged = { _ ->
             val left = gv.leftOver()
-            txtCount.text = if (left > 0) "🔺 아직 ${left}개 남았어요" else "🔺 다 담았어요!"
+            txtCount.text = if (left > 0) getString(R.string.play_sort_left, left) else getString(R.string.play_sort_done)
             b.btnCheck.isEnabled = left == 0
         }
         checkAction = {
             val ok = gv.isCorrect()
             val bad = gv.misplaced()
-            submitAnswer(ok, if (ok) null else "${bad}개가 다른 바구니에 들어갔어요.", q.explain)
+            submitAnswer(ok, if (ok) null else getString(R.string.fb_sort_wrong, bad), q.explain)
         }
     }
 
@@ -850,7 +850,7 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "📏 파란 점을 끌어서 자리를 찾아요"
+        txtCount.text = getString(R.string.play_numline)
         v.findViewById<Button>(R.id.btnCountReset).apply {
             text = "처음으로"
             setOnClickListener { visualView.resetMark(); b.btnCheck.isEnabled = false }
@@ -858,14 +858,14 @@ class LessonActivity : AppCompatActivity() {
 
         b.btnCheck.isEnabled = false
         visualView.onMarkChanged = { value ->
-            txtCount.text = "📏 지금 짚은 곳: ${trimNum(value)}"
+            txtCount.text = getString(R.string.play_numline_now, trimNum(value))
             sfx.piyak()
             b.btnCheck.isEnabled = true
         }
         checkAction = {
             val got = visualView.markedValue
             val ok = kotlin.math.abs(got - want) < 1e-6
-            submitAnswer(ok, if (ok) null else "정답: ${q.answer}", q.explain)
+            submitAnswer(ok, if (ok) null else getString(R.string.fb_answer, q.answer), q.explain)
         }
     }
 
@@ -876,7 +876,7 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "📐 파란 손잡이를 돌려서 각을 만들어요"
+        txtCount.text = getString(R.string.play_angle)
         v.findViewById<Button>(R.id.btnCountReset).apply {
             text = "0°로"
             setOnClickListener { visualView.resetAngle(); b.btnCheck.isEnabled = false }
@@ -884,7 +884,7 @@ class LessonActivity : AppCompatActivity() {
 
         b.btnCheck.isEnabled = false
         visualView.onAngleChanged = { deg ->
-            txtCount.text = "📐 지금 만든 각: ${deg}°"
+            txtCount.text = getString(R.string.play_angle_now, deg)
             sfx.piyak()
             b.btnCheck.isEnabled = deg > 0
         }
@@ -893,8 +893,8 @@ class LessonActivity : AppCompatActivity() {
             val ok = got == want
             val why = when {
                 ok -> null
-                got < want -> "조금 더 벌려야 해요. 정답: ${want}°"
-                else -> "조금 더 좁혀야 해요. 정답: ${want}°"
+                got < want -> getString(R.string.fb_angle_wider, want)
+                else -> getString(R.string.fb_angle_narrower, want)
             }
             submitAnswer(ok, why, q.explain)
         }
@@ -925,7 +925,7 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "⚖️ 손잡이를 끌어 x 를 바꿔 보세요"
+        txtCount.text = getString(R.string.play_balance)
         v.findViewById<Button>(R.id.btnCountReset).apply {
             text = "처음으로"
             setOnClickListener { sv.reset(); b.btnCheck.isEnabled = false }
@@ -934,13 +934,13 @@ class LessonActivity : AppCompatActivity() {
         b.btnCheck.isEnabled = false
         sv.onChanged = { x ->
             txtCount.text = if (sv.isBalanced())
-                "⚖️ x = $x — 평형이에요!" else "⚖️ 지금 x = $x"
+                getString(R.string.play_balance_ok, x) else getString(R.string.play_balance_now, x)
             sfx.piyak()
             b.btnCheck.isEnabled = true
         }
         checkAction = {
             val ok = sv.isBalanced() && sv.guess == want
-            submitAnswer(ok, if (ok) null else "저울이 평형이 되는 값은 x = $want 이에요.", q.explain)
+            submitAnswer(ok, if (ok) null else getString(R.string.fb_balance, want), q.explain)
         }
     }
 
@@ -964,9 +964,9 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "📊 막대를 위로 끌어 올려요"
+        txtCount.text = getString(R.string.play_bar)
         v.findViewById<Button>(R.id.btnCountReset).apply {
-            text = "다시 세우기"
+            text = getString(R.string.play_reset_bar)
             setOnClickListener { bv.reset(); b.btnCheck.isEnabled = false }
         }
 
@@ -974,12 +974,12 @@ class LessonActivity : AppCompatActivity() {
         bv.onBarMoved = { sfx.piyak() }
         bv.onChanged = { vals ->
             val left = bv.wrongBars()
-            txtCount.text = if (left == 0) "📊 다 맞췄어요!" else "📊 아직 ${left}개가 안 맞아요"
+            txtCount.text = if (left == 0) getString(R.string.play_bar_done) else getString(R.string.play_bar_left, left)
             b.btnCheck.isEnabled = vals.any { it > 0 }
         }
         checkAction = {
             val ok = bv.isCorrect()
-            submitAnswer(ok, if (ok) null else "${bv.wrongBars()}개의 막대 높이가 달라요.", q.explain)
+            submitAnswer(ok, if (ok) null else getString(R.string.fb_bar_wrong, bv.wrongBars()), q.explain)
         }
     }
 
@@ -1012,9 +1012,9 @@ class LessonActivity : AppCompatActivity() {
         val countBox = v.findViewById<LinearLayout>(R.id.countBox)
         val txtCount = v.findViewById<TextView>(R.id.txtCount)
         countBox.visibility = View.VISIBLE
-        txtCount.text = "👆 ${vis.emoji} 를 끌어서 $label 으로 옮겨요"
+        txtCount.text = getString(R.string.play_gather, vis.emoji, label)
         v.findViewById<Button>(R.id.btnCountReset).apply {
-            text = "다시 옮기기"
+            text = getString(R.string.play_reset_gather)
             setOnClickListener { gv.reset(); b.btnCheck.isEnabled = false }
         }
 
@@ -1024,17 +1024,17 @@ class LessonActivity : AppCompatActivity() {
             val inBox = gv.inBoxCount()
             val outside = gv.outsideCount()
             txtCount.text = if (takeAway)
-                "📦 보낸 것 ${inBox}마리 · 남은 것 ${outside}마리"
+                getString(R.string.play_gather_sent, inBox, outside)
             else
-                "📦 모은 것 ${inBox}마리 · 아직 ${outside}마리"
+                getString(R.string.play_gather_now, inBox, outside)
             b.btnCheck.isEnabled = inBox > 0
         }
         checkAction = {
             val ok = gv.isCorrect()
             val why = if (ok) null else if (takeAway)
-                "${label}으로 ${need}마리를 보내야 해요. 그러면 ${total - need}마리가 남아요."
+                getString(R.string.fb_gather_send, label, need, total - need)
             else
-                "${total}마리를 모두 모아야 해요."
+                getString(R.string.fb_gather_all, total)
             submitAnswer(ok, why, q.explain)
         }
     }
@@ -1125,8 +1125,8 @@ class LessonActivity : AppCompatActivity() {
             val cleared = db.reviewOutcome(q.id, correct)
             s.submit(correct)
             val msg = when {
-                correct && cleared -> "이 오답은 완전히 클리어! 💊✨"
-                correct -> "좋아요! 한 번 더 맞히면 클리어!"
+                correct && cleared -> getString(R.string.review_cleared)
+                correct -> getString(R.string.review_one_more)
                 else -> note
             }
             showFeedback(correct, msg, explain, penalty = false)
@@ -1220,8 +1220,8 @@ class LessonActivity : AppCompatActivity() {
 
         if (s.failed) {
             b.imgResult.setImageResource(R.drawable.ck_cheerup)
-            b.txtResultTitle.text = "하트가 다 떨어졌어요 💔"
-            b.txtResultStats.text = "오답 복습으로 하트를 채우고\n다시 도전해 봐요!"
+            b.txtResultTitle.text = getString(R.string.result_no_heart_title)
+            b.txtResultStats.text = getString(R.string.result_no_heart_msg)
             db.setHearts(0)
             return
         }
@@ -1238,10 +1238,10 @@ class LessonActivity : AppCompatActivity() {
             db.markToday()
             // 복습 보너스는 하루 한도까지만 (파밍 방지)
             if (db.bonusCountToday("review") < Wallet.REVIEW_DAILY_LIMIT) {
-                coins = db.earnCoins(Wallet.REVIEW_BONUS, "REVIEW", "오답 복습 완료")
+                coins = db.earnCoins(Wallet.REVIEW_BONUS, "REVIEW", getString(R.string.review_done))
                 db.addBonusCountToday("review")
             }
-            b.txtResultTitle.text = "복습 완료! 💊"
+            b.txtResultTitle.text = getString(R.string.result_review_title)
             b.txtResultStats.text = "정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP\n하트 1개 회복! ❤️ $h"
         } else {
             if (db.heartsEnabled()) db.setHearts(s.hearts)
@@ -1256,13 +1256,13 @@ class LessonActivity : AppCompatActivity() {
                     "$lessonTitle (첫 시도 정답 ${s.firstTryCorrect}문제)"
                 )
             }
-            b.txtResultTitle.text = if (s.isPerfect) "퍼펙트! 💯" else "레슨 완료! 🎉"
+            b.txtResultTitle.text = if (s.isPerfect) getString(R.string.result_perfect_title) else getString(R.string.result_lesson_title)
             b.txtResultStats.text =
                 "$lessonTitle\n${"⭐".repeat(s.stars())}\n정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP" +
                     if (s.isPerfect) " (퍼펙트 +5 포함)" else ""
         }
         if (coins > 0) {
-            b.txtResultStats.append("\n\n💰 용돈 +${Wallet.format(coins)}  (지갑 ${Wallet.format(db.coins())})")
+            b.txtResultStats.append("\n\n💰 용돈 +${Wallet.format(this, coins)}  (지갑 ${Wallet.format(this, db.coins())})")
         } else if (!reviewMode) {
             b.txtResultStats.append("\n\n💰 이미 깬 레슨이라 용돈은 없어요")
         }
@@ -1295,8 +1295,8 @@ class LessonActivity : AppCompatActivity() {
             if (db.metaLong("goal_met_day", -1) != Db.today()) {
                 db.setMeta("goal_met_day", Db.today().toString())
                 db.setMeta("goals_met", (db.metaInt("goals_met") + 1).toString())
-                val bonus = db.earnCoins(Wallet.DAILY_GOAL_BONUS, "GOAL", "오늘의 목표 달성")
-                if (bonus > 0) sb.append("\n💰 목표 달성 보너스 +${Wallet.format(bonus)}")
+                val bonus = db.earnCoins(Wallet.DAILY_GOAL_BONUS, "GOAL", getString(R.string.goal_reached))
+                if (bonus > 0) sb.append("\n💰 목표 달성 보너스 +${Wallet.format(this, bonus)}")
             }
         }
         return sb.toString()
@@ -1329,7 +1329,7 @@ class LessonActivity : AppCompatActivity() {
         val newly = Badges.check(snap, db.earnedBadges())
         for (bd in newly) {
             db.earnBadge(bd.id)
-            Toast.makeText(this, "🏆 배지 획득: ${bd.emoji} ${bd.title}!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.badge_earned, bd.emoji, bd.title), Toast.LENGTH_LONG).show()
         }
     }
 

@@ -444,3 +444,7 @@ module.exports = {
   mkind_picture: { ko: "🐥 그림 문제", en: "🐥 Picture question", ja: "🐥 えの もんだい", zh: "🐥 图画题", es: "🐥 Pregunta con dibujo", fr: "🐥 Question illustrée", de: "🐥 Bildaufgabe", pt: "🐥 Questão com figura", ru: "🐥 Задача с картинкой", vi: "🐥 Câu hỏi có hình", th: "🐥 โจทย์รูปภาพ", in: "🐥 Soal bergambar" },
   },
 };
+
+// 화면별 문자열은 파일을 나눠 둔다 — 한 파일이 수백 줄이 되면 손대기가 겁난다.
+// 같은 키가 겹치면 나중 파일이 이긴다.
+Object.assign(module.exports.strings, require("./ui_lesson"), require("./ui_wallet"));

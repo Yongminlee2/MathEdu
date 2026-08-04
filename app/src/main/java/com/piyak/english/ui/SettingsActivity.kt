@@ -78,15 +78,15 @@ class SettingsActivity : AppCompatActivity() {
             b.btnCrash.visibility = android.view.View.VISIBLE
             b.btnCrash.setOnClickListener {
                 AlertDialog.Builder(this)
-                    .setTitle("마지막 오류 기록")
+                    .setTitle(getString(R.string.crash_title))
                     .setMessage(crash.take(3000))
-                    .setPositiveButton("복사") { _, _ ->
+                    .setPositiveButton(getString(R.string.copy)) { _, _ ->
                         val cm = getSystemService(android.content.ClipboardManager::class.java)
                         cm?.setPrimaryClip(android.content.ClipData.newPlainText("crash", crash))
                         android.widget.Toast
                             .makeText(this, "복사했어요", android.widget.Toast.LENGTH_SHORT).show()
                     }
-                    .setNegativeButton("지우기") { _, _ ->
+                    .setNegativeButton(getString(R.string.clear)) { _, _ ->
                         com.piyak.english.PiyakApp.clearCrash(this)
                         b.btnCrash.visibility = android.view.View.GONE
                     }
@@ -99,7 +99,7 @@ class SettingsActivity : AppCompatActivity() {
                 .setMessage(getString(R.string.set_reset_ask))
                 .setPositiveButton(getString(R.string.set_reset)) { _, _ ->
                     db.resetAll()
-                    android.widget.Toast.makeText(this, "초기화 완료! 처음부터 삐약! 🐣", android.widget.Toast.LENGTH_SHORT).show()
+                    android.widget.Toast.makeText(this, getString(R.string.set_reset_done), android.widget.Toast.LENGTH_SHORT).show()
                 }
                 .setNegativeButton(getString(R.string.cancel), null).show()
         }

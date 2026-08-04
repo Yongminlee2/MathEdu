@@ -5,7 +5,8 @@
 
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical" android:padding="16dp">
+        android:orientation="vertical" android:paddingTop="16dp" android:paddingBottom="16dp"
+        android:paddingStart="@dimen/screen_pad" android:paddingEnd="@dimen/screen_pad">
 
         <!-- 과목 전환 -->
         <Button android:id="@+id/btnSwitchSubject"

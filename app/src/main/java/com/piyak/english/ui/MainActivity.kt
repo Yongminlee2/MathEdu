@@ -94,12 +94,12 @@ class MainActivity : AppCompatActivity() {
             "$xp XP — $note"
         }.toTypedArray()
         androidx.appcompat.app.AlertDialog.Builder(this)
-            .setTitle("🎯 오늘의 목표 정하기")
+            .setTitle(getString(R.string.goal_set_title))
             .setItems(labels) { _, i ->
                 db.setDailyGoal(DailyGoal.OPTIONS[i])
                 refresh()
             }
-            .setNegativeButton("취소", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
@@ -148,7 +148,7 @@ class MainActivity : AppCompatActivity() {
         b.root.setBackgroundColor(theme)
         window.statusBarColor = theme
 
-        b.txtCoins.text = com.piyak.english.engine.Wallet.format(db.coins())
+        b.txtCoins.text = com.piyak.english.engine.Wallet.format(this, db.coins())
         buildGrowth(db)
         buildTrackCards(db)
     }

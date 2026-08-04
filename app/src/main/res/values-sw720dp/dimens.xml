@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 10인치 이상 태블릿: 더 크게 비운다. 한 줄이 너무 길면 눈이 줄을 놓친다 -->
+<resources>
+    <dimen name="screen_pad">140dp</dimen>
+    <dimen name="screen_pad_tight">128dp</dimen>
+</resources>

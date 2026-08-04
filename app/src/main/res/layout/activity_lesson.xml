@@ -42,13 +42,15 @@
             android:fillViewport="true" android:scrollbars="vertical">
             <FrameLayout android:id="@+id/questionBox"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:paddingHorizontal="16dp" android:paddingTop="0dp" android:paddingBottom="24dp" />
+                android:paddingHorizontal="@dimen/screen_pad" android:paddingTop="0dp" android:paddingBottom="24dp" />
         </ScrollView>
 
         <!-- 확인 버튼 -->
         <Button android:id="@+id/btnCheck"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_margin="16dp" android:text="@string/lesson_check" android:textSize="18sp"
+            android:layout_marginTop="16dp" android:layout_marginBottom="16dp"
+            android:layout_marginStart="@dimen/screen_pad" android:layout_marginEnd="@dimen/screen_pad"
+            android:text="@string/lesson_check" android:textSize="18sp"
             android:backgroundTint="@color/chick_yellow" android:textColor="@color/brown_text" />
     </LinearLayout>
 
