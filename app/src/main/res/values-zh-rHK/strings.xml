@@ -336,7 +336,7 @@
     <string name="bg_m_all">數學全能</string>
     <string name="bg_m_all_d">所有領域達到 Lv.3 以上</string>
     <string name="result_review_stats">正確率 %1$d%% · +%2$d XP\n恢復1颗愛心! ❤️ %3$d</string>
-    <string name="result_lesson_sub">%1$s (первый попытка… %2$d)</string>
+    <string name="result_lesson_sub">%1$s (首次就答對 %2$d 題)</string>
     <string name="result_perfect_bonus"> (含滿分獎勵 +5)</string>
     <string name="result_coins">💰 零花錢 +%1$s  (錢包 %2$s)</string>
     <string name="result_no_coins">💰 這課已经通關過，沒有零花錢</string>

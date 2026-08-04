@@ -336,7 +336,7 @@
     <string name="bg_m_all">数学全能</string>
     <string name="bg_m_all_d">所有领域达到 Lv.3 以上</string>
     <string name="result_review_stats">正确率 %1$d%% · +%2$d XP\n恢复1颗爱心! ❤️ %3$d</string>
-    <string name="result_lesson_sub">%1$s (первый попытка… %2$d)</string>
+    <string name="result_lesson_sub">%1$s (首次就答对 %2$d 题)</string>
     <string name="result_perfect_bonus"> (含满分奖励 +5)</string>
     <string name="result_coins">💰 零花钱 +%1$s  (钱包 %2$s)</string>
     <string name="result_no_coins">💰 这课已经通关过，没有零花钱</string>
