@@ -1,5 +1,7 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
+
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
@@ -67,7 +69,7 @@ class ChickView @JvmOverloads constructor(
     private val heartPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { textAlign = Paint.Align.CENTER }
 
     private var anim: ValueAnimator? = null
-    private var encourageText = "힘내! 🐥"
+    private var encourageText = context.getString(R.string.chick_cheer1)
 
     private fun resIdOf(name: String): Int =
         resources.getIdentifier(name, "drawable", context.packageName)
@@ -109,7 +111,7 @@ class ChickView @JvmOverloads constructor(
 
     /** 오래 고민 중 — 응원 말풍선 */
     fun encourage() {
-        encourageText = listOf("힘내! 🐥", "천천히 해도 돼!", "삐약! 할 수 있어!").random()
+        encourageText = listOf(context.getString(R.string.chick_cheer1), context.getString(R.string.chick_cheer2), context.getString(R.string.chick_cheer3)).random()
         play(Mood.ENCOURAGE, 2600L)
     }
 

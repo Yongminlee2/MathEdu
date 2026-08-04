@@ -86,10 +86,10 @@ class MainActivity : AppCompatActivity() {
         val db = Db.get(this)
         val labels = DailyGoal.OPTIONS.map { xp ->
             val note = when (xp) {
-                20 -> "가볍게 (레슨 1개쯤)"
-                50 -> "보통 (레슨 2~3개)"
-                100 -> "열심히 (레슨 5개쯤)"
-                else -> "빡세게 (레슨 10개쯤)"
+                20 -> getString(R.string.goal_light)
+                50 -> getString(R.string.goal_normal)
+                100 -> getString(R.string.goal_hard)
+                else -> getString(R.string.goal_beast)
             }
             "$xp XP — $note"
         }.toTypedArray()
@@ -140,8 +140,8 @@ class MainActivity : AppCompatActivity() {
             "math_placement_done" else "placement_done"
         b.bannerPlacement.visibility = if (db.meta(placedKey) == "1") View.GONE else View.VISIBLE
         b.txtPlacement.text = if (subject == com.piyak.english.model.Subject.MATH)
-            "수학 레벨테스트로 내 학년 찾기!\n25문제로 딱 맞는 단계를 정해줘요"
-        else "레벨테스트로 내 위치 찾기!\n25문제로 딱 맞는 레벨을 정해줘요"
+            getString(R.string.home_placement_math)
+        else getString(R.string.home_placement_math)
 
         // 상점에서 산 테마 배경 적용
         val theme = Color.parseColor(db.themeColor())
@@ -159,11 +159,11 @@ class MainActivity : AppCompatActivity() {
         val overall = Skills.overallLevel(states)
         val rank = Ranks.of(overall)
         val sticker = db.equippedSticker()
-        b.txtRank.text = "${rank.emoji} ${rank.title}" + if (sticker.isNotEmpty()) " $sticker" else ""
+        b.txtRank.text = "${rank.emoji} " + getString(rank.titleRes) + if (sticker.isNotEmpty()) " $sticker" else ""
         b.rankBar.progress = (Ranks.progress(overall) * 100).toInt()
         val next = Ranks.next(overall)
         b.txtOverall.text = getString(R.string.home_overall_lv, String.format("%.1f", overall)) +
-            if (next != null) "  →  다음 칭호 ${next.emoji} ${next.title}" else "  (최고 칭호!)"
+            if (next != null) getString(R.string.rank_next, next.emoji, getString(next.titleRes)) else getString(R.string.rank_top)
 
         val goal = db.dailyGoal()
         val todayXp = db.xpToday()
@@ -177,7 +177,7 @@ class MainActivity : AppCompatActivity() {
 
         val weak = Skills.weakest(states)
         b.txtWeakest.text = if (weak != null && weak.attempts >= 0)
-            "약한 영역: ${weak.def.emoji} ${weak.def.title}" else ""
+            getString(R.string.weak_area, weak.def.emoji, getString(weak.def.titleRes)) else ""
 
         b.skillsBox.removeAllViews()
         for (st in states) b.skillsBox.addView(skillRow(st))
@@ -191,7 +191,7 @@ class MainActivity : AppCompatActivity() {
             setPadding(0, dp(5f).toInt(), 0, dp(5f).toInt())
         }
         row.addView(TextView(this).apply {
-            text = "${st.def.emoji} ${st.def.title}"
+            text = "${st.def.emoji} " + getString(st.def.titleRes)
             textSize = 14f
             width = dp(78f).toInt()
         })
@@ -211,7 +211,7 @@ class MainActivity : AppCompatActivity() {
             layoutParams = LinearLayout.LayoutParams(0, dp(10f).toInt(), 1f)
         })
         row.addView(TextView(this).apply {
-            text = if (st.attempts == 0) "  시작 전" else "  ${st.accuracy}%"
+            text = if (st.attempts == 0) getString(R.string.not_started) else "  ${st.accuracy}%"
             textSize = 12f
             setTextColor(Color.parseColor("#8D6E63"))
             width = dp(58f).toInt()
@@ -223,17 +223,17 @@ class MainActivity : AppCompatActivity() {
     private fun buildTrackCards(db: Db) {
         b.tracksBox.removeAllViews()
         val done = db.completedLessonIds()
-        var lastStage: String? = null
+        var lastStage: Int? = null   // 묶음 제목은 리소스 id 로 비교한다
         for (tid in subject.tracks) {
             val t = ContentRepo.track(this, tid) ?: continue
             val doneCount = t.units.sumOf { u -> u.lessons.count { it.id in done } }
 
             // 수학은 학년이 많아 유치원·초등 / 중학교 / 고등학교로 묶어 보여준다
-            val stage = com.piyak.english.model.MathGrades.of(tid)?.stage
+            val stage = com.piyak.english.model.MathGrades.of(tid)?.stageRes
             if (stage != null && stage != lastStage) {
                 lastStage = stage
                 b.tracksBox.addView(TextView(this).apply {
-                    text = stage
+                    text = getString(stage)
                     textSize = 14f
                     setTypeface(typeface, android.graphics.Typeface.BOLD)
                     setTextColor(Color.parseColor("#8D6E63"))
@@ -270,13 +270,17 @@ class MainActivity : AppCompatActivity() {
                 layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
                 setPadding(dp(12f).toInt(), 0, 0, 0)
             }
+            // 카드 이름은 팩 JSON(한국어)이 아니라 리소스에서 가져온다 — 폰 언어를 따라야 하므로
+            val grade = com.piyak.english.model.MathGrades.of(tid)
             col.addView(TextView(this).apply {
-                text = t.title; textSize = 18f
+                text = if (grade != null) getString(grade.titleRes) else t.title
+                textSize = 18f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 setTextColor(Color.parseColor("#4E342E"))
             })
             col.addView(TextView(this).apply {
-                text = t.subtitle; textSize = 13f
+                text = if (grade != null) getString(grade.subtitleRes) else t.subtitle
+                textSize = 13f
                 setTextColor(Color.parseColor("#6D4C41"))
             })
             row.addView(col)

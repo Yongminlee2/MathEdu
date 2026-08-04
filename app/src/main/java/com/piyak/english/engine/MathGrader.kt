@@ -14,8 +14,12 @@ object MathGrader {
             .replace(",", "")
             .replace(" ", "")
         if (s.isEmpty()) return null
-        // 뒤에 붙은 단위 제거 (cm, kg, 개, 도 …)
-        s = s.trimEnd { it.isLetter() || it in "개도명원장권쪽시분초" }
+        // 뒤에 붙은 단위 제거 (cm · kg · 개 · pcs · шт …)
+        //
+        // isLetter() 는 **모든 문자 체계의 글자**에 참이다 — 한글·가나·한자·키릴·타이까지.
+        // 예전에는 한국어 단위를 따로 나열했는데, 그건 isLetter() 와 겹치는 데다
+        // 다른 언어의 단위는 못 걷어냈다. 기호 단위(° % 등)는 답에 안 쓰이므로 그대로 둔다.
+        s = s.trimEnd { it.isLetter() }
         if (s.isEmpty()) return null
         // 대분수 1과2/3 형태는 다루지 않는다 (생성기가 만들지 않음)
         return if (s.contains("/")) {

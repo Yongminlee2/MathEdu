@@ -9,20 +9,17 @@ object Placement {
     const val MAX_LEVEL_ENGLISH = 10
     const val MAX_LEVEL_MATH = 13
 
-    val LEVEL_NAMES = mapOf(
-        1 to "초등 1~2학년", 2 to "초등 3~4학년", 3 to "초등 5~6학년",
-        4 to "중학 1학년", 5 to "중학 2학년", 6 to "중학 3학년",
-        7 to "고등 1학년", 8 to "고등 2~3학년", 9 to "성인·토익 중급", 10 to "고급·토플",
-    )
-
     fun maxLevel(subject: com.piyak.english.model.Subject): Int =
         if (subject == com.piyak.english.model.Subject.MATH) MAX_LEVEL_MATH else MAX_LEVEL_ENGLISH
 
-    /** 수학은 학년 이름을 그대로 쓴다 */
-    fun levelName(subject: com.piyak.english.model.Subject, level: Int): String =
-        if (subject == com.piyak.english.model.Subject.MATH)
-            com.piyak.english.model.MathGrades.forLevel(level).title
-        else LEVEL_NAMES[level] ?: "?"
+    /**
+     * 레벨 이름 = 학년 이름.
+     *
+     * 영어 레벨 이름표(초등 1~2학년 … 고급·토플)도 있었지만 수학 앱에서는
+     * 아무도 부르지 않는 죽은 코드였다. 이름은 문자열 리소스라 Context 가 필요하다.
+     */
+    fun levelName(ctx: android.content.Context, level: Int): String =
+        ctx.getString(com.piyak.english.model.MathGrades.forLevel(level).titleRes)
 
     /** 진행도 저장 키 (과목별로 따로 기억한다) */
     fun levelKey(subject: com.piyak.english.model.Subject): String =

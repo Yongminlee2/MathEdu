@@ -84,7 +84,7 @@ class SettingsActivity : AppCompatActivity() {
                         val cm = getSystemService(android.content.ClipboardManager::class.java)
                         cm?.setPrimaryClip(android.content.ClipData.newPlainText("crash", crash))
                         android.widget.Toast
-                            .makeText(this, "복사했어요", android.widget.Toast.LENGTH_SHORT).show()
+                            .makeText(this, getString(R.string.copied), android.widget.Toast.LENGTH_SHORT).show()
                     }
                     .setNegativeButton(getString(R.string.clear)) { _, _ ->
                         com.piyak.english.PiyakApp.clearCrash(this)

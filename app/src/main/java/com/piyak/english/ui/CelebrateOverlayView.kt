@@ -1,5 +1,7 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
+
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
@@ -65,7 +67,7 @@ class CelebrateOverlayView @JvmOverloads constructor(
     fun correct(combo: Int) {
         burst(if (combo >= 5) 32 else 18)
         if (combo in setOf(3, 5, 7, 10, 15, 20, 30)) showSticker()
-        if (combo >= 2) showCombo("🔥 ${combo}연속!")
+        if (combo >= 2) showCombo(context.getString(R.string.combo_streak, combo))
     }
 
     /** 레슨 완료 축하 — 콤보 배지 없이 색종이만 시차를 두고 두 번 크게 */

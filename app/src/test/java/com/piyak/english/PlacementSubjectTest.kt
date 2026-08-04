@@ -39,11 +39,14 @@ class PlacementSubjectTest {
         assertEquals("math_placement_level", Placement.levelKey(Subject.MATH))
     }
 
-    @Test fun levelNamesMatchTheSubject() {
-        assertEquals("초등 1~2학년", Placement.levelName(Subject.ENGLISH, 1))
-        // 수학은 학년 이름을 그대로 쓴다
-        assertEquals(MathGrades.ALL.first().title, Placement.levelName(Subject.MATH, 1))
-        assertEquals(MathGrades.ALL.last().title, Placement.levelName(Subject.MATH, 13))
+    // 이름 자체는 이제 문자열 리소스라 안드로이드 없이는 못 읽는다.
+    // 여기서는 **레벨 → 학년 짝짓기**가 맞는지만 본다 (그게 이 함수의 핵심이다).
+    @Test fun levelsMapToTheRightGrade() {
+        assertEquals(MathGrades.ALL.first().titleRes, MathGrades.forLevel(1).titleRes)
+        assertEquals(MathGrades.ALL.last().titleRes, MathGrades.forLevel(13).titleRes)
+        // 범위를 벗어난 레벨도 양 끝으로 안전하게 눌린다
+        assertEquals(MathGrades.ALL.first().titleRes, MathGrades.forLevel(0).titleRes)
+        assertEquals(MathGrades.ALL.last().titleRes, MathGrades.forLevel(99).titleRes)
     }
 
     /** 수학 전용 앱 — 영어 배치고사 팩이 섞여 들어오면 안 된다 */

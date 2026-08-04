@@ -93,13 +93,13 @@ class MathTest {
         assertEquals(13, MathGrades.STAGES.sumOf { MathGrades.byStage(it).size })
     }
 
-    @Test fun mathSkillsAreSeparateFromEnglish() {
-        val eng = Skills.ALL.map { it.id }.toSet()
+    /** 수학 앱에는 수학 영역만 있어야 한다 (영어 영역이 딸려 오면 통계·배지가 오염된다) */
+    @Test fun onlyMathSkillsRemain() {
         val math = Skills.MATH.map { it.id }.toSet()
-        assertTrue("영어·수학 영역 id 가 겹치면 안 됨", eng.intersect(math).isEmpty())
         assertEquals(6, math.size)
+        assertTrue("수학 영역 id 는 m_ 로 시작해야 함", math.all { it.startsWith("m_") })
+        assertEquals("ALL 은 이제 MATH 와 같아야 함", Skills.MATH, Skills.ALL)
         assertEquals(Skills.MATH, Skills.forSubject(Subject.MATH))
-        assertEquals(Skills.ALL, Skills.forSubject(Subject.ENGLISH))
     }
 
     // ---------------- 콘텐츠 ----------------

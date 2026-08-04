@@ -18,7 +18,15 @@ data class MathVisual(
     /** 연산 기호 (emoji_op): + 또는 - */
     val op: String = "+",
     /** 도형 이름들 (shapes) / 막대 이름들 (bar_graph) */
+    /** 화면에 뜰 글자 (폰 언어로 번역돼 있다) */
     val labels: List<String> = emptyList(),
+    /**
+     * 번역 전 한국어 라벨.
+     *
+     * 도형 그리기처럼 **라벨로 무엇을 그릴지 고르는 곳**은 번역본을 쓰면 안 된다.
+     * "원"이 "circle"이 되는 순간 when 분기가 다 빗나가서 전부 삼각형이 그려진다.
+     */
+    val labelsKo: List<String> = labels,
     /** 막대 값들 (bar_graph), 수직선 표시 위치 (number_line) */
     val values: List<Double> = emptyList(),
     /** 분자 (fraction), 시(clock), 각도(angle), 수직선 최소(number_line) */
@@ -103,8 +111,10 @@ data class MathVisual(
                 a = o.optInt("a", 0),
                 bb = o.optInt("b", 0),
                 op = o.optString("op", "+"),
-                // 그림 속 글자(바구니 이름·그래프 항목)도 폰 언어로
+                // 그림 속 글자(바구니 이름·그래프 항목)도 폰 언어로.
+                // 다만 그리기 로직이 보는 원문은 labelsKo 에 그대로 남긴다.
                 labels = com.piyak.english.i18n.Tpl.words(strList(o.optJSONArray("labels"))),
+                labelsKo = strList(o.optJSONArray("labels")),
                 values = numList(o.optJSONArray("values")),
                 p = o.optDouble("p", 0.0),
                 q = o.optDouble("q", 1.0),

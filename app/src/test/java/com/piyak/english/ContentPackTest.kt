@@ -93,7 +93,9 @@ class ContentPackTest {
     @Test fun everyQuestionHasKnownSkill() {
         val dir = packsDir()
         val valid = com.piyak.english.engine.Skills.MATH.map { it.id }.toSet()
-        val engSkills = com.piyak.english.engine.Skills.ALL.map { it.id }.toSet()
+        // 영어 앱에서 쓰던 영역 id. 수학 앱에는 이제 목록조차 없으므로 직접 적는다 —
+        // 팩에 이 중 하나가 섞여 들어오면 영어 콘텐츠가 딸려 온 것이다.
+        val engSkills = setOf("listening", "speaking", "writing", "grammar", "reading", "vocab")
         val counts = HashMap<String, Int>()
         for (tid in com.piyak.english.model.Subject.MATH.tracks) {
             val f = File(dir, "$tid.json")

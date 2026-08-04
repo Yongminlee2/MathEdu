@@ -447,4 +447,4 @@ module.exports = {
 
 // 화면별 문자열은 파일을 나눠 둔다 — 한 파일이 수백 줄이 되면 손대기가 겁난다.
 // 같은 키가 겹치면 나중 파일이 이긴다.
-Object.assign(module.exports.strings, require("./ui_lesson"), require("./ui_wallet"));
+Object.assign(module.exports.strings, require("./ui_lesson"), require("./ui_wallet"), require("./ui_data"), require("./ui_misc"));

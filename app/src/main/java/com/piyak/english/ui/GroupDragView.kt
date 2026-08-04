@@ -1,5 +1,7 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
+
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -78,7 +80,7 @@ class GroupDragView @JvmOverloads constructor(
         sortMode = false
         needCount = -1
         this.groups = groups.coerceAtLeast(1)
-        labels = (1..this.groups).map { "${it}번" }
+        labels = (1..this.groups).map { context.getString(R.string.basket_no, it) }
         specs = ArrayList((0 until total).map { emoji to -1 })
         rebuild()
     }
@@ -223,7 +225,7 @@ class GroupDragView @JvmOverloads constructor(
             // 이름은 위, 개수는 아래 — 한 줄로 붙이면 좁은 바구니에서 칸 밖으로 넘친다
             textPaint.color = Color.parseColor("#8D6E63")
             canvas.drawText(
-                labels.getOrElse(g) { "${g + 1}번" },
+                labels.getOrElse(g) { context.getString(R.string.basket_no, g + 1) },
                 rect.centerX(), rect.top + textPaint.textSize * 1.1f, textPaint
             )
             if (!sortMode) {

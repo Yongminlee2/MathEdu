@@ -1,5 +1,7 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
+
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -460,7 +462,8 @@ class MathVisualView @JvmOverloads constructor(
             val cx = cellW * (i + 0.5f)
             val cy = h * 0.45f
             fill.color = palette[i % palette.size]
-            drawShape(canvas, v.labels[i], cx, cy, r)
+            // 어떤 도형을 그릴지는 **번역 전 이름**으로 고른다
+            drawShape(canvas, v.labelsKo.getOrElse(i) { v.labels[i] }, cx, cy, r)
             canvas.drawText("${i + 1}", cx, h * 0.93f, text)
         }
     }
@@ -570,11 +573,11 @@ class MathVisualView @JvmOverloads constructor(
             // 지금 맞춰 놓은 시각을 숫자로도 보여 준다
             text.textSize = dp(19f).toFloat()
             text.color = Color.parseColor("#4E342E")
-            canvas.drawText("${setHour}시 ${setMinute}분", cx, cy + r + dp(LABEL_LINE1_DP), text)
+            canvas.drawText(context.getString(R.string.time_hm, setHour, setMinute), cx, cy + r + dp(LABEL_LINE1_DP), text)
             text.textSize = dp(13f).toFloat()
             text.isFakeBoldText = false
             text.color = Color.parseColor("#8D6E63")
-            canvas.drawText("바늘을 끌어서 맞춰 보세요", cx, cy + r + dp(LABEL_LINE2_DP), text)
+            canvas.drawText(context.getString(R.string.vis_clock_hint), cx, cy + r + dp(LABEL_LINE2_DP), text)
             text.isFakeBoldText = true
             text.color = Color.parseColor("#4E342E")
         }
@@ -614,12 +617,12 @@ class MathVisualView @JvmOverloads constructor(
             text.isFakeBoldText = true
             text.color = Color.parseColor("#4E342E")
             canvas.drawText(
-                "칠한 칸 ${painted.size} / $denom", cx, cy + r + dp(LABEL_LINE1_DP), text
+                context.getString(R.string.vis_painted, painted.size, denom), cx, cy + r + dp(LABEL_LINE1_DP), text
             )
             text.textSize = dp(13f).toFloat()
             text.isFakeBoldText = false
             text.color = Color.parseColor("#8D6E63")
-            canvas.drawText("조각을 눌러서 색칠해요", cx, cy + r + dp(LABEL_LINE2_DP), text)
+            canvas.drawText(context.getString(R.string.vis_paint_hint), cx, cy + r + dp(LABEL_LINE2_DP), text)
             text.isFakeBoldText = true
             text.color = Color.parseColor("#4E342E")
         }
@@ -857,7 +860,7 @@ class MathVisualView @JvmOverloads constructor(
             text.textSize = len * 0.13f
             text.isFakeBoldText = false
             text.color = Color.parseColor("#8D6E63")
-            canvas.drawText("파란 손잡이를 돌려요", w * 0.5f, h - dp(8), text)
+            canvas.drawText(context.getString(R.string.vis_angle_hint), w * 0.5f, h - dp(8), text)
             text.isFakeBoldText = true
             text.color = Color.parseColor("#4E342E")
         }
@@ -1506,7 +1509,7 @@ class MathVisualView @JvmOverloads constructor(
                         40f, 100f, false, dash
                     )
                 }
-                canvas.drawText("정${n}각형", cx, cy + r + dp(20f), lbl)
+                canvas.drawText(context.getString(R.string.vis_ngon, n), cx, cy + r + dp(20f), lbl)
             }
             "ineq" -> {
                 // 수직선 위의 부등식: x > k (열린 원 + 오른쪽 화살표)
@@ -1591,7 +1594,7 @@ class MathVisualView @JvmOverloads constructor(
                 val side = minOf(w, h) * 0.5f
                 val r = android.graphics.RectF(cx - side / 2, cy - side / 2, cx + side / 2, cy + side / 2)
                 canvas.drawRect(r, fill); canvas.drawRect(r, edge)
-                canvas.drawText("넓이 ${num(v.p)}", cx, cy + dp(5f), lbl)
+                canvas.drawText(context.getString(R.string.vis_area, num(v.p)), cx, cy + dp(5f), lbl)
                 canvas.drawText("?", cx, r.bottom + dp(18f), lbl)
                 lbl.textAlign = Paint.Align.LEFT
                 canvas.drawText("?", r.right + dp(8f), cy + dp(5f), lbl)
@@ -1626,7 +1629,7 @@ class MathVisualView @JvmOverloads constructor(
                 canvas.drawRoundRect(left, cy - bh / 2,
                     left + (right - left) * (part / total), cy + bh / 2, dp(8f), dp(8f), barFg)
                 canvas.drawText("${num(v.p)}", left + (right - left) * (part / total) / 2f, cy + dp(5f), lbl)
-                canvas.drawText("전체 ${num(v.q)}", (left + right) / 2f, cy + bh / 2 + dp(18f), lbl)
+                canvas.drawText(context.getString(R.string.vis_total, num(v.q)), (left + right) / 2f, cy + bh / 2 + dp(18f), lbl)
             }
             "bag" -> {
                 // 주머니 속 빨강·파랑 구슬 (values = [빨강, 파랑])
@@ -1729,7 +1732,7 @@ class MathVisualView @JvmOverloads constructor(
                         cy + rr * Math.sin(ang).toFloat(), dp(5f), dotP
                     )
                 }
-                canvas.drawText("원소 ${n}개", cx, cy + r + dp(20f), lbl)
+                canvas.drawText(context.getString(R.string.vis_elements, n), cx, cy + r + dp(20f), lbl)
             }
         }
     }
@@ -1822,7 +1825,7 @@ class MathVisualView @JvmOverloads constructor(
                 canvas.drawLine(X(0f), Y(lim), X(12.6f), Y(lim), dash)
                 for (n in 1..12) canvas.drawCircle(X(n.toFloat()), Y(term(n)), dp(4f), dot)
                 canvas.drawText("n", X(12.4f), Y(0f) + dp(15f), lbl)
-                canvas.drawText("aₙ이 점점 다가가요", X(6f), Y(lim) - dp(9f), lbl)
+                canvas.drawText(context.getString(R.string.vis_converge), X(6f), Y(lim) - dp(9f), lbl)
             }
         }
     }
