@@ -33,12 +33,13 @@ class WalletTest {
         assertTrue("10,000원에 레슨 60판 이상 필요해야 함", lessonsFor10k >= 60)
     }
 
+    // 단위(원/won)는 언어마다 다르므로 리소스가 붙인다. 여기서는 **자릿수만** 본다.
     @Test fun moneyFormatting() {
-        assertEquals("0원", Wallet.format(0))
-        assertEquals("150원", Wallet.format(150))
-        assertEquals("1,000원", Wallet.format(1000))
-        assertEquals("147,520원", Wallet.format(147520))
-        assertEquals("-300원", Wallet.format(-300))
+        assertEquals("0", Wallet.formatNumber(0))
+        assertEquals("150", Wallet.formatNumber(150))
+        assertEquals("1,000", Wallet.formatNumber(1000))
+        assertEquals("147,520", Wallet.formatNumber(147520))
+        assertEquals("-300", Wallet.formatNumber(-300))
     }
 
     @Test fun dailyBonusesAreCapped() {
@@ -56,7 +57,9 @@ class WalletTest {
         assertEquals(Shop.ITEMS.size, Shop.ITEMS.map { it.id }.toSet().size)
         for (i in Shop.ITEMS) {
             assertTrue("${i.id}: 가격이 0 이하", i.price > 0)
-            assertTrue("${i.id}: 이름 없음", i.name.isNotBlank())
+            // 이름·설명은 이제 문자열 리소스 id 다 (언어를 따라가야 하므로)
+            assertTrue("${i.id}: 이름 리소스 없음", i.nameRes != 0)
+            assertTrue("${i.id}: 설명 리소스 없음", i.descRes != 0)
             assertTrue("${i.id}: 이모지 없음", i.emoji.isNotBlank())
             if (i.kind == ShopKind.THEME) {
                 assertTrue("${i.id}: 테마인데 색이 없음", i.color.startsWith("#"))

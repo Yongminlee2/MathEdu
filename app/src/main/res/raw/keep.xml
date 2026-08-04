@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  리소스 축소기(shrinkResources)가 지우면 안 되는 것들.
+
+  아래 리소스들은 코드에서 **이름으로 찾아 쓴다**(getIdentifier). 축소기는 코드에서
+  R.string.xxx 처럼 직접 참조된 것만 "쓰인다"고 보기 때문에, 막지 않으면 통째로
+  잘려 나간다. 그러면 릴리스 빌드에서만 문제문이 한국어로 나오거나
+  그림이 사라지는, 디버그로는 절대 못 잡는 사고가 난다.
+
+    tpl_*      문제·해설 뼈대       (i18n/Tpl.kt)
+    tpl_words  문제 속 낱말 사전     (i18n/Tpl.kt)
+    tpl_units  답 옆 단위 사전       (i18n/Tpl.kt)
+    word_*     문장제 사물 그림      (LessonActivity.storyArt)
+    ck_*       병아리 포즈           (여러 화면에서 이름으로 조합)
+-->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@string/tpl_*,@array/tpl_words,@array/tpl_units,@drawable/word_*,@drawable/ck_*" />

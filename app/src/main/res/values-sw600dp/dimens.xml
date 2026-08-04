@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 7~8인치 태블릿·폴더블 펼침: 좌우를 넉넉히 비워 내용을 가운데로 모은다 -->
+<resources>
+    <dimen name="screen_pad">72dp</dimen>
+    <dimen name="screen_pad_tight">64dp</dimen>
+</resources>
