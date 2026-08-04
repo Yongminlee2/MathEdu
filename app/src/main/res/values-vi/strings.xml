@@ -160,7 +160,7 @@
     <string name="goal_reached">Đạt mục tiêu hôm nay</string>
     <string name="badge_earned">🏆 Nhận huy hiệu: %1$s %2$s!</string>
     <string name="clear">Xóa</string>
-    <string name="wallet_amount">%1$s won</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Đã kiếm được: %1$s</string>
     <string name="wallet_spent">Đã tiêu ở cửa hàng: %1$s · Đã đổi tiền: %2$s</string>
     <string name="wallet_no_log">Chưa có lịch sử. Giải bài để kiếm tiền tiêu vặt nhé! 🐥</string>

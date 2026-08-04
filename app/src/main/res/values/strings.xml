@@ -160,7 +160,7 @@
     <string name="goal_reached">Daily goal reached</string>
     <string name="badge_earned">🏆 Badge earned: %1$s %2$s!</string>
     <string name="clear">Clear</string>
-    <string name="wallet_amount">%1$s won</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Earned so far: %1$s</string>
     <string name="wallet_spent">Spent in shop: %1$s · Cashed out: %2$s</string>
     <string name="wallet_no_log">No history yet. Solve problems to earn pocket money! 🐥</string>

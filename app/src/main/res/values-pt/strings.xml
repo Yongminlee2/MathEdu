@@ -160,7 +160,7 @@
     <string name="goal_reached">Meta do dia alcançada</string>
     <string name="badge_earned">🏆 Distintivo conquistado: %1$s %2$s!</string>
     <string name="clear">Limpar</string>
-    <string name="wallet_amount">%1$s wons</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Ganho até agora: %1$s</string>
     <string name="wallet_spent">Gasto na loja: %1$s · Sacado: %2$s</string>
     <string name="wallet_no_log">Ainda sem histórico. Resolva problemas para ganhar mesada! 🐥</string>

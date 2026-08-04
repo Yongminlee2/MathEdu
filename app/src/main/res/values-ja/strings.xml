@@ -160,7 +160,7 @@
     <string name="goal_reached">きょうの もくひょう たっせい</string>
     <string name="badge_earned">🏆 バッジ ゲット: %1$s %2$s!</string>
     <string name="clear">けす</string>
-    <string name="wallet_amount">%1$s ウォン</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">これまでに ためた お金 %1$s</string>
     <string name="wallet_spent">ショップで つかった %1$s · 現金で もらった %2$s</string>
     <string name="wallet_no_log">まだ きろくが ないよ。もんだいを といて おこづかいを ためよう! 🐥</string>

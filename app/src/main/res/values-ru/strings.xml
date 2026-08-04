@@ -160,7 +160,7 @@
     <string name="goal_reached">Цель дня достигнута</string>
     <string name="badge_earned">🏆 Получен значок: %1$s %2$s!</string>
     <string name="clear">Стереть</string>
-    <string name="wallet_amount">%1$s вон</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Накоплено: %1$s</string>
     <string name="wallet_spent">Потрачено в магазине: %1$s · Выплачено: %2$s</string>
     <string name="wallet_no_log">Пока нет записей. Решай задачи и копи карманные! 🐥</string>

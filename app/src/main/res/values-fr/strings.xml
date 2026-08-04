@@ -160,7 +160,7 @@
     <string name="goal_reached">Objectif du jour atteint</string>
     <string name="badge_earned">🏆 Badge obtenu : %1$s %2$s !</string>
     <string name="clear">Effacer</string>
-    <string name="wallet_amount">%1$s wons</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Gagné jusqu\'ici : %1$s</string>
     <string name="wallet_spent">Dépensé en boutique : %1$s · Retiré : %2$s</string>
     <string name="wallet_no_log">Pas encore d\'historique. Résous des problèmes pour gagner de l\'argent ! 🐥</string>

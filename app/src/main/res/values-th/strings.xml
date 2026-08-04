@@ -160,7 +160,7 @@
     <string name="goal_reached">บรรลุเป้าหมายวันนี้</string>
     <string name="badge_earned">🏆 ได้รับเหรียญ: %1$s %2$s!</string>
     <string name="clear">ล้าง</string>
-    <string name="wallet_amount">%1$s วอน</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">สะสมได้แล้ว %1$s</string>
     <string name="wallet_spent">ใช้ในร้าน %1$s · แลกเป็นเงินสด %2$s</string>
     <string name="wallet_no_log">ยังไม่มีประวัติ ทำโจทย์เพื่อสะสมเงินกันเถอะ! 🐥</string>
