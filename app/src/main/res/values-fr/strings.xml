@@ -347,6 +347,9 @@
     <string name="tpl_cc9224e2">C\'est à %1$s pas à droite de 0.\n%2$s est plus petit que 10.</string>
     <string name="tpl_298087b1">C\'est à %1$s pas à droite de 0.\n%2$s est plus grand que 10.</string>
     <string name="tpl_c9b3271e">C\'est à %1$s pas à droite de 0.\n%2$s vaut exactement 10.</string>
+    <string name="tpl_a98236e0">%1$s est à %2$s pas à droite de 0.</string>
+    <string name="tpl_e7144613">%1$s est inférieur de %2$s à 0. Avance de %3$s pas vers la gauche depuis 0.</string>
+    <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">

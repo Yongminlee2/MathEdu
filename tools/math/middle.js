@@ -83,8 +83,8 @@ function middle1() {
       tp("b1b8ddf9", [target], `수직선에서 ${target} 을 찾아 점을 놓아 보세요.`),
       target,
       target < 0
-        ? `${target} 은 0 보다 ${-target} 만큼 작아요. 0 에서 왼쪽으로 ${-target} 칸 가면 돼요.`
-        : `${target} 은 0 에서 오른쪽으로 ${target} 칸 간 자리예요.`,
+        ? tp("e7144613", [target, -target, -target], `${target} 은 0 보다 ${-target} 만큼 작아요. 0 에서 왼쪽으로 ${-target} 칸 가면 돼요.`)
+        : tp("a98236e0", [target, target], `${target} 은 0 에서 오른쪽으로 ${target} 칸 간 자리예요.`),
       { visual: V.numberLineDrag(-10, 10, 20), skill: SK.number }
     );
   }), 5));

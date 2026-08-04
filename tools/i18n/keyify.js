@@ -178,8 +178,12 @@ for (const f of FILES) {
     const [ta, tb] = parsed.args[2];
     const body = src.slice(ta, tb).trim();
     if (!body || (body[0] !== BT && body[0] !== '"' && body[0] !== "'")) continue;
+    // 여기서는 한글이 있는지 따지지 않는다.
+    // 뼈대에 한글이 없어도 **값 쪽에 한국어가 실려 오는** 경우가 있기 때문이다.
+    //   `D = b² - 4ac = ${...}\n${D > 0 ? "서로 다른 두 실근" : ...}`
+    // 뼈대만 보면 수식뿐이지만, 키가 없으면 앱이 조립을 못 해 한국어가 그대로 뜬다.
+    // 손으로 tp() 를 씌웠다는 것 자체가 "이 문장은 번역 대상"이라는 뜻이다.
     const { skeleton, exprs } = toSkeleton(body);
-    if (!/[가-힣]/.test(skeleton)) continue;
 
     const key = keyOf(skeleton);
     if (manifest[key]) manifest[key].n++;

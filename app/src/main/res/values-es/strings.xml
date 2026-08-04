@@ -347,6 +347,9 @@
     <string name="tpl_cc9224e2">Está %1$s pasos a la derecha del 0.\n%2$s es menor que 10.</string>
     <string name="tpl_298087b1">Está %1$s pasos a la derecha del 0.\n%2$s es mayor que 10.</string>
     <string name="tpl_c9b3271e">Está %1$s pasos a la derecha del 0.\n%2$s es exactamente 10.</string>
+    <string name="tpl_a98236e0">%1$s está %2$s pasos a la derecha del 0.</string>
+    <string name="tpl_e7144613">%1$s es %2$s menos que 0. Avanza %3$s pasos a la izquierda desde 0.</string>
+    <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">
