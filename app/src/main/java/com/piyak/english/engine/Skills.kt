@@ -1,9 +1,12 @@
 package com.piyak.english.engine
 
+import com.piyak.english.R
+
 import kotlin.math.min
 
 /** 실력 영역 정의 (홈 대시보드의 여섯 줄) */
-data class SkillDef(val id: String, val emoji: String, val title: String, val color: String)
+/** 실력 영역. 이름은 **문자열 리소스 id** 다 — 폰 언어를 따라가야 하므로 */
+data class SkillDef(val id: String, val emoji: String, val titleRes: Int, val color: String)
 
 /** 한 영역의 현재 상태 */
 data class SkillState(
@@ -22,24 +25,20 @@ data class SkillState(
 object Skills {
     const val MAX_LEVEL = 10
 
-    /** 영어 영역 (배지 판정 기준이기도 하다) */
-    val ALL = listOf(
-        SkillDef("listening", "🎧", "듣기", "#AEE3F0"),
-        SkillDef("speaking", "🎤", "말하기", "#F7C6C7"),
-        SkillDef("writing", "✍️", "쓰기", "#CFE8B8"),
-        SkillDef("grammar", "📖", "문법", "#F3D7B0"),
-        SkillDef("reading", "📚", "독해", "#D8CBF0"),
-        SkillDef("vocab", "🔤", "어휘", "#FFE082"),
-    )
+    /**
+     * 영어 영역은 **수학 앱에 없다.** 앱을 둘로 나눌 때 목록만 남아서
+     * 통계와 배지가 계속 영어 영역을 끌고 다녔다. MATH 하나만 둔다.
+     */
+    val ALL get() = MATH
 
     /** 수학 영역 */
     val MATH = listOf(
-        SkillDef("m_calc", "➕", "계산", "#FFCCBC"),
-        SkillDef("m_number", "🔢", "수 감각", "#FFE082"),
-        SkillDef("m_shape", "🔺", "도형", "#C5E1A5"),
-        SkillDef("m_measure", "📏", "측정", "#B3E5FC"),
-        SkillDef("m_data", "📊", "자료와 확률", "#D1C4E9"),
-        SkillDef("m_word", "🧩", "문장제", "#F8BBD0"),
+        SkillDef("m_calc", "➕", R.string.sk_calc, "#FFCCBC"),
+        SkillDef("m_number", "🔢", R.string.sk_number, "#FFE082"),
+        SkillDef("m_shape", "🔺", R.string.sk_shape, "#C5E1A5"),
+        SkillDef("m_measure", "📏", R.string.sk_measure, "#B3E5FC"),
+        SkillDef("m_data", "📊", R.string.sk_data, "#D1C4E9"),
+        SkillDef("m_word", "🧩", R.string.sk_word, "#F8BBD0"),
     )
 
     fun forSubject(subject: com.piyak.english.model.Subject): List<SkillDef> =
@@ -77,20 +76,21 @@ object Skills {
 }
 
 /** 칭호: 종합 실력이 오를수록 병아리가 자란다 */
-data class Rank(val emoji: String, val title: String, val minOverall: Float)
+/** 칭호. 이름은 **문자열 리소스 id** 다 */
+data class Rank(val emoji: String, val titleRes: Int, val minOverall: Float)
 
 object Ranks {
     val ALL = listOf(
-        Rank("🥚", "알 속의 새싹", 0f),
-        Rank("🐣", "갓 깬 병아리", 0.7f),
-        Rank("🐥", "삐약이", 1.5f),
-        Rank("🐤", "씩씩한 병아리", 2.5f),
-        Rank("🐦", "재잘재잘 참새", 3.5f),
-        Rank("🕊️", "자유로운 비둘기", 4.5f),
-        Rank("🦜", "수다쟁이 앵무새", 5.5f),
-        Rank("🦉", "지혜로운 부엉이", 6.5f),
-        Rank("🦅", "하늘의 독수리", 7.5f),
-        Rank("👑", "영어 마스터", 9f),
+        Rank("🥚", R.string.rk_seed, 0f),
+        Rank("🐣", R.string.rk_hatch, 0.7f),
+        Rank("🐥", R.string.rk_piyak, 1.5f),
+        Rank("🐤", R.string.rk_brave, 2.5f),
+        Rank("🐦", R.string.rk_sparrow, 3.5f),
+        Rank("🕊️", R.string.rk_dove, 4.5f),
+        Rank("🦜", R.string.rk_parrot, 5.5f),
+        Rank("🦉", R.string.rk_owl, 6.5f),
+        Rank("🦅", R.string.rk_eagle, 7.5f),
+        Rank("👑", R.string.rk_master, 9f),
     )
 
     fun of(overall: Float): Rank = ALL.last { overall >= it.minOverall }

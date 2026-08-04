@@ -145,7 +145,7 @@ class LessonActivity : AppCompatActivity() {
                 AlertDialog.Builder(this)
                     .setTitle(getString(R.string.heart_empty_title))
                     .setMessage(getString(R.string.heart_empty_msg))
-                    .setPositiveButton("확인") { _, _ -> finish() }
+                    .setPositiveButton(getString(R.string.confirm)) { _, _ -> finish() }
                     .setCancelable(false).show()
                 return
             }
@@ -693,7 +693,7 @@ class LessonActivity : AppCompatActivity() {
         countBox.visibility = View.VISIBLE
         txtCount.text = getString(R.string.play_clock)
         v.findViewById<Button>(R.id.btnCountReset).apply {
-            text = "12시로"
+            text = getString(R.string.play_reset_clock)
             setOnClickListener { visualView.resetClock() }
         }
 
@@ -744,10 +744,9 @@ class LessonActivity : AppCompatActivity() {
         gv.onPlace = { sfx.piyak() }
         gv.onChanged = { counts ->
             val left = vis.a - counts.sum()
-            txtCount.text = if (left > 0)
-                "🧺 " + counts.joinToString(" · ") { "${it}개" } + "   (남은 것 ${left}개)"
-            else
-                "🧺 " + counts.joinToString(" · ") { "${it}개" } + "   다 담았어요!"
+            val filled = "🧺 " + counts.joinToString(" · ") { it.toString() }
+            txtCount.text = filled + if (left > 0) getString(R.string.play_group_left, left)
+                else getString(R.string.play_group_done)
             b.btnCheck.isEnabled = counts.sum() > 0
         }
         checkAction = {
@@ -852,7 +851,7 @@ class LessonActivity : AppCompatActivity() {
         countBox.visibility = View.VISIBLE
         txtCount.text = getString(R.string.play_numline)
         v.findViewById<Button>(R.id.btnCountReset).apply {
-            text = "처음으로"
+            text = getString(R.string.play_reset_move)
             setOnClickListener { visualView.resetMark(); b.btnCheck.isEnabled = false }
         }
 
@@ -878,7 +877,7 @@ class LessonActivity : AppCompatActivity() {
         countBox.visibility = View.VISIBLE
         txtCount.text = getString(R.string.play_angle)
         v.findViewById<Button>(R.id.btnCountReset).apply {
-            text = "0°로"
+            text = getString(R.string.play_reset_angle)
             setOnClickListener { visualView.resetAngle(); b.btnCheck.isEnabled = false }
         }
 
@@ -927,7 +926,7 @@ class LessonActivity : AppCompatActivity() {
         countBox.visibility = View.VISIBLE
         txtCount.text = getString(R.string.play_balance)
         v.findViewById<Button>(R.id.btnCountReset).apply {
-            text = "처음으로"
+            text = getString(R.string.play_reset_move)
             setOnClickListener { sv.reset(); b.btnCheck.isEnabled = false }
         }
 
@@ -994,7 +993,7 @@ class LessonActivity : AppCompatActivity() {
         val vis = q.visual ?: return
         val total = vis.a
         val need = vis.bb
-        val label = vis.labels.getOrElse(0) { "상자" }
+        val label = vis.labels.getOrElse(0) { getString(R.string.box) }
         val takeAway = need < total   // 덜어내기면 상자 밖에 남는 게 답
 
         val grid = v.findViewById<android.widget.GridLayout>(R.id.choicesGrid)
@@ -1242,7 +1241,7 @@ class LessonActivity : AppCompatActivity() {
                 db.addBonusCountToday("review")
             }
             b.txtResultTitle.text = getString(R.string.result_review_title)
-            b.txtResultStats.text = "정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP\n하트 1개 회복! ❤️ $h"
+            b.txtResultStats.text = getString(R.string.result_review_stats, (s.accuracy * 100).toInt(), xp, h)
         } else {
             if (db.heartsEnabled()) db.setHearts(s.hearts)
             db.addXp(xp)
@@ -1253,18 +1252,19 @@ class LessonActivity : AppCompatActivity() {
             if (firstClear) {
                 coins = db.earnCoins(
                     Wallet.lessonReward(s.firstTryCorrect, s.isPerfect), "LESSON",
-                    "$lessonTitle (첫 시도 정답 ${s.firstTryCorrect}문제)"
+                    getString(R.string.result_lesson_sub, lessonTitle, s.firstTryCorrect)
                 )
             }
             b.txtResultTitle.text = if (s.isPerfect) getString(R.string.result_perfect_title) else getString(R.string.result_lesson_title)
             b.txtResultStats.text =
-                "$lessonTitle\n${"⭐".repeat(s.stars())}\n정답률 ${(s.accuracy * 100).toInt()}% · +${xp} XP" +
-                    if (s.isPerfect) " (퍼펙트 +5 포함)" else ""
+                "$lessonTitle\n${"⭐".repeat(s.stars())}\n" +
+                    getString(R.string.result_stats, (s.accuracy * 100).toInt(), xp) +
+                    if (s.isPerfect) getString(R.string.result_perfect_bonus) else ""
         }
         if (coins > 0) {
-            b.txtResultStats.append("\n\n💰 용돈 +${Wallet.format(this, coins)}  (지갑 ${Wallet.format(this, db.coins())})")
+            b.txtResultStats.append("\n\n" + getString(R.string.result_coins, Wallet.format(this, coins), Wallet.format(this, db.coins())))
         } else if (!reviewMode) {
-            b.txtResultStats.append("\n\n💰 이미 깬 레슨이라 용돈은 없어요")
+            b.txtResultStats.append("\n\n" + getString(R.string.result_no_coins))
         }
         b.txtResultStats.append(growthReport())
         checkBadges()
@@ -1278,25 +1278,25 @@ class LessonActivity : AppCompatActivity() {
         for (st in states) {
             val before = startSkillLevels[st.def.id] ?: 0
             if (st.level > before) {
-                sb.append("\n\n🎉 ${st.def.emoji} ${st.def.title} 실력이 Lv.${st.level} 로 올랐어요!")
+                sb.append("\n\n" + getString(R.string.result_skill_up, st.def.emoji, getString(st.def.titleRes), st.level))
             }
         }
         val overall = com.piyak.english.engine.Skills.overallLevel(states)
         val rank = com.piyak.english.engine.Ranks.of(overall)
-        if (startRank != null && rank.title != startRank!!.title) {
-            sb.append("\n\n👑 칭호 승급! ${rank.emoji} ${rank.title}")
+        if (startRank != null && rank.titleRes != startRank!!.titleRes) {
+            sb.append("\n\n" + getString(R.string.result_rank_up, rank.emoji, getString(rank.titleRes)))
         }
         val goal = db.dailyGoal()
         val todayXp = db.xpToday()
-        sb.append("\n\n🎯 오늘의 목표 $todayXp / $goal XP")
+        sb.append("\n\n" + getString(R.string.result_goal, todayXp, goal))
         if (com.piyak.english.engine.DailyGoal.isDone(todayXp, goal)) {
-            sb.append("  ✅ 달성!")
+            sb.append(getString(R.string.result_goal_done))
             // 목표 달성은 하루 한 번만 집계 + 용돈 보너스
             if (db.metaLong("goal_met_day", -1) != Db.today()) {
                 db.setMeta("goal_met_day", Db.today().toString())
                 db.setMeta("goals_met", (db.metaInt("goals_met") + 1).toString())
                 val bonus = db.earnCoins(Wallet.DAILY_GOAL_BONUS, "GOAL", getString(R.string.goal_reached))
-                if (bonus > 0) sb.append("\n💰 목표 달성 보너스 +${Wallet.format(this, bonus)}")
+                if (bonus > 0) sb.append("\n" + getString(R.string.result_goal_bonus, Wallet.format(this, bonus)))
             }
         }
         return sb.toString()
@@ -1329,7 +1329,7 @@ class LessonActivity : AppCompatActivity() {
         val newly = Badges.check(snap, db.earnedBadges())
         for (bd in newly) {
             db.earnBadge(bd.id)
-            Toast.makeText(this, getString(R.string.badge_earned, bd.emoji, bd.title), Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.badge_earned, bd.emoji, getString(bd.titleRes)), Toast.LENGTH_LONG).show()
         }
     }
 

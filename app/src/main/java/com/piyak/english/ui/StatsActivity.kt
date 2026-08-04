@@ -40,10 +40,9 @@ class StatsActivity : AppCompatActivity() {
         b.txtStreakInfo.text = getString(R.string.stats_streak_info, cur, best)
 
         b.txtCounters.text =
-            "📚 완료한 레슨  ${db.lessonsDoneCount()}개\n" +
-            "💯 퍼펙트 레슨  ${db.metaInt("perfect_count")}개\n" +
-            "💊 클리어한 오답  ${db.metaInt("review_cleared")}개\n" +
-            "🗓 공부한 날  ${days.size}일"
+            getString(R.string.stats_counters,
+                db.lessonsDoneCount(), db.metaInt("perfect_count"),
+                db.metaInt("review_cleared"), days.size)
 
         buildSkills(db)
         buildCalendar(days)
@@ -62,8 +61,8 @@ class StatsActivity : AppCompatActivity() {
         val overall = com.piyak.english.engine.Skills.overallLevel(states)
         val rank = com.piyak.english.engine.Ranks.of(overall)
         val next = com.piyak.english.engine.Ranks.next(overall)
-        b.txtRankLine.text = String.format("%s %s · Lv.%.1f", rank.emoji, rank.title, overall) +
-            if (next != null) "  (→ ${next.title} Lv.${next.minOverall})" else ""
+        b.txtRankLine.text = String.format("%s %s · Lv.%.1f", rank.emoji, getString(rank.titleRes), overall) +
+            if (next != null) getString(R.string.rank_next_short, getString(next.titleRes), next.minOverall) else ""
 
         b.skillDetailBox.removeAllViews()
         for (st in states) {
@@ -76,7 +75,7 @@ class StatsActivity : AppCompatActivity() {
                 ).apply { topMargin = dp(6) }
             }
             box.addView(TextView(this).apply {
-                text = "${st.def.emoji} ${st.def.title}   Lv.${st.level}"
+                text = "${st.def.emoji} " + getString(st.def.titleRes) + "   Lv.${st.level}"
                 textSize = 16f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
             })
@@ -111,7 +110,7 @@ class StatsActivity : AppCompatActivity() {
         val first = today.withDayOfMonth(1)
         val startCol = first.dayOfWeek.value % 7 // 일요일 시작
 
-        for (h in listOf("일", "월", "화", "수", "목", "금", "토")) {
+        for (h in resources.getStringArray(R.array.weekday_short)) {
             b.calGrid.addView(cell(h, bold = true))
         }
         repeat(startCol) { b.calGrid.addView(cell("")) }
@@ -154,13 +153,13 @@ class StatsActivity : AppCompatActivity() {
             }
             box.addView(TextView(this).apply { text = bd.emoji; textSize = 30f; gravity = Gravity.CENTER })
             box.addView(TextView(this).apply {
-                text = bd.title; textSize = 12f; gravity = Gravity.CENTER
+                text = getString(bd.titleRes); textSize = 12f; gravity = Gravity.CENTER
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 maxLines = 1
                 ellipsize = android.text.TextUtils.TruncateAt.END
             })
             box.addView(TextView(this).apply {
-                text = bd.desc; textSize = 10.5f; gravity = Gravity.CENTER
+                text = getString(bd.descRes); textSize = 10.5f; gravity = Gravity.CENTER
                 setTextColor(Color.parseColor("#8D6E63"))
                 maxLines = 2
                 ellipsize = android.text.TextUtils.TruncateAt.END

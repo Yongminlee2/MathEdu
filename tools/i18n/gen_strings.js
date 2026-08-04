@@ -13,6 +13,7 @@ const tplKo = require("./templates.json");          // 뼈대 원문 (한국어)
 const tplTr = require("./templates_i18n");          // 뼈대 번역
 const wordTr = require("./words_i18n");             // 인자·라벨에 박힌 낱말 번역
 const unitTr = require("./units_i18n");             // 답 옆 단위 (개·명·원 …)
+const arrays = require("./arrays");                 // 순서 있는 묶음 (요일 등)
 const { derivedFrom } = require("./zh_trad");       // 번체 중국어는 간체에서 만들어 낸다
 
 const RES = path.join(__dirname, "..", "..", "app", "src", "main", "res");
@@ -62,6 +63,19 @@ for (const lang of langs) {
       if (lang !== "en") missing++;
     }
     lines.push(`    <string name="${key}">${esc(v)}</string>`);
+  }
+
+  // ---- 순서 있는 묶음 (요일 등) ----
+  for (const [name, byLang] of Object.entries(arrays)) {
+    let items = byLang[lang];
+    if (!items) {
+      const d = derivedFrom(lang);
+      if (d && byLang[d.base]) items = byLang[d.base].map(d.fn);
+    }
+    if (!items) items = byLang.en;
+    lines.push(`    <string-array name="${name}">`);
+    for (const it of items) lines.push(`        <item>${esc(it)}</item>`);
+    lines.push("    </string-array>");
   }
 
   // ---- 문제 뼈대 (tpl_*) ----
@@ -128,4 +142,13 @@ for (const [key, byLang] of Object.entries(tplTr)) {
   }
 }
 if (bad) { console.error(`서식 불일치 ${bad}건 — 고치기 전에는 배포 금지`); process.exit(1); }
-console.log("뼈대 서식 검사 통과");
+for (const [name, byLang] of Object.entries(arrays)) {
+  const n = byLang.en.length;
+  for (const [lg, arr] of Object.entries(byLang)) {
+    if (arr.length !== n) {
+      console.error(`  ⚠ 배열 ${name}(${lg}) 개수 ${arr.length} — 영어는 ${n}개`);
+      process.exit(1);
+    }
+  }
+}
+console.log("뼈대 서식 · 배열 개수 검사 통과");

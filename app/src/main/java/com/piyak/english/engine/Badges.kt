@@ -1,7 +1,13 @@
 package com.piyak.english.engine
 
-/** 배지 정의 + 획득 판정 (순수 로직) */
-data class BadgeDef(val id: String, val emoji: String, val title: String, val desc: String)
+import com.piyak.english.R
+
+/**
+ * 배지 정의 + 획득 판정 (순수 로직).
+ *
+ * 제목·설명은 **문자열 리소스 id** 다 — 폰 언어를 따라가야 하므로.
+ */
+data class BadgeDef(val id: String, val emoji: String, val titleRes: Int, val descRes: Int)
 
 data class StatsSnapshot(
     val lessonsDone: Int,
@@ -15,33 +21,40 @@ data class StatsSnapshot(
     val goalsMet: Int = 0, // 일일 목표 달성 횟수
 )
 
+/**
+ * 얻을 수 있는 배지 목록.
+ *
+ * **수학 앱이므로 수학으로 얻는 배지만 둔다.** 앱을 둘로 나눌 때 영어 배지
+ * (듣기·말하기·쓰기·문법·영어왕·두 과목 척척)가 그대로 남아 있어서,
+ * 통계 화면에 **영영 얻을 수 없는 회색 배지**가 6개나 붙어 있었다.
+ * 빈자리는 그동안 없던 수학 영역 배지(수감각·측정·자료)로 채웠다.
+ *
+ * 이미 지운 배지를 받아 둔 기록이 DB 에 남아 있어도, 목록에 없으면 안 보일 뿐 문제없다.
+ */
 object Badges {
     val ALL = listOf(
-        BadgeDef("first_lesson", "🐣", "첫걸음", "첫 레슨 완료"),
-        BadgeDef("lessons_10", "📚", "공부벌레", "레슨 10개 완료"),
-        BadgeDef("lessons_50", "🎓", "모범생", "레슨 50개 완료"),
-        BadgeDef("lessons_200", "👑", "영어왕", "레슨 200개 완료"),
-        BadgeDef("perfect_10", "💯", "완벽주의", "퍼펙트 레슨 10회"),
-        BadgeDef("streak_7", "🔥", "일주일 불꽃", "7일 연속 학습"),
-        BadgeDef("streak_30", "🌋", "한달 화산", "30일 연속 학습"),
-        BadgeDef("xp_1000", "⭐", "별 헤는 밤", "누적 XP 1,000"),
-        BadgeDef("xp_5000", "🌟", "슈퍼스타", "누적 XP 5,000"),
-        BadgeDef("placement", "🎯", "제자리 찾기", "레벨테스트 완료"),
-        BadgeDef("review_50", "💊", "오답 청소부", "오답 50개 클리어"),
-        BadgeDef("unit_master", "🏆", "유닛 정복자", "한 트랙의 유닛 5개 완료"),
-        BadgeDef("goal_first", "🎯", "목표 달성", "오늘의 목표 첫 달성"),
-        BadgeDef("goal_10", "🎪", "목표 사냥꾼", "일일 목표 10번 달성"),
-        BadgeDef("ear_master", "🎧", "귀가 트였다", "듣기 실력 Lv.5"),
-        BadgeDef("mouth_master", "🎤", "입이 트였다", "말하기 실력 Lv.5"),
-        BadgeDef("hand_master", "✍️", "손이 풀렸다", "쓰기 실력 Lv.5"),
-        BadgeDef("grammar_master", "📖", "문법 도사", "문법 실력 Lv.5"),
-        BadgeDef("all_rounder", "🌈", "만능 삐약이", "영어 모든 영역 Lv.3 이상"),
-        // 수학
-        BadgeDef("m_calc_master", "➕", "계산왕", "수학 계산 실력 Lv.5"),
-        BadgeDef("m_shape_master", "🔺", "도형 박사", "수학 도형 실력 Lv.5"),
-        BadgeDef("m_word_master", "🧩", "문장제 해결사", "수학 문장제 실력 Lv.5"),
-        BadgeDef("m_all_rounder", "🧮", "수학 만능", "수학 모든 영역 Lv.3 이상"),
-        BadgeDef("both_subjects", "🎓", "두 과목 척척", "영어·수학 모두 Lv.3 이상 영역 보유"),
+        BadgeDef("first_lesson", "🐣", R.string.bg_first_lesson, R.string.bg_first_lesson_d),
+        BadgeDef("lessons_10", "📚", R.string.bg_lessons_10, R.string.bg_lessons_10_d),
+        BadgeDef("lessons_50", "🎓", R.string.bg_lessons_50, R.string.bg_lessons_50_d),
+        BadgeDef("lessons_200", "👑", R.string.bg_lessons_200, R.string.bg_lessons_200_d),
+        BadgeDef("perfect_10", "💯", R.string.bg_perfect_10, R.string.bg_perfect_10_d),
+        BadgeDef("streak_7", "🔥", R.string.bg_streak_7, R.string.bg_streak_7_d),
+        BadgeDef("streak_30", "🌋", R.string.bg_streak_30, R.string.bg_streak_30_d),
+        BadgeDef("xp_1000", "⭐", R.string.bg_xp_1000, R.string.bg_xp_1000_d),
+        BadgeDef("xp_5000", "🌟", R.string.bg_xp_5000, R.string.bg_xp_5000_d),
+        BadgeDef("placement", "🎯", R.string.bg_placement, R.string.bg_placement_d),
+        BadgeDef("review_50", "💊", R.string.bg_review_50, R.string.bg_review_50_d),
+        BadgeDef("unit_master", "🏆", R.string.bg_unit_master, R.string.bg_unit_master_d),
+        BadgeDef("goal_first", "🎯", R.string.bg_goal_first, R.string.bg_goal_first_d),
+        BadgeDef("goal_10", "🎪", R.string.bg_goal_10, R.string.bg_goal_10_d),
+        // 수학 영역별
+        BadgeDef("m_calc_master", "➕", R.string.bg_m_calc, R.string.bg_m_calc_d),
+        BadgeDef("m_number_master", "🔢", R.string.bg_m_number, R.string.bg_m_number_d),
+        BadgeDef("m_shape_master", "🔺", R.string.bg_m_shape, R.string.bg_m_shape_d),
+        BadgeDef("m_measure_master", "📏", R.string.bg_m_measure, R.string.bg_m_measure_d),
+        BadgeDef("m_data_master", "📊", R.string.bg_m_data, R.string.bg_m_data_d),
+        BadgeDef("m_word_master", "🧩", R.string.bg_m_word, R.string.bg_m_word_d),
+        BadgeDef("m_all_rounder", "🧮", R.string.bg_m_all, R.string.bg_m_all_d),
     )
 
     fun check(s: StatsSnapshot, already: Set<String>): List<BadgeDef> {
@@ -63,20 +76,13 @@ object Badges {
         give("unit_master", s.unitsCompleted.values.any { it >= 5 })
         give("goal_first", s.goalsMet >= 1)
         give("goal_10", s.goalsMet >= 10)
-        give("ear_master", (s.skillLevels["listening"] ?: 0) >= 5)
-        give("mouth_master", (s.skillLevels["speaking"] ?: 0) >= 5)
-        give("hand_master", (s.skillLevels["writing"] ?: 0) >= 5)
-        give("grammar_master", (s.skillLevels["grammar"] ?: 0) >= 5)
-        give("all_rounder", Skills.ALL.all { (s.skillLevels[it.id] ?: 0) >= 3 })
         give("m_calc_master", (s.skillLevels["m_calc"] ?: 0) >= 5)
+        give("m_number_master", (s.skillLevels["m_number"] ?: 0) >= 5)
         give("m_shape_master", (s.skillLevels["m_shape"] ?: 0) >= 5)
+        give("m_measure_master", (s.skillLevels["m_measure"] ?: 0) >= 5)
+        give("m_data_master", (s.skillLevels["m_data"] ?: 0) >= 5)
         give("m_word_master", (s.skillLevels["m_word"] ?: 0) >= 5)
         give("m_all_rounder", Skills.MATH.all { (s.skillLevels[it.id] ?: 0) >= 3 })
-        give(
-            "both_subjects",
-            Skills.ALL.any { (s.skillLevels[it.id] ?: 0) >= 3 } &&
-                Skills.MATH.any { (s.skillLevels[it.id] ?: 0) >= 3 }
-        )
         return earned
     }
 }

@@ -1,5 +1,7 @@
 package com.piyak.english.ui
 
+import com.piyak.english.R
+
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -128,8 +130,8 @@ class BalanceScaleView @JvmOverloads constructor(
         text.textSize = dp(17f)
         text.color = if (isBalanced()) Color.parseColor("#2E7D32") else Color.parseColor("#8D6E63")
         canvas.drawText(
-            if (isBalanced()) "⚖️ 평형이에요!"
-            else if (diff > 0) "왼쪽이 더 무거워요" else "오른쪽이 더 무거워요",
+            if (isBalanced()) context.getString(R.string.balance_ok)
+            else if (diff > 0) context.getString(R.string.balance_left) else context.getString(R.string.balance_right),
             cx, h * 0.93f, text
         )
 

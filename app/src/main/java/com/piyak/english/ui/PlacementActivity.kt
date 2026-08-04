@@ -175,20 +175,20 @@ class PlacementActivity : AppCompatActivity() {
         if (firstTime) {
             val c = db.earnCoins(
                 com.piyak.english.engine.Wallet.PLACEMENT_BONUS, "PLACEMENT",
-                "${subject.title} 레벨테스트 완료"
+                getString(R.string.placement_done, getString(subject.titleRes))
             )
-            coinLine = "\n💰 용돈 +${com.piyak.english.engine.Wallet.format(this, c)}"
+            coinLine = "\n" + getString(R.string.placement_coins, com.piyak.english.engine.Wallet.format(this, c))
         }
         b.resultPanel.visibility = View.VISIBLE
-        val name = Placement.levelName(subject, placed)
+        val name = Placement.levelName(this, placed)
         if (subject == com.piyak.english.model.Subject.MATH) {
             b.txtResultTitle.text = name
             b.txtResultDesc.text =
-                "$name 수준이에요!\n${name}까지 모든 단원을 열어 드렸어요.\n+30 XP 🎁$coinLine"
+                getString(R.string.placement_msg_math, name) + coinLine
         } else {
             b.txtResultTitle.text = getString(R.string.placement_level, placed)
             b.txtResultDesc.text =
-                "$name 수준이에요!\n기초 트랙 레벨 ${placed}까지 열어 드렸어요.\n+30 XP 🎁$coinLine"
+                getString(R.string.placement_msg_math, name) + coinLine
         }
     }
 

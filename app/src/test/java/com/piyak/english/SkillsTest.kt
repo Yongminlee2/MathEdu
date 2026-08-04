@@ -35,21 +35,21 @@ class SkillsTest {
     }
 
     @Test fun skillStateDerivedValues() {
-        val s = state("listening", correct = 30, attempts = 40)
+        val s = state("m_calc", correct = 30, attempts = 40)
         assertEquals(2, s.level)
         assertEquals(75, s.accuracy)
         assertEquals(30, s.nextLevelNeed) // Lv3 = 60정답 필요
-        assertEquals(0, state("vocab", 0, 0).accuracy) // 0으로 나누지 않음
+        assertEquals(0, state("m_data", 0, 0).accuracy) // 0으로 나누지 않음
     }
 
     @Test fun overallIsAverageOfSkillLevels() {
         val states = listOf(
-            state("listening", 60), // Lv3
-            state("speaking", 10),  // Lv1
-            state("writing", 30),   // Lv2
-            state("grammar", 0),    // Lv0
-            state("reading", 0),    // Lv0
-            state("vocab", 0),      // Lv0
+            state("m_calc", 60), // Lv3
+            state("m_shape", 10),  // Lv1
+            state("m_word", 30),   // Lv2
+            state("m_number", 0),    // Lv0
+            state("m_measure", 0),    // Lv0
+            state("m_data", 0),      // Lv0
         )
         assertEquals(1f, Skills.overallLevel(states), 0.001f) // (3+1+2+0+0+0)/6
         assertEquals(0f, Skills.overallLevel(emptyList()), 0.001f)
@@ -57,19 +57,21 @@ class SkillsTest {
 
     @Test fun weakestPrefersUntouchedSkill() {
         val states = listOf(
-            state("listening", 60),
-            state("speaking", 0),
-            state("writing", 30),
+            state("m_calc", 60),
+            state("m_shape", 0),      // 한 번도 안 푼 영역이 가장 약하다
+            state("m_word", 30),
         )
-        assertEquals("speaking", Skills.weakest(states)!!.def.id)
+        assertEquals("m_shape", Skills.weakest(states)!!.def.id)
     }
 
     @Test fun ranksProgressWithOverallLevel() {
-        assertEquals("알 속의 새싹", Ranks.of(0f).title)
-        assertEquals("삐약이", Ranks.of(1.5f).title)
-        assertEquals("영어 마스터", Ranks.of(10f).title)
+        // 이름은 이제 문자열 리소스라 안드로이드 없이는 못 읽는다.
+        // **어느 칭호가 걸리는지**(순서)만 확인한다 — 그게 이 함수의 핵심이다.
+        assertEquals(Ranks.ALL[0].titleRes, Ranks.of(0f).titleRes)
+        assertEquals(Ranks.ALL[2].titleRes, Ranks.of(1.5f).titleRes)
+        assertEquals(Ranks.ALL.last().titleRes, Ranks.of(10f).titleRes)
         // 다음 칭호와 진행률
-        assertEquals("갓 깬 병아리", Ranks.next(0f)!!.title)
+        assertEquals(Ranks.ALL[1].titleRes, Ranks.next(0f)!!.titleRes)
         assertTrue(Ranks.next(10f) == null)
         assertEquals(0f, Ranks.progress(0f), 0.001f)
         assertEquals(1f, Ranks.progress(10f), 0.001f)

@@ -54,7 +54,7 @@ class NumberPadView @JvmOverloads constructor(
             val extra = buildList {
                 if (allowDecimal && allowMinus) add(".")
                 if (allowFraction) add("/")
-                add("지우기")
+                add(context.getString(R.string.clear))
             }
             addView(row(extra))
         }
@@ -75,7 +75,7 @@ class NumberPadView @JvmOverloads constructor(
                 // 기본 버튼 배경에는 눈에 안 보이는 위아래 여백이 있어 글자가 잘린다 —
                 // 배경을 직접 지정하고 패딩·최소높이를 0으로 둔다
                 background = when (k) {
-                    "⌫", "지우기" -> context.getDrawable(R.drawable.bg_key_del)
+                    "⌫", context.getString(R.string.clear) -> context.getDrawable(R.drawable.bg_key_del)
                     " " -> null
                     else -> context.getDrawable(R.drawable.bg_key)
                 }
@@ -102,7 +102,7 @@ class NumberPadView @JvmOverloads constructor(
     private fun press(k: String) {
         when (k) {
             " " -> return
-            "지우기" -> sb.clear()
+            context.getString(R.string.clear) -> sb.clear()
             "⌫" -> if (sb.isNotEmpty()) sb.deleteCharAt(sb.length - 1)
             "-" -> if (sb.isEmpty()) sb.append("-")
             "." -> if (sb.isNotEmpty() && !currentPartHas('.')) sb.append(".")
