@@ -11,10 +11,28 @@ const path = require("path");
 const { langs, strings } = require("./strings");
 const tplKo = require("./templates.json");          // 뼈대 원문 (한국어)
 const tplTr = require("./templates_i18n");          // 뼈대 번역
-const wordTr = require("./words_i18n");
-const unitTr = require("./units_i18n");            // 답 옆 단위 (개·명·원 …)             // 인자·라벨에 박힌 낱말 번역
+const wordTr = require("./words_i18n");             // 인자·라벨에 박힌 낱말 번역
+const unitTr = require("./units_i18n");             // 답 옆 단위 (개·명·원 …)
+const { derivedFrom } = require("./zh_trad");       // 번체 중국어는 간체에서 만들어 낸다
 
 const RES = path.join(__dirname, "..", "..", "app", "src", "main", "res");
+
+/**
+ * 이 언어의 값을 고른다. 없으면 **영어로 떨어진다.**
+ *
+ * 번체 중국어(zh-rTW·zh-rHK)는 원장에 따로 쓰지 않는다 —
+ * 간체(zh)에서 자동 변환한다. 간체를 고치면 번체도 같이 따라온다.
+ */
+function pick(byLang, lang) {
+  const own = byLang[lang];
+  if (own != null && own !== "") return own;
+  const d = derivedFrom(lang);
+  if (d) {
+    const base = byLang[d.base];
+    if (base != null && base !== "") return d.fn(base);
+  }
+  return null;                    // 부르는 쪽이 영어로 떨어뜨린다
+}
 
 /** XML 특수문자 + 안드로이드가 삼키는 문자 처리 */
 function esc(s) {
@@ -38,8 +56,8 @@ for (const lang of langs) {
     "<resources>",
   ];
   for (const [key, byLang] of Object.entries(strings)) {
-    let v = byLang[lang];
-    if (v == null || v === "") {
+    let v = pick(byLang, lang);
+    if (v == null) {
       v = byLang.en;             // 번역이 없으면 영어로 (빈칸 방지)
       if (lang !== "en") missing++;
     }
@@ -55,7 +73,7 @@ for (const lang of langs) {
     for (const [key, byLang] of Object.entries(tplTr)) {
       if (!byLang.en) continue;
       if (!tplKo[key]) continue;                    // 생성기에서 사라진 뼈대
-      const v = byLang[lang] || byLang.en;
+      const v = pick(byLang, lang) || byLang.en;
       lines.push(`    <string name="tpl_${key}">${esc(v)}</string>`);
     }
 
@@ -63,13 +81,13 @@ for (const lang of langs) {
     lines.push("", "    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->", '    <string-array name="tpl_words">');
     for (const [ko, byLang] of Object.entries(wordTr)) {
       if (byLang.en == null) continue;   // 빈 번역("")은 일부러 지우는 것이라 허용
-      lines.push(`        <item>${esc(ko + "|" + (byLang[lang] || byLang.en))}</item>`);
+      lines.push(`        <item>${esc(ko + "|" + (pick(byLang, lang) ?? byLang.en))}</item>`);
     }
     lines.push("    </string-array>");
     lines.push('    <string-array name="tpl_units">');
     for (const [ko, byLang] of Object.entries(unitTr)) {
       if (byLang.en == null) continue;
-      lines.push(`        <item>${esc(ko + "|" + (byLang[lang] == null ? byLang.en : byLang[lang]))}</item>`);
+      lines.push(`        <item>${esc(ko + "|" + (pick(byLang, lang) ?? byLang.en))}</item>`);
     }
     lines.push("    </string-array>");
   }

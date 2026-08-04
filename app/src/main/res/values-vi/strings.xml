@@ -65,6 +65,10 @@
     <string name="stats_badges">Huy hiệu</string>
     <string name="placement_title">Kiểm tra trình độ</string>
     <string name="placement_quit_ask">Dừng bài kiểm tra trình độ?</string>
+    <string name="tts_blank">bao nhiêu</string>
+    <string name="hint_none">Hết vé gợi ý. Bạn có thể mua ở cửa hàng! 💡</string>
+    <string name="hint_choice_only">Gợi ý chỉ dùng được cho câu hỏi trắc nghiệm</string>
+    <string name="hint_already">Bạn đã dùng gợi ý cho câu này rồi</string>
     <string name="mkind_clock">🕐 Xem đồng hồ</string>
     <string name="mkind_clock_set">🕐 Chỉnh kim đồng hồ</string>
     <string name="mkind_group">🧺 Chia đều</string>

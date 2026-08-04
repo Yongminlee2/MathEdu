@@ -65,6 +65,10 @@
     <string name="stats_badges">Badges</string>
     <string name="placement_title">Level test</string>
     <string name="placement_quit_ask">Stop the level test?</string>
+    <string name="tts_blank">what</string>
+    <string name="hint_none">No hint tickets. You can buy them in the shop! 💡</string>
+    <string name="hint_choice_only">Hints only work on multiple-choice questions</string>
+    <string name="hint_already">You already used a hint on this question</string>
     <string name="mkind_clock">🕐 Read the clock</string>
     <string name="mkind_clock_set">🕐 Set the clock</string>
     <string name="mkind_group">🧺 Share equally</string>

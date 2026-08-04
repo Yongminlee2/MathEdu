@@ -65,6 +65,10 @@
     <string name="stats_badges">Значки</string>
     <string name="placement_title">Тест уровня</string>
     <string name="placement_quit_ask">Выйти из теста уровня?</string>
+    <string name="tts_blank">сколько</string>
+    <string name="hint_none">Подсказок нет. Их можно купить в магазине! 💡</string>
+    <string name="hint_choice_only">Подсказки работают только в вопросах с выбором ответа</string>
+    <string name="hint_already">Для этого вопроса подсказка уже использована</string>
     <string name="mkind_clock">🕐 Читаем часы</string>
     <string name="mkind_clock_set">🕐 Ставим стрелки</string>
     <string name="mkind_group">🧺 Делим поровну</string>

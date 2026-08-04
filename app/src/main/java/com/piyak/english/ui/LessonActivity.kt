@@ -322,20 +322,53 @@ class LessonActivity : AppCompatActivity() {
         b.btnScratch.visibility = if (show) View.VISIBLE else View.GONE
     }
 
+    /**
+     * 고른 선택지를 **한눈에 알아보게** 표시한다.
+     *
+     * 선택지 넷이 원래 알록달록해서, 고른 것만 노랗게 칠하면 그냥 네 색 중 하나로 보인다.
+     * 고른 것은 제 색을 유지하고 살짝 키우고, **나머지를 연한 회색으로 죽인다.**
+     */
+    private fun markChoice(buttons: List<Button>, picked: Int) {
+        val faded = Color.parseColor("#E9E4DC")
+        for ((i, btn) in buttons.withIndex()) {
+            if (!btn.isEnabled) continue          // 힌트로 지운 오답은 그대로 둔다
+            val on = i == picked
+            btn.backgroundTintList = ColorStateList.valueOf(
+                if (on) (btn.tag as? Int ?: Color.WHITE) else faded
+            )
+            btn.setTextColor(Color.parseColor(if (on) "#4E342E" else "#B0A89E"))
+            btn.setTypeface(null, if (on) android.graphics.Typeface.BOLD else android.graphics.Typeface.NORMAL)
+            btn.animate().scaleX(if (on) 1.04f else 1f).scaleY(if (on) 1.04f else 1f)
+                .setDuration(90).start()
+        }
+    }
+
     // ---------------- 힌트권 ----------------
 
+    /**
+     * 힌트 버튼은 **항상 누를 수 있게** 둔다.
+     * 예전엔 힌트권이 0이면 비활성화라, 눌러도 아무 반응이 없고 왜 안 되는지도 몰랐다.
+     * 이제는 눌렀을 때 이유를 말해 준다 (없으면 상점 안내, 4지선다가 아니면 그렇다고).
+     */
     private fun refreshHintButton() {
         val n = db.itemCount("hint")
         b.btnHint.text = "$n"
-        b.btnHint.isEnabled = n > 0 && choiceButtons.size >= 4 && !hintUsedHere
-        b.btnHint.alpha = if (b.btnHint.isEnabled) 1f else 0.45f
+        b.btnHint.isEnabled = true
+        b.btnHint.alpha = if (n > 0 && choiceButtons.size >= 4 && !hintUsedHere) 1f else 0.5f
     }
 
     /** 오답 2개를 지워 준다 (4지선다에서만) */
     private fun useHint() {
-        if (hintUsedHere || choiceButtons.size < 4 || choiceAnswer < 0) return
+        if (hintUsedHere) {
+            Toast.makeText(this, getString(R.string.hint_already), Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (choiceButtons.size < 4 || choiceAnswer < 0) {
+            Toast.makeText(this, getString(R.string.hint_choice_only), Toast.LENGTH_SHORT).show()
+            return
+        }
         if (db.itemCount("hint") <= 0) {
-            Toast.makeText(this, "힌트권이 없어요. 상점에서 살 수 있어요! 💡", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.hint_none), Toast.LENGTH_SHORT).show()
             return
         }
         if (!db.useItem("hint")) return
@@ -571,11 +604,7 @@ class LessonActivity : AppCompatActivity() {
                         }
                         setOnClickListener {
                             selected = i
-                            buttons.forEach {
-                                it.backgroundTintList =
-                                    ColorStateList.valueOf(it.tag as? Int ?: Color.WHITE)
-                            }
-                            backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFD54F"))
+                            markChoice(buttons, i)
                             b.btnCheck.isEnabled = true
                         }
                     }
@@ -1077,9 +1106,12 @@ class LessonActivity : AppCompatActivity() {
         return n in 0..200 && q.unit.isEmpty()
     }
 
-    /** 한국어 TTS (수학 문제 읽어주기) */
+    /**
+     * 문제 읽어주기 — **화면에 뜬 언어 그대로** 읽는다.
+     * 빈칸 기호 "___" 는 그냥 읽으면 "밑줄 밑줄"이 되므로 낱말로 바꿔 준다.
+     */
     private fun speakKorean(s: String) {
-        tts.speakKo(s.replace("___", "몇"))
+        tts.speakQuestion(s.replace("___", getString(R.string.tts_blank)))
     }
 
     // ---------------- 채점·피드백 ----------------

@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
+<resources>
+    <string name="app_name">小雞數學</string>
+    <string name="ok">確定</string>
+    <string name="cancel">取消</string>
+    <string name="done">完成</string>
+    <string name="start">開始</string>
+    <string name="back">返回</string>
+    <string name="chick">小雞</string>
+    <string name="scenery">風景</string>
+    <string name="home_greeting">今天也一起學習吧！</string>
+    <string name="home_courses">學習課程</string>
+    <string name="home_my_section">我的實力 · 商店 · 水平測試</string>
+    <string name="home_my_skill">我的實力</string>
+    <string name="home_overall_lv">綜合水平 Lv.%s</string>
+    <string name="home_daily_goal">今日目標  %1$d / %2$d XP</string>
+    <string name="home_goal_done">  ✅ 達成！</string>
+    <string name="home_change">更改</string>
+    <string name="home_shop_line">商店 · 兌換現金</string>
+    <string name="home_wrong_count">錯題 %d</string>
+    <string name="home_stats">統計</string>
+    <string name="home_settings">設置</string>
+    <string name="home_no_review">沒有需要複習的錯題！🐥</string>
+    <string name="home_wallet">我的錢包</string>
+    <string name="home_placement">用水平測試找到你的位置！\n25道題定出最合適的等級</string>
+    <string name="lesson_check">確認</string>
+    <string name="lesson_continue">繼續</string>
+    <string name="lesson_quit">退出</string>
+    <string name="lesson_quit_ask">要退出這節課吗？\n進度不會保存</string>
+    <string name="lesson_correct">答對了！</string>
+    <string name="lesson_review_mode">複習</string>
+    <string name="lesson_done">本課完成！</string>
+    <string name="lesson_answer_hint">請輸入答案</string>
+    <string name="lesson_count_hint">👆 逐個點擊圖片來數一數</string>
+    <string name="lesson_count_reset">重新數</string>
+    <string name="lesson_read_aloud">朗讀</string>
+    <string name="pad_open">草稿紙</string>
+    <string name="pad_close">✅ 寫完了（關閉草稿紙）</string>
+    <string name="pad_eraser">橡皮</string>
+    <string name="pad_undo">撤銷</string>
+    <string name="pad_clear">全部清除</string>
+    <string name="set_title">設置</string>
+    <string name="set_speed">朗讀速度</string>
+    <string name="set_listen">試聽</string>
+    <string name="set_sfx">音效大小</string>
+    <string name="set_free_mode">自由模式</string>
+    <string name="set_free_mode_desc">所有課程都可以不按順序做</string>
+    <string name="set_hearts">使用愛心</string>
+    <string name="set_hearts_desc">關閉後答錯也不會扣愛心</string>
+    <string name="set_placement_again">重新做水平測試</string>
+    <string name="set_reset">清除全部進度</string>
+    <string name="set_reset_ask">確定要清除吗？\n所有進度、XP、徽章和錯題都會刪除。\n無法恢復！</string>
+    <string name="set_reset_done">已清除！從頭開始 🐣</string>
+    <string name="set_parent">家長設置</string>
+    <string name="set_crash_log">查看最近的錯誤記錄</string>
+    <string name="wallet_saved">攢下的零用錢</string>
+    <string name="wallet_rule">第一次答對每題10。重做同一課不再有獎勵</string>
+    <string name="wallet_shop">商店</string>
+    <string name="wallet_cash_out">兌換現金（家長）</string>
+    <string name="wallet_log">零用錢記錄</string>
+    <string name="stats_title">我的統計</string>
+    <string name="stats_by_skill">各領域實力</string>
+    <string name="stats_streak">連續打卡日歷</string>
+    <string name="stats_badges">徽章</string>
+    <string name="placement_title">水平測試</string>
+    <string name="placement_quit_ask">要退出水平測試吗？</string>
+    <string name="tts_blank">多少</string>
+    <string name="hint_none">沒有提示券了。可以在商店购買! 💡</string>
+    <string name="hint_choice_only">提示隻能用於四選一的題目</string>
+    <string name="hint_already">這道題已经用過提示了</string>
+    <string name="mkind_clock">🕐 看時鐘</string>
+    <string name="mkind_clock_set">🕐 撥動指針</string>
+    <string name="mkind_group">🧺 平均分</string>
+    <string name="mkind_frac_paint">🍰 塗出分數</string>
+    <string name="mkind_shape_sort">🔺 圖形分類</string>
+    <string name="mkind_numline_drag">📏 在數軸上找</string>
+    <string name="mkind_angle_set">📐 做出角度</string>
+    <string name="mkind_balance">⚖️ 平衡天平</string>
+    <string name="mkind_bar_build">📊 建立統計圖</string>
+    <string name="mkind_take_out">➖ 拿走再數</string>
+    <string name="mkind_gather">➕ 收集再數</string>
+    <string name="mkind_shapes">🔺 圖形</string>
+    <string name="mkind_fraction">🍰 分數</string>
+    <string name="mkind_bar_graph">📊 統計圖</string>
+    <string name="mkind_numline">📏 數軸</string>
+    <string name="mkind_geom">📐 幾何</string>
+    <string name="mkind_coord3d">🧊 空間坐標</string>
+    <string name="mkind_coord2d">📈 坐標平面</string>
+    <string name="mkind_angle">📐 角度</string>
+    <string name="mkind_div">➗ 除法</string>
+    <string name="mkind_mul">✖️ 乘法</string>
+    <string name="mkind_sub">➖ 減法</string>
+    <string name="mkind_add">➕ 加法</string>
+    <string name="mkind_math">🔢 數學</string>
+    <string name="mkind_picture">🐥 圖畫題</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_24083678">把 %1$s : %2$s 化成最簡整數比: %3$s : ?</string>
+    <string name="tpl_33585846">把 %1$s 分解質因數後，最大的質因數是?</string>
+    <string name="tpl_35882540">分母相同，把分子相加。%1$s + %2$s = %3$s，答案是 %4$s/%5$s。</string>
+    <string name="tpl_66531960">個位: %1$s + %2$s = %3$s %4$s\n答案是 %5$s。</string>
+    <string name="tpl_93741444">冪的乘方，指數相乘。%1$s × %2$s = %3$s</string>
+    <string name="tpl_a84fb314">每組 %1$s 個，共 %2$s 組。%3$s = %4$s\n%5$s 的乘法表: %6$s×%7$s=%8$s</string>
+    <string name="tpl_40b5583a">數一數圖畫，一共有多少個?</string>
+    <string name="tpl_4426d4f7">%1$s 加 %2$s 等於 %3$s。從 %4$s 開始再數 %5$s 個。</string>
+    <string name="tpl_e8755f8c">一個一個數: %1$s，一共 %2$s 個。%3$s</string>
+    <string name="tpl_412438c7">%1$s 個減去 %2$s 個，還剩 %3$s 個。</string>
+    <string name="tpl_83f30dfe">%1$s 答案是 %2$s。</string>
+    <string name="tpl_bf977bf4">把 %1$s 個平均分成 %2$s 組，每組 %3$s 個。\n檢驗: %4$s × %5$s = %6$s</string>
+    <string name="tpl_9391fb31">先湊成10，再數剩下的: 10 + %1$s = %2$s 個。</string>
+    <string name="tpl_9e616d48">數一數一共有多少個圖畫。</string>
+    <string name="tpl_e94b638c">哪邊更多?</string>
+    <string name="tpl_56861fce">把圖形拖到對應名字的籃子裡。(%1$s)</string>
+    <string name="tpl_e2813a9a">%1$s = %2$s\n最大的質因數是 %3$s。</string>
+    <string name="tpl_97c89890">某數乘 %1$s 再加 %2$s 得到 %3$s。\n這個數是多少?</string>
+    <string name="tpl_ce982230">設這個數為 x: %1$sx + %2$s = %3$s\n%4$sx = %5$s\nx = %6$s</string>
+    <string name="tpl_1fa89b68">當 f(x) = %1$s + %2$s %3$s 時，f\'(%4$s) 的值是?</string>
+    <string name="tpl_91bf4e00">當 %1$sx %2$s = %3$s 時，x 是多少?</string>
+    <string name="tpl_ee5eec9f">兩邊%2$s %1$s: %3$sx = %4$s\n兩邊同除以 %5$s，得 x = %6$s。</string>
+    <string name="tpl_5c41b06f">先算乘法: %1$s × %2$s = %3$s，再算 %4$s + %5$s = %6$s</string>
+    <string name="tpl_6a454edc">f(x) = %1$s %2$sx %3$s 除以 x %4$s 的餘數是?</string>
+    <string name="tpl_dd646a18">餘數定理: f(x) 除以 (x - k) 的餘數是 f(k)。\nf(%1$s) = %2$s×%3$s %4$s %5$s×%6$s %7$s %8$s = %9$s</string>
+    <string name="tpl_e163b535">%1$s/%2$s ÷ %3$s/%4$s = ? (最簡分數的分子)</string>
+    <string name="tpl_f64e7111">除法就是把後面的分數顛倒再相乘。%1$s/%2$s × %3$s/%4$s = %5$s/%6$s\n約分後是 %7$s/%8$s。</string>
+    <string name="tpl_593dd3e4">用加減消元法消去 y。\n第一式 × %1$s，第二式 × %2$s 後相減，得 x = %3$s\n代入得 y = %4$s。</string>
+    <string name="tpl_69c8bd83">%1$sx + %2$sy = %3$s\n%4$sx + %5$sy = %6$s\n則 x 的值是?</string>
+    <string name="tpl_856c631f">%1$s 和 %2$s 的公約數中最大的是 %3$s。</string>
+    <string name="tpl_860d863a">把 %1$s 拆成 %2$s 和 %3$s 再相乘。\n%4$s×%5$s=%6$s，%7$s×%8$s=%9$s\n相加得 %10$s。</string>
+    <string name="tpl_d0025612">%1$s 和 %2$s 的最大公約數是?</string>
+    <string name="tpl_f0f11947">%1$s %2$sx %3$s = 0 的判別式 D 是多少?</string>
+    <string name="tpl_2a17168e">%1$s 有 %3$s 個%2$s。\n朋友又給了 %4$s 個。\n現在%5$s一共有多少個?</string>
+    <string name="tpl_4b6b9472">又得到了，所以用加法。\n%1$s + %2$s = %3$s 個</string>
+    <string name="tpl_7182fe6c">%1$s 和 %2$s 中哪個數更大?</string>
+    <string name="tpl_064cd500">%1$s 買了 %4$s 盒%2$s，每盒 %3$s 個。\n分掉 %5$s 個後還剩多少個?</string>
+    <string name="tpl_b142acbe">先求總數: %1$s × %2$s = %3$s 個\n再減去分掉的: %4$s - %5$s = %6$s 個</string>
+    <string name="tpl_09881b6d">把 %1$s/%2$s 化成最簡分數，分子是?</string>
+    <string name="tpl_b9de180a">分子分母同除以最大公約數 %1$s: %2$s÷%3$s=%4$s，%5$s÷%6$s=%7$s\n答案是 %8$s/%9$s。</string>
+    <string name="tpl_104b2419">兩邊%2$s %1$s: %3$sx &gt; %4$s\n兩邊同除以正數 %5$s，得 x &gt; %6$s\n(除以負數時不等號要反向!)</string>
+    <string name="tpl_302b4ab7">%1$s ÷ %2$s 的餘數是?</string>
+    <string name="tpl_7781a29b">%1$s ÷ %2$s = %3$s 餘 %4$s\n檢驗: %5$s × %6$s + %7$s = %8$s</string>
+    <string name="tpl_421eaae2">當 x = %1$s 時，%2$sx + %3$s 的值是?</string>
+    <string name="tpl_c746b533">把 x 換成 %1$s: %2$s × %3$s + %4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_520190ba">lim(x→%1$s) (%2$s %3$s) 的值是?</string>
+    <string name="tpl_97b6e789">多項式函數連續，直接代入。%1$s×%2$s %3$s %4$s = %5$s</string>
+    <string name="tpl_8154d16f">%1$s/%2$s × %3$s/%4$s = ? (最簡分數的分子)</string>
+    <string name="tpl_8c032f04">分子乘分子，分母乘分母。%1$s×%2$s=%3$s，%4$s×%5$s=%6$s\n%7$s/%8$s 約分後是 %9$s/%10$s。</string>
+    <string name="tpl_7b8145cd">%1$s × %2$s = %3$s\n%4$s × %5$s = %6$s\n相加得 %7$s。</string>
+    <string name="tpl_d091ab21">移動小數點再計算。%1$s ÷ %2$s = %3$s</string>
+    <string name="tpl_f5c65837">滿足 %1$sx %2$s &gt; %3$s 的 x 的範圍是 x &gt; ?</string>
+    <string name="tpl_af55c367">%1$s 有 %3$s 個%2$s。\n給了弟弟 %4$s 個。\n還剩多少個%5$s?</string>
+    <string name="tpl_836b321c">給出去了，所以用減法。\n%1$s - %2$s = %3$s 個</string>
+    <string name="tpl_e48e2ef1">%1$s萬 後面有幾個 0? (1萬 = 10000)</string>
+    <string name="tpl_2526ffa7">1萬 = 10000，有4個0。所以 %1$s萬 = %2$s。</string>
+    <string name="tpl_dbc6233c">%1$s 以每小時 %2$s km 的速度走了 %3$s 小時。\n一共走了多少 km?</string>
+    <string name="tpl_ddc5e7db">路程 = 速度 × 時間\n%1$s × %2$s = %3$s km</string>
+    <string name="tpl_220e81e1">從刻度上讀出%1$s的條形高度是 %2$s。</string>
+    <string name="tpl_c72ea029">%1$s的數值是多少?</string>
+    <string name="tpl_3256a913">按大小排列後，中間的數就是中位數，即第三個數 %1$s。</string>
+    <string name="tpl_36f716a4">%1$s 的中位數是?</string>
+    <string name="tpl_829dc879">%1$s 的平均數是?</string>
+    <string name="tpl_8caeb0c9">總和是 %1$s，共有 %2$s 個數據，所以 %3$s ÷ %4$s = %5$s。</string>
+    <string name="tpl_3662d39b">%1$s + %2$s + %3$s = %4$s。</string>
+    <string name="tpl_4729593b">%1$s 米 %2$s 厘米是多少厘米?</string>
+    <string name="tpl_bc1684cd">1米是100厘米。%1$s米 = %2$s厘米，再加 %3$s厘米就是 %4$s厘米。</string>
+    <string name="tpl_a04ee28d">%2$s 占 %1$s 的百分之幾?</string>
+    <string name="tpl_50dc7e5e">比率 = %1$s ÷ %2$s = %3$s\n乘以100得百分數 %4$s%%。</string>
+    <string name="tpl_8d5a1394">對齊小數點再相加。%1$s + %2$s = %3$s</string>
+    <string name="tpl_c4b2f470">%1$s 個百、%2$s 個十、%3$s 個一，是多少?</string>
+    <string name="tpl_efe178f9">%1$s 後面該是哪個圖?</string>
+    <string name="tpl_3a5ccfd2">哪個最多?</string>
+    <string name="tpl_f9b576f1">把四個班的學生人數全部相加，一共多少人?</string>
+    <string name="tpl_afd6159f">%1$s = %2$s 人。</string>
+    <string name="tpl_0c5cc77b">根據調查結果完成條形統計圖。\n%1$s</string>
+    <string name="tpl_35d42406">根據表格完成條形統計圖。\n%1$s</string>
+    <string name="tpl_811c3b3f">條形的高度就是數量。\n%1$s</string>
+    <string name="tpl_214da790">條形的高度就是人數。\n最高的是%1$s，最低的是%2$s。</string>
+    <string name="tpl_93ad49ff">%1$s 的相對頻數是? (保留兩位小數)</string>
+    <string name="tpl_d02e9c3e">相對頻數 = 該組頻數 ÷ 總頻數 = %1$s ÷ %2$s ≈ %3$s</string>
+    <string name="tpl_2baf4762">時鐘指著 %1$s 點幾分? (只寫分鐘)</string>
+    <string name="tpl_0b6616c7">長針指著 %1$s 時，就是 %2$s × 5 = %3$s 分。</string>
+    <string name="tpl_516a736a">拖動時鐘指針，指到 %1$s 點 %2$s 分。</string>
+    <string name="tpl_5485a85b">長針放在 %1$s ÷ 5 = %2$s，也就是數字 %3$s。\n短針放在 %4$s，就是 %5$s 點 %6$s 分。</string>
+    <string name="tpl_a546bcec">把 %2$s 隻和 %3$s 隻%1$s全都放進盒子裡。一共多少隻? (%4$s + %5$s)</string>
+    <string name="tpl_fcc08c5c">%2$s 隻%1$s中有 %3$s 隻回家了。把 %4$s 隻送回家，數一數還剩幾隻。(%5$s - %6$s)</string>
+    <string name="tpl_e21a2df7">調整 x 使天平平衡。(%1$sx + %2$s = %3$s)</string>
+    <string name="tpl_a8920713">一個蘋果 %1$s00 韓元，一個梨 %2$s00 韓元。\n買 %3$s 個蘋果和 %4$s 個梨一共多少錢?</string>
+    <string name="tpl_c592e397">蘋果: %1$s00 × %2$s = %3$s 韓元\n梨: %4$s00 × %5$s = %6$s 韓元\n合計: %7$s 韓元</string>
+    <string name="tpl_f2a44920">y = %1$s(x %2$s)² %3$s 的頂點橫坐標是?</string>
+    <string name="tpl_accf5550">在 y = a(x-p)² + q 中，頂點是 (p, q)。\n頂點為 (%1$s, %2$s)，橫坐標是 %3$s。</string>
+    <string name="tpl_ee1f2bd2">圓 (x %1$s)² + (y %2$s)² = %3$s 的半徑是?</string>
+    <string name="tpl_c74c8c70">標準式 (x-a)² + (y-b)² = r² 中 r² = %1$s，故半徑為 %2$s。圓心是 (%3$s, %4$s)。</string>
+    <string name="tpl_da4a9448">首項 %1$s、公差 %2$s 的等差數列的第 %3$s 項是?</string>
+    <string name="tpl_6eddd33a">首項 %1$s、公差 %2$s 的等差數列前 %3$s 項和是?</string>
+    <string name="tpl_bfcac252">把 %1$s^%2$s × %3$s^%4$s 寫成 %5$s^k，k 是多少?</string>
+    <string name="tpl_b12f4a19">同底數冪相乘，指數相加。%1$s + %2$s = %3$s</string>
+    <string name="tpl_770018a9">∫₀^%1$s %2$s^%3$s dx 的值是?</string>
+    <string name="tpl_8934d567">不定積分是 %1$sx^%2$s/%3$s。\n代入 %4$s: %5$s×%6$s/%7$s = %8$s</string>
+    <string name="tpl_09b4928a">%1$s/%2$s + %3$s/%4$s = ? (只寫分子)</string>
+    <string name="tpl_60f9ab29">先看符號。%1$s + %2$s = %3$s\n%4$s</string>
+    <string name="tpl_2b4e8c2f">符號法則: (負)×(負)=(正)，(負)×(正)=(負)\n%1$s × %2$s = %3$s</string>
+    <string name="tpl_f01075e0">在 y = %1$sx %2$s 中，當 x = %3$s 時 y 是多少?</string>
+    <string name="tpl_eb66f38d">代入 x = %1$s。y = %2$s×%3$s %4$s = %5$s</string>
+    <string name="tpl_242af461">%1$s 想把 %3$s 個%2$s平均分給 %4$s 個人。\n每人能分到幾個?</string>
+    <string name="tpl_ffbb559e">平均分就是除法。\n%1$s ÷ %2$s = %3$s 個\n檢驗: %4$s × %5$s = %6$s</string>
+    <string name="tpl_534edc60">把 %1$s 個平均分成 %2$s 組，每組 %3$s 個。\n檢驗: %4$s × %5$s = %6$s\n所以 %7$s ÷ %8$s = %9$s。</string>
+    <string name="tpl_d1ce02ac">把 %2$s 隻%1$s平均放進 %3$s 個籃子。(%4$s ÷ %5$s)</string>
+    <string name="tpl_83a279a5">把 (%1$s^%2$s)^%3$s 寫成 %4$s^k，k 是多少?</string>
+    <string name="tpl_8bf8943f">底面半徑 %1$s、高 %2$s 的圓柱體積是? (圓周率取 3.14)</string>
+    <string name="tpl_239800f8">圓柱體積 = 底面積 × 高 = (%1$s×%2$s×3.14) × %3$s = %4$s</string>
+    <string name="tpl_5391d387">%1$s 人中有 %2$s%% 戴眼鏡。\n戴眼鏡的有多少人?</string>
+    <string name="tpl_d85fd41b">%1$s%% = %2$s/100。\n%3$s × %4$s ÷ 100 = %5$s 人</string>
+    <string name="tpl_4ea5fbe9">lim(n→∞) (%1$s + 5)/(%2$s + 2) 的值是? (保留三位小數)</string>
+    <string name="tpl_29d9a332">分子分母同除以 n。(%1$s + 5/n)/(%2$s + 2/n) → %3$s/%4$s = %5$s\n答案就是最高次項系數之比。</string>
+    <string name="tpl_11a006ee">y = %1$sx %2$s 的 y 軸截距是?</string>
+    <string name="tpl_98d506d9">y 軸截距就是 x = 0 時的 y 值: y = %1$s。\n斜率是 %2$s。</string>
+    <string name="tpl_a90c36e4">向量 (%1$s, %2$s) 與 (%3$s, %4$s) 的數量積是?</string>
+    <string name="tpl_896140d8">數量積 = x₁x₂ + y₁y₂ = %1$s×%2$s + %3$s×%4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_f47fb815">長 %1$s 厘米、寬 %2$s 厘米、高 %3$s 厘米的長方體體積是?</string>
+    <string name="tpl_4784c950">體積 = 長 × 寬 × 高 = %1$s × %2$s × %3$s = %4$s cm³</string>
+    <string name="tpl_c2343df6">長 %1$s 厘米、寬 %2$s 厘米、高 %3$s 厘米的長方體表面積是?</string>
+    <string name="tpl_6584d973">表面積 = 2 × (%1$s×%2$s + %3$s×%4$s + %5$s×%6$s) = 2 × %7$s = %8$s cm²</string>
+    <string name="tpl_b34194c1">%1$s 個十和 %2$s 個一是多少?</string>
+    <string name="tpl_d700c926">%1$s 個十是 %2$s，再加 %3$s 就是 %4$s。</string>
+    <string name="tpl_ab5407fa">%1$s 分 %2$s 秒是多少秒?</string>
+    <string name="tpl_102513fd">1分是60秒。%1$s×60 = %2$s，%3$s + %4$s = %5$s 秒</string>
+    <string name="tpl_acf035bc">點 (%1$s, %2$s, %3$s) 到原點距離的平方是?</string>
+    <string name="tpl_77d91bdd">距離² = x² + y² + z² = %1$s + %2$s + %3$s = %4$s</string>
+    <string name="tpl_e10f7183">兩點 (%1$s, %2$s) 與 (%3$s, %4$s) 距離的平方是?</string>
+    <string name="tpl_6fb38da8">距離² = (x₂-x₁)² + (y₂-y₁)² = %1$s + %2$s = %3$s</string>
+    <string name="tpl_ef261058">%1$s有幾條邊?</string>
+    <string name="tpl_435ec8ca">%1$s有 %2$s 條邊，也有 %3$s 個頂點。</string>
+    <string name="tpl_68b2417e">考試成績是 %1$s 分，最後一科是 %2$s 分。\n平均分是多少?</string>
+    <string name="tpl_8f5202e0">總分是 %1$s 分。\n共 %2$s 科，所以 %3$s ÷ %4$s = %5$s 分</string>
+    <string name="tpl_b6ff7f67">兩個數同除以最大公約數 %1$s: %2$s÷%3$s=1，%4$s÷%5$s=%6$s\n答案是 1 : %7$s。</string>
+    <string name="tpl_4f8bebb2">圓中，圓心角為 %1$s° 的弧所對的圓周角是? (單位 °)</string>
+    <string name="tpl_1f65cd70">圓周角是圓心角的一半。%1$s° ÷ 2 = %2$s°</string>
+    <string name="tpl_27d389ab">在 y = %1$s/x 中，當 x = %2$s 時 y 是多少?</string>
+    <string name="tpl_3b064960">把 x = %1$s 代入反比例式。y = %2$s ÷ %3$s = %4$s</string>
+    <string name="tpl_881817d7">在 y = %1$sx 中，當 x = %2$s 時 y 是多少?</string>
+    <string name="tpl_5e387d7d">把 x = %1$s 代入正比例式。y = %2$s × %3$s = %4$s</string>
+    <string name="tpl_9474bd1b">%1$s收集了 %3$s 個%2$s，朋友又給了 %4$s 個。一共多少個? (%5$s + %6$s)</string>
+    <string name="tpl_7b0eb00c">籃子裡有 %2$s 個%1$s，盒子裡有 %3$s 個。一共多少個? (%4$s + %5$s)</string>
+    <string name="tpl_577e9a0b">%1$s把 %3$s 個%2$s中的 %4$s 個吃掉了。還剩幾個? (%5$s - %6$s)</string>
+    <string name="tpl_8835a548">%2$s 個%1$s中給了弟弟 %3$s 個。還剩幾個? (%4$s - %5$s)</string>
+    <string name="tpl_52fb8304">把%1$s每盒裝 %2$s 個，裝 %3$s 盒，一共多少個? (%4$s × %5$s)</string>
+    <string name="tpl_cd5e1743">%1$s班上的 %2$s 個同學每人有 %4$s 個%3$s。一共多少個? (%5$s × %6$s)</string>
+    <string name="tpl_0689d7b0">每個%1$s裡裝有 %3$s 個%2$s。\n有 %5$s 個%4$s，一共有多少個%6$s?</string>
+    <string name="tpl_fabb8c01">%2$s 組，每組 %1$s 個，所以用乘法。\n%3$s × %4$s = %5$s 個</string>
+    <string name="tpl_bd90a3bf">把%1$s全部搬進盒子，數一數有幾隻。</string>
+    <string name="tpl_26640a33">一邊搬一邊數: %1$s — 一共 %2$s 隻。</string>
+    <string name="tpl_c1d7f847">長 %1$s 厘米、寬 %2$s 厘米的長方形面積是?</string>
+    <string name="tpl_68f81799">長方形面積 = 長 × 寬 = %1$s × %2$s = %3$s cm²</string>
+    <string name="tpl_f56a2f41">底 %1$s 厘米、高 %2$s 厘米的三角形面積是?</string>
+    <string name="tpl_cfead5b7">三角形面積 = 底 × 高 ÷ 2 = %1$s × %2$s ÷ 2 = %3$s cm²</string>
+    <string name="tpl_03b2cec2">上底 %1$s 厘米、下底 %2$s 厘米、高 %3$s 厘米的梯形面積是?</string>
+    <string name="tpl_812652c8">梯形面積 = (上底 + 下底) × 高 ÷ 2 = (%1$s+%2$s) × %3$s ÷ 2 = %4$s cm²</string>
+    <string name="tpl_2ac20dea">%1$s 千克 %2$s 克是多少克?</string>
+    <string name="tpl_8adee8d9">1千克是1000克。%1$s + %2$s = %3$s 克</string>
+    <string name="tpl_1a1b845d">%1$s 千米 %2$s 米是多少米?</string>
+    <string name="tpl_bc396cec">1千米是1000米。%1$s + %2$s = %3$s 米</string>
+    <string name="tpl_5bb097dd">%1$s 升 %2$s 毫升是多少毫升?</string>
+    <string name="tpl_58e342da">1升是1000毫升。%1$s + %2$s = %3$s 毫升</string>
+    <string name="tpl_7fa435ba">若 √%1$s = k√%2$s，k 是多少?</string>
+    <string name="tpl_4bd516c4">√%1$s = √(%2$s × %3$s) = %4$s√%5$s\n所以 k = %6$s。</string>
+    <string name="tpl_fdef4e9b">把 x² + %1$sx + %2$s 分解因式? (例: (x+2)(x+3))</string>
+    <string name="tpl_7fc38659">找和為 %1$s、積為 %2$s 的兩個數 → %3$s 和 %4$s\n答案: (x+%5$s)(x+%6$s)</string>
+    <string name="tpl_ed66d760">x² - %1$sx + %2$s = 0 的兩個根中較大的是?</string>
+    <string name="tpl_20a81651">分解因式得 (x-%1$s)(x-%2$s) = 0\n根是 %3$s 和 %4$s，較大的是 %5$s。</string>
+    <string name="tpl_f666532f">在 y = %1$sx² 中，當 x = %2$s 時 y 是多少?</string>
+    <string name="tpl_03a38c23">代入 x = %1$s。y = %2$s × %3$s² = %4$s × %5$s = %6$s</string>
+    <string name="tpl_05d5a936">兩個相似圖形的相似比是 1 : %1$s，小圖形的一條邊是 %2$s，大圖形的對應邊是?</string>
+    <string name="tpl_101dec85">相似比是 1 : %1$s，所以對應邊也是 %2$s 倍。%3$s × %4$s = %5$s\n(面積變成 %6$s 倍)</string>
+    <string name="tpl_34aaa693">袋中有 %1$s 個紅球和 %2$s 個藍球，取出一個是紅球的概率是? (最簡分數的分子)</string>
+    <string name="tpl_bbcd0e09">共 %1$s 個，其中紅色 %2$s 個。%3$s/%4$s = %5$s/%6$s</string>
+    <string name="tpl_be363966">這張圖把整體平均分成了 %1$s 份。請塗上 %2$s/%3$s。</string>
+    <string name="tpl_822bd5c1">%1$s/%2$s 表示平均分成 %3$s 份中的 %4$s 份。\n點 %5$s 塊塗色即可。</string>
+    <string name="tpl_b1b8ddf9">在數軸上找到 %1$s 並放上點。</string>
+    <string name="tpl_72ed475e">橢圓 x²/%1$s + y²/%2$s = 1 的長軸長是?</string>
+    <string name="tpl_9323580e">在 x²/a² + y²/b² = 1 中 a = %1$s，b = %2$s。\n長軸長是 2a = %3$s。</string>
+    <string name="tpl_526c1433">這個角是什麼角? (%1$s°)</string>
+    <string name="tpl_0352c1ec">當 f(x) = %1$s 時，f\'(%2$s) 的值是?</string>
+    <string name="tpl_0a772723">切線斜率是 f\'(%1$s)。因為 f\'(x) = %2$sx，所以 %3$s×%4$s = %5$s。</string>
+    <string name="tpl_0e6df588">當 f(x) = %1$s 時，在 x = %2$s 處的切線斜率是?</string>
+    <string name="tpl_65303faf">轉動手柄，使角度成為 %1$s°。</string>
+    <string name="tpl_2bb14977">塗色部分占整體的幾分之幾? (只寫分子)</string>
+    <string name="tpl_386d8a5c">整體平均分成 %1$s 份，塗色了 %2$s 份，所以是 %3$s/%4$s。</string>
+    <string name="tpl_e22b23c2">曲線 y = %1$s、x 軸和 x = %2$s 所圍成的面積是? (保留三位小數)</string>
+    <string name="tpl_702f39e6">面積 = ∫₀^%1$s %2$sx² dx = %3$sx³/3，代入 %4$s = %5$s×%6$s/3 = %7$s</string>
+    <string name="tpl_12d53984">拖動時鐘指針，指到 %1$s。</string>
+    <string name="tpl_59f3bbde">看時鐘，選出正確的時間。</string>
+    <string name="tpl_6a049195">短針放在 %1$s，長針放在 %2$s，就是 %3$s。</string>
+    <string name="tpl_421f0115">√%1$s 的值是?</string>
+    <string name="tpl_c10c073d">因為 %1$s × %2$s = %3$s，所以 √%4$s = %5$s。</string>
+    <string name="tpl_04ad73bd">log_%1$s %2$s 的值是?</string>
+    <string name="tpl_1a575d20">log_%1$s %2$s 是問“%3$s 要乘幾次才等於 %4$s”。因為 %5$s^%6$s = %7$s，所以答案是 %8$s。</string>
+    <string name="tpl_40e43c86">%1$s^%2$s 的值是?</string>
+    <string name="tpl_8ad8bef1">把 %1$s 連乘 %2$s 次。%3$s = %4$s</string>
+    <string name="tpl_9236cec8">每格是5。因為 %1$s ÷ 5 = %2$s，所以從0向前走 %3$s 格。</string>
+    <string name="tpl_9b01b011">直角三角形的兩條直角邊是 %1$s 和 %2$s，斜邊長是? (參照圖)</string>
+    <string name="tpl_29b3af3f">勾股定理: a² + b² = c²\n%1$s² + %2$s² = %3$s + %4$s = %5$s\n斜邊 = %6$s</string>
+    <string name="tpl_05c967bb">斜邊為 %1$s、一條直角邊為 %2$s 的直角三角形，另一條邊是?</string>
+    <string name="tpl_bc1b4161">c² - a² = b²\n%1$s - %2$s = %3$s\n另一條邊 = %4$s</string>
+    <string name="tpl_22a9acd5">從 %1$s 人中選出 %2$s 人的方法數是?</string>
+    <string name="tpl_de1537f4">%1$sC%2$s = %3$s ÷ %4$s = %5$s 種</string>
+    <string name="tpl_133b1724">從 %1$s 個不同物品中不計順序取出 %2$s 個的方法數是? (%3$sC%4$s)</string>
+    <string name="tpl_e5f765f4">從 %1$s 個不同物品中取出 %2$s 個並排序的方法數是? (%3$sP%4$s)</string>
+    <string name="tpl_ee0c3706">%1$s是第幾個?</string>
+    <string name="tpl_18800cab">半徑 %1$s 厘米的圓周長是? (圓周率取 3.14)</string>
+    <string name="tpl_af15f6d2">圓周長 = 直徑 × 3.14 = %1$s × 3.14 = %2$s cm</string>
+    <string name="tpl_a145b736">半徑 %1$s 厘米的圓面積是? (圓周率取 3.14)</string>
+    <string name="tpl_5844f447">圓面積 = 半徑 × 半徑 × 3.14 = %1$s × %2$s × 3.14 = %3$s cm²</string>
+    <string name="tpl_e25a121a">%1$s、%2$s、%3$s，接下來的數是?</string>
+    <string name="tpl_c074ed4d">規律是每次加1。%1$s 後面是 %2$s。</string>
+    <string name="tpl_ac380a89">%1$s 加 %2$s 等於 10。把10分成 %3$s 和 %4$s。</string>
+    <string name="tpl_08b9cc90">概率為 1/%1$s 的事件連續發生 %2$s 次的概率是 1/k，k 是多少?</string>
+    <string name="tpl_e6dd2bae">是獨立事件，所以相乘。(1/%1$s)^%2$s = 1/%3$s\nk = %4$s</string>
+    <string name="tpl_ab3d2f03">%1$s邊形的內角和是? (單位 °)</string>
+    <string name="tpl_50ddbff4">n邊形內角和 = (n - 2) × 180°\n(%1$s - 2) × 180 = %2$s°</string>
+    <string name="tpl_a257284f">%1$s邊形有多少條對角線?</string>
+    <string name="tpl_6fa548ec">對角線條數 = n(n-3)/2 = %1$s×%2$s/2 = %3$s 條</string>
+    <string name="tpl_076280c4">請塗上 0.%1$s。(整體平均分成10份)</string>
+    <string name="tpl_3601a2fc">10份中的 %1$s 份，所以 %2$s/10 = 0.%3$s。</string>
+    <string name="tpl_d91eef04">把1平均分成10份，其中 %1$s 份用小數表示是多少?</string>
+    <string name="tpl_5b3eb8ba">在數軸上找到 0.%1$s 並放上點。</string>
+    <string name="tpl_b54eb50c">0到1之間平均分成10格。\n0.%1$s 就是從0走 %2$s 格的位置。</string>
+    <string name="tpl_74d583e3">%1$s %2$s° 的值是?</string>
+    <string name="tpl_f0bf458a">想一想 %1$s° 在單位圓上的位置。%2$s%3$s° = %4$s</string>
+    <string name="tpl_f339376b">0.%1$s 和 %2$s/10 相同。\n把10格中的 %3$s 格塗上即可。</string>
+    <string name="tpl_d6fcc9c2">%1$s %2$s° 的值是? (分數寫成 1/2 這樣)</string>
+    <string name="tpl_2d7284ee">這是特殊角的三角比。%1$s%2$s° = %3$s\n記住30°、45°、60°的值會很方便。</string>
+    <string name="tpl_f046f32a">含有 %1$s 個元素的集合有多少個子集?</string>
+    <string name="tpl_710ba473">子集個數 = 2ⁿ = 2^%1$s = %2$s 個。\n(真子集有 %3$s 個)</string>
+    <string name="tpl_fb01043c">擲一次骰子，點數不超過 %1$s 的概率是? (最簡分數的分子)</string>
+    <string name="tpl_4fcaf9c5">不超過 %1$s 的有 %2$s 種，總共有6種。%3$s/6 = %4$s/%5$s</string>
+    <string name="tpl_7e93d243">左邊 %1$s 個，右邊 %2$s 個。%3$s 比 %4$s 大，所以%5$s更多。</string>
+    <string name="tpl_0782d5d6">先比較十位。%1$s 更大。</string>
+    <string name="tpl_303e5331">找最高的條形。%1$s 有 %2$s 個，最多。</string>
+    <string name="tpl_1f33664e">先放 %1$s 隻，再放 %2$s 隻，盒子裡就有 %3$s 隻。\n從 %4$s 開始數 %5$s 個就是 %6$s。</string>
+    <string name="tpl_eb12d4e3">%1$s 隻送走 %2$s 隻，還剩 %3$s 隻。\n送走的和剩下的合起來又是 %4$s 隻。</string>
+    <string name="tpl_d35868f6">左邊有 %1$s 個 x 盒和 %2$s 個1的砝碼，右邊有 %3$s 個1的砝碼。\n兩邊各拿走 %4$s，得 %5$sx = %6$s\n平均分成 %7$s 組，得 x = %8$s。</string>
+    <string name="tpl_74cc085d">%1$s\n顏色不同也沒關係，形狀相同就放同一個籃子。</string>
+    <string name="tpl_28a6838e">%1$s° 是%2$s。</string>
+    <string name="tpl_394c5f1b">%1$s° 是%2$s。\n比直角(90°)小 %3$s°。</string>
+    <string name="tpl_9e6c9d79">%1$s° 是%2$s。\n比直角(90°)大 %3$s°。</string>
+    <string name="tpl_b0aed67a">%1$s° 是%2$s。\n是端端正正立著的角。</string>
+    <string name="tpl_54ac9abe">規律是 %1$s 和 %2$s 交替出現。%3$s 後面是 %4$s。</string>
+    <string name="tpl_5c76e40f">那是%1$s。是第 %2$s 個。</string>
+    <string name="tpl_1c847ed5">短針指著 %1$s，長針指著12，所以是 %2$s 點。</string>
+    <string name="tpl_ed836a0a">短針在 %1$s 和 %2$s 之間，長針指著6，所以是 %3$s 點30分。</string>
+    <string name="tpl_cc9224e2">是從0向右走 %1$s 格的位置。\n%2$s 比10小。</string>
+    <string name="tpl_298087b1">是從0向右走 %1$s 格的位置。\n%2$s 比10大。</string>
+    <string name="tpl_c9b3271e">是從0向右走 %1$s 格的位置。\n%2$s 正好是10。</string>
+    <string name="tpl_a98236e0">%1$s 是從0向右走 %2$s 格的位置。</string>
+    <string name="tpl_e7144613">%1$s 比0小 %2$s。從0向左走 %3$s 格。</string>
+    <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+        <item>사과|蘋果</item>
+        <item>딸기|草莓</item>
+        <item>포도|葡萄</item>
+        <item>바나나|香蕉</item>
+        <item>귤|橘子</item>
+        <item>쿠키|餅乾</item>
+        <item>사탕|糖果</item>
+        <item>구슬|彈珠</item>
+        <item>스티커|貼紙</item>
+        <item>풍선|氣球</item>
+        <item>블록|積木</item>
+        <item>도토리|橡子</item>
+        <item>색연필|彩色鉛筆</item>
+        <item>상자|盒子</item>
+        <item>접시|盤子</item>
+        <item>바구니|籃子</item>
+        <item>봉지|袋子</item>
+        <item>가방|書包</item>
+        <item>원|圓</item>
+        <item>삼각형|三角形</item>
+        <item>사각형|四邊形</item>
+        <item>오각형|五邊形</item>
+        <item>육각형|六邊形</item>
+        <item>예각|銳角</item>
+        <item>직각|直角</item>
+        <item>둔각|鈍角</item>
+        <item>평각|平角</item>
+        <item>축구|足球</item>
+        <item>야구|棒球</item>
+        <item>농구|籃球</item>
+        <item>수영|游泳</item>
+        <item>달리기|跑步</item>
+        <item>삐약이|啾啾</item>
+        <item>토끼|兔子</item>
+        <item>펭귄|企鵝</item>
+        <item>고양이|小貓</item>
+        <item>곰돌이|小熊</item>
+        <item>다람쥐|松鼠</item>
+        <item>서연|序妍</item>
+        <item>수아|秀雅</item>
+        <item>시우|施宇</item>
+        <item>채원|彩園</item>
+        <item>도윤|道潤</item>
+        <item>예린|藝琳</item>
+        <item>은우|恩宇</item>
+        <item>지우|智宇</item>
+        <item>민수|敏秀</item>
+        <item>하준|河俊</item>
+        <item>월|周一</item>
+        <item>화|周二</item>
+        <item>수|周三</item>
+        <item>목|周四</item>
+        <item>금|周五</item>
+        <item>영|零</item>
+        <item>하나|一</item>
+        <item>둘|二</item>
+        <item>셋|三</item>
+        <item>넷|四</item>
+        <item>다섯|五</item>
+        <item>여섯|六</item>
+        <item>일곱|七</item>
+        <item>여덟|八</item>
+        <item>아홉|九</item>
+        <item>열|十</item>
+        <item>왼쪽|左邊</item>
+        <item>오른쪽|右邊</item>
+        <item>같아요|一樣</item>
+        <item>모르겠어요|不知道</item>
+        <item>없어요|沒有</item>
+        <item>모으는 상자|收集</item>
+        <item>집으로|回家</item>
+        <item>반|班</item>
+        <item>대|多歲</item>
+        <item>시|點</item>
+        <item>분|分</item>
+        <item>원은 뾰족한 곳이 없고 동그란 모양이에요.|圓沒有尖角，是圓圓的形狀。</item>
+        <item>삼각형은 뾰족한 곳이 3개 모양이에요.|三角形有3個尖角。</item>
+        <item>사각형은 뾰족한 곳이 4개 모양이에요.|四邊形有4個尖角。</item>
+        <item>D &gt; 0 이므로 서로 다른 두 실근|D &gt; 0，所以有兩個不同的實根</item>
+        <item>D = 0 이므로 중근|D = 0，所以是重根</item>
+        <item>D &lt; 0 이므로 실근이 없어요|D &lt; 0，所以沒有實根</item>
+        <item>빼면|減去</item>
+        <item>더하면|加上</item>
+        <item>(10 넘으면 십의 자리로 받아올림!)|(超過10就向十位進1!)</item>
+        <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|個位不夠減，所以從十位借10。</item>
+        <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|符號不同時，取絕對值較大的那個符號。</item>
+        <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|兩個都是負數時，把絕對值相加並加上負號。</item>
+    </string-array>
+    <string-array name="tpl_units">
+        <item>개|個</item>
+        <item>명|人</item>
+        <item>분|分</item>
+        <item>초|秒</item>
+        <item>점|分</item>
+        <item>원|韓元</item>
+    </string-array>
+</resources>

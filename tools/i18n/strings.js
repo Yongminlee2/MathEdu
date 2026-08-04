@@ -10,7 +10,8 @@
  * 언어 12종: en(기본) ko ja zh es fr de pt ru vi th in
  */
 module.exports = {
-  langs: ["en", "ko", "ja", "zh", "es", "fr", "de", "pt", "ru", "vi", "th", "in"],
+  // zh 는 간체(본토), zh-rTW·zh-rHK 는 번체 — 번체는 원장에 안 쓰고 zh 에서 자동 변환한다
+  langs: ["en", "ko", "ja", "zh", "zh-rTW", "zh-rHK", "es", "fr", "de", "pt", "ru", "vi", "th", "in"],
 
   strings: {
     // ---------- 공통 ----------
@@ -407,6 +408,14 @@ module.exports = {
       ru: "Выйти из теста уровня?", vi: "Dừng bài kiểm tra trình độ?",
       th: "ออกจากแบบทดสอบระดับ?", in: "Keluar dari tes level?",
     },
+  // 문제문의 빈칸(___)을 소리로 읽을 때 대신 부르는 말
+  tts_blank: { ko: "몇", en: "what", ja: "なに", zh: "多少", es: "cuánto", fr: "combien", de: "wie viel", pt: "quanto", ru: "сколько", vi: "bao nhiêu", th: "เท่าไร", in: "berapa" },
+
+  // ---------- 힌트 ----------
+  hint_none: { ko: "힌트권이 없어요. 상점에서 살 수 있어요! 💡", en: "No hint tickets. You can buy them in the shop! 💡", ja: "ヒント券がありません。ショップで買えます! 💡", zh: "没有提示券了。可以在商店购买! 💡", es: "No tienes pistas. ¡Puedes comprarlas en la tienda! 💡", fr: "Plus d'indices. Tu peux en acheter dans la boutique ! 💡", de: "Keine Tipp-Tickets. Im Shop erhältlich! 💡", pt: "Sem dicas. Você pode comprar na loja! 💡", ru: "Подсказок нет. Их можно купить в магазине! 💡", vi: "Hết vé gợi ý. Bạn có thể mua ở cửa hàng! 💡", th: "ไม่มีบัตรคำใบ้ ซื้อได้ที่ร้านค้า! 💡", in: "Tidak ada tiket petunjuk. Beli di toko! 💡" },
+  hint_choice_only: { ko: "힌트는 4지선다 문제에서만 쓸 수 있어요", en: "Hints only work on multiple-choice questions", ja: "ヒントは4択問題でだけ使えます", zh: "提示只能用于四选一的题目", es: "Las pistas solo funcionan en preguntas de opción múltiple", fr: "Les indices ne marchent que sur les questions à choix multiples", de: "Tipps gibt es nur bei Multiple-Choice-Fragen", pt: "As dicas só funcionam em questões de múltipla escolha", ru: "Подсказки работают только в вопросах с выбором ответа", vi: "Gợi ý chỉ dùng được cho câu hỏi trắc nghiệm", th: "คำใบ้ใช้ได้เฉพาะข้อสอบแบบเลือกตอบ", in: "Petunjuk hanya untuk soal pilihan ganda" },
+  hint_already: { ko: "이 문제에는 이미 힌트를 썼어요", en: "You already used a hint on this question", ja: "この問題ではもうヒントを使いました", zh: "这道题已经用过提示了", es: "Ya usaste una pista en esta pregunta", fr: "Tu as déjà utilisé un indice sur cette question", de: "Für diese Frage hast du schon einen Tipp benutzt", pt: "Você já usou uma dica nesta questão", ru: "Для этого вопроса подсказка уже использована", vi: "Bạn đã dùng gợi ý cho câu này rồi", th: "คุณใช้คำใบ้กับข้อนี้ไปแล้ว", in: "Kamu sudah memakai petunjuk di soal ini" },
+
   // ---------- 수학 문제 유형 배지 ----------
   mkind_clock: { ko: "🕐 시계 보기", en: "🕐 Read the clock", ja: "🕐 とけいを よむ", zh: "🕐 看时钟", es: "🕐 Leer el reloj", fr: "🕐 Lire l'heure", de: "🕐 Uhr lesen", pt: "🕐 Ler o relógio", ru: "🕐 Читаем часы", vi: "🕐 Xem đồng hồ", th: "🕐 อ่านนาฬิกา", in: "🕐 Membaca jam" },
   mkind_clock_set: { ko: "🕐 시계 바늘 돌리기", en: "🕐 Set the clock", ja: "🕐 はりを まわす", zh: "🕐 拨动指针", es: "🕐 Ajustar el reloj", fr: "🕐 Régler l'horloge", de: "🕐 Uhr einstellen", pt: "🕐 Ajustar o relógio", ru: "🕐 Ставим стрелки", vi: "🕐 Chỉnh kim đồng hồ", th: "🕐 ตั้งเวลานาฬิกา", in: "🕐 Atur jarum jam" },

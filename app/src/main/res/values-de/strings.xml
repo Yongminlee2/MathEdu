@@ -65,6 +65,10 @@
     <string name="stats_badges">Abzeichen</string>
     <string name="placement_title">Einstufungstest</string>
     <string name="placement_quit_ask">Einstufungstest beenden?</string>
+    <string name="tts_blank">wie viel</string>
+    <string name="hint_none">Keine Tipp-Tickets. Im Shop erhältlich! 💡</string>
+    <string name="hint_choice_only">Tipps gibt es nur bei Multiple-Choice-Fragen</string>
+    <string name="hint_already">Für diese Frage hast du schon einen Tipp benutzt</string>
     <string name="mkind_clock">🕐 Uhr lesen</string>
     <string name="mkind_clock_set">🕐 Uhr einstellen</string>
     <string name="mkind_group">🧺 Gleich aufteilen</string>

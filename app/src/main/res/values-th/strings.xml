@@ -65,6 +65,10 @@
     <string name="stats_badges">เหรียญ</string>
     <string name="placement_title">แบบทดสอบระดับ</string>
     <string name="placement_quit_ask">ออกจากแบบทดสอบระดับ?</string>
+    <string name="tts_blank">เท่าไร</string>
+    <string name="hint_none">ไม่มีบัตรคำใบ้ ซื้อได้ที่ร้านค้า! 💡</string>
+    <string name="hint_choice_only">คำใบ้ใช้ได้เฉพาะข้อสอบแบบเลือกตอบ</string>
+    <string name="hint_already">คุณใช้คำใบ้กับข้อนี้ไปแล้ว</string>
     <string name="mkind_clock">🕐 อ่านนาฬิกา</string>
     <string name="mkind_clock_set">🕐 ตั้งเวลานาฬิกา</string>
     <string name="mkind_group">🧺 แบ่งเท่า ๆ กัน</string>

@@ -65,6 +65,10 @@
     <string name="stats_badges">Insignias</string>
     <string name="placement_title">Test de nivel</string>
     <string name="placement_quit_ask">¿Salir del test de nivel?</string>
+    <string name="tts_blank">cuánto</string>
+    <string name="hint_none">No tienes pistas. ¡Puedes comprarlas en la tienda! 💡</string>
+    <string name="hint_choice_only">Las pistas solo funcionan en preguntas de opción múltiple</string>
+    <string name="hint_already">Ya usaste una pista en esta pregunta</string>
     <string name="mkind_clock">🕐 Leer el reloj</string>
     <string name="mkind_clock_set">🕐 Ajustar el reloj</string>
     <string name="mkind_group">🧺 Repartir por igual</string>
