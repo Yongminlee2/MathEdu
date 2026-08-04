@@ -292,6 +292,8 @@ class MainActivity : AppCompatActivity() {
                 textSize = 15f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 setTextColor(Color.parseColor("#4E342E"))
+                // 부제가 긴 언어(독일어)에서는 글자와 숫자가 맞붙는다
+                setPadding(dp(10f).toInt(), 0, 0, 0)
             })
             b.tracksBox.addView(card)
         }
