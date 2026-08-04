@@ -386,6 +386,10 @@
     <string name="stats_counters">📚 おわった レッスン  %1$d\n💯 パーフェクト  %2$d\n💊 クリアした まちがい  %3$d\n🗓 べんきょうした日  %4$d</string>
     <string name="result_stats">せいかいりつ %1$d%% · +%2$d XP</string>
     <string name="box">はこ</string>
+    <string name="ma_listen">🔊 きく</string>
+    <string name="ma_track">トラック</string>
+    <string name="ma_sfx_note">おおきすぎると もんだいを よむ こえが きこえにくいよ</string>
+    <string name="ma_about">ピヤックさんすう 🐥 じぶんだけの さんすう アプリ</string>
     <string-array name="weekday_short">
         <item>日</item>
         <item>月</item>

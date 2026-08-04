@@ -386,6 +386,10 @@
     <string name="stats_counters">📚 Pelajaran selesai  %1$d\n💯 Pelajaran sempurna  %2$d\n💊 Kesalahan tuntas  %3$d\n🗓 Hari belajar  %4$d</string>
     <string name="result_stats">Benar %1$d%% · +%2$d XP</string>
     <string name="box">Kotak</string>
+    <string name="ma_listen">🔊 Dengarkan</string>
+    <string name="ma_track">Jalur</string>
+    <string name="ma_sfx_note">Terlalu keras membuat suara pembaca soal sulit terdengar</string>
+    <string name="ma_about">Piyak Math 🐥 aplikasi belajar matematikamu</string>
     <string-array name="weekday_short">
         <item>Min</item>
         <item>Sen</item>

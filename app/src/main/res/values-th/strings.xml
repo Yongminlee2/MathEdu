@@ -386,6 +386,10 @@
     <string name="stats_counters">📚 บทที่เรียนจบ  %1$d\n💯 บทที่ได้เต็ม  %2$d\n💊 ข้อผิดที่แก้แล้ว  %3$d\n🗓 วันที่เรียน  %4$d</string>
     <string name="result_stats">ถูก %1$d%% · +%2$d XP</string>
     <string name="box">กล่อง</string>
+    <string name="ma_listen">🔊 ฟัง</string>
+    <string name="ma_track">คอร์ส</string>
+    <string name="ma_sfx_note">ดังเกินไปจะฟังเสียงอ่านโจทย์ไม่ชัด</string>
+    <string name="ma_about">Piyak Math 🐥 แอปเรียนคณิตของคุณ</string>
     <string-array name="weekday_short">
         <item>อา</item>
         <item>จ</item>

@@ -67,4 +67,11 @@ stats_counters: { ko:"📚 완료한 레슨  %1$d개\n💯 퍼펙트 레슨  %2$
 result_stats: { ko:"정답률 %1$d%% · +%2$d XP", en:"%1$d%% correct · +%2$d XP", ja:"せいかいりつ %1$d%% · +%2$d XP", zh:"正确率 %1$d%% · +%2$d XP", es:"%1$d%% de acierto · +%2$d XP", fr:"%1$d%% de réussite · +%2$d XP", de:"%1$d%% richtig · +%2$d XP", pt:"%1$d%% de acerto · +%2$d XP", ru:"Точность %1$d%% · +%2$d XP", vi:"Đúng %1$d%% · +%2$d XP", th:"ถูก %1$d%% · +%2$d XP", in:"Benar %1$d%% · +%2$d XP" },
 box: { ko:"상자", en:"Box", ja:"はこ", zh:"盒子", es:"Caja", fr:"Boîte", de:"Kiste", pt:"Caixa", ru:"Коробка", vi:"Hộp", th:"กล่อง", in:"Kotak" },
 
+
+// ---------- 레이아웃 고정 문구 ----------
+ma_listen: { ko:"🔊 듣기", en:"🔊 Listen", ja:"🔊 きく", zh:"🔊 听", es:"🔊 Escuchar", fr:"🔊 Écouter", de:"🔊 Anhören", pt:"🔊 Ouvir", ru:"🔊 Слушать", vi:"🔊 Nghe", th:"🔊 ฟัง", in:"🔊 Dengarkan" },
+ma_track: { ko:"트랙", en:"Track", ja:"トラック", zh:"轨道", es:"Pista", fr:"Piste", de:"Track", pt:"Trilha", ru:"Трек", vi:"Lộ trình", th:"คอร์ส", in:"Jalur" },
+ma_sfx_note: { ko:"너무 크면 문제 읽어 주는 소리가 잘 안 들려요", en:"If it's too loud, the read-aloud voice is hard to hear", ja:"おおきすぎると もんだいを よむ こえが きこえにくいよ", zh:"太大声会听不清读题的声音", es:"Si está muy alto, la voz que lee se oye mal", fr:"Trop fort, on entend mal la voix de lecture", de:"Zu laut übertönt die Vorlesestimme", pt:"Muito alto atrapalha a voz de leitura", ru:"Слишком громко — голос чтения плохо слышно", vi:"To quá sẽ khó nghe giọng đọc đề", th:"ดังเกินไปจะฟังเสียงอ่านโจทย์ไม่ชัด", in:"Terlalu keras membuat suara pembaca soal sulit terdengar" },
+ma_about: { ko:"삐약수학 🐥 나만의 수학 공부 앱", en:"Piyak Math 🐥 your very own math study app", ja:"ピヤックさんすう 🐥 じぶんだけの さんすう アプリ", zh:"啾啾数学 🐥 属于你的数学学习应用", es:"Piyak Math 🐥 tu propia app de mates", fr:"Piyak Math 🐥 ton appli de maths à toi", de:"Piyak Math 🐥 deine eigene Mathe-App", pt:"Piyak Math 🐥 seu app de matemática", ru:"Piyak Math 🐥 твоё приложение для математики", vi:"Piyak Math 🐥 ứng dụng toán của riêng bạn", th:"Piyak Math 🐥 แอปเรียนคณิตของคุณ", in:"Piyak Math 🐥 aplikasi belajar matematikamu" },
+
 };

@@ -386,6 +386,10 @@
     <string name="stats_counters">📚 Пройдено уроков  %1$d\n💯 Идеальных уроков  %2$d\n💊 Закрыто ошибок  %3$d\n🗓 Дней занятий  %4$d</string>
     <string name="result_stats">Точность %1$d%% · +%2$d XP</string>
     <string name="box">Коробка</string>
+    <string name="ma_listen">🔊 Слушать</string>
+    <string name="ma_track">Трек</string>
+    <string name="ma_sfx_note">Слишком громко — голос чтения плохо слышно</string>
+    <string name="ma_about">Piyak Math 🐥 твоё приложение для математики</string>
     <string-array name="weekday_short">
         <item>Вс</item>
         <item>Пн</item>

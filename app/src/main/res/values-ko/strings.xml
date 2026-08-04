@@ -386,6 +386,10 @@
     <string name="stats_counters">📚 완료한 레슨  %1$d개\n💯 퍼펙트 레슨  %2$d개\n💊 클리어한 오답  %3$d개\n🗓 공부한 날  %4$d일</string>
     <string name="result_stats">정답률 %1$d%% · +%2$d XP</string>
     <string name="box">상자</string>
+    <string name="ma_listen">🔊 듣기</string>
+    <string name="ma_track">트랙</string>
+    <string name="ma_sfx_note">너무 크면 문제 읽어 주는 소리가 잘 안 들려요</string>
+    <string name="ma_about">삐약수학 🐥 나만의 수학 공부 앱</string>
     <string-array name="weekday_short">
         <item>일</item>
         <item>월</item>

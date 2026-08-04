@@ -11,7 +11,7 @@
         <!-- 과목 전환 -->
         <Button android:id="@+id/btnSwitchSubject"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="📘 영어  ▾" android:textSize="15sp"
+            android:text="" android:textSize="15sp"
             android:backgroundTint="@color/white" android:textColor="@color/brown_text" />
 
         <!-- 시간대별 풍경 배너 (codex 발주 #01) — 아침 하늘, 낮 풀밭, 저녁 교실, 밤하늘 -->
@@ -51,7 +51,7 @@
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
                 <TextView android:id="@+id/txtRank" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="🥚 알 속의 새싹" android:textSize="22sp" android:textStyle="bold" />
+                    android:text="" android:textSize="22sp" android:textStyle="bold" />
                 <TextView android:id="@+id/txtOverall" android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="@string/home_overall_lv" android:textSize="14sp" android:textColor="@color/brown_soft" />
                 <ProgressBar android:id="@+id/rankBar" style="?android:attr/progressBarStyleHorizontal"
@@ -125,7 +125,7 @@
             <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
                 <TextView android:id="@+id/txtCoins" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="0원" android:textSize="22sp" android:textStyle="bold"
+                    android:text="0" android:textSize="22sp" android:textStyle="bold"
                     android:textColor="@color/brown_text" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="@string/home_shop_line" android:textSize="12sp"

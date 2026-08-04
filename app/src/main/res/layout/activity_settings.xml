@@ -29,7 +29,7 @@
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_marginTop="20dp" android:text="@string/set_sfx" android:textSize="16sp" android:textStyle="bold" />
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="너무 크면 영어 발음이 잘 안 들려요" android:textSize="12sp"
+            android:text="@string/ma_sfx_note" android:textSize="12sp"
             android:textColor="@color/brown_soft" />
         <SeekBar android:id="@+id/seekSfx" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="6dp" android:max="100" android:progress="30" />
@@ -84,6 +84,6 @@
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="24dp" android:gravity="center" android:textSize="13sp"
             android:textColor="@color/brown_soft"
-            android:text="삐약영어 🐥 나만의 영어 공부 앱\n말하기 채점은 인터넷이 있을 때 더 정확해요" />
+            android:text="@string/ma_about" />
     </LinearLayout>
 </ScrollView>

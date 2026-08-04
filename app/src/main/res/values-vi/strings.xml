@@ -386,6 +386,10 @@
     <string name="stats_counters">📚 Bài học hoàn thành  %1$d\n💯 Bài hoàn hảo  %2$d\n💊 Câu sai đã xử lý  %3$d\n🗓 Số ngày học  %4$d</string>
     <string name="result_stats">Đúng %1$d%% · +%2$d XP</string>
     <string name="box">Hộp</string>
+    <string name="ma_listen">🔊 Nghe</string>
+    <string name="ma_track">Lộ trình</string>
+    <string name="ma_sfx_note">To quá sẽ khó nghe giọng đọc đề</string>
+    <string name="ma_about">Piyak Math 🐥 ứng dụng toán của riêng bạn</string>
     <string-array name="weekday_short">
         <item>CN</item>
         <item>T2</item>
