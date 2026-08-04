@@ -160,7 +160,7 @@
     <string name="goal_reached">Tagesziel erreicht</string>
     <string name="badge_earned">🏆 Abzeichen erhalten: %1$s %2$s!</string>
     <string name="clear">Löschen</string>
-    <string name="wallet_amount">%1$s Won</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Bisher verdient: %1$s</string>
     <string name="wallet_spent">Im Shop ausgegeben: %1$s · Ausgezahlt: %2$s</string>
     <string name="wallet_no_log">Noch kein Verlauf. Löse Aufgaben und verdiene Taschengeld! 🐥</string>

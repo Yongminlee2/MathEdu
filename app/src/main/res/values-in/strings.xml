@@ -160,7 +160,7 @@
     <string name="goal_reached">Target harian tercapai</string>
     <string name="badge_earned">🏆 Lencana didapat: %1$s %2$s!</string>
     <string name="clear">Hapus</string>
-    <string name="wallet_amount">%1$s won</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Terkumpul sejauh ini: %1$s</string>
     <string name="wallet_spent">Dibelanjakan: %1$s · Dicairkan: %2$s</string>
     <string name="wallet_no_log">Belum ada riwayat. Kerjakan soal untuk dapat uang saku! 🐥</string>

@@ -160,7 +160,7 @@
     <string name="goal_reached">達成今日目標</string>
     <string name="badge_earned">🏆 获得徽章: %1$s %2$s!</string>
     <string name="clear">清除</string>
-    <string name="wallet_amount">%1$s 韓元</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">目前攢到 %1$s</string>
     <string name="wallet_spent">商店花费 %1$s · 已兌現 %2$s</string>
     <string name="wallet_no_log">還沒有記錄。做題來攢零花錢吧! 🐥</string>

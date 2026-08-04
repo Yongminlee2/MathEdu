@@ -160,7 +160,7 @@
     <string name="goal_reached">Meta diaria lograda</string>
     <string name="badge_earned">🏆 Insignia conseguida: %1$s %2$s!</string>
     <string name="clear">Borrar</string>
-    <string name="wallet_amount">%1$s wones</string>
+    <string name="wallet_amount">🪙 %1$s</string>
     <string name="wallet_earned">Ganado hasta ahora: %1$s</string>
     <string name="wallet_spent">Gastado en la tienda: %1$s · Cobrado: %2$s</string>
     <string name="wallet_no_log">Aún no hay historial. ¡Resuelve problemas para ganar dinero! 🐥</string>

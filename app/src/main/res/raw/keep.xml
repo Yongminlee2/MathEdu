@@ -12,6 +12,9 @@
     tpl_units  답 옆 단위 사전       (i18n/Tpl.kt)
     word_*     문장제 사물 그림      (LessonActivity.storyArt)
     ck_*       병아리 포즈           (여러 화면에서 이름으로 조합)
+    shop_*     상점 상품 그림        (WalletActivity.shopIconRes)
+    stk_*      축하 스티커           (CelebrateOverlayView — "stk_" + 번호)
+    sfx_*      효과음 4종(raw)       (audio/Sfx.kt — R.raw 로 직접 참조하는 곳이 없다)
 -->
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@string/tpl_*,@array/tpl_words,@array/tpl_units,@drawable/word_*,@drawable/ck_*" />
+    tools:keep="@string/tpl_*,@array/tpl_words,@array/tpl_units,@drawable/word_*,@drawable/ck_*,@drawable/shop_*,@drawable/stk_*,@raw/sfx_*" />
