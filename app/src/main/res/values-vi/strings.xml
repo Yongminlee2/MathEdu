@@ -659,6 +659,8 @@
     <string name="tpl_a98236e0">%1$s nằm cách 0 %2$s bước sang phải.</string>
     <string name="tpl_e7144613">%1$s nhỏ hơn 0 là %2$s. Đi %3$s bước sang trái kể từ 0.</string>
     <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
+    <string name="tpl_t_word">%1$s</string>
+    <string name="tpl_t_num">%1$s %2$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">
@@ -749,6 +751,122 @@
         <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|Hàng đơn vị không đủ trừ, nên mượn 10 từ hàng chục.</item>
         <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|Khi khác dấu, kết quả mang dấu của số có trị tuyệt đối lớn hơn.</item>
         <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|Khi cả hai đều âm, cộng trị tuyệt đối rồi giữ dấu trừ.</item>
+        <item>몇 개일까요? (1~10)|Có bao nhiêu? (1–10)</item>
+        <item>몇 개일까요? (10~20)|Có bao nhiêu? (10–20)</item>
+        <item>어느 쪽이 더 많을까?|Bên nào nhiều hơn?</item>
+        <item>모양을 찾아요|Tìm hình dạng</item>
+        <item>옮기면서 세기|Di chuyển và đếm</item>
+        <item>모양 나누어 담기|Phân loại hình</item>
+        <item>다음 수는 무엇일까?|Số tiếp theo là gì?</item>
+        <item>규칙을 찾아요|Tìm quy luật</item>
+        <item>그림 덧셈|Cộng bằng hình</item>
+        <item>모아서 더하기|Gộp lại rồi cộng</item>
+        <item>그림 뺄셈|Trừ bằng hình</item>
+        <item>덜어내고 빼기|Bớt đi rồi trừ</item>
+        <item>10을 만들어요|Tạo thành 10</item>
+        <item>100까지의 수|Số đến 100</item>
+        <item>어느 수가 더 클까?|Số nào lớn hơn?</item>
+        <item>몇 시일까요?|Mấy giờ rồi?</item>
+        <item>수직선에서 찾기|Tìm trên trục số</item>
+        <item>시계 바늘 돌리기|Xoay kim đồng hồ</item>
+        <item>이야기 문제 (더하기·빼기)|Toán đố (cộng · trừ)</item>
+        <item>받아올림 덧셈|Cộng có nhớ</item>
+        <item>받아내림 뺄셈|Trừ có mượn</item>
+        <item>2단 곱셈구구|Bảng nhân 2</item>
+        <item>3단 곱셈구구|Bảng nhân 3</item>
+        <item>4단 곱셈구구|Bảng nhân 4</item>
+        <item>5단 곱셈구구|Bảng nhân 5</item>
+        <item>6단 곱셈구구|Bảng nhân 6</item>
+        <item>7단 곱셈구구|Bảng nhân 7</item>
+        <item>8단 곱셈구구|Bảng nhân 8</item>
+        <item>9단 곱셈구구|Bảng nhân 9</item>
+        <item>세 자리 수|Số có ba chữ số</item>
+        <item>길이 재기 (cm·m)|Đo độ dài (cm·m)</item>
+        <item>몇 시 몇 분|Mấy giờ mấy phút</item>
+        <item>시계 바늘 돌리기 (5분)|Xoay kim (5 phút)</item>
+        <item>표와 그래프|Bảng và biểu đồ</item>
+        <item>그래프 세우기|Dựng biểu đồ</item>
+        <item>수직선에서 찾기 (100까지)|Tìm trên trục số (đến 100)</item>
+        <item>나눗셈 (똑같이 나누기)|Phép chia (chia đều)</item>
+        <item>끌어서 똑같이 나누기|Kéo để chia đều</item>
+        <item>두 자리 × 한 자리|Hai chữ số × một chữ số</item>
+        <item>분수 알아보기|Làm quen phân số</item>
+        <item>분수만큼 색칠하기|Tô theo phân số</item>
+        <item>소수 알아보기|Làm quen số thập phân</item>
+        <item>수직선에서 소수 찾기|Số thập phân trên trục số</item>
+        <item>소수만큼 색칠하기|Tô theo số thập phân</item>
+        <item>직각과 평면도형|Góc vuông và hình phẳng</item>
+        <item>도형 분류하기|Phân loại hình</item>
+        <item>길이와 시간|Độ dài và thời gian</item>
+        <item>무게와 들이|Khối lượng và dung tích</item>
+        <item>이야기 문제 (곱하기·나누기)|Toán đố (nhân · chia)</item>
+        <item>큰 수|Số lớn</item>
+        <item>각도 만들기|Tạo góc</item>
+        <item>각도 재기|Đo góc</item>
+        <item>세 자리 × 두 자리|Ba chữ số × hai chữ số</item>
+        <item>나눗셈 (몫과 나머지)|Phép chia (thương và dư)</item>
+        <item>분수의 덧셈과 뺄셈|Cộng trừ phân số</item>
+        <item>소수의 덧셈과 뺄셈|Cộng trừ số thập phân</item>
+        <item>그래프 세우기 (큰 수)|Dựng biểu đồ (số lớn)</item>
+        <item>막대그래프 읽기|Đọc biểu đồ cột</item>
+        <item>이야기 문제 (두 단계)|Toán đố hai bước</item>
+        <item>자연수의 혼합 계산|Tính hỗn hợp</item>
+        <item>약수와 배수|Ước và bội</item>
+        <item>약분과 통분|Rút gọn và quy đồng</item>
+        <item>분수의 곱셈|Nhân phân số</item>
+        <item>다각형의 넓이|Diện tích đa giác</item>
+        <item>평균 구하기|Tìm số trung bình</item>
+        <item>이야기 문제 (평균·비율)|Toán đố (trung bình · tỉ lệ)</item>
+        <item>분수의 나눗셈|Chia phân số</item>
+        <item>소수의 나눗셈|Chia số thập phân</item>
+        <item>비와 비율|Tỉ số và tỉ lệ</item>
+        <item>백분율|Phần trăm</item>
+        <item>원의 넓이와 둘레|Diện tích và chu vi hình tròn</item>
+        <item>직육면체의 부피와 겉넓이|Thể tích và diện tích hình hộp</item>
+        <item>여러 가지 그래프|Các loại biểu đồ</item>
+        <item>이야기 문제 (비율·속력)|Toán đố (tỉ lệ · vận tốc)</item>
+        <item>소인수분해|Phân tích thừa số nguyên tố</item>
+        <item>정수와 유리수의 계산|Số nguyên và số hữu tỉ</item>
+        <item>문자와 식|Chữ và biểu thức</item>
+        <item>일차방정식|Phương trình bậc nhất</item>
+        <item>저울로 방정식 풀기|Giải phương trình bằng cân</item>
+        <item>수직선에서 정수 찾기|Số nguyên trên trục số</item>
+        <item>정비례와 반비례|Tỉ lệ thuận và nghịch</item>
+        <item>평면도형의 성질|Tính chất hình phẳng</item>
+        <item>입체도형의 겉넓이와 부피|Diện tích và thể tích khối</item>
+        <item>자료의 정리와 해석|Sắp xếp và phân tích dữ liệu</item>
+        <item>방정식 문장제|Toán đố phương trình</item>
+        <item>지수법칙|Quy tắc lũy thừa</item>
+        <item>일차부등식|Bất phương trình bậc nhất</item>
+        <item>연립방정식|Hệ phương trình</item>
+        <item>일차함수와 그래프|Hàm số bậc nhất và đồ thị</item>
+        <item>피타고라스 정리|Định lý Pythagoras</item>
+        <item>도형의 닮음|Hình đồng dạng</item>
+        <item>확률|Xác suất</item>
+        <item>제곱근과 실수|Căn bậc hai và số thực</item>
+        <item>인수분해|Phân tích thành nhân tử</item>
+        <item>이차방정식|Phương trình bậc hai</item>
+        <item>이차함수|Hàm số bậc hai</item>
+        <item>삼각비|Tỉ số lượng giác</item>
+        <item>원의 성질|Tính chất đường tròn</item>
+        <item>통계 (대푯값)|Thống kê (số đại diện)</item>
+        <item>다항식과 나머지정리|Đa thức và định lý phần dư</item>
+        <item>이차방정식과 판별식|Phương trình bậc hai và biệt thức</item>
+        <item>순열과 조합|Hoán vị và tổ hợp</item>
+        <item>도형의 방정식|Phương trình hình học</item>
+        <item>집합과 명제|Tập hợp và mệnh đề</item>
+        <item>지수와 로그|Lũy thừa và logarit</item>
+        <item>삼각함수|Hàm số lượng giác</item>
+        <item>수열|Dãy số</item>
+        <item>함수의 극한|Giới hạn hàm số</item>
+        <item>미분|Đạo hàm</item>
+        <item>적분|Tích phân</item>
+        <item>수열의 극한|Giới hạn dãy số</item>
+        <item>여러 가지 함수의 미분|Đạo hàm các hàm số</item>
+        <item>정적분과 넓이|Tích phân xác định và diện tích</item>
+        <item>확률과 통계|Xác suất và thống kê</item>
+        <item>공간도형과 벡터|Hình không gian và vectơ</item>
+        <item>이차곡선|Đường conic</item>
     </string-array>
     <string-array name="tpl_units">
         <item>개|cái</item>

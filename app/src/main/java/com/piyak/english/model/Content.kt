@@ -60,9 +60,9 @@ object ContentRepo {
                 val l = lessonsArr.getJSONObject(li)
                 val qArr = l.getJSONArray("questions")
                 val qs = (0 until qArr.length()).map { qi -> Question.fromJson(qArr.getJSONObject(qi)) }
-                LessonData(l.getString("id"), l.getString("title"), qs)
+                LessonData(l.getString("id"), title(l), qs)
             }
-            UnitData(u.getString("id"), u.getString("title"), u.optString("emoji", "🐥"),
+            UnitData(u.getString("id"), title(u), u.optString("emoji", "🐥"),
                 u.optInt("level", ui + 1), lessons)
         }
         return TrackData(
@@ -121,4 +121,15 @@ object ContentRepo {
         val lesson = t.findLesson(lessonId)?.second ?: return null
         return lesson.questions.firstOrNull { it.id == qid }
     }
+
+    /** 팩의 tk/ta 를 폰 언어 제목으로 조립한다 (한국어 폰·미태깅 제목은 원문 그대로) */
+    private fun title(o: JSONObject): String {
+        val ko = o.optString("title")
+        val tk = o.optString("tk")
+        if (tk.isEmpty()) return ko
+        val ta = o.optJSONArray("ta")
+        val list = if (ta == null) emptyList() else (0 until ta.length()).map { ta.getString(it) }
+        return com.piyak.english.i18n.Tpl.sentence(tk, list, ko)
+    }
+
 }

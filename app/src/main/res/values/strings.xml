@@ -659,6 +659,8 @@
     <string name="tpl_a98236e0">%1$s is %2$s steps to the right of 0.</string>
     <string name="tpl_e7144613">%1$s is %2$s less than 0. Move %3$s steps to the left from 0.</string>
     <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
+    <string name="tpl_t_word">%1$s</string>
+    <string name="tpl_t_num">%1$s %2$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">
@@ -749,6 +751,122 @@
         <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|The ones place is too small, so borrow 10 from the tens place.</item>
         <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|When the signs differ, the answer takes the sign of the bigger absolute value.</item>
         <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|When both are negative, add the absolute values and keep the minus sign.</item>
+        <item>몇 개일까요? (1~10)|How many? (1–10)</item>
+        <item>몇 개일까요? (10~20)|How many? (10–20)</item>
+        <item>어느 쪽이 더 많을까?|Which side has more?</item>
+        <item>모양을 찾아요|Find the shape</item>
+        <item>옮기면서 세기|Move and count</item>
+        <item>모양 나누어 담기|Sort the shapes</item>
+        <item>다음 수는 무엇일까?|What comes next?</item>
+        <item>규칙을 찾아요|Find the pattern</item>
+        <item>그림 덧셈|Picture addition</item>
+        <item>모아서 더하기|Put together and add</item>
+        <item>그림 뺄셈|Picture subtraction</item>
+        <item>덜어내고 빼기|Take away and subtract</item>
+        <item>10을 만들어요|Make 10</item>
+        <item>100까지의 수|Numbers to 100</item>
+        <item>어느 수가 더 클까?|Which number is bigger?</item>
+        <item>몇 시일까요?|What time is it?</item>
+        <item>수직선에서 찾기|Find it on the number line</item>
+        <item>시계 바늘 돌리기|Turn the clock hands</item>
+        <item>이야기 문제 (더하기·빼기)|Word problems (+ and −)</item>
+        <item>받아올림 덧셈|Addition with carrying</item>
+        <item>받아내림 뺄셈|Subtraction with borrowing</item>
+        <item>2단 곱셈구구|2 times table</item>
+        <item>3단 곱셈구구|3 times table</item>
+        <item>4단 곱셈구구|4 times table</item>
+        <item>5단 곱셈구구|5 times table</item>
+        <item>6단 곱셈구구|6 times table</item>
+        <item>7단 곱셈구구|7 times table</item>
+        <item>8단 곱셈구구|8 times table</item>
+        <item>9단 곱셈구구|9 times table</item>
+        <item>세 자리 수|Three-digit numbers</item>
+        <item>길이 재기 (cm·m)|Measuring length (cm·m)</item>
+        <item>몇 시 몇 분|Hours and minutes</item>
+        <item>시계 바늘 돌리기 (5분)|Turn the hands (5-min)</item>
+        <item>표와 그래프|Tables and graphs</item>
+        <item>그래프 세우기|Build a graph</item>
+        <item>수직선에서 찾기 (100까지)|Find on number line (to 100)</item>
+        <item>나눗셈 (똑같이 나누기)|Division (sharing equally)</item>
+        <item>끌어서 똑같이 나누기|Drag to share equally</item>
+        <item>두 자리 × 한 자리|Two-digit × one-digit</item>
+        <item>분수 알아보기|Understanding fractions</item>
+        <item>분수만큼 색칠하기|Color the fraction</item>
+        <item>소수 알아보기|Understanding decimals</item>
+        <item>수직선에서 소수 찾기|Decimals on the number line</item>
+        <item>소수만큼 색칠하기|Color the decimal</item>
+        <item>직각과 평면도형|Right angles and plane shapes</item>
+        <item>도형 분류하기|Classifying shapes</item>
+        <item>길이와 시간|Length and time</item>
+        <item>무게와 들이|Weight and capacity</item>
+        <item>이야기 문제 (곱하기·나누기)|Word problems (× and ÷)</item>
+        <item>큰 수|Large numbers</item>
+        <item>각도 만들기|Making angles</item>
+        <item>각도 재기|Measuring angles</item>
+        <item>세 자리 × 두 자리|Three-digit × two-digit</item>
+        <item>나눗셈 (몫과 나머지)|Division (quotient and remainder)</item>
+        <item>분수의 덧셈과 뺄셈|Adding and subtracting fractions</item>
+        <item>소수의 덧셈과 뺄셈|Adding and subtracting decimals</item>
+        <item>그래프 세우기 (큰 수)|Build a graph (large numbers)</item>
+        <item>막대그래프 읽기|Reading bar graphs</item>
+        <item>이야기 문제 (두 단계)|Two-step word problems</item>
+        <item>자연수의 혼합 계산|Mixed operations</item>
+        <item>약수와 배수|Factors and multiples</item>
+        <item>약분과 통분|Reducing and common denominators</item>
+        <item>분수의 곱셈|Multiplying fractions</item>
+        <item>다각형의 넓이|Area of polygons</item>
+        <item>평균 구하기|Finding the average</item>
+        <item>이야기 문제 (평균·비율)|Word problems (average, ratio)</item>
+        <item>분수의 나눗셈|Dividing fractions</item>
+        <item>소수의 나눗셈|Dividing decimals</item>
+        <item>비와 비율|Ratio and rate</item>
+        <item>백분율|Percentages</item>
+        <item>원의 넓이와 둘레|Area and circumference of a circle</item>
+        <item>직육면체의 부피와 겉넓이|Volume and surface area of a cuboid</item>
+        <item>여러 가지 그래프|Various graphs</item>
+        <item>이야기 문제 (비율·속력)|Word problems (rate and speed)</item>
+        <item>소인수분해|Prime factorization</item>
+        <item>정수와 유리수의 계산|Integers and rational numbers</item>
+        <item>문자와 식|Letters and expressions</item>
+        <item>일차방정식|Linear equations</item>
+        <item>저울로 방정식 풀기|Solving equations with a balance</item>
+        <item>수직선에서 정수 찾기|Integers on the number line</item>
+        <item>정비례와 반비례|Direct and inverse proportion</item>
+        <item>평면도형의 성질|Properties of plane figures</item>
+        <item>입체도형의 겉넓이와 부피|Surface area and volume of solids</item>
+        <item>자료의 정리와 해석|Organizing and interpreting data</item>
+        <item>방정식 문장제|Equation word problems</item>
+        <item>지수법칙|Laws of exponents</item>
+        <item>일차부등식|Linear inequalities</item>
+        <item>연립방정식|Systems of equations</item>
+        <item>일차함수와 그래프|Linear functions and graphs</item>
+        <item>피타고라스 정리|Pythagorean theorem</item>
+        <item>도형의 닮음|Similar figures</item>
+        <item>확률|Probability</item>
+        <item>제곱근과 실수|Square roots and real numbers</item>
+        <item>인수분해|Factorization</item>
+        <item>이차방정식|Quadratic equations</item>
+        <item>이차함수|Quadratic functions</item>
+        <item>삼각비|Trigonometric ratios</item>
+        <item>원의 성질|Properties of circles</item>
+        <item>통계 (대푯값)|Statistics (measures of center)</item>
+        <item>다항식과 나머지정리|Polynomials and remainder theorem</item>
+        <item>이차방정식과 판별식|Quadratics and the discriminant</item>
+        <item>순열과 조합|Permutations and combinations</item>
+        <item>도형의 방정식|Equations of figures</item>
+        <item>집합과 명제|Sets and propositions</item>
+        <item>지수와 로그|Exponents and logarithms</item>
+        <item>삼각함수|Trigonometric functions</item>
+        <item>수열|Sequences</item>
+        <item>함수의 극한|Limits of functions</item>
+        <item>미분|Differentiation</item>
+        <item>적분|Integration</item>
+        <item>수열의 극한|Limits of sequences</item>
+        <item>여러 가지 함수의 미분|Derivatives of various functions</item>
+        <item>정적분과 넓이|Definite integrals and area</item>
+        <item>확률과 통계|Probability and statistics</item>
+        <item>공간도형과 벡터|Solid geometry and vectors</item>
+        <item>이차곡선|Conic sections</item>
     </string-array>
     <string-array name="tpl_units">
         <item>개|</item>

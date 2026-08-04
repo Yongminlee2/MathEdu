@@ -659,6 +659,8 @@
     <string name="tpl_a98236e0">%1$s 是从0向右走 %2$s 格的位置。</string>
     <string name="tpl_e7144613">%1$s 比0小 %2$s。从0向左走 %3$s 格。</string>
     <string name="tpl_40af492e">D = b² - 4ac = %1$s² - 4×%2$s×%3$s = %4$s - %5$s = %6$s\n%7$s</string>
+    <string name="tpl_t_word">%1$s</string>
+    <string name="tpl_t_num">%1$s %2$s</string>
 
     <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
     <string-array name="tpl_words">
@@ -749,6 +751,122 @@
         <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|个位不够减，所以从十位借10。</item>
         <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|符号不同时，取绝对值较大的那个符号。</item>
         <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|两个都是负数时，把绝对值相加并加上负号。</item>
+        <item>몇 개일까요? (1~10)|有几个? (1~10)</item>
+        <item>몇 개일까요? (10~20)|有几个? (10~20)</item>
+        <item>어느 쪽이 더 많을까?|哪边更多?</item>
+        <item>모양을 찾아요|找形状</item>
+        <item>옮기면서 세기|边移动边数</item>
+        <item>모양 나누어 담기|分类装形状</item>
+        <item>다음 수는 무엇일까?|下一个数是几?</item>
+        <item>규칙을 찾아요|找规律</item>
+        <item>그림 덧셈|图画加法</item>
+        <item>모아서 더하기|合起来相加</item>
+        <item>그림 뺄셈|图画减法</item>
+        <item>덜어내고 빼기|拿走再减</item>
+        <item>10을 만들어요|凑成10</item>
+        <item>100까지의 수|100以内的数</item>
+        <item>어느 수가 더 클까?|哪个数更大?</item>
+        <item>몇 시일까요?|几点了?</item>
+        <item>수직선에서 찾기|在数轴上找</item>
+        <item>시계 바늘 돌리기|转动钟表指针</item>
+        <item>이야기 문제 (더하기·빼기)|应用题 (加·减)</item>
+        <item>받아올림 덧셈|进位加法</item>
+        <item>받아내림 뺄셈|退位减法</item>
+        <item>2단 곱셈구구|2的乘法口诀</item>
+        <item>3단 곱셈구구|3的乘法口诀</item>
+        <item>4단 곱셈구구|4的乘法口诀</item>
+        <item>5단 곱셈구구|5的乘法口诀</item>
+        <item>6단 곱셈구구|6的乘法口诀</item>
+        <item>7단 곱셈구구|7的乘法口诀</item>
+        <item>8단 곱셈구구|8的乘法口诀</item>
+        <item>9단 곱셈구구|9的乘法口诀</item>
+        <item>세 자리 수|三位数</item>
+        <item>길이 재기 (cm·m)|测量长度 (cm·m)</item>
+        <item>몇 시 몇 분|几点几分</item>
+        <item>시계 바늘 돌리기 (5분)|转动指针 (5分)</item>
+        <item>표와 그래프|表格与图表</item>
+        <item>그래프 세우기|制作图表</item>
+        <item>수직선에서 찾기 (100까지)|在数轴上找 (到100)</item>
+        <item>나눗셈 (똑같이 나누기)|除法 (平均分)</item>
+        <item>끌어서 똑같이 나누기|拖动平均分</item>
+        <item>두 자리 × 한 자리|两位数 × 一位数</item>
+        <item>분수 알아보기|认识分数</item>
+        <item>분수만큼 색칠하기|按分数涂色</item>
+        <item>소수 알아보기|认识小数</item>
+        <item>수직선에서 소수 찾기|在数轴上找小数</item>
+        <item>소수만큼 색칠하기|按小数涂色</item>
+        <item>직각과 평면도형|直角与平面图形</item>
+        <item>도형 분류하기|图形分类</item>
+        <item>길이와 시간|长度与时间</item>
+        <item>무게와 들이|重量与容积</item>
+        <item>이야기 문제 (곱하기·나누기)|应用题 (乘·除)</item>
+        <item>큰 수|大数</item>
+        <item>각도 만들기|做出角度</item>
+        <item>각도 재기|测量角度</item>
+        <item>세 자리 × 두 자리|三位数 × 两位数</item>
+        <item>나눗셈 (몫과 나머지)|除法 (商与余数)</item>
+        <item>분수의 덧셈과 뺄셈|分数的加减</item>
+        <item>소수의 덧셈과 뺄셈|小数的加减</item>
+        <item>그래프 세우기 (큰 수)|制作图表 (大数)</item>
+        <item>막대그래프 읽기|读条形图</item>
+        <item>이야기 문제 (두 단계)|两步应用题</item>
+        <item>자연수의 혼합 계산|四则混合运算</item>
+        <item>약수와 배수|因数与倍数</item>
+        <item>약분과 통분|约分与通分</item>
+        <item>분수의 곱셈|分数乘法</item>
+        <item>다각형의 넓이|多边形的面积</item>
+        <item>평균 구하기|求平均数</item>
+        <item>이야기 문제 (평균·비율)|应用题 (平均·比率)</item>
+        <item>분수의 나눗셈|分数除法</item>
+        <item>소수의 나눗셈|小数除法</item>
+        <item>비와 비율|比与比率</item>
+        <item>백분율|百分率</item>
+        <item>원의 넓이와 둘레|圆的面积与周长</item>
+        <item>직육면체의 부피와 겉넓이|长方体的体积与表面积</item>
+        <item>여러 가지 그래프|各种图表</item>
+        <item>이야기 문제 (비율·속력)|应用题 (比率·速度)</item>
+        <item>소인수분해|质因数分解</item>
+        <item>정수와 유리수의 계산|整数与有理数运算</item>
+        <item>문자와 식|字母与式</item>
+        <item>일차방정식|一元一次方程</item>
+        <item>저울로 방정식 풀기|用天平解方程</item>
+        <item>수직선에서 정수 찾기|在数轴上找整数</item>
+        <item>정비례와 반비례|正比例与反比例</item>
+        <item>평면도형의 성질|平面图形的性质</item>
+        <item>입체도형의 겉넓이와 부피|立体图形的表面积与体积</item>
+        <item>자료의 정리와 해석|数据的整理与解释</item>
+        <item>방정식 문장제|方程应用题</item>
+        <item>지수법칙|指数法则</item>
+        <item>일차부등식|一元一次不等式</item>
+        <item>연립방정식|方程组</item>
+        <item>일차함수와 그래프|一次函数与图象</item>
+        <item>피타고라스 정리|勾股定理</item>
+        <item>도형의 닮음|图形的相似</item>
+        <item>확률|概率</item>
+        <item>제곱근과 실수|平方根与实数</item>
+        <item>인수분해|因式分解</item>
+        <item>이차방정식|一元二次方程</item>
+        <item>이차함수|二次函数</item>
+        <item>삼각비|三角比</item>
+        <item>원의 성질|圆的性质</item>
+        <item>통계 (대푯값)|统计 (代表值)</item>
+        <item>다항식과 나머지정리|多项式与余数定理</item>
+        <item>이차방정식과 판별식|二次方程与判别式</item>
+        <item>순열과 조합|排列与组合</item>
+        <item>도형의 방정식|图形的方程</item>
+        <item>집합과 명제|集合与命题</item>
+        <item>지수와 로그|指数与对数</item>
+        <item>삼각함수|三角函数</item>
+        <item>수열|数列</item>
+        <item>함수의 극한|函数的极限</item>
+        <item>미분|微分</item>
+        <item>적분|积分</item>
+        <item>수열의 극한|数列的极限</item>
+        <item>여러 가지 함수의 미분|各种函数的导数</item>
+        <item>정적분과 넓이|定积分与面积</item>
+        <item>확률과 통계|概率与统计</item>
+        <item>공간도형과 벡터|空间图形与向量</item>
+        <item>이차곡선|二次曲线</item>
     </string-array>
     <string-array name="tpl_units">
         <item>개|个</item>

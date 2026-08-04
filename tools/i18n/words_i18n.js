@@ -230,3 +230,6 @@ module.exports = {
     in: "Jika keduanya negatif, jumlahkan nilai mutlaknya lalu beri tanda minus.",
   },
 };
+
+// 팩 유닛 제목 — 파일 3개로 나눠 두었다 (자동 병합)
+Object.assign(module.exports, require("./units_title"), require("./units_title2"), require("./units_title3"));
