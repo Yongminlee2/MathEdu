@@ -25,9 +25,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var b: ActivityMainBinding
     private var sfx: com.piyak.english.audio.Sfx? = null
     private var subject: com.piyak.english.model.Subject = com.piyak.english.model.Subject.ENGLISH
-    private val greetings = listOf(
-        getString(R.string.home_greeting),
-    )
+    // 필드 초기화 시점에는 Context 가 아직 없다 — 처음 쓸 때 리소스에서 읽는다
+    private val greetings by lazy { listOf(getString(R.string.home_greeting)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -105,8 +105,15 @@ class LessonActivity : AppCompatActivity() {
         if (skillRecorded.add(q.id)) db.recordSkill(q.skill, correct)
     }
 
-    private val okLines = listOf(getString(R.string.praise_correct), getString(R.string.praise_perfect), getString(R.string.praise_genius), getString(R.string.praise_nice), getString(R.string.praise_great))
-    private val noLines = listOf(getString(R.string.cheer_close), getString(R.string.cheer_again), getString(R.string.cheer_next), getString(R.string.cheer_more))
+    // 필드 초기화 시점에는 Context 가 아직 없다 — 처음 쓸 때 리소스에서 읽는다
+    private val okLines by lazy {
+        listOf(getString(R.string.praise_correct), getString(R.string.praise_perfect),
+            getString(R.string.praise_genius), getString(R.string.praise_nice), getString(R.string.praise_great))
+    }
+    private val noLines by lazy {
+        listOf(getString(R.string.cheer_close), getString(R.string.cheer_again),
+            getString(R.string.cheer_next), getString(R.string.cheer_more))
+    }
 
     /** 정답 공개 후 피드백 패널에 보여줄 낱말 그림 — 문제에서 미리 보여주면 답이 새는 유형용 */
     private var feedbackArtRes = 0
