@@ -58,9 +58,37 @@ function tidyCoef(s) {
   return s.replace(/(^|[^0-9.])1([xn])(?=[²³⁴⁵^ +\-=)\/,]|[가-힣]|$)/g, "$1$2");
 }
 
+/**
+ * 번역 가능한 문장을 만든다 — 12개 언어 지원용.
+ *
+ *   tp("e4c5c08d", [3, 5], `사과 3개와 5개를 더하면?`)
+ *
+ * String 객체를 돌려주기 때문에 **문자열처럼 그대로 쓸 수 있다.**
+ * (다른 템플릿 안에 끼워 넣거나 + 로 이어 붙여도 한국어 원문이 나온다)
+ * 다만 numQ/choiceQ 등에 **바로 넘겼을 때만** 번역 키가 팩에 실린다.
+ *   → 팩에는 tk(키) + ta(인자)가 함께 들어가고,
+ *     앱은 폰 언어의 tpl_<키> 를 찾아 인자를 끼워 넣는다. 없으면 한국어 그대로.
+ * 이 호출은 tools/i18n/keyify.js 가 자동으로 심는다 — 손으로 쓰지 말 것.
+ */
+function tp(key, args, ko) {
+  const s = new String(ko);
+  s.tk = key;
+  s.ta = args.map((v) => String(v));
+  return s;
+}
+
+/** tp() 로 감싼 문장이면 키·인자를 문제에 옮겨 담고 알맹이 문자열을 돌려준다 */
+function unwrapTp(q, v, kField, aField) {
+  if (v instanceof String && v.tk) {
+    q[kField] = v.tk;
+    q[aField] = v.ta;
+  }
+  return v == null ? v : String(v);
+}
+
 function validate(q) {
-  q.prompt = tidyCoef(q.prompt);
-  if (q.explain) q.explain = tidyCoef(q.explain);
+  q.prompt = tidyCoef(unwrapTp(q, q.prompt, "tk", "ta"));
+  if (q.explain) q.explain = tidyCoef(unwrapTp(q, q.explain, "ek", "ea"));
   const fail = (m) => {
     throw new Error(`검증 실패 [${q.id}] ${m}: ${JSON.stringify(q).slice(0, 220)}`);
   };
@@ -283,8 +311,8 @@ function sceneAdd(a, b) {
   return scenePick(`${a}+${b}`, [
     () => `${a} + ${b} = ?`,
     () => `${a} + ${b} = ?`,
-    () => `${w}가 ${o} ${a}개를 모았는데 친구가 ${b}개를 더 줬어요. 모두 몇 개일까요? (${a} + ${b})`,
-    () => `바구니에 ${o} ${a}개, 상자에 ${b}개가 있어요. 모두 몇 개일까요? (${a} + ${b})`,
+    () => tp("9474bd1b", [w, o, a, b, a, b], `${w}가 ${o} ${a}개를 모았는데 친구가 ${b}개를 더 줬어요. 모두 몇 개일까요? (${a} + ${b})`),
+    () => tp("7b0eb00c", [o, a, b, a, b], `바구니에 ${o} ${a}개, 상자에 ${b}개가 있어요. 모두 몇 개일까요? (${a} + ${b})`),
   ])();
 }
 function sceneSub(a, b) {
@@ -292,8 +320,8 @@ function sceneSub(a, b) {
   return scenePick(`${a}-${b}`, [
     () => `${a} - ${b} = ?`,
     () => `${a} - ${b} = ?`,
-    () => `${w}가 ${o} ${a}개 중 ${b}개를 먹었어요. 몇 개 남았을까요? (${a} - ${b})`,
-    () => `${o} ${a}개에서 ${b}개를 동생에게 줬어요. 몇 개 남았을까요? (${a} - ${b})`,
+    () => tp("577e9a0b", [w, o, a, b, a, b], `${w}가 ${o} ${a}개 중 ${b}개를 먹었어요. 몇 개 남았을까요? (${a} - ${b})`),
+    () => tp("8835a548", [o, a, b, a, b], `${o} ${a}개에서 ${b}개를 동생에게 줬어요. 몇 개 남았을까요? (${a} - ${b})`),
   ])();
 }
 function sceneMul(a, b) {
@@ -301,8 +329,8 @@ function sceneMul(a, b) {
   return scenePick(`${a}x${b}`, [
     () => `${a} × ${b} = ?`,
     () => `${a} × ${b} = ?`,
-    () => `${o}를 한 상자에 ${b}개씩 ${a}상자에 담으면 모두 몇 개일까요? (${a} × ${b})`,
-    () => `${w}네 반 ${a}명이 ${o}를 ${b}개씩 가졌어요. 모두 몇 개일까요? (${a} × ${b})`,
+    () => tp("52fb8304", [o, b, a, a, b], `${o}를 한 상자에 ${b}개씩 ${a}상자에 담으면 모두 몇 개일까요? (${a} × ${b})`),
+    () => tp("cd5e1743", [w, a, o, b, a, b], `${w}네 반 ${a}명이 ${o}를 ${b}개씩 가졌어요. 모두 몇 개일까요? (${a} × ${b})`),
   ])();
 }
 
@@ -378,7 +406,7 @@ function gen(want, fn) {
 
 module.exports = {
   rng, ri, rint, pick, shuffled,
-  numQ, choiceQ, textQ, visualQ, V,
+  numQ, choiceQ, textQ, visualQ, V, tp,
   FRUITS, ANIMALS, THINGS, ALL_EMOJI, SHAPE_POOL, SHAPE_HINT,
   coef, nearWrong, packLessons, makeUnit, gen, chunk, SCALE,
   scenePick, sceneAdd, sceneSub, sceneMul, CAST, OBJS,

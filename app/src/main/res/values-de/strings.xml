@@ -65,4 +65,385 @@
     <string name="stats_badges">Abzeichen</string>
     <string name="placement_title">Einstufungstest</string>
     <string name="placement_quit_ask">Einstufungstest beenden?</string>
+    <string name="mkind_clock">🕐 Uhr lesen</string>
+    <string name="mkind_clock_set">🕐 Uhr einstellen</string>
+    <string name="mkind_group">🧺 Gleich aufteilen</string>
+    <string name="mkind_frac_paint">🍰 Bruch ausmalen</string>
+    <string name="mkind_shape_sort">🔺 Formen sortieren</string>
+    <string name="mkind_numline_drag">📏 Auf dem Strahl finden</string>
+    <string name="mkind_angle_set">📐 Winkel einstellen</string>
+    <string name="mkind_balance">⚖️ Waage ausgleichen</string>
+    <string name="mkind_bar_build">📊 Diagramm bauen</string>
+    <string name="mkind_take_out">➖ Wegnehmen und zählen</string>
+    <string name="mkind_gather">➕ Sammeln und zählen</string>
+    <string name="mkind_shapes">🔺 Formen</string>
+    <string name="mkind_fraction">🍰 Brüche</string>
+    <string name="mkind_bar_graph">📊 Diagramme</string>
+    <string name="mkind_numline">📏 Zahlenstrahl</string>
+    <string name="mkind_geom">📐 Geometrie</string>
+    <string name="mkind_coord3d">🧊 Raumkoordinaten</string>
+    <string name="mkind_coord2d">📈 Koordinatenebene</string>
+    <string name="mkind_angle">📐 Winkel</string>
+    <string name="mkind_div">➗ Division</string>
+    <string name="mkind_mul">✖️ Multiplikation</string>
+    <string name="mkind_sub">➖ Subtraktion</string>
+    <string name="mkind_add">➕ Addition</string>
+    <string name="mkind_math">🔢 Mathe</string>
+    <string name="mkind_picture">🐥 Bildaufgabe</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_24083678">Schreibe %1$s : %2$s als einfachstes Verhältnis natürlicher Zahlen: %3$s : ?</string>
+    <string name="tpl_33585846">Was ist der größte Primfaktor von %1$s?</string>
+    <string name="tpl_35882540">Gleicher Nenner, also die Zähler addieren. %1$s + %2$s = %3$s, also %4$s/%5$s.</string>
+    <string name="tpl_66531960">Einer: %1$s + %2$s = %3$s %4$s\nDie Antwort ist %5$s.</string>
+    <string name="tpl_93741444">Potenz einer Potenz: Exponenten multiplizieren. %1$s × %2$s = %3$s</string>
+    <string name="tpl_a84fb314">Das sind %2$s Gruppen zu je %1$s. %3$s = %4$s\nReihe %5$s: %6$s×%7$s=%8$s</string>
+    <string name="tpl_40b5583a">Zähle die Bilder. Wie viele sind es insgesamt?</string>
+    <string name="tpl_4426d4f7">%1$s plus %2$s ergibt %3$s. Zähle von %4$s aus %5$s weiter.</string>
+    <string name="tpl_e8755f8c">Eins nach dem anderen: %1$s. Das sind %2$s insgesamt. %3$s</string>
+    <string name="tpl_412438c7">Nimm %2$s von %1$s weg, dann bleiben %3$s übrig.</string>
+    <string name="tpl_83f30dfe">%1$s Die Antwort ist %2$s.</string>
+    <string name="tpl_bf977bf4">Teile %1$s in %2$s gleiche Gruppen: %3$s pro Gruppe.\nProbe: %4$s × %5$s = %6$s</string>
+    <string name="tpl_9391fb31">Bilde einen Zehner und zähle den Rest: 10 + %1$s = %2$s.</string>
+    <string name="tpl_9e616d48">Zähle, wie viele Bilder es insgesamt sind.</string>
+    <string name="tpl_e94b638c">Auf welcher Seite sind mehr?</string>
+    <string name="tpl_56861fce">Zieh jede Form in den Korb mit ihrem Namen. (%1$s)</string>
+    <string name="tpl_e2813a9a">%1$s = %2$s\nDer größte Primfaktor ist %3$s.</string>
+    <string name="tpl_97c89890">Eine Zahl wurde mit %1$s multipliziert und dann %2$s addiert — Ergebnis %3$s.\nWie hieß die Zahl?</string>
+    <string name="tpl_ce982230">Sei x die Zahl: %1$sx + %2$s = %3$s\n%4$sx = %5$s\nx = %6$s</string>
+    <string name="tpl_1fa89b68">Wenn f(x) = %1$s + %2$s %3$s ist, wie groß ist f\'(%4$s)?</string>
+    <string name="tpl_91bf4e00">Wenn %1$sx %2$s = %3$s ist, wie groß ist x?</string>
+    <string name="tpl_ee5eec9f">%2$s auf beiden Seiten %1$s: %3$sx = %4$s\nTeile durch %5$s: x = %6$s.</string>
+    <string name="tpl_5c41b06f">Zuerst malnehmen: %1$s × %2$s = %3$s, dann %4$s + %5$s = %6$s</string>
+    <string name="tpl_6a454edc">Welchen Rest lässt f(x) = %1$s %2$sx %3$s bei Division durch x %4$s?</string>
+    <string name="tpl_dd646a18">Restsatz: f(x) geteilt durch (x - k) lässt den Rest f(k).\nf(%1$s) = %2$s×%3$s %4$s %5$s×%6$s %7$s %8$s = %9$s</string>
+    <string name="tpl_e163b535">%1$s/%2$s ÷ %3$s/%4$s = ? (Zähler des vollständig gekürzten Bruchs)</string>
+    <string name="tpl_f64e7111">Beim Dividieren den zweiten Bruch umdrehen und multiplizieren. %1$s/%2$s × %3$s/%4$s = %5$s/%6$s\nGekürzt: %7$s/%8$s.</string>
+    <string name="tpl_593dd3e4">y durch Addition/Subtraktion eliminieren.\nErste Gleichung × %1$s, zweite × %2$s, dann subtrahieren: x = %3$s\nEinsetzen ergibt y = %4$s.</string>
+    <string name="tpl_69c8bd83">%1$sx + %2$sy = %3$s\n%4$sx + %5$sy = %6$s\nWie groß ist x?</string>
+    <string name="tpl_856c631f">Der größte gemeinsame Teiler von %1$s und %2$s ist %3$s.</string>
+    <string name="tpl_860d863a">Zerlege %1$s in %2$s und %3$s und multipliziere.\n%4$s×%5$s=%6$s, %7$s×%8$s=%9$s\nZusammen ergibt das %10$s.</string>
+    <string name="tpl_d0025612">Was ist der größte gemeinsame Teiler von %1$s und %2$s?</string>
+    <string name="tpl_f0f11947">Wie groß ist die Diskriminante D von %1$s %2$sx %3$s = 0?</string>
+    <string name="tpl_2a17168e">%1$s hat %3$s %2$s.\nEin Freund gab noch %4$s dazu.\nWie viele %5$s sind es jetzt?</string>
+    <string name="tpl_4b6b9472">Dazubekommen heißt addieren.\n%1$s + %2$s = %3$s</string>
+    <string name="tpl_7182fe6c">Welche Zahl ist größer, %1$s oder %2$s?</string>
+    <string name="tpl_064cd500">%1$s kaufte %4$s Kisten %2$s mit je %3$s Stück.\nWenn %5$s verteilt wurden, wie viele bleiben?</string>
+    <string name="tpl_b142acbe">Zuerst die Gesamtzahl: %1$s × %2$s = %3$s\nDann das Verteilte abziehen: %4$s - %5$s = %6$s</string>
+    <string name="tpl_09881b6d">Kürze %1$s/%2$s vollständig. Wie lautet der Zähler?</string>
+    <string name="tpl_b9de180a">Teile Zähler und Nenner durch den ggT %1$s: %2$s÷%3$s=%4$s, %5$s÷%6$s=%7$s\nDie Antwort ist %8$s/%9$s.</string>
+    <string name="tpl_104b2419">%2$s auf beiden Seiten %1$s: %3$sx &gt; %4$s\nTeile durch die positive Zahl %5$s: x &gt; %6$s\n(Beim Teilen durch eine negative Zahl dreht sich das Zeichen um!)</string>
+    <string name="tpl_302b4ab7">Wie groß ist der Rest von %1$s ÷ %2$s?</string>
+    <string name="tpl_7781a29b">%1$s ÷ %2$s = %3$s Rest %4$s\nProbe: %5$s × %6$s + %7$s = %8$s</string>
+    <string name="tpl_421eaae2">Wie groß ist %2$sx + %3$s für x = %1$s?</string>
+    <string name="tpl_c746b533">Setze %1$s für x ein: %2$s × %3$s + %4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_520190ba">Wie groß ist lim(x→%1$s) (%2$s %3$s)?</string>
+    <string name="tpl_97b6e789">Polynomfunktionen sind stetig, also einfach einsetzen. %1$s×%2$s %3$s %4$s = %5$s</string>
+    <string name="tpl_8154d16f">%1$s/%2$s × %3$s/%4$s = ? (Zähler des vollständig gekürzten Bruchs)</string>
+    <string name="tpl_8c032f04">Zähler mal Zähler, Nenner mal Nenner. %1$s×%2$s=%3$s, %4$s×%5$s=%6$s\n%7$s/%8$s gekürzt ergibt %9$s/%10$s.</string>
+    <string name="tpl_7b8145cd">%1$s × %2$s = %3$s\n%4$s × %5$s = %6$s\nZusammen ergibt das %7$s.</string>
+    <string name="tpl_d091ab21">Verschiebe das Komma und teile. %1$s ÷ %2$s = %3$s</string>
+    <string name="tpl_f5c65837">Für welche x gilt %1$sx %2$s &gt; %3$s? x &gt; ?</string>
+    <string name="tpl_af55c367">%1$s hat %3$s %2$s.\nDavon gab er %4$s dem kleinen Bruder.\nWie viele %5$s bleiben?</string>
+    <string name="tpl_836b321c">Weggeben heißt abziehen.\n%1$s - %2$s = %3$s</string>
+    <string name="tpl_e48e2ef1">Wie viele Nullen hat %1$s Zehntausend? (1 Zehntausend = 10000)</string>
+    <string name="tpl_2526ffa7">1 Zehntausend = 10000, also vier Nullen. Damit ist %1$s = %2$s.</string>
+    <string name="tpl_dbc6233c">%1$s ging %3$s Stunden lang mit %2$s km/h.\nWie viele km waren das?</string>
+    <string name="tpl_ddc5e7db">Strecke = Geschwindigkeit × Zeit\n%1$s × %2$s = %3$s km</string>
+    <string name="tpl_220e81e1">Die Höhe des Balkens für %1$s beträgt laut Skala %2$s.</string>
+    <string name="tpl_c72ea029">Wie groß ist der Wert für %1$s?</string>
+    <string name="tpl_3256a913">Ordne die Werte; der mittlere ist der Median — der dritte Wert %1$s.</string>
+    <string name="tpl_36f716a4">Was ist der Median von %1$s?</string>
+    <string name="tpl_829dc879">Was ist der Mittelwert von %1$s?</string>
+    <string name="tpl_8caeb0c9">Die Summe ist %1$s bei %2$s Werten, also %3$s ÷ %4$s = %5$s.</string>
+    <string name="tpl_3662d39b">%1$s + %2$s + %3$s = %4$s.</string>
+    <string name="tpl_4729593b">Wie viele cm sind %1$s m %2$s cm?</string>
+    <string name="tpl_bc1684cd">1 m sind 100 cm. %1$s m = %2$s cm, plus %3$s cm ergibt %4$s cm.</string>
+    <string name="tpl_a04ee28d">Wie viel %% von %1$s sind %2$s?</string>
+    <string name="tpl_50dc7e5e">Anteil = %1$s ÷ %2$s = %3$s\nMal 100 ergibt %4$s%%.</string>
+    <string name="tpl_8d5a1394">Kommas untereinander schreiben und addieren. %1$s + %2$s = %3$s</string>
+    <string name="tpl_c4b2f470">Welche Zahl hat %1$s Hunderter, %2$s Zehner und %3$s Einer?</string>
+    <string name="tpl_efe178f9">Welches Bild kommt nach %1$s?</string>
+    <string name="tpl_3a5ccfd2">Wovon gibt es am meisten?</string>
+    <string name="tpl_f9b576f1">Addiere die Schüler aller vier Klassen. Wie viele sind es?</string>
+    <string name="tpl_afd6159f">%1$s = %2$s Personen.</string>
+    <string name="tpl_0c5cc77b">Vervollständige das Balkendiagramm mit den Ergebnissen.\n%1$s</string>
+    <string name="tpl_35d42406">Vervollständige das Balkendiagramm mit der Tabelle.\n%1$s</string>
+    <string name="tpl_811c3b3f">Die Höhe jedes Balkens ist die Anzahl.\n%1$s</string>
+    <string name="tpl_214da790">Die Höhe jedes Balkens ist die Personenzahl.\nAm höchsten ist %1$s, am niedrigsten %2$s.</string>
+    <string name="tpl_93ad49ff">Wie groß ist die relative Häufigkeit von %1$s? (auf zwei Nachkommastellen)</string>
+    <string name="tpl_d02e9c3e">Relative Häufigkeit = Häufigkeit der Klasse ÷ Gesamthäufigkeit = %1$s ÷ %2$s ≈ %3$s</string>
+    <string name="tpl_2baf4762">Die Uhr zeigt %1$s Uhr und wie viele Minuten? (nur die Minuten schreiben)</string>
+    <string name="tpl_0b6616c7">Zeigt der große Zeiger auf %1$s, sind das %2$s × 5 = %3$s Minuten.</string>
+    <string name="tpl_516a736a">Zieh die Zeiger auf %1$s:%2$s Uhr.</string>
+    <string name="tpl_5485a85b">Der große Zeiger kommt auf %1$s ÷ 5 = %2$s, also auf die Zahl %3$s.\nDer kleine Zeiger auf %4$s, dann ist es %5$s:%6$s Uhr.</string>
+    <string name="tpl_a546bcec">Leg %2$s und %3$s %1$s in die Kiste. Wie viele sind es insgesamt? (%4$s + %5$s)</string>
+    <string name="tpl_fcc08c5c">Von %2$s %1$s gingen %3$s nach Hause. Schick %4$s heim und zähle den Rest. (%5$s - %6$s)</string>
+    <string name="tpl_e21a2df7">Stelle x so ein, dass die Waage im Gleichgewicht ist. (%1$sx + %2$s = %3$s)</string>
+    <string name="tpl_a8920713">Ein Apfel kostet %1$s00 Won, eine Birne %2$s00 Won.\nWas kosten %3$s Äpfel und %4$s Birnen?</string>
+    <string name="tpl_c592e397">Äpfel: %1$s00 × %2$s = %3$s Won\nBirnen: %4$s00 × %5$s = %6$s Won\nGesamt: %7$s Won</string>
+    <string name="tpl_f2a44920">Wie lautet die x-Koordinate des Scheitelpunkts von y = %1$s(x %2$s)² %3$s?</string>
+    <string name="tpl_accf5550">In der Form y = a(x-p)² + q ist der Scheitel (p, q).\nHier ist er (%1$s, %2$s), also x = %3$s.</string>
+    <string name="tpl_ee1f2bd2">Wie groß ist der Radius des Kreises (x %1$s)² + (y %2$s)² = %3$s?</string>
+    <string name="tpl_c74c8c70">In der Form (x-a)² + (y-b)² = r² ist r² = %1$s, der Radius also %2$s. Der Mittelpunkt ist (%3$s, %4$s).</string>
+    <string name="tpl_da4a9448">Wie lautet das %3$s. Glied der arithmetischen Folge mit Anfangsglied %1$s und Differenz %2$s?</string>
+    <string name="tpl_6eddd33a">Wie groß ist die Summe der ersten %3$s Glieder der arithmetischen Folge mit Anfangsglied %1$s und Differenz %2$s?</string>
+    <string name="tpl_bfcac252">Wenn %1$s^%2$s × %3$s^%4$s als %5$s^k geschrieben wird, wie groß ist k?</string>
+    <string name="tpl_b12f4a19">Potenzen mit gleicher Basis: Exponenten addieren. %1$s + %2$s = %3$s</string>
+    <string name="tpl_770018a9">Wie groß ist ∫₀^%1$s %2$s^%3$s dx?</string>
+    <string name="tpl_8934d567">Die Stammfunktion ist %1$sx^%2$s/%3$s.\nEinsetzen von %4$s: %5$s×%6$s/%7$s = %8$s</string>
+    <string name="tpl_09b4928a">%1$s/%2$s + %3$s/%4$s = ? (nur den Zähler schreiben)</string>
+    <string name="tpl_60f9ab29">Achte auf die Vorzeichen. %1$s + %2$s = %3$s\n%4$s</string>
+    <string name="tpl_2b4e8c2f">Vorzeichenregel: (−)×(−)=(+), (−)×(+)=(−)\n%1$s × %2$s = %3$s</string>
+    <string name="tpl_f01075e0">Wie groß ist y bei y = %1$sx %2$s für x = %3$s?</string>
+    <string name="tpl_eb66f38d">Setze x = %1$s ein. y = %2$s×%3$s %4$s = %5$s</string>
+    <string name="tpl_242af461">%1$s will %3$s %2$s gerecht unter %4$s Personen aufteilen.\nWie viele bekommt jede Person?</string>
+    <string name="tpl_ffbb559e">Gerecht teilen heißt dividieren.\n%1$s ÷ %2$s = %3$s\nProbe: %4$s × %5$s = %6$s</string>
+    <string name="tpl_534edc60">Teile %1$s in %2$s gleiche Gruppen: %3$s pro Gruppe.\nProbe: %4$s × %5$s = %6$s\nAlso %7$s ÷ %8$s = %9$s.</string>
+    <string name="tpl_d1ce02ac">Verteile %2$s %1$s gleichmäßig auf %3$s Körbe. (%4$s ÷ %5$s)</string>
+    <string name="tpl_83a279a5">Wenn (%1$s^%2$s)^%3$s als %4$s^k geschrieben wird, wie groß ist k?</string>
+    <string name="tpl_8bf8943f">Wie groß ist das Volumen eines Zylinders mit Radius %1$s und Höhe %2$s? (π = 3,14)</string>
+    <string name="tpl_239800f8">Zylindervolumen = Grundfläche × Höhe = (%1$s×%2$s×3,14) × %3$s = %4$s</string>
+    <string name="tpl_5391d387">Von %1$s Personen tragen %2$s%% eine Brille.\nWie viele tragen eine Brille?</string>
+    <string name="tpl_d85fd41b">%1$s%% = %2$s/100.\n%3$s × %4$s ÷ 100 = %5$s Personen</string>
+    <string name="tpl_4ea5fbe9">Wie groß ist lim(n→∞) (%1$s + 5)/(%2$s + 2)? (auf drei Nachkommastellen)</string>
+    <string name="tpl_29d9a332">Teile Zähler und Nenner durch n. (%1$s + 5/n)/(%2$s + 2/n) → %3$s/%4$s = %5$s\nDie Antwort ist das Verhältnis der Leitkoeffizienten.</string>
+    <string name="tpl_11a006ee">Wie lautet der y-Achsenabschnitt von y = %1$sx %2$s?</string>
+    <string name="tpl_98d506d9">Der y-Achsenabschnitt ist y bei x = 0: y = %1$s.\nDie Steigung ist %2$s.</string>
+    <string name="tpl_a90c36e4">Wie groß ist das Skalarprodukt der Vektoren (%1$s, %2$s) und (%3$s, %4$s)?</string>
+    <string name="tpl_896140d8">Skalarprodukt = x₁x₂ + y₁y₂ = %1$s×%2$s + %3$s×%4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_f47fb815">Wie groß ist das Volumen eines Quaders mit %1$s cm, %2$s cm und %3$s cm Höhe?</string>
+    <string name="tpl_4784c950">Volumen = Länge × Breite × Höhe = %1$s × %2$s × %3$s = %4$s cm³</string>
+    <string name="tpl_c2343df6">Wie groß ist die Oberfläche eines Quaders mit %1$s cm, %2$s cm und %3$s cm Höhe?</string>
+    <string name="tpl_6584d973">Oberfläche = 2 × (%1$s×%2$s + %3$s×%4$s + %5$s×%6$s) = 2 × %7$s = %8$s cm²</string>
+    <string name="tpl_b34194c1">Welche Zahl sind %1$s Zehner und %2$s Einer?</string>
+    <string name="tpl_d700c926">%1$s Zehner sind %2$s, plus %3$s ergibt %4$s.</string>
+    <string name="tpl_ab5407fa">Wie viele Sekunden sind %1$s min %2$s s?</string>
+    <string name="tpl_102513fd">1 Minute sind 60 Sekunden. %1$s×60 = %2$s, und %3$s + %4$s = %5$s Sekunden.</string>
+    <string name="tpl_acf035bc">Wie groß ist das Quadrat des Abstands des Punktes (%1$s, %2$s, %3$s) vom Ursprung?</string>
+    <string name="tpl_77d91bdd">Abstand² = x² + y² + z² = %1$s + %2$s + %3$s = %4$s</string>
+    <string name="tpl_e10f7183">Wie groß ist das Quadrat des Abstands zwischen (%1$s, %2$s) und (%3$s, %4$s)?</string>
+    <string name="tpl_6fb38da8">Abstand² = (x₂-x₁)² + (y₂-y₁)² = %1$s + %2$s = %3$s</string>
+    <string name="tpl_ef261058">Wie viele Seiten hat ein %1$s?</string>
+    <string name="tpl_435ec8ca">Ein %1$s hat %2$s Seiten und %3$s Ecken.</string>
+    <string name="tpl_68b2417e">Die Noten sind %1$s und die letzte ist %2$s.\nWie hoch ist der Durchschnitt?</string>
+    <string name="tpl_8f5202e0">Insgesamt sind es %1$s Punkte.\nBei %2$s Fächern: %3$s ÷ %4$s = %5$s Punkte.</string>
+    <string name="tpl_b6ff7f67">Teile beide Zahlen durch den ggT %1$s: %2$s÷%3$s=1, %4$s÷%5$s=%6$s\nDie Antwort ist 1 : %7$s.</string>
+    <string name="tpl_4f8bebb2">Wie groß ist im Kreis der Umfangswinkel zu einem Bogen mit Mittelpunktswinkel %1$s°? (in Grad)</string>
+    <string name="tpl_1f65cd70">Der Umfangswinkel ist halb so groß wie der Mittelpunktswinkel. %1$s° ÷ 2 = %2$s°</string>
+    <string name="tpl_27d389ab">Wie groß ist y bei y = %1$s/x für x = %2$s?</string>
+    <string name="tpl_3b064960">Setze x = %1$s in die umgekehrte Proportionalität ein. y = %2$s ÷ %3$s = %4$s</string>
+    <string name="tpl_881817d7">Wie groß ist y bei y = %1$sx für x = %2$s?</string>
+    <string name="tpl_5e387d7d">Setze x = %1$s in die direkte Proportionalität ein. y = %2$s × %3$s = %4$s</string>
+    <string name="tpl_9474bd1b">%1$s sammelte %3$s %2$s, und ein Freund gab %4$s dazu. Wie viele insgesamt? (%5$s + %6$s)</string>
+    <string name="tpl_7b0eb00c">Im Korb sind %2$s %1$s und in der Kiste %3$s. Wie viele insgesamt? (%4$s + %5$s)</string>
+    <string name="tpl_577e9a0b">%1$s aß %4$s von den %3$s %2$s. Wie viele bleiben? (%5$s - %6$s)</string>
+    <string name="tpl_8835a548">Von %2$s %1$s wurden %3$s dem kleinen Bruder gegeben. Wie viele bleiben? (%4$s - %5$s)</string>
+    <string name="tpl_52fb8304">Wenn je %2$s %1$s in %3$s Kisten kommen, wie viele sind es insgesamt? (%4$s × %5$s)</string>
+    <string name="tpl_cd5e1743">%2$s Kinder in %1$ss Klasse haben je %4$s %3$s. Wie viele insgesamt? (%5$s × %6$s)</string>
+    <string name="tpl_0689d7b0">In jedem %1$s sind %3$s %2$s.\nWenn es %5$s %4$s gibt, wie viele %6$s sind das insgesamt?</string>
+    <string name="tpl_fabb8c01">%2$s Gruppen zu je %1$s heißt malnehmen.\n%3$s × %4$s = %5$s</string>
+    <string name="tpl_bd90a3bf">Bring alle %1$s in die Kiste und zähle, wie viele es sind.</string>
+    <string name="tpl_26640a33">Beim Umsetzen mitzählen: %1$s — insgesamt %2$s.</string>
+    <string name="tpl_c1d7f847">Wie groß ist der Flächeninhalt eines Rechtecks mit %1$s cm und %2$s cm?</string>
+    <string name="tpl_68f81799">Rechteckfläche = Länge × Breite = %1$s × %2$s = %3$s cm²</string>
+    <string name="tpl_f56a2f41">Wie groß ist die Fläche eines Dreiecks mit Grundseite %1$s cm und Höhe %2$s cm?</string>
+    <string name="tpl_cfead5b7">Dreiecksfläche = Grundseite × Höhe ÷ 2 = %1$s × %2$s ÷ 2 = %3$s cm²</string>
+    <string name="tpl_03b2cec2">Wie groß ist die Fläche eines Trapezes mit den Seiten %1$s cm und %2$s cm und Höhe %3$s cm?</string>
+    <string name="tpl_812652c8">Trapezfläche = (a + c) × Höhe ÷ 2 = (%1$s+%2$s) × %3$s ÷ 2 = %4$s cm²</string>
+    <string name="tpl_2ac20dea">Wie viele g sind %1$s kg %2$s g?</string>
+    <string name="tpl_8adee8d9">1 kg sind 1000 g. %1$s + %2$s = %3$s g</string>
+    <string name="tpl_1a1b845d">Wie viele m sind %1$s km %2$s m?</string>
+    <string name="tpl_bc396cec">1 km sind 1000 m. %1$s + %2$s = %3$s m</string>
+    <string name="tpl_5bb097dd">Wie viele mL sind %1$s L %2$s mL?</string>
+    <string name="tpl_58e342da">1 L sind 1000 mL. %1$s + %2$s = %3$s mL</string>
+    <string name="tpl_7fa435ba">Wenn √%1$s = k√%2$s ist, wie groß ist k?</string>
+    <string name="tpl_4bd516c4">√%1$s = √(%2$s × %3$s) = %4$s√%5$s\nAlso k = %6$s.</string>
+    <string name="tpl_fdef4e9b">Faktorisiere x² + %1$sx + %2$s. (z. B. (x+2)(x+3))</string>
+    <string name="tpl_7fc38659">Suche zwei Zahlen mit Summe %1$s und Produkt %2$s → %3$s und %4$s\nAntwort: (x+%5$s)(x+%6$s)</string>
+    <string name="tpl_ed66d760">Welche der beiden Lösungen von x² - %1$sx + %2$s = 0 ist größer?</string>
+    <string name="tpl_20a81651">Faktorisiert: (x-%1$s)(x-%2$s) = 0\nDie Lösungen sind %3$s und %4$s, die größere ist %5$s.</string>
+    <string name="tpl_f666532f">Wie groß ist y bei y = %1$sx² für x = %2$s?</string>
+    <string name="tpl_03a38c23">Setze x = %1$s ein. y = %2$s × %3$s² = %4$s × %5$s = %6$s</string>
+    <string name="tpl_05d5a936">Zwei ähnliche Figuren haben das Verhältnis 1 : %1$s. Eine Seite der kleinen misst %2$s — wie lang ist die entsprechende Seite der großen?</string>
+    <string name="tpl_101dec85">Das Verhältnis ist 1 : %1$s, also sind entsprechende Seiten %2$s-mal so lang. %3$s × %4$s = %5$s\n(Die Fläche wird %6$s-mal so groß.)</string>
+    <string name="tpl_34aaa693">In einem Beutel sind %1$s rote und %2$s blaue Kugeln. Wie groß ist die Wahrscheinlichkeit, eine rote zu ziehen? (Zähler des gekürzten Bruchs)</string>
+    <string name="tpl_bbcd0e09">Von insgesamt %1$s sind %2$s rot. %3$s/%4$s = %5$s/%6$s</string>
+    <string name="tpl_be363966">Das Bild ist in %1$s gleiche Teile geteilt. Male %2$s/%3$s davon aus.</string>
+    <string name="tpl_822bd5c1">%1$s/%2$s bedeutet %4$s von %3$s gleichen Teilen.\nTippe %5$s Teile an, um sie zu färben.</string>
+    <string name="tpl_b1b8ddf9">Finde %1$s auf dem Zahlenstrahl und setze den Punkt dorthin.</string>
+    <string name="tpl_72ed475e">Wie lang ist die Hauptachse der Ellipse x²/%1$s + y²/%2$s = 1?</string>
+    <string name="tpl_9323580e">In x²/a² + y²/b² = 1 ist a = %1$s und b = %2$s.\nDie Hauptachse ist 2a = %3$s.</string>
+    <string name="tpl_526c1433">Was für ein Winkel ist das? (%1$s°)</string>
+    <string name="tpl_0352c1ec">Wenn f(x) = %1$s ist, wie groß ist f\'(%2$s)?</string>
+    <string name="tpl_0a772723">Die Steigung der Tangente ist f\'(%1$s). Da f\'(x) = %2$sx, ergibt sich %3$s×%4$s = %5$s.</string>
+    <string name="tpl_0e6df588">Wenn f(x) = %1$s ist, wie groß ist die Tangentensteigung bei x = %2$s?</string>
+    <string name="tpl_65303faf">Dreh den Griff, bis %1$s° erreicht sind.</string>
+    <string name="tpl_2bb14977">Welcher Bruchteil des Ganzen ist gefärbt? (nur den Zähler schreiben)</string>
+    <string name="tpl_386d8a5c">Das Ganze ist in %1$s gleiche Teile geteilt, %2$s sind gefärbt — also %3$s/%4$s.</string>
+    <string name="tpl_e22b23c2">Wie groß ist die Fläche zwischen der Kurve y = %1$s, der x-Achse und x = %2$s? (auf drei Nachkommastellen)</string>
+    <string name="tpl_702f39e6">Fläche = ∫₀^%1$s %2$sx² dx = %3$sx³/3, eingesetzt %4$s = %5$s×%6$s/3 = %7$s</string>
+    <string name="tpl_12d53984">Zieh die Zeiger auf %1$s.</string>
+    <string name="tpl_59f3bbde">Schau auf die Uhr und wähle die Zeit.</string>
+    <string name="tpl_6a049195">Der kleine Zeiger auf %1$s, der große auf %2$s — das ist %3$s.</string>
+    <string name="tpl_421f0115">Wie groß ist √%1$s?</string>
+    <string name="tpl_c10c073d">Da %1$s × %2$s = %3$s ist, gilt √%4$s = %5$s.</string>
+    <string name="tpl_04ad73bd">Wie groß ist log_%1$s %2$s?</string>
+    <string name="tpl_1a575d20">log_%1$s %2$s fragt: „Wie oft muss man %3$s multiplizieren, um %4$s zu erhalten?\" Da %5$s^%6$s = %7$s, ist die Antwort %8$s.</string>
+    <string name="tpl_40e43c86">Wie groß ist %1$s^%2$s?</string>
+    <string name="tpl_8ad8bef1">Multipliziere %1$s %2$s-mal mit sich selbst. %3$s = %4$s</string>
+    <string name="tpl_9236cec8">Ein Strich ist 5. Da %1$s ÷ 5 = %2$s, gehe %3$s Striche von 0 aus.</string>
+    <string name="tpl_9b01b011">Ein rechtwinkliges Dreieck hat die Katheten %1$s und %2$s. Wie lang ist die Hypotenuse? (siehe Abbildung)</string>
+    <string name="tpl_29b3af3f">Satz des Pythagoras: a² + b² = c²\n%1$s² + %2$s² = %3$s + %4$s = %5$s\nHypotenuse = %6$s</string>
+    <string name="tpl_05c967bb">Ein rechtwinkliges Dreieck hat die Hypotenuse %1$s und eine Kathete %2$s. Wie lang ist die andere Kathete?</string>
+    <string name="tpl_bc1b4161">c² - a² = b²\n%1$s - %2$s = %3$s\nDie andere Seite = %4$s</string>
+    <string name="tpl_22a9acd5">Auf wie viele Arten kann man %2$s aus %1$s Personen auswählen?</string>
+    <string name="tpl_de1537f4">%1$sC%2$s = %3$s ÷ %4$s = %5$s Möglichkeiten</string>
+    <string name="tpl_133b1724">Wie viele Möglichkeiten gibt es, %2$s aus %1$s verschiedenen Dingen ohne Reihenfolge zu wählen? (%3$sC%4$s)</string>
+    <string name="tpl_e5f765f4">Wie viele Möglichkeiten gibt es, %2$s aus %1$s verschiedenen Dingen zu wählen und anzuordnen? (%3$sP%4$s)</string>
+    <string name="tpl_ee0c3706">Welches ist das %1$s?</string>
+    <string name="tpl_18800cab">Wie groß ist der Umfang eines Kreises mit Radius %1$s cm? (π = 3,14)</string>
+    <string name="tpl_af15f6d2">Umfang = Durchmesser × 3,14 = %1$s × 3,14 = %2$s cm</string>
+    <string name="tpl_a145b736">Wie groß ist die Fläche eines Kreises mit Radius %1$s cm? (π = 3,14)</string>
+    <string name="tpl_5844f447">Kreisfläche = Radius × Radius × 3,14 = %1$s × %2$s × 3,14 = %3$s cm²</string>
+    <string name="tpl_e25a121a">%1$s, %2$s, %3$s — welche Zahl kommt als Nächstes?</string>
+    <string name="tpl_c074ed4d">Die Regel ist immer +1. Nach %1$s kommt %2$s.</string>
+    <string name="tpl_ac380a89">%1$s plus %2$s ergibt 10. Zerlegt man 10, erhält man %3$s und %4$s.</string>
+    <string name="tpl_08b9cc90">Wenn ein Ereignis mit Wahrscheinlichkeit 1/%1$s %2$s-mal hintereinander eintritt, ist die Wahrscheinlichkeit 1/k. Wie groß ist k?</string>
+    <string name="tpl_e6dd2bae">Die Versuche sind unabhängig, also multiplizieren. (1/%1$s)^%2$s = 1/%3$s\nk = %4$s</string>
+    <string name="tpl_ab3d2f03">Wie groß ist die Innenwinkelsumme eines %1$s-Ecks? (in Grad)</string>
+    <string name="tpl_50ddbff4">Innenwinkelsumme eines n-Ecks = (n - 2) × 180°\n(%1$s - 2) × 180 = %2$s°</string>
+    <string name="tpl_a257284f">Wie viele Diagonalen hat ein %1$s-Eck?</string>
+    <string name="tpl_6fa548ec">Anzahl der Diagonalen = n(n-3)/2 = %1$s×%2$s/2 = %3$s</string>
+    <string name="tpl_076280c4">Male 0,%1$s aus. (das Ganze ist in 10 gleiche Teile geteilt)</string>
+    <string name="tpl_3601a2fc">%1$s von 10 Teilen, also %2$s/10 = 0,%3$s.</string>
+    <string name="tpl_d91eef04">Welche Dezimalzahl sind %1$s von zehn gleichen Teilen von 1?</string>
+    <string name="tpl_5b3eb8ba">Finde 0,%1$s auf dem Zahlenstrahl und setze den Punkt dorthin.</string>
+    <string name="tpl_b54eb50c">Der Abstand zwischen 0 und 1 ist in 10 gleiche Schritte geteilt.\n0,%1$s liegt %2$s Schritte von 0 entfernt.</string>
+    <string name="tpl_74d583e3">Wie groß ist %1$s %2$s°?</string>
+    <string name="tpl_f0bf458a">Überlege, wo %1$s° auf dem Einheitskreis liegt. %2$s%3$s° = %4$s</string>
+    <string name="tpl_f339376b">0,%1$s ist dasselbe wie %2$s/10.\nMale %3$s der 10 Teile aus.</string>
+    <string name="tpl_d6fcc9c2">Wie groß ist %1$s %2$s°? (Brüche wie 1/2 schreiben)</string>
+    <string name="tpl_2d7284ee">Das ist ein Wert für einen besonderen Winkel. %1$s%2$s° = %3$s\nDie Werte für 30°, 45° und 60° merkt man sich am besten.</string>
+    <string name="tpl_f046f32a">Wie viele Teilmengen hat eine Menge mit %1$s Elementen?</string>
+    <string name="tpl_710ba473">Anzahl der Teilmengen = 2ⁿ = 2^%1$s = %2$s.\n(Es gibt %3$s echte Teilmengen.)</string>
+    <string name="tpl_fb01043c">Wie groß ist die Wahrscheinlichkeit, mit einem Würfel höchstens %1$s zu werfen? (Zähler des gekürzten Bruchs)</string>
+    <string name="tpl_4fcaf9c5">Es gibt %2$s Fälle mit höchstens %1$s, von insgesamt 6. %3$s/6 = %4$s/%5$s</string>
+    <string name="tpl_7e93d243">Links sind %1$s, rechts %2$s. %3$s ist größer als %4$s, also hat %5$s mehr.</string>
+    <string name="tpl_0782d5d6">Vergleiche zuerst die Zehner. %1$s ist größer.</string>
+    <string name="tpl_303e5331">Suche den höchsten Balken. %1$s hat mit %2$s am meisten.</string>
+    <string name="tpl_1f33664e">Leg %1$s hinein und dann %2$s dazu — in der Kiste sind %3$s.\nVon %4$s aus %5$s weiterzählen ergibt %6$s.</string>
+    <string name="tpl_eb12d4e3">Von %1$s gehen %2$s weg, %3$s bleiben.\nZusammen ergeben die weggegangenen und die gebliebenen wieder %4$s.</string>
+    <string name="tpl_d35868f6">Links sind %1$s x-Kisten und %2$s Einergewichte, rechts %3$s Einergewichte.\nNimm auf beiden Seiten %4$s weg: %5$sx = %6$s\nTeile in %7$s gleiche Gruppen: x = %8$s.</string>
+    <string name="tpl_74cc085d">%1$s\nAuch bei anderer Farbe gehört dieselbe Form in denselben Korb.</string>
+    <string name="tpl_28a6838e">%1$s° ist ein %2$s.</string>
+    <string name="tpl_394c5f1b">%1$s° ist ein %2$s.\nDas sind %3$s° weniger als ein rechter Winkel (90°).</string>
+    <string name="tpl_9e6c9d79">%1$s° ist ein %2$s.\nDas sind %3$s° mehr als ein rechter Winkel (90°).</string>
+    <string name="tpl_b0aed67a">%1$s° ist ein %2$s.\nEr steht genau senkrecht.</string>
+    <string name="tpl_54ac9abe">Die Regel: %1$s und %2$s wechseln sich ab. Nach %3$s kommt %4$s.</string>
+    <string name="tpl_5c76e40f">Das ist das %1$s. Es ist Nummer %2$s.</string>
+    <string name="tpl_1c847ed5">Der kleine Zeiger steht auf %1$s, der große auf 12 — also %2$s Uhr.</string>
+    <string name="tpl_ed836a0a">Der kleine Zeiger steht zwischen %1$s und %2$s, der große auf 6 — also %3$s:30 Uhr.</string>
+    <string name="tpl_cc9224e2">Das sind %1$s Schritte rechts von 0.\n%2$s ist kleiner als 10.</string>
+    <string name="tpl_298087b1">Das sind %1$s Schritte rechts von 0.\n%2$s ist größer als 10.</string>
+    <string name="tpl_c9b3271e">Das sind %1$s Schritte rechts von 0.\n%2$s ist genau 10.</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+        <item>사과|Apfel</item>
+        <item>딸기|Erdbeere</item>
+        <item>포도|Trauben</item>
+        <item>바나나|Banane</item>
+        <item>귤|Mandarine</item>
+        <item>쿠키|Keks</item>
+        <item>사탕|Bonbon</item>
+        <item>구슬|Murmel</item>
+        <item>스티커|Sticker</item>
+        <item>풍선|Luftballon</item>
+        <item>블록|Baustein</item>
+        <item>도토리|Eichel</item>
+        <item>색연필|Buntstift</item>
+        <item>상자|Kiste</item>
+        <item>접시|Teller</item>
+        <item>바구니|Korb</item>
+        <item>봉지|Tüte</item>
+        <item>가방|Tasche</item>
+        <item>원|Kreis</item>
+        <item>삼각형|Dreieck</item>
+        <item>사각형|Viereck</item>
+        <item>오각형|Fünfeck</item>
+        <item>육각형|Sechseck</item>
+        <item>예각|spitzer Winkel</item>
+        <item>직각|rechter Winkel</item>
+        <item>둔각|stumpfer Winkel</item>
+        <item>평각|gestreckter Winkel</item>
+        <item>축구|Fußball</item>
+        <item>야구|Baseball</item>
+        <item>농구|Basketball</item>
+        <item>수영|Schwimmen</item>
+        <item>달리기|Laufen</item>
+        <item>삐약이|Piyak</item>
+        <item>토끼|Hase</item>
+        <item>펭귄|Pinguin</item>
+        <item>고양이|Katze</item>
+        <item>곰돌이|Bärchen</item>
+        <item>다람쥐|Eichhörnchen</item>
+        <item>서연|Seoyeon</item>
+        <item>수아|Sua</item>
+        <item>시우|Siu</item>
+        <item>채원|Chaewon</item>
+        <item>도윤|Doyun</item>
+        <item>예린|Yerin</item>
+        <item>은우|Eunu</item>
+        <item>지우|Jiu</item>
+        <item>민수|Minsu</item>
+        <item>하준|Hajun</item>
+        <item>월|Mo</item>
+        <item>화|Di</item>
+        <item>수|Mi</item>
+        <item>목|Do</item>
+        <item>금|Fr</item>
+        <item>영|null</item>
+        <item>하나|eins</item>
+        <item>둘|zwei</item>
+        <item>셋|drei</item>
+        <item>넷|vier</item>
+        <item>다섯|fünf</item>
+        <item>여섯|sechs</item>
+        <item>일곱|sieben</item>
+        <item>여덟|acht</item>
+        <item>아홉|neun</item>
+        <item>열|zehn</item>
+        <item>왼쪽|Links</item>
+        <item>오른쪽|Rechts</item>
+        <item>같아요|Gleich</item>
+        <item>모르겠어요|Weiß nicht</item>
+        <item>없어요|Keins</item>
+        <item>모으는 상자|Sammeln</item>
+        <item>집으로|Nach Hause</item>
+        <item>반|</item>
+        <item>대|er</item>
+        <item>시|Uhr</item>
+        <item>분|min</item>
+        <item>원은 뾰족한 곳이 없고 동그란 모양이에요.|Der Kreis hat keine Ecken und ist ganz rund.</item>
+        <item>삼각형은 뾰족한 곳이 3개 모양이에요.|Das Dreieck hat 3 Ecken.</item>
+        <item>사각형은 뾰족한 곳이 4개 모양이에요.|Das Viereck hat 4 Ecken.</item>
+        <item>D &gt; 0 이므로 서로 다른 두 실근|D &gt; 0, also zwei verschiedene reelle Lösungen</item>
+        <item>D = 0 이므로 중근|D = 0, also eine doppelte Lösung</item>
+        <item>D &lt; 0 이므로 실근이 없어요|D &lt; 0, also gibt es keine reellen Lösungen</item>
+        <item>빼면|Subtrahiere</item>
+        <item>더하면|Addiere</item>
+        <item>(10 넘으면 십의 자리로 받아올림!)|(über 10 — 1 zum Zehner übertragen!)</item>
+        <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|Die Einer reichen nicht, also borge 10 von den Zehnern.</item>
+        <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|Bei verschiedenen Vorzeichen gilt das Vorzeichen des größeren Betrags.</item>
+        <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|Sind beide negativ, addiere die Beträge und setze ein Minus davor.</item>
+    </string-array>
+    <string-array name="tpl_units">
+        <item>개|</item>
+        <item>명|Pers.</item>
+        <item>분|Min.</item>
+        <item>초|Sek.</item>
+        <item>점|Pkt.</item>
+        <item>원|Won</item>
+    </string-array>
 </resources>

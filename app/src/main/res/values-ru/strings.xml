@@ -65,4 +65,385 @@
     <string name="stats_badges">Значки</string>
     <string name="placement_title">Тест уровня</string>
     <string name="placement_quit_ask">Выйти из теста уровня?</string>
+    <string name="mkind_clock">🕐 Читаем часы</string>
+    <string name="mkind_clock_set">🕐 Ставим стрелки</string>
+    <string name="mkind_group">🧺 Делим поровну</string>
+    <string name="mkind_frac_paint">🍰 Закрась дробь</string>
+    <string name="mkind_shape_sort">🔺 Сортируем фигуры</string>
+    <string name="mkind_numline_drag">📏 Ищем на прямой</string>
+    <string name="mkind_angle_set">📐 Строим угол</string>
+    <string name="mkind_balance">⚖️ Уравновесь весы</string>
+    <string name="mkind_bar_build">📊 Строим диаграмму</string>
+    <string name="mkind_take_out">➖ Убери и посчитай</string>
+    <string name="mkind_gather">➕ Собери и посчитай</string>
+    <string name="mkind_shapes">🔺 Фигуры</string>
+    <string name="mkind_fraction">🍰 Дроби</string>
+    <string name="mkind_bar_graph">📊 Диаграммы</string>
+    <string name="mkind_numline">📏 Числовая прямая</string>
+    <string name="mkind_geom">📐 Геометрия</string>
+    <string name="mkind_coord3d">🧊 Координаты в 3D</string>
+    <string name="mkind_coord2d">📈 Координатная плоскость</string>
+    <string name="mkind_angle">📐 Углы</string>
+    <string name="mkind_div">➗ Деление</string>
+    <string name="mkind_mul">✖️ Умножение</string>
+    <string name="mkind_sub">➖ Вычитание</string>
+    <string name="mkind_add">➕ Сложение</string>
+    <string name="mkind_math">🔢 Математика</string>
+    <string name="mkind_picture">🐥 Задача с картинкой</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_24083678">Запиши %1$s : %2$s как простейшее отношение натуральных чисел: %3$s : ?</string>
+    <string name="tpl_33585846">Какой наибольший простой делитель числа %1$s?</string>
+    <string name="tpl_35882540">Знаменатели одинаковые — складываем числители. %1$s + %2$s = %3$s, ответ %4$s/%5$s.</string>
+    <string name="tpl_66531960">Единицы: %1$s + %2$s = %3$s %4$s\nОтвет: %5$s.</string>
+    <string name="tpl_93741444">Степень степени — показатели перемножаются. %1$s × %2$s = %3$s</string>
+    <string name="tpl_a84fb314">Это %2$s групп по %1$s. %3$s = %4$s\nТаблица на %5$s: %6$s×%7$s=%8$s</string>
+    <string name="tpl_40b5583a">Посчитай картинки. Сколько всего?</string>
+    <string name="tpl_4426d4f7">%1$s плюс %2$s будет %3$s. Начни с %4$s и досчитай ещё %5$s.</string>
+    <string name="tpl_e8755f8c">Считаем по одному: %1$s. Всего %2$s. %3$s</string>
+    <string name="tpl_412438c7">От %1$s отнимаем %2$s — остаётся %3$s.</string>
+    <string name="tpl_83f30dfe">%1$s Ответ: %2$s.</string>
+    <string name="tpl_bf977bf4">Разделим %1$s на %2$s равных групп — по %3$s в каждой.\nПроверка: %4$s × %5$s = %6$s</string>
+    <string name="tpl_9391fb31">Соберём десяток и досчитаем остаток: 10 + %1$s = %2$s.</string>
+    <string name="tpl_9e616d48">Посчитай, сколько всего картинок.</string>
+    <string name="tpl_e94b638c">Где больше?</string>
+    <string name="tpl_56861fce">Перетащи каждую фигуру в корзину с её названием. (%1$s)</string>
+    <string name="tpl_e2813a9a">%1$s = %2$s\nНаибольший простой делитель — %3$s.</string>
+    <string name="tpl_97c89890">Число умножили на %1$s и прибавили %2$s — получилось %3$s.\nКакое это число?</string>
+    <string name="tpl_ce982230">Пусть число x: %1$sx + %2$s = %3$s\n%4$sx = %5$s\nx = %6$s</string>
+    <string name="tpl_1fa89b68">Если f(x) = %1$s + %2$s %3$s, чему равно f\'(%4$s)?</string>
+    <string name="tpl_91bf4e00">Если %1$sx %2$s = %3$s, чему равен x?</string>
+    <string name="tpl_ee5eec9f">%2$s %1$s из обеих частей: %3$sx = %4$s\nРазделим на %5$s: x = %6$s.</string>
+    <string name="tpl_5c41b06f">Сначала умножение: %1$s × %2$s = %3$s, затем %4$s + %5$s = %6$s</string>
+    <string name="tpl_6a454edc">Каков остаток от деления f(x) = %1$s %2$sx %3$s на x %4$s?</string>
+    <string name="tpl_dd646a18">Теорема Безу: остаток от деления f(x) на (x - k) равен f(k).\nf(%1$s) = %2$s×%3$s %4$s %5$s×%6$s %7$s %8$s = %9$s</string>
+    <string name="tpl_e163b535">%1$s/%2$s ÷ %3$s/%4$s = ? (числитель несократимой дроби)</string>
+    <string name="tpl_f64e7111">Деление — переворачиваем вторую дробь и умножаем. %1$s/%2$s × %3$s/%4$s = %5$s/%6$s\nПосле сокращения: %7$s/%8$s.</string>
+    <string name="tpl_593dd3e4">Исключим y методом сложения.\nПервое уравнение × %1$s, второе × %2$s, затем вычтем: x = %3$s\nПодставив, получим y = %4$s.</string>
+    <string name="tpl_69c8bd83">%1$sx + %2$sy = %3$s\n%4$sx + %5$sy = %6$s\nЧему равен x?</string>
+    <string name="tpl_856c631f">Наибольший общий делитель чисел %1$s и %2$s равен %3$s.</string>
+    <string name="tpl_860d863a">Разложим %1$s на %2$s и %3$s и умножим.\n%4$s×%5$s=%6$s, %7$s×%8$s=%9$s\nВ сумме получаем %10$s.</string>
+    <string name="tpl_d0025612">Чему равен НОД чисел %1$s и %2$s?</string>
+    <string name="tpl_f0f11947">Чему равен дискриминант D уравнения %1$s %2$sx %3$s = 0?</string>
+    <string name="tpl_2a17168e">У %1$s есть %3$s %2$s.\nДруг дал ещё %4$s.\nСколько всего %5$s?</string>
+    <string name="tpl_4b6b9472">Получили ещё — значит складываем.\n%1$s + %2$s = %3$s</string>
+    <string name="tpl_7182fe6c">Какое число больше: %1$s или %2$s?</string>
+    <string name="tpl_064cd500">%1$s купил %4$s коробок %2$s по %3$s штук в каждой.\nЕсли раздали %5$s, сколько осталось?</string>
+    <string name="tpl_b142acbe">Сначала всего: %1$s × %2$s = %3$s\nЗатем вычтем розданное: %4$s - %5$s = %6$s</string>
+    <string name="tpl_09881b6d">Сократи дробь %1$s/%2$s. Чему равен числитель?</string>
+    <string name="tpl_b9de180a">Разделим числитель и знаменатель на НОД %1$s: %2$s÷%3$s=%4$s, %5$s÷%6$s=%7$s\nОтвет: %8$s/%9$s.</string>
+    <string name="tpl_104b2419">%2$s %1$s из обеих частей: %3$sx &gt; %4$s\nРазделим на положительное %5$s: x &gt; %6$s\n(При делении на отрицательное знак меняется!)</string>
+    <string name="tpl_302b4ab7">Каков остаток от %1$s ÷ %2$s?</string>
+    <string name="tpl_7781a29b">%1$s ÷ %2$s = %3$s, остаток %4$s\nПроверка: %5$s × %6$s + %7$s = %8$s</string>
+    <string name="tpl_421eaae2">Чему равно %2$sx + %3$s при x = %1$s?</string>
+    <string name="tpl_c746b533">Подставим %1$s вместо x: %2$s × %3$s + %4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_520190ba">Чему равен lim(x→%1$s) (%2$s %3$s)?</string>
+    <string name="tpl_97b6e789">Многочлены непрерывны, поэтому просто подставляем. %1$s×%2$s %3$s %4$s = %5$s</string>
+    <string name="tpl_8154d16f">%1$s/%2$s × %3$s/%4$s = ? (числитель несократимой дроби)</string>
+    <string name="tpl_8c032f04">Умножаем числители и знаменатели. %1$s×%2$s=%3$s, %4$s×%5$s=%6$s\nСокращая %7$s/%8$s, получаем %9$s/%10$s.</string>
+    <string name="tpl_7b8145cd">%1$s × %2$s = %3$s\n%4$s × %5$s = %6$s\nВ сумме %7$s.</string>
+    <string name="tpl_d091ab21">Перенесём запятую и разделим. %1$s ÷ %2$s = %3$s</string>
+    <string name="tpl_f5c65837">При каких x верно %1$sx %2$s &gt; %3$s? x &gt; ?</string>
+    <string name="tpl_af55c367">У %1$s есть %3$s %2$s.\nОн отдал %4$s младшему брату.\nСколько %5$s осталось?</string>
+    <string name="tpl_836b321c">Отдали — значит вычитаем.\n%1$s - %2$s = %3$s</string>
+    <string name="tpl_e48e2ef1">Сколько нулей в %1$s десятках тысяч? (1 = 10000)</string>
+    <string name="tpl_2526ffa7">1 десяток тысяч = 10000, то есть четыре нуля. Значит %1$s = %2$s.</string>
+    <string name="tpl_dbc6233c">%1$s шёл %3$s часа со скоростью %2$s км/ч.\nСколько километров он прошёл?</string>
+    <string name="tpl_ddc5e7db">Расстояние = скорость × время\n%1$s × %2$s = %3$s км</string>
+    <string name="tpl_220e81e1">Высота столбика %1$s по шкале равна %2$s.</string>
+    <string name="tpl_c72ea029">Каково значение для %1$s?</string>
+    <string name="tpl_3256a913">Расставим значения по порядку; среднее из них — медиана: третье значение %1$s.</string>
+    <string name="tpl_36f716a4">Чему равна медиана %1$s?</string>
+    <string name="tpl_829dc879">Чему равно среднее значение %1$s?</string>
+    <string name="tpl_8caeb0c9">Сумма равна %1$s, данных %2$s, поэтому %3$s ÷ %4$s = %5$s.</string>
+    <string name="tpl_3662d39b">%1$s + %2$s + %3$s = %4$s.</string>
+    <string name="tpl_4729593b">Сколько сантиметров в %1$s м %2$s см?</string>
+    <string name="tpl_bc1684cd">1 м — это 100 см. %1$s м = %2$s см, плюс %3$s см получается %4$s см.</string>
+    <string name="tpl_a04ee28d">Сколько %% от %1$s составляет %2$s?</string>
+    <string name="tpl_50dc7e5e">Доля = %1$s ÷ %2$s = %3$s\nУмножаем на 100 — получаем %4$s%%.</string>
+    <string name="tpl_8d5a1394">Выровняем запятые и сложим. %1$s + %2$s = %3$s</string>
+    <string name="tpl_c4b2f470">Какое число содержит %1$s сотен, %2$s десятков и %3$s единиц?</string>
+    <string name="tpl_efe178f9">Какая картинка идёт после %1$s?</string>
+    <string name="tpl_3a5ccfd2">Чего больше всего?</string>
+    <string name="tpl_f9b576f1">Сложи учеников всех четырёх классов. Сколько получилось?</string>
+    <string name="tpl_afd6159f">%1$s = %2$s человек.</string>
+    <string name="tpl_0c5cc77b">Заверши столбчатую диаграмму по результатам опроса.\n%1$s</string>
+    <string name="tpl_35d42406">Заверши столбчатую диаграмму по таблице.\n%1$s</string>
+    <string name="tpl_811c3b3f">Высота столбика — это количество.\n%1$s</string>
+    <string name="tpl_214da790">Высота столбика — это число людей.\nСамый высокий — %1$s, самый низкий — %2$s.</string>
+    <string name="tpl_93ad49ff">Какова относительная частота для %1$s? (до сотых)</string>
+    <string name="tpl_d02e9c3e">Относительная частота = частота класса ÷ общая частота = %1$s ÷ %2$s ≈ %3$s</string>
+    <string name="tpl_2baf4762">Часы показывают %1$s часов и сколько минут? (напиши только минуты)</string>
+    <string name="tpl_0b6616c7">Если длинная стрелка на %1$s, это %2$s × 5 = %3$s минут.</string>
+    <string name="tpl_516a736a">Перетащи стрелки так, чтобы было %1$s:%2$s.</string>
+    <string name="tpl_5485a85b">Длинная стрелка идёт на %1$s ÷ 5 = %2$s, то есть на цифру %3$s.\nКороткую поставь на %4$s — получится %5$s:%6$s.</string>
+    <string name="tpl_a546bcec">Положи в коробку %2$s и %3$s %1$s. Сколько всего? (%4$s + %5$s)</string>
+    <string name="tpl_fcc08c5c">Из %2$s %1$s домой ушли %3$s. Отправь %4$s домой и посчитай оставшихся. (%5$s - %6$s)</string>
+    <string name="tpl_e21a2df7">Подбери x так, чтобы весы уравновесились. (%1$sx + %2$s = %3$s)</string>
+    <string name="tpl_a8920713">Яблоко стоит %1$s00 вон, груша — %2$s00 вон.\nСколько стоят %3$s яблок и %4$s груш?</string>
+    <string name="tpl_c592e397">Яблоки: %1$s00 × %2$s = %3$s вон\nГруши: %4$s00 × %5$s = %6$s вон\nИтого: %7$s вон</string>
+    <string name="tpl_f2a44920">Какова абсцисса вершины параболы y = %1$s(x %2$s)² %3$s?</string>
+    <string name="tpl_accf5550">В виде y = a(x-p)² + q вершина — это (p, q).\nЗдесь вершина (%1$s, %2$s), значит абсцисса равна %3$s.</string>
+    <string name="tpl_ee1f2bd2">Каков радиус окружности (x %1$s)² + (y %2$s)² = %3$s?</string>
+    <string name="tpl_c74c8c70">В виде (x-a)² + (y-b)² = r² имеем r² = %1$s, значит радиус равен %2$s. Центр — (%3$s, %4$s).</string>
+    <string name="tpl_da4a9448">Чему равен %3$s-й член арифметической прогрессии с первым членом %1$s и разностью %2$s?</string>
+    <string name="tpl_6eddd33a">Чему равна сумма первых %3$s членов арифметической прогрессии с первым членом %1$s и разностью %2$s?</string>
+    <string name="tpl_bfcac252">Если %1$s^%2$s × %3$s^%4$s записать как %5$s^k, чему равно k?</string>
+    <string name="tpl_b12f4a19">При умножении степеней с одинаковым основанием показатели складываются. %1$s + %2$s = %3$s</string>
+    <string name="tpl_770018a9">Чему равен ∫₀^%1$s %2$s^%3$s dx?</string>
+    <string name="tpl_8934d567">Первообразная равна %1$sx^%2$s/%3$s.\nПодставим %4$s: %5$s×%6$s/%7$s = %8$s</string>
+    <string name="tpl_09b4928a">%1$s/%2$s + %3$s/%4$s = ? (напиши только числитель)</string>
+    <string name="tpl_60f9ab29">Смотрим на знаки. %1$s + %2$s = %3$s\n%4$s</string>
+    <string name="tpl_2b4e8c2f">Правило знаков: (−)×(−)=(+), (−)×(+)=(−)\n%1$s × %2$s = %3$s</string>
+    <string name="tpl_f01075e0">Чему равен y в y = %1$sx %2$s при x = %3$s?</string>
+    <string name="tpl_eb66f38d">Подставим x = %1$s. y = %2$s×%3$s %4$s = %5$s</string>
+    <string name="tpl_242af461">%1$s хочет поровну разделить %3$s %2$s между %4$s людьми.\nСколько достанется каждому?</string>
+    <string name="tpl_ffbb559e">Разделить поровну — это деление.\n%1$s ÷ %2$s = %3$s\nПроверка: %4$s × %5$s = %6$s</string>
+    <string name="tpl_534edc60">Разделим %1$s на %2$s равных групп — по %3$s.\nПроверка: %4$s × %5$s = %6$s\nЗначит %7$s ÷ %8$s = %9$s.</string>
+    <string name="tpl_d1ce02ac">Разложи %2$s %1$s поровну в %3$s корзины. (%4$s ÷ %5$s)</string>
+    <string name="tpl_83a279a5">Если (%1$s^%2$s)^%3$s записать как %4$s^k, чему равно k?</string>
+    <string name="tpl_8bf8943f">Каков объём цилиндра с радиусом основания %1$s и высотой %2$s? (π = 3,14)</string>
+    <string name="tpl_239800f8">Объём цилиндра = площадь основания × высота = (%1$s×%2$s×3,14) × %3$s = %4$s</string>
+    <string name="tpl_5391d387">Из %1$s человек %2$s%% носят очки.\nСколько человек носят очки?</string>
+    <string name="tpl_d85fd41b">%1$s%% = %2$s/100.\n%3$s × %4$s ÷ 100 = %5$s человек</string>
+    <string name="tpl_4ea5fbe9">Чему равен lim(n→∞) (%1$s + 5)/(%2$s + 2)? (до тысячных)</string>
+    <string name="tpl_29d9a332">Разделим числитель и знаменатель на n. (%1$s + 5/n)/(%2$s + 2/n) → %3$s/%4$s = %5$s\nОтвет — отношение старших коэффициентов.</string>
+    <string name="tpl_11a006ee">Чему равна точка пересечения с осью y для y = %1$sx %2$s?</string>
+    <string name="tpl_98d506d9">Пересечение с осью y — это y при x = 0: y = %1$s.\nУгловой коэффициент равен %2$s.</string>
+    <string name="tpl_a90c36e4">Чему равно скалярное произведение векторов (%1$s, %2$s) и (%3$s, %4$s)?</string>
+    <string name="tpl_896140d8">Скалярное произведение = x₁x₂ + y₁y₂ = %1$s×%2$s + %3$s×%4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_f47fb815">Каков объём параллелепипеда %1$s см × %2$s см × %3$s см?</string>
+    <string name="tpl_4784c950">Объём = длина × ширина × высота = %1$s × %2$s × %3$s = %4$s см³</string>
+    <string name="tpl_c2343df6">Какова площадь поверхности параллелепипеда %1$s см × %2$s см × %3$s см?</string>
+    <string name="tpl_6584d973">Площадь поверхности = 2 × (%1$s×%2$s + %3$s×%4$s + %5$s×%6$s) = 2 × %7$s = %8$s см²</string>
+    <string name="tpl_b34194c1">Какое число составляют %1$s десятков и %2$s единиц?</string>
+    <string name="tpl_d700c926">%1$s десятков — это %2$s, плюс %3$s получается %4$s.</string>
+    <string name="tpl_ab5407fa">Сколько секунд в %1$s мин %2$s с?</string>
+    <string name="tpl_102513fd">1 минута — это 60 секунд. %1$s×60 = %2$s, и %3$s + %4$s = %5$s секунд.</string>
+    <string name="tpl_acf035bc">Чему равен квадрат расстояния от точки (%1$s, %2$s, %3$s) до начала координат?</string>
+    <string name="tpl_77d91bdd">Расстояние² = x² + y² + z² = %1$s + %2$s + %3$s = %4$s</string>
+    <string name="tpl_e10f7183">Чему равен квадрат расстояния между точками (%1$s, %2$s) и (%3$s, %4$s)?</string>
+    <string name="tpl_6fb38da8">Расстояние² = (x₂-x₁)² + (y₂-y₁)² = %1$s + %2$s = %3$s</string>
+    <string name="tpl_ef261058">Сколько сторон у фигуры %1$s?</string>
+    <string name="tpl_435ec8ca">У фигуры %1$s %2$s сторон и %3$s вершин.</string>
+    <string name="tpl_68b2417e">Оценки: %1$s, последняя — %2$s.\nЧему равно среднее?</string>
+    <string name="tpl_8f5202e0">Всего %1$s баллов.\nПредметов %2$s, поэтому %3$s ÷ %4$s = %5$s баллов.</string>
+    <string name="tpl_b6ff7f67">Разделим оба числа на НОД %1$s: %2$s÷%3$s=1, %4$s÷%5$s=%6$s\nОтвет: 1 : %7$s.</string>
+    <string name="tpl_4f8bebb2">Чему равен вписанный угол, опирающийся на дугу с центральным углом %1$s°? (в градусах)</string>
+    <string name="tpl_1f65cd70">Вписанный угол вдвое меньше центрального. %1$s° ÷ 2 = %2$s°</string>
+    <string name="tpl_27d389ab">Чему равен y в y = %1$s/x при x = %2$s?</string>
+    <string name="tpl_3b064960">Подставим x = %1$s в обратную пропорциональность. y = %2$s ÷ %3$s = %4$s</string>
+    <string name="tpl_881817d7">Чему равен y в y = %1$sx при x = %2$s?</string>
+    <string name="tpl_5e387d7d">Подставим x = %1$s в прямую пропорциональность. y = %2$s × %3$s = %4$s</string>
+    <string name="tpl_9474bd1b">%1$s собрал %3$s %2$s, а друг дал ещё %4$s. Сколько всего? (%5$s + %6$s)</string>
+    <string name="tpl_7b0eb00c">В корзине %2$s %1$s, а в коробке %3$s. Сколько всего? (%4$s + %5$s)</string>
+    <string name="tpl_577e9a0b">%1$s съел %4$s из %3$s %2$s. Сколько осталось? (%5$s - %6$s)</string>
+    <string name="tpl_8835a548">Из %2$s %1$s младшему брату отдали %3$s. Сколько осталось? (%4$s - %5$s)</string>
+    <string name="tpl_52fb8304">Если %1$s разложить по %2$s в %3$s коробки, сколько всего? (%4$s × %5$s)</string>
+    <string name="tpl_cd5e1743">%2$s ребят из класса %1$s имеют по %4$s %3$s. Сколько всего? (%5$s × %6$s)</string>
+    <string name="tpl_0689d7b0">В каждом %1$s лежит %3$s %2$s.\nЕсли %4$s штук %5$s, сколько всего %6$s?</string>
+    <string name="tpl_fabb8c01">%2$s групп по %1$s — это умножение.\n%3$s × %4$s = %5$s</string>
+    <string name="tpl_bd90a3bf">Перенеси всех %1$s в коробку и посчитай, сколько их.</string>
+    <string name="tpl_26640a33">Считаем, перенося по одному: %1$s — всего %2$s.</string>
+    <string name="tpl_c1d7f847">Какова площадь прямоугольника %1$s см × %2$s см?</string>
+    <string name="tpl_68f81799">Площадь прямоугольника = длина × ширина = %1$s × %2$s = %3$s см²</string>
+    <string name="tpl_f56a2f41">Какова площадь треугольника с основанием %1$s см и высотой %2$s см?</string>
+    <string name="tpl_cfead5b7">Площадь треугольника = основание × высота ÷ 2 = %1$s × %2$s ÷ 2 = %3$s см²</string>
+    <string name="tpl_03b2cec2">Какова площадь трапеции с основаниями %1$s см и %2$s см и высотой %3$s см?</string>
+    <string name="tpl_812652c8">Площадь трапеции = (a + b) × высота ÷ 2 = (%1$s+%2$s) × %3$s ÷ 2 = %4$s см²</string>
+    <string name="tpl_2ac20dea">Сколько граммов в %1$s кг %2$s г?</string>
+    <string name="tpl_8adee8d9">1 кг — это 1000 г. %1$s + %2$s = %3$s г</string>
+    <string name="tpl_1a1b845d">Сколько метров в %1$s км %2$s м?</string>
+    <string name="tpl_bc396cec">1 км — это 1000 м. %1$s + %2$s = %3$s м</string>
+    <string name="tpl_5bb097dd">Сколько миллилитров в %1$s л %2$s мл?</string>
+    <string name="tpl_58e342da">1 л — это 1000 мл. %1$s + %2$s = %3$s мл</string>
+    <string name="tpl_7fa435ba">Если √%1$s = k√%2$s, чему равно k?</string>
+    <string name="tpl_4bd516c4">√%1$s = √(%2$s × %3$s) = %4$s√%5$s\nЗначит k = %6$s.</string>
+    <string name="tpl_fdef4e9b">Разложи на множители x² + %1$sx + %2$s. (например, (x+2)(x+3))</string>
+    <string name="tpl_7fc38659">Найдём два числа с суммой %1$s и произведением %2$s → %3$s и %4$s\nОтвет: (x+%5$s)(x+%6$s)</string>
+    <string name="tpl_ed66d760">Какой из двух корней уравнения x² - %1$sx + %2$s = 0 больше?</string>
+    <string name="tpl_20a81651">Разложив на множители: (x-%1$s)(x-%2$s) = 0\nКорни %3$s и %4$s, больший — %5$s.</string>
+    <string name="tpl_f666532f">Чему равен y в y = %1$sx² при x = %2$s?</string>
+    <string name="tpl_03a38c23">Подставим x = %1$s. y = %2$s × %3$s² = %4$s × %5$s = %6$s</string>
+    <string name="tpl_05d5a936">Две подобные фигуры имеют отношение 1 : %1$s. Сторона малой равна %2$s — чему равна соответствующая сторона большой?</string>
+    <string name="tpl_101dec85">Отношение 1 : %1$s, значит соответствующие стороны в %2$s раз больше. %3$s × %4$s = %5$s\n(Площадь увеличивается в %6$s раз.)</string>
+    <string name="tpl_34aaa693">В мешке %1$s красных и %2$s синих шаров. Какова вероятность вытащить красный? (числитель несократимой дроби)</string>
+    <string name="tpl_bbcd0e09">Из %1$s шаров красных %2$s. %3$s/%4$s = %5$s/%6$s</string>
+    <string name="tpl_be363966">Рисунок разделён на %1$s равных частей. Закрась %2$s/%3$s.</string>
+    <string name="tpl_822bd5c1">%1$s/%2$s — это %4$s частей из %3$s равных.\nНажми на %5$s кусочков, чтобы закрасить.</string>
+    <string name="tpl_b1b8ddf9">Найди %1$s на числовой прямой и поставь точку.</string>
+    <string name="tpl_72ed475e">Какова длина большой оси эллипса x²/%1$s + y²/%2$s = 1?</string>
+    <string name="tpl_9323580e">В x²/a² + y²/b² = 1 имеем a = %1$s и b = %2$s.\nБольшая ось равна 2a = %3$s.</string>
+    <string name="tpl_526c1433">Какой это угол? (%1$s°)</string>
+    <string name="tpl_0352c1ec">Если f(x) = %1$s, чему равно f\'(%2$s)?</string>
+    <string name="tpl_0a772723">Угловой коэффициент касательной равен f\'(%1$s). Так как f\'(x) = %2$sx, получаем %3$s×%4$s = %5$s.</string>
+    <string name="tpl_0e6df588">Если f(x) = %1$s, чему равен угловой коэффициент касательной при x = %2$s?</string>
+    <string name="tpl_65303faf">Поверни ручку так, чтобы получилось %1$s°.</string>
+    <string name="tpl_2bb14977">Какая часть целого закрашена? (напиши только числитель)</string>
+    <string name="tpl_386d8a5c">Целое разделено на %1$s равных частей, закрашено %2$s — значит %3$s/%4$s.</string>
+    <string name="tpl_e22b23c2">Какова площадь фигуры, ограниченной кривой y = %1$s, осью x и прямой x = %2$s? (до тысячных)</string>
+    <string name="tpl_702f39e6">Площадь = ∫₀^%1$s %2$sx² dx = %3$sx³/3, при %4$s = %5$s×%6$s/3 = %7$s</string>
+    <string name="tpl_12d53984">Перетащи стрелки часов, чтобы показать %1$s.</string>
+    <string name="tpl_59f3bbde">Посмотри на часы и выбери время.</string>
+    <string name="tpl_6a049195">Короткую стрелку на %1$s, длинную на %2$s — получится %3$s.</string>
+    <string name="tpl_421f0115">Чему равен √%1$s?</string>
+    <string name="tpl_c10c073d">Так как %1$s × %2$s = %3$s, то √%4$s = %5$s.</string>
+    <string name="tpl_04ad73bd">Чему равен log_%1$s %2$s?</string>
+    <string name="tpl_1a575d20">log_%1$s %2$s спрашивает: «сколько раз надо умножить %3$s, чтобы получить %4$s?» Так как %5$s^%6$s = %7$s, ответ %8$s.</string>
+    <string name="tpl_40e43c86">Чему равно %1$s^%2$s?</string>
+    <string name="tpl_8ad8bef1">Умножим %1$s само на себя %2$s раз. %3$s = %4$s</string>
+    <string name="tpl_9236cec8">Одно деление — это 5. Так как %1$s ÷ 5 = %2$s, отсчитай %3$s делений от 0.</string>
+    <string name="tpl_9b01b011">У прямоугольного треугольника катеты %1$s и %2$s. Чему равна гипотенуза? (см. рисунок)</string>
+    <string name="tpl_29b3af3f">Теорема Пифагора: a² + b² = c²\n%1$s² + %2$s² = %3$s + %4$s = %5$s\nГипотенуза = %6$s</string>
+    <string name="tpl_05c967bb">У прямоугольного треугольника гипотенуза %1$s и катет %2$s. Чему равен второй катет?</string>
+    <string name="tpl_bc1b4161">c² - a² = b²\n%1$s - %2$s = %3$s\nВторой катет = %4$s</string>
+    <string name="tpl_22a9acd5">Сколькими способами можно выбрать %2$s из %1$s человек?</string>
+    <string name="tpl_de1537f4">%1$sC%2$s = %3$s ÷ %4$s = %5$s способов</string>
+    <string name="tpl_133b1724">Сколькими способами можно выбрать %2$s из %1$s различных предметов без учёта порядка? (%3$sC%4$s)</string>
+    <string name="tpl_e5f765f4">Сколькими способами можно выбрать %2$s из %1$s предметов и расставить по порядку? (%3$sP%4$s)</string>
+    <string name="tpl_ee0c3706">Который из них — %1$s?</string>
+    <string name="tpl_18800cab">Какова длина окружности радиуса %1$s см? (π = 3,14)</string>
+    <string name="tpl_af15f6d2">Длина окружности = диаметр × 3,14 = %1$s × 3,14 = %2$s см</string>
+    <string name="tpl_a145b736">Какова площадь круга радиуса %1$s см? (π = 3,14)</string>
+    <string name="tpl_5844f447">Площадь круга = радиус × радиус × 3,14 = %1$s × %2$s × 3,14 = %3$s см²</string>
+    <string name="tpl_e25a121a">%1$s, %2$s, %3$s — какое число следующее?</string>
+    <string name="tpl_c074ed4d">Правило — каждый раз +1. После %1$s идёт %2$s.</string>
+    <string name="tpl_ac380a89">%1$s плюс %2$s даёт 10. Разложив 10, получаем %3$s и %4$s.</string>
+    <string name="tpl_08b9cc90">Если событие с вероятностью 1/%1$s происходит %2$s раз подряд, вероятность равна 1/k. Чему равно k?</string>
+    <string name="tpl_e6dd2bae">Испытания независимы, поэтому перемножаем. (1/%1$s)^%2$s = 1/%3$s\nk = %4$s</string>
+    <string name="tpl_ab3d2f03">Чему равна сумма внутренних углов %1$s-угольника? (в градусах)</string>
+    <string name="tpl_50ddbff4">Сумма внутренних углов n-угольника = (n - 2) × 180°\n(%1$s - 2) × 180 = %2$s°</string>
+    <string name="tpl_a257284f">Сколько диагоналей у %1$s-угольника?</string>
+    <string name="tpl_6fa548ec">Число диагоналей = n(n-3)/2 = %1$s×%2$s/2 = %3$s</string>
+    <string name="tpl_076280c4">Закрась 0,%1$s. (целое разделено на 10 равных частей)</string>
+    <string name="tpl_3601a2fc">%1$s из 10 частей, значит %2$s/10 = 0,%3$s.</string>
+    <string name="tpl_d91eef04">Какое десятичное число составляют %1$s из десяти равных частей единицы?</string>
+    <string name="tpl_5b3eb8ba">Найди 0,%1$s на числовой прямой и поставь точку.</string>
+    <string name="tpl_b54eb50c">Отрезок от 0 до 1 разделён на 10 равных шагов.\n0,%1$s — это %2$s шагов от 0.</string>
+    <string name="tpl_74d583e3">Чему равен %1$s %2$s°?</string>
+    <string name="tpl_f0bf458a">Подумай, где находится %1$s° на единичной окружности. %2$s%3$s° = %4$s</string>
+    <string name="tpl_f339376b">0,%1$s — это то же самое, что %2$s/10.\nЗакрась %3$s из 10 частей.</string>
+    <string name="tpl_d6fcc9c2">Чему равен %1$s %2$s°? (дроби записывай как 1/2)</string>
+    <string name="tpl_2d7284ee">Это тригонометрическое отношение для особого угла. %1$s%2$s° = %3$s\nЗначения для 30°, 45° и 60° стоит запомнить.</string>
+    <string name="tpl_f046f32a">Сколько подмножеств у множества из %1$s элементов?</string>
+    <string name="tpl_710ba473">Число подмножеств = 2ⁿ = 2^%1$s = %2$s.\n(Собственных подмножеств %3$s.)</string>
+    <string name="tpl_fb01043c">Какова вероятность выпадения не более %1$s при одном броске кубика? (числитель несократимой дроби)</string>
+    <string name="tpl_4fcaf9c5">Исходов не более %1$s — %2$s из 6 возможных. %3$s/6 = %4$s/%5$s</string>
+    <string name="tpl_7e93d243">Слева %1$s, справа %2$s. %3$s больше, чем %4$s, поэтому больше — %5$s.</string>
+    <string name="tpl_0782d5d6">Сначала сравним десятки. %1$s больше.</string>
+    <string name="tpl_303e5331">Найди самый высокий столбик. Больше всего у %1$s — %2$s.</string>
+    <string name="tpl_1f33664e">Положи %1$s, потом ещё %2$s — в коробке станет %3$s.\nОтсчитав %5$s от %4$s, получим %6$s.</string>
+    <string name="tpl_eb12d4e3">Из %1$s ушли %2$s — осталось %3$s.\nЕсли сложить ушедших и оставшихся, снова получится %4$s.</string>
+    <string name="tpl_d35868f6">Слева %1$s коробок x и %2$s единичных гирь, справа %3$s единичных гирь.\nУберём с обеих сторон %4$s: %5$sx = %6$s\nРазделим на %7$s равных групп: x = %8$s.</string>
+    <string name="tpl_74cc085d">%1$s\nДаже если цвет другой, одинаковые фигуры кладём в одну корзину.</string>
+    <string name="tpl_28a6838e">%1$s° — это %2$s.</string>
+    <string name="tpl_394c5f1b">%1$s° — это %2$s.\nЭто на %3$s° меньше прямого угла (90°).</string>
+    <string name="tpl_9e6c9d79">%1$s° — это %2$s.\nЭто на %3$s° больше прямого угла (90°).</string>
+    <string name="tpl_b0aed67a">%1$s° — это %2$s.\nОн стоит совершенно прямо.</string>
+    <string name="tpl_54ac9abe">Правило: %1$s и %2$s чередуются. После %3$s идёт %4$s.</string>
+    <string name="tpl_5c76e40f">Это %1$s. Он под номером %2$s.</string>
+    <string name="tpl_1c847ed5">Короткая стрелка на %1$s, длинная на 12 — значит ровно %2$s часов.</string>
+    <string name="tpl_ed836a0a">Короткая стрелка между %1$s и %2$s, длинная на 6 — значит %3$s:30.</string>
+    <string name="tpl_cc9224e2">Это %1$s шагов вправо от 0.\n%2$s меньше 10.</string>
+    <string name="tpl_298087b1">Это %1$s шагов вправо от 0.\n%2$s больше 10.</string>
+    <string name="tpl_c9b3271e">Это %1$s шагов вправо от 0.\n%2$s — это ровно 10.</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+        <item>사과|яблоко</item>
+        <item>딸기|клубника</item>
+        <item>포도|виноград</item>
+        <item>바나나|банан</item>
+        <item>귤|мандарин</item>
+        <item>쿠키|печенье</item>
+        <item>사탕|конфета</item>
+        <item>구슬|шарик</item>
+        <item>스티커|наклейка</item>
+        <item>풍선|воздушный шар</item>
+        <item>블록|кубик</item>
+        <item>도토리|жёлудь</item>
+        <item>색연필|карандаш</item>
+        <item>상자|коробка</item>
+        <item>접시|тарелка</item>
+        <item>바구니|корзина</item>
+        <item>봉지|пакет</item>
+        <item>가방|рюкзак</item>
+        <item>원|круг</item>
+        <item>삼각형|треугольник</item>
+        <item>사각형|квадрат</item>
+        <item>오각형|пятиугольник</item>
+        <item>육각형|шестиугольник</item>
+        <item>예각|острый угол</item>
+        <item>직각|прямой угол</item>
+        <item>둔각|тупой угол</item>
+        <item>평각|развёрнутый угол</item>
+        <item>축구|футбол</item>
+        <item>야구|бейсбол</item>
+        <item>농구|баскетбол</item>
+        <item>수영|плавание</item>
+        <item>달리기|бег</item>
+        <item>삐약이|Пияк</item>
+        <item>토끼|Кролик</item>
+        <item>펭귄|Пингвин</item>
+        <item>고양이|Кот</item>
+        <item>곰돌이|Мишка</item>
+        <item>다람쥐|Белка</item>
+        <item>서연|Соён</item>
+        <item>수아|Суа</item>
+        <item>시우|Сиу</item>
+        <item>채원|Чэвон</item>
+        <item>도윤|Тоюн</item>
+        <item>예린|Йерин</item>
+        <item>은우|Ыну</item>
+        <item>지우|Чиу</item>
+        <item>민수|Минсу</item>
+        <item>하준|Хаджун</item>
+        <item>월|пн</item>
+        <item>화|вт</item>
+        <item>수|ср</item>
+        <item>목|чт</item>
+        <item>금|пт</item>
+        <item>영|ноль</item>
+        <item>하나|один</item>
+        <item>둘|два</item>
+        <item>셋|три</item>
+        <item>넷|четыре</item>
+        <item>다섯|пять</item>
+        <item>여섯|шесть</item>
+        <item>일곱|семь</item>
+        <item>여덟|восемь</item>
+        <item>아홉|девять</item>
+        <item>열|десять</item>
+        <item>왼쪽|Слева</item>
+        <item>오른쪽|Справа</item>
+        <item>같아요|Поровну</item>
+        <item>모르겠어요|Не знаю</item>
+        <item>없어요|Нет</item>
+        <item>모으는 상자|Собрать</item>
+        <item>집으로|Домой</item>
+        <item>반|</item>
+        <item>대|-е</item>
+        <item>시|ч</item>
+        <item>분|м</item>
+        <item>원은 뾰족한 곳이 없고 동그란 모양이에요.|У круга нет углов, он совсем круглый.</item>
+        <item>삼각형은 뾰족한 곳이 3개 모양이에요.|У треугольника 3 угла.</item>
+        <item>사각형은 뾰족한 곳이 4개 모양이에요.|У квадрата 4 угла.</item>
+        <item>D &gt; 0 이므로 서로 다른 두 실근|D &gt; 0, значит два различных действительных корня</item>
+        <item>D = 0 이므로 중근|D = 0, значит корень кратный</item>
+        <item>D &lt; 0 이므로 실근이 없어요|D &lt; 0, значит действительных корней нет</item>
+        <item>빼면|Вычтем</item>
+        <item>더하면|Прибавим</item>
+        <item>(10 넘으면 십의 자리로 받아올림!)|(больше 10 — переносим 1 в десятки!)</item>
+        <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|В разряде единиц не хватает — занимаем 10 у десятков.</item>
+        <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|Если знаки разные, берём знак числа с большим модулем.</item>
+        <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|Если оба отрицательные, складываем модули и ставим знак минус.</item>
+    </string-array>
+    <string-array name="tpl_units">
+        <item>개|шт.</item>
+        <item>명|чел.</item>
+        <item>분|мин</item>
+        <item>초|сек</item>
+        <item>점|б.</item>
+        <item>원|вон</item>
+    </string-array>
 </resources>

@@ -103,7 +103,8 @@ data class MathVisual(
                 a = o.optInt("a", 0),
                 bb = o.optInt("b", 0),
                 op = o.optString("op", "+"),
-                labels = strList(o.optJSONArray("labels")),
+                // 그림 속 글자(바구니 이름·그래프 항목)도 폰 언어로
+                labels = com.piyak.english.i18n.Tpl.words(strList(o.optJSONArray("labels"))),
                 values = numList(o.optJSONArray("values")),
                 p = o.optDouble("p", 0.0),
                 q = o.optDouble("q", 1.0),

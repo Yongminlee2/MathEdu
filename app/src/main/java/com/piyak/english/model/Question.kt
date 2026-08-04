@@ -106,6 +106,11 @@ sealed class Question {
         val answerIndex: Int = -1,
         val unit: String = "",
         override val explain: String? = null,
+        /**
+         * 번역 전 한국어 원문. 문장에 맞는 그림을 고르거나(storyArt) 해시로 이름을
+         * 뽑을 때 쓴다 — 폰 언어가 바뀌어도 같은 그림·같은 이름이 나오게 하려고 남긴다.
+         */
+        val promptKo: String = prompt,
     ) : Question()
 
     /** 2인 대화를 듣고 4지선다 (토익 LC 스타일). */
@@ -158,17 +163,27 @@ sealed class Question {
                 "speak" -> Speak(id, o.getString("en"), o.optString("ko").ifEmpty { null }, explain)
                 "math" -> {
                     val choices = strListOpt(o.optJSONArray("choices"))
+                    val koPrompt = o.getString("prompt")
+                    val T = com.piyak.english.i18n.Tpl
                     Math(
                         id = id,
-                        prompt = o.getString("prompt"),
+                        // 팩의 뼈대 키 + 값으로 폰 언어 문장을 만든다 (한국어 폰이면 원문 그대로)
+                        prompt = T.sentence(
+                            o.optString("tk").ifEmpty { null }, strListOpt(o.optJSONArray("ta")), koPrompt
+                        ),
                         visual = MathVisual.fromJson(o.optJSONObject("visual")),
                         input = o.optString("input", if (choices.isEmpty()) "number" else "choice"),
                         answer = o.optString("answer"),
                         alts = strListOpt(o.optJSONArray("alts")),
-                        choices = choices,
+                        // 선택지는 채점에 answerIndex 를 쓰므로 글자만 바꿔도 안전하다
+                        choices = T.words(choices),
                         answerIndex = o.optInt("answerIndex", -1),
-                        unit = o.optString("unit"),
-                        explain = explain,
+                        unit = T.unit(o.optString("unit")),
+                        explain = T.sentence(
+                            o.optString("ek").ifEmpty { null }, strListOpt(o.optJSONArray("ea")),
+                            explain ?: ""
+                        ).ifEmpty { null },
+                        promptKo = koPrompt,
                     )
                 }
                 "listen_dialog" -> {

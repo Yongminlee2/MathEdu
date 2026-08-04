@@ -1,6 +1,6 @@
 // 중학교 1~3학년 수학 생성기
 const L = require("./lib");
-const { rint, pick, shuffled, numQ, choiceQ, textQ, visualQ, V, nearWrong, makeUnit, gen } = L;
+const { tp, rint, pick, shuffled, numQ, choiceQ, textQ, visualQ, V, nearWrong, makeUnit, gen } = L;
 
 const SK = {
   calc: "m_calc", number: "m_number", shape: "m_shape",
@@ -29,8 +29,8 @@ function middle1() {
   units.push(makeUnit("소인수분해", "🔢", 8, gen(40, () => {
     const n = rint(12, 200);
     const f = primeFactors(n);
-    return numQ(`${n}을 소인수분해했을 때 가장 큰 소인수는?`, Math.max(...f),
-      `${n} = ${f.join(" × ")}\n가장 큰 소인수는 ${Math.max(...f)}이에요.`, { skill: SK.number });
+    return numQ(tp("33585846", [n], `${n}을 소인수분해했을 때 가장 큰 소인수는?`), Math.max(...f),
+      tp("e2813a9a", [n, f.join(" × "), Math.max(...f)], `${n} = ${f.join(" × ")}\n가장 큰 소인수는 ${Math.max(...f)}이에요.`), { skill: SK.number });
   }), 10));
 
   units.push(makeUnit("정수와 유리수의 계산", "➕", 8, gen(50, () => {
@@ -38,24 +38,24 @@ function middle1() {
     const t = L.rng();
     if (t < 0.5) {
       return numQ(`(${a}) + (${b}) = ?`, a + b,
-        `부호를 살펴요. ${a} + ${b} = ${a + b}\n${a < 0 && b < 0 ? "둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요." : "부호가 다르면 절댓값이 큰 쪽 부호를 따라요."}`,
+        tp("60f9ab29", [a, b, a + b, a < 0 && b < 0 ? "둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요." : "부호가 다르면 절댓값이 큰 쪽 부호를 따라요."], `부호를 살펴요. ${a} + ${b} = ${a + b}\n${a < 0 && b < 0 ? "둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요." : "부호가 다르면 절댓값이 큰 쪽 부호를 따라요."}`),
         { skill: SK.calc });
     }
     return numQ(`(${a}) × (${b}) = ?`, a * b,
-      `부호 규칙: (음)×(음)=(양), (음)×(양)=(음)\n${a} × ${b} = ${a * b}`, { skill: SK.calc });
+      tp("2b4e8c2f", [a, b, a * b], `부호 규칙: (음)×(음)=(양), (음)×(양)=(음)\n${a} × ${b} = ${a * b}`), { skill: SK.calc });
   }), 10));
 
   units.push(makeUnit("문자와 식", "✏️", 8, gen(40, () => {
     const a = rint(2, 9), b = rint(2, 9), x = rint(1, 9);
-    return numQ(`x = ${x}일 때, ${a}x + ${b}의 값은?`, a * x + b,
-      `x 자리에 ${x}를 넣어요. ${a} × ${x} + ${b} = ${a * x} + ${b} = ${a * x + b}`,
+    return numQ(tp("421eaae2", [x, a, b], `x = ${x}일 때, ${a}x + ${b}의 값은?`), a * x + b,
+      tp("c746b533", [x, a, x, b, a * x, b, a * x + b], `x 자리에 ${x}를 넣어요. ${a} × ${x} + ${b} = ${a * x} + ${b} = ${a * x + b}`),
       { skill: SK.calc });
   }), 10));
 
   units.push(makeUnit("일차방정식", "🟰", 8, gen(50, () => {
     const { a, b, c, x } = linearEq();
-    return numQ(`${a}x ${b >= 0 ? "+ " + b : "- " + -b} = ${c} 일 때 x는?`, x,
-      `양변에서 ${b}를 ${b >= 0 ? "빼면" : "더하면"} ${a}x = ${c - b}\n양변을 ${a}로 나누면 x = ${x}예요.`,
+    return numQ(tp("91bf4e00", [a, b >= 0 ? "+ " + b : "- " + -b, c], `${a}x ${b >= 0 ? "+ " + b : "- " + -b} = ${c} 일 때 x는?`), x,
+      tp("ee5eec9f", [b, b >= 0 ? "빼면" : "더하면", a, c - b, a, x], `양변에서 ${b}를 ${b >= 0 ? "빼면" : "더하면"} ${a}x = ${c - b}\n양변을 ${a}로 나누면 x = ${x}예요.`),
       { skill: SK.calc });
   }), 10));
 
@@ -67,11 +67,9 @@ function middle1() {
     const c = a * x + b;           // 오른쪽 추
     if (c > 45) return null;       // 추가 너무 많으면 접시가 복잡해진다
     return visualQ(
-      `저울이 평형이 되도록 x 를 맞춰 보세요. (${a}x + ${b} = ${c})`,
+      tp("e21a2df7", [a, b, c], `저울이 평형이 되도록 x 를 맞춰 보세요. (${a}x + ${b} = ${c})`),
       x,
-      `왼쪽은 x 상자 ${a}개와 1짜리 추 ${b}개, 오른쪽은 1짜리 추 ${c}개예요.\n` +
-      `양쪽에서 ${b}을 덜어내면 ${a}x = ${c - b}\n` +
-      `${a}묶음으로 똑같이 나누면 x = ${x}예요.`,
+      tp("d35868f6", [a, b, c, b, a, c - b, a, x], `왼쪽은 x 상자 ${a}개와 1짜리 추 ${b}개, 오른쪽은 1짜리 추 ${c}개예요.\n양쪽에서 ${b}을 덜어내면 ${a}x = ${c - b}\n${a}묶음으로 똑같이 나누면 x = ${x}예요.`),
       { visual: V.balance(a, b, c), skill: SK.calc }
     );
   }), 6));
@@ -82,7 +80,7 @@ function middle1() {
     // 0 은 시작점 표시와 겹치고, -10 은 점이 처음 놓인 자리라 움직이지 않아도 맞아 버린다
     if (target === 0 || target === -10) return null;
     return visualQ(
-      `수직선에서 ${target} 을 찾아 점을 놓아 보세요.`,
+      tp("b1b8ddf9", [target], `수직선에서 ${target} 을 찾아 점을 놓아 보세요.`),
       target,
       target < 0
         ? `${target} 은 0 보다 ${-target} 만큼 작아요. 0 에서 왼쪽으로 ${-target} 칸 가면 돼요.`
@@ -94,33 +92,33 @@ function middle1() {
   units.push(makeUnit("정비례와 반비례", "📈", 8, gen(35, () => {
     const k = rint(2, 12), x = rint(2, 9);
     if (L.rng() < 0.5) {
-      return numQ(`y = ${k}x 에서 x = ${x}일 때 y는?`, k * x,
-        `정비례식에 x = ${x}를 넣어요. y = ${k} × ${x} = ${k * x}`,
+      return numQ(tp("881817d7", [k, x], `y = ${k}x 에서 x = ${x}일 때 y는?`), k * x,
+        tp("5e387d7d", [x, k, x, k * x], `정비례식에 x = ${x}를 넣어요. y = ${k} × ${x} = ${k * x}`),
         { skill: SK.calc, visual: V.line(k, 0) });
     }
     const prod = k * x;
-    return numQ(`y = ${prod}/x 에서 x = ${x}일 때 y는?`, k,
-      `반비례식에 x = ${x}를 넣어요. y = ${prod} ÷ ${x} = ${k}`,
+    return numQ(tp("27d389ab", [prod, x], `y = ${prod}/x 에서 x = ${x}일 때 y는?`), k,
+      tp("3b064960", [x, prod, x, k], `반비례식에 x = ${x}를 넣어요. y = ${prod} ÷ ${x} = ${k}`),
       { skill: SK.calc, visual: V.hyper(prod) });
   }), 8));
 
   units.push(makeUnit("평면도형의 성질", "📐", 8, gen(40, () => {
     const n = rint(3, 12);
     if (L.rng() < 0.5) {
-      return numQ(`${n}각형의 내각의 크기의 합은? (단위 °)`, (n - 2) * 180,
-        `n각형의 내각의 합 = (n - 2) × 180°\n(${n} - 2) × 180 = ${(n - 2) * 180}°`,
+      return numQ(tp("ab3d2f03", [n], `${n}각형의 내각의 크기의 합은? (단위 °)`), (n - 2) * 180,
+        tp("50ddbff4", [n, (n - 2) * 180], `n각형의 내각의 합 = (n - 2) × 180°\n(${n} - 2) × 180 = ${(n - 2) * 180}°`),
         { unit: "°", skill: SK.shape, visual: V.ngon(n, 0) });
     }
-    return numQ(`${n}각형의 대각선의 개수는?`, (n * (n - 3)) / 2,
-      `대각선 개수 = n(n-3)/2 = ${n}×${n - 3}/2 = ${(n * (n - 3)) / 2}개`,
+    return numQ(tp("a257284f", [n], `${n}각형의 대각선의 개수는?`), (n * (n - 3)) / 2,
+      tp("6fa548ec", [n, n - 3, (n * (n - 3)) / 2], `대각선 개수 = n(n-3)/2 = ${n}×${n - 3}/2 = ${(n * (n - 3)) / 2}개`),
       { skill: SK.shape, visual: V.ngon(n, 1) });
   }), 8));
 
   units.push(makeUnit("입체도형의 겉넓이와 부피", "🧊", 8, gen(35, () => {
     const r = rint(2, 9), h = rint(2, 12);
-    return numQ(`밑면의 반지름 ${r}, 높이 ${h}인 원기둥의 부피는? (원주율 3.14)`,
+    return numQ(tp("8bf8943f", [r, h], `밑면의 반지름 ${r}, 높이 ${h}인 원기둥의 부피는? (원주율 3.14)`),
       Math.round(3.14 * r * r * h * 100) / 100,
-      `원기둥의 부피 = 밑넓이 × 높이 = (${r}×${r}×3.14) × ${h} = ${Math.round(3.14 * r * r * h * 100) / 100}`,
+      tp("239800f8", [r, r, h, Math.round(3.14 * r * r * h * 100) / 100], `원기둥의 부피 = 밑넓이 × 높이 = (${r}×${r}×3.14) × ${h} = ${Math.round(3.14 * r * r * h * 100) / 100}`),
       { skill: SK.measure, visual: V.geomCyl(r, h) });
   }), 8));
 
@@ -129,9 +127,9 @@ function middle1() {
     const values = labels.map(() => rint(3, 25));
     const sum = values.reduce((s, v) => s + v, 0);
     const i = rint(0, 3);
-    return numQ(`${labels[i]}의 상대도수는? (소수 둘째 자리까지)`,
+    return numQ(tp("93ad49ff", [labels[i]], `${labels[i]}의 상대도수는? (소수 둘째 자리까지)`),
       Math.round((values[i] / sum) * 100) / 100,
-      `상대도수 = 그 계급의 도수 ÷ 전체 도수 = ${values[i]} ÷ ${sum} ≈ ${Math.round((values[i] / sum) * 100) / 100}`,
+      tp("d02e9c3e", [values[i], sum, Math.round((values[i] / sum) * 100) / 100], `상대도수 = 그 계급의 도수 ÷ 전체 도수 = ${values[i]} ÷ ${sum} ≈ ${Math.round((values[i] / sum) * 100) / 100}`),
       { visual: V.barGraph(labels, values), skill: SK.data });
   }), 8));
 
@@ -145,18 +143,18 @@ function middle2() {
   units.push(makeUnit("지수법칙", "🔢", 9, gen(45, () => {
     const a = rint(2, 9), m = rint(2, 6), n = rint(2, 6);
     if (L.rng() < 0.5) {
-      return numQ(`${a}^${m} × ${a}^${n} 을 ${a}^k 로 나타낼 때 k는?`, m + n,
-        `밑이 같은 거듭제곱의 곱은 지수를 더해요. ${m} + ${n} = ${m + n}`, { skill: SK.calc });
+      return numQ(tp("bfcac252", [a, m, a, n, a], `${a}^${m} × ${a}^${n} 을 ${a}^k 로 나타낼 때 k는?`), m + n,
+        tp("b12f4a19", [m, n, m + n], `밑이 같은 거듭제곱의 곱은 지수를 더해요. ${m} + ${n} = ${m + n}`), { skill: SK.calc });
     }
-    return numQ(`(${a}^${m})^${n} 을 ${a}^k 로 나타낼 때 k는?`, m * n,
-      `거듭제곱의 거듭제곱은 지수를 곱해요. ${m} × ${n} = ${m * n}`, { skill: SK.calc });
+    return numQ(tp("83a279a5", [a, m, n, a], `(${a}^${m})^${n} 을 ${a}^k 로 나타낼 때 k는?`), m * n,
+      tp("93741444", [m, n, m * n], `거듭제곱의 거듭제곱은 지수를 곱해요. ${m} × ${n} = ${m * n}`), { skill: SK.calc });
   }), 10));
 
   units.push(makeUnit("일차부등식", "⚖️", 9, gen(40, () => {
     const a = rint(2, 9), x = rint(-8, 8), b = rint(-12, 12);
     const c = a * x + b;
-    return numQ(`${a}x ${b >= 0 ? "+ " + b : "- " + -b} > ${c} 를 만족하는 x의 범위는 x > ? `, x,
-      `양변에서 ${b}를 ${b >= 0 ? "빼면" : "더하면"} ${a}x > ${c - b}\n양변을 양수 ${a}로 나누면 x > ${x}\n(음수로 나눌 때는 부등호 방향이 바뀌어요!)`,
+    return numQ(tp("f5c65837", [a, b >= 0 ? "+ " + b : "- " + -b, c], `${a}x ${b >= 0 ? "+ " + b : "- " + -b} > ${c} 를 만족하는 x의 범위는 x > ? `), x,
+      tp("104b2419", [b, b >= 0 ? "빼면" : "더하면", a, c - b, a, x], `양변에서 ${b}를 ${b >= 0 ? "빼면" : "더하면"} ${a}x > ${c - b}\n양변을 양수 ${a}로 나누면 x > ${x}\n(음수로 나눌 때는 부등호 방향이 바뀌어요!)`),
       { skill: SK.calc, visual: V.ineq(x) });
   }), 10));
 
@@ -165,9 +163,9 @@ function middle2() {
     const a = rint(1, 5), b = rint(1, 5), c = rint(1, 5), d = rint(1, 5);
     if (a * d - b * c === 0) return null;
     return numQ(
-      `${a}x + ${b}y = ${a * x + b * y}\n${c}x + ${d}y = ${c * x + d * y}\n일 때 x의 값은?`,
+      tp("69c8bd83", [a, b, a * x + b * y, c, d, c * x + d * y], `${a}x + ${b}y = ${a * x + b * y}\n${c}x + ${d}y = ${c * x + d * y}\n일 때 x의 값은?`),
       x,
-      `가감법으로 y를 없애요.\n첫 식 × ${d}, 둘째 식 × ${b} 한 뒤 빼면 x = ${x}\n대입하면 y = ${y}예요.`,
+      tp("593dd3e4", [d, b, x, y], `가감법으로 y를 없애요.\n첫 식 × ${d}, 둘째 식 × ${b} 한 뒤 빼면 x = ${x}\n대입하면 y = ${y}예요.`),
       { skill: SK.calc, visual: V.line2(-a / b, (a * x + b * y) / b, -c / d, (c * x + d * y) / d, x, y) }
     );
   }), 10));
@@ -176,12 +174,12 @@ function middle2() {
     const a = rint(-5, 5) || 2, b = rint(-9, 9), x = rint(-5, 5);
     const t = L.rng();
     if (t < 0.5) {
-      return numQ(`y = ${a}x ${b >= 0 ? "+ " + b : "- " + -b} 에서 x = ${x}일 때 y는?`, a * x + b,
-        `x = ${x}을 대입해요. y = ${a}×${x} ${b >= 0 ? "+ " + b : "- " + -b} = ${a * x + b}`,
+      return numQ(tp("f01075e0", [a, b >= 0 ? "+ " + b : "- " + -b, x], `y = ${a}x ${b >= 0 ? "+ " + b : "- " + -b} 에서 x = ${x}일 때 y는?`), a * x + b,
+        tp("eb66f38d", [x, a, x, b >= 0 ? "+ " + b : "- " + -b, a * x + b], `x = ${x}을 대입해요. y = ${a}×${x} ${b >= 0 ? "+ " + b : "- " + -b} = ${a * x + b}`),
         { skill: SK.calc, visual: V.line(a, b) });
     }
-    return numQ(`y = ${a}x ${b >= 0 ? "+ " + b : "- " + -b} 의 y절편은?`, b,
-      `y절편은 x = 0일 때의 y값이에요. y = ${b}\n기울기는 ${a}이고요.`,
+    return numQ(tp("11a006ee", [a, b >= 0 ? "+ " + b : "- " + -b], `y = ${a}x ${b >= 0 ? "+ " + b : "- " + -b} 의 y절편은?`), b,
+      tp("98d506d9", [b, a], `y절편은 x = 0일 때의 y값이에요. y = ${b}\n기울기는 ${a}이고요.`),
       { skill: SK.calc, visual: V.line(a, b) });
   }), 10));
 
@@ -190,19 +188,19 @@ function middle2() {
     const [a, b, c] = pick(triples);
     const k = rint(1, 3);
     if (L.rng() < 0.6) {
-      return numQ(`직각삼각형의 두 변이 ${a * k}, ${b * k}일 때 빗변의 길이는? (그림 참고)`, c * k,
-        `피타고라스 정리: a² + b² = c²\n${a * k}² + ${b * k}² = ${(a * k) ** 2} + ${(b * k) ** 2} = ${(c * k) ** 2}\n빗변 = ${c * k}`,
+      return numQ(tp("9b01b011", [a * k, b * k], `직각삼각형의 두 변이 ${a * k}, ${b * k}일 때 빗변의 길이는? (그림 참고)`), c * k,
+        tp("29b3af3f", [a * k, b * k, (a * k) ** 2, (b * k) ** 2, (c * k) ** 2, c * k], `피타고라스 정리: a² + b² = c²\n${a * k}² + ${b * k}² = ${(a * k) ** 2} + ${(b * k) ** 2} = ${(c * k) ** 2}\n빗변 = ${c * k}`),
         { skill: SK.shape, visual: V.rtri(`${a * k}`, `${b * k}`, "?") });
     }
-    return numQ(`빗변이 ${c * k}, 한 변이 ${a * k}인 직각삼각형의 나머지 변은?`, b * k,
-      `c² - a² = b²\n${(c * k) ** 2} - ${(a * k) ** 2} = ${(b * k) ** 2}\n나머지 변 = ${b * k}`,
+    return numQ(tp("05c967bb", [c * k, a * k], `빗변이 ${c * k}, 한 변이 ${a * k}인 직각삼각형의 나머지 변은?`), b * k,
+      tp("bc1b4161", [(c * k) ** 2, (a * k) ** 2, (b * k) ** 2, b * k], `c² - a² = b²\n${(c * k) ** 2} - ${(a * k) ** 2} = ${(b * k) ** 2}\n나머지 변 = ${b * k}`),
       { skill: SK.shape, visual: V.rtri(`${a * k}`, "?", `${c * k}`) });
   }), 10));
 
   units.push(makeUnit("도형의 닮음", "🔺", 9, gen(35, () => {
     const k = rint(2, 5), a = rint(2, 12);
-    return numQ(`닮음비가 1 : ${k}인 두 도형에서 작은 도형의 한 변이 ${a}일 때 큰 도형의 대응변은?`, a * k,
-      `닮음비가 1 : ${k}이므로 대응변도 ${k}배예요. ${a} × ${k} = ${a * k}\n(넓이는 ${k * k}배가 돼요)`,
+    return numQ(tp("05d5a936", [k, a], `닮음비가 1 : ${k}인 두 도형에서 작은 도형의 한 변이 ${a}일 때 큰 도형의 대응변은?`), a * k,
+      tp("101dec85", [k, k, a, k, a * k, k * k], `닮음비가 1 : ${k}이므로 대응변도 ${k}배예요. ${a} × ${k} = ${a * k}\n(넓이는 ${k * k}배가 돼요)`),
       { skill: SK.shape });
   }), 8));
 
@@ -210,16 +208,16 @@ function middle2() {
     const t = L.rng();
     if (t < 0.4) {
       const n = rint(2, 6);
-      return numQ(`주사위를 한 번 던져 ${n} 이하의 눈이 나올 확률은? (기약분수의 분자)`,
+      return numQ(tp("fb01043c", [n], `주사위를 한 번 던져 ${n} 이하의 눈이 나올 확률은? (기약분수의 분자)`),
         reduce(n, 6)[0],
-        `${n} 이하는 ${n}가지, 전체는 6가지예요. ${n}/6 = ${reduce(n, 6)[0]}/${reduce(n, 6)[1]}`,
+        tp("4fcaf9c5", [n, n, n, reduce(n, 6)[0], reduce(n, 6)[1]], `${n} 이하는 ${n}가지, 전체는 6가지예요. ${n}/6 = ${reduce(n, 6)[0]}/${reduce(n, 6)[1]}`),
         { skill: SK.data, visual: V.dice(n) });
     }
     const r = rint(2, 8), b = rint(2, 8);
     const [rn, rd] = reduce(r, r + b);
-    return numQ(`빨강 ${r}개, 파랑 ${b}개인 주머니에서 하나를 꺼낼 때 빨강일 확률은? (기약분수의 분자)`,
+    return numQ(tp("34aaa693", [r, b], `빨강 ${r}개, 파랑 ${b}개인 주머니에서 하나를 꺼낼 때 빨강일 확률은? (기약분수의 분자)`),
       rn,
-      `전체 ${r + b}개 중 빨강 ${r}개예요. ${r}/${r + b} = ${rn}/${rd}`,
+      tp("bbcd0e09", [r + b, r, r, r + b, rn, rd], `전체 ${r + b}개 중 빨강 ${r}개예요. ${r}/${r + b} = ${rn}/${rd}`),
       { skill: SK.data, visual: V.bag(r, b) });
   }), 8));
 
@@ -233,21 +231,21 @@ function middle3() {
   units.push(makeUnit("제곱근과 실수", "√", 10, gen(45, () => {
     const n = rint(2, 20);
     if (L.rng() < 0.5) {
-      return numQ(`√${n * n} 의 값은?`, n,
-        `${n} × ${n} = ${n * n}이므로 √${n * n} = ${n}이에요.`,
+      return numQ(tp("421f0115", [n * n], `√${n * n} 의 값은?`), n,
+        tp("c10c073d", [n, n, n * n, n * n, n], `${n} × ${n} = ${n * n}이므로 √${n * n} = ${n}이에요.`),
         { skill: SK.number, visual: V.sqarea(n * n) });
     }
     const a = rint(2, 9), b = rint(2, 9);
-    return numQ(`√${a * a * b} = k√${b} 일 때 k는?`, a,
-      `√${a * a * b} = √(${a * a} × ${b}) = ${a}√${b}\nk = ${a}예요.`, { skill: SK.number });
+    return numQ(tp("7fa435ba", [a * a * b, b], `√${a * a * b} = k√${b} 일 때 k는?`), a,
+      tp("4bd516c4", [a * a * b, a * a, b, a, b, a], `√${a * a * b} = √(${a * a} × ${b}) = ${a}√${b}\nk = ${a}예요.`), { skill: SK.number });
   }), 10));
 
   units.push(makeUnit("인수분해", "🧩", 10, gen(45, () => {
     const p = rint(1, 9), q = rint(1, 9);
     return textQ(
-      `x² + ${p + q}x + ${p * q} 을 인수분해하면? (예: (x+2)(x+3))`,
+      tp("fdef4e9b", [p + q, p * q], `x² + ${p + q}x + ${p * q} 을 인수분해하면? (예: (x+2)(x+3))`),
       `(x+${p})(x+${q})`,
-      `합이 ${p + q}, 곱이 ${p * q}인 두 수를 찾아요 → ${p}과 ${q}\n답: (x+${p})(x+${q})`,
+      tp("7fc38659", [p + q, p * q, p, q, p, q], `합이 ${p + q}, 곱이 ${p * q}인 두 수를 찾아요 → ${p}과 ${q}\n답: (x+${p})(x+${q})`),
       { alts: [`(x+${q})(x+${p})`], skill: SK.calc }
     );
   }), 10));
@@ -256,9 +254,9 @@ function middle3() {
     const p = rint(1, 9), q = rint(1, 9);
     // (x-p)(x-q) = 0 → x² -(p+q)x + pq = 0
     return numQ(
-      `x² - ${p + q}x + ${p * q} = 0 의 두 근 중 큰 값은?`,
+      tp("ed66d760", [p + q, p * q], `x² - ${p + q}x + ${p * q} = 0 의 두 근 중 큰 값은?`),
       Math.max(p, q),
-      `인수분해하면 (x-${p})(x-${q}) = 0\n근은 ${p}, ${q}이고 큰 값은 ${Math.max(p, q)}예요.`,
+      tp("20a81651", [p, q, p, q, Math.max(p, q)], `인수분해하면 (x-${p})(x-${q}) = 0\n근은 ${p}, ${q}이고 큰 값은 ${Math.max(p, q)}예요.`),
       { skill: SK.calc, visual: V.poly([1, -(p + q), p * q]) }
     );
   }), 10));
@@ -267,14 +265,14 @@ function middle3() {
     const a = rint(1, 4), p = rint(-5, 5), q = rint(-9, 9);
     const t = L.rng();
     if (t < 0.5) {
-      return numQ(`y = ${a}(x ${p >= 0 ? "- " + p : "+ " + -p})² ${q >= 0 ? "+ " + q : "- " + -q} 의 꼭짓점의 x좌표는?`,
+      return numQ(tp("f2a44920", [a, p >= 0 ? "- " + p : "+ " + -p, q >= 0 ? "+ " + q : "- " + -q], `y = ${a}(x ${p >= 0 ? "- " + p : "+ " + -p})² ${q >= 0 ? "+ " + q : "- " + -q} 의 꼭짓점의 x좌표는?`),
         p,
-        `y = a(x-p)² + q 꼴에서 꼭짓점은 (p, q)예요.\n꼭짓점은 (${p}, ${q})이고 x좌표는 ${p}이에요.`,
+        tp("accf5550", [p, q, p], `y = a(x-p)² + q 꼴에서 꼭짓점은 (p, q)예요.\n꼭짓점은 (${p}, ${q})이고 x좌표는 ${p}이에요.`),
         { skill: SK.calc, visual: V.parabola(a, p, q) });
     }
     const x = rint(-4, 6);
-    return numQ(`y = ${a}x² 에서 x = ${x}일 때 y는?`, a * x * x,
-      `x = ${x}을 대입해요. y = ${a} × ${x}² = ${a} × ${x * x} = ${a * x * x}`, { skill: SK.calc });
+    return numQ(tp("f666532f", [a, x], `y = ${a}x² 에서 x = ${x}일 때 y는?`), a * x * x,
+      tp("03a38c23", [x, a, x, a, x * x, a * x * x], `x = ${x}을 대입해요. y = ${a} × ${x}² = ${a} × ${x * x} = ${a * x * x}`), { skill: SK.calc });
   }), 10));
 
   units.push(makeUnit("삼각비", "📐", 10, gen(40, () => {
@@ -283,23 +281,23 @@ function middle3() {
       ["sin", 90, "1"], ["cos", 0, "1"], ["sin", 0, "0"], ["cos", 90, "0"],
     ];
     const [f, deg, val] = pick(table);
-    return textQ(`${f} ${deg}° 의 값은? (분수는 1/2 처럼)`, val,
-      `특수각의 삼각비예요. ${f}${deg}° = ${val}\n30°·45°·60°의 값은 외워 두면 편해요.`,
+    return textQ(tp("d6fcc9c2", [f, deg], `${f} ${deg}° 의 값은? (분수는 1/2 처럼)`), val,
+      tp("2d7284ee", [f, deg, val], `특수각의 삼각비예요. ${f}${deg}° = ${val}\n30°·45°·60°의 값은 외워 두면 편해요.`),
       { skill: SK.shape, visual: V.ucircle(deg) });
   }), 8));
 
   units.push(makeUnit("원의 성질", "⭕", 10, gen(35, () => {
     const c = rint(10, 80);
-    return numQ(`원에서 중심각이 ${c * 2}°인 호에 대한 원주각은? (단위 °)`, c,
-      `원주각은 중심각의 절반이에요. ${c * 2}° ÷ 2 = ${c}°`,
+    return numQ(tp("4f8bebb2", [c * 2], `원에서 중심각이 ${c * 2}°인 호에 대한 원주각은? (단위 °)`), c,
+      tp("1f65cd70", [c * 2, c], `원주각은 중심각의 절반이에요. ${c * 2}° ÷ 2 = ${c}°`),
       { unit: "°", skill: SK.shape, visual: V.inscribed(c * 2) });
   }), 8));
 
   units.push(makeUnit("통계 (대푯값)", "📊", 10, gen(35, () => {
     const n = 5;
     const vals = Array.from({ length: n }, () => rint(1, 30)).sort((a, b) => a - b);
-    return numQ(`${vals.join(", ")}의 중앙값은?`, vals[2],
-      `크기 순으로 늘어놓았을 때 가운데 값이 중앙값이에요. 세 번째 값 ${vals[2]}이에요.`,
+    return numQ(tp("36f716a4", [vals.join(", ")], `${vals.join(", ")}의 중앙값은?`), vals[2],
+      tp("3256a913", [vals[2]], `크기 순으로 늘어놓았을 때 가운데 값이 중앙값이에요. 세 번째 값 ${vals[2]}이에요.`),
       { visual: V.barGraph(vals.map((_, i) => `${i + 1}`), vals), skill: SK.data });
   }), 8));
 

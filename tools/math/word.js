@@ -1,7 +1,7 @@
 // 문장제 생성기 — 학년별로 상황을 바꿔 가며 낸다.
 // 실력 대시보드의 "🧩 문장제" 영역을 채우는 문제들이다.
 const L = require("./lib");
-const { rint, pick, numQ, V, makeUnit, gen } = L;
+const { tp, rint, pick, numQ, V, makeUnit, gen } = L;
 
 const SK_WORD = "m_word";
 
@@ -22,16 +22,16 @@ function wordAddSub(level, maxN) {
     const b = rint(1, Math.max(1, Math.min(maxN, a)));
     if (L.rng() < 0.55) {
       return numQ(
-        `${who}이(가) ${it.n}을 ${a}개 가지고 있어요.\n친구에게 ${b}개를 더 받았어요.\n${it.n}은 모두 몇 개일까요?`,
+        tp("2a17168e", [who, it.n, a, b, it.n], `${who}이(가) ${it.n}을 ${a}개 가지고 있어요.\n친구에게 ${b}개를 더 받았어요.\n${it.n}은 모두 몇 개일까요?`),
         a + b,
-        `더 받았으니 덧셈이에요.\n${a} + ${b} = ${a + b}개`,
+        tp("4b6b9472", [a, b, a + b], `더 받았으니 덧셈이에요.\n${a} + ${b} = ${a + b}개`),
         { visual: V.emojiOp(it.e, Math.min(a, 8), Math.min(b, 8), "+"), unit: "개", skill: SK_WORD }
       );
     }
     return numQ(
-      `${who}이(가) ${it.n}을 ${a}개 가지고 있어요.\n그중 ${b}개를 동생에게 주었어요.\n남은 ${it.n}은 몇 개일까요?`,
+      tp("af55c367", [who, it.n, a, b, it.n], `${who}이(가) ${it.n}을 ${a}개 가지고 있어요.\n그중 ${b}개를 동생에게 주었어요.\n남은 ${it.n}은 몇 개일까요?`),
       a - b,
-      `주었으니 뺄셈이에요.\n${a} - ${b} = ${a - b}개`,
+      tp("836b321c", [a, b, a - b], `주었으니 뺄셈이에요.\n${a} - ${b} = ${a - b}개`),
       { visual: V.emojiOp(it.e, Math.min(a, 8), Math.min(b, 8), "-"), unit: "개", skill: SK_WORD }
     );
   });
@@ -47,17 +47,17 @@ function wordMulDiv(level) {
     const cnt = rint(2, 9);
     if (L.rng() < 0.5) {
       return numQ(
-        `${place} 한 개에 ${it.n}이 ${per}개씩 들어 있어요.\n${place}가 ${cnt}개 있으면 ${it.n}은 모두 몇 개일까요?`,
+        tp("0689d7b0", [place, it.n, per, place, cnt, it.n], `${place} 한 개에 ${it.n}이 ${per}개씩 들어 있어요.\n${place}가 ${cnt}개 있으면 ${it.n}은 모두 몇 개일까요?`),
         per * cnt,
-        `${per}개씩 ${cnt}묶음이니까 곱셈이에요.\n${per} × ${cnt} = ${per * cnt}개`,
+        tp("fabb8c01", [per, cnt, per, cnt, per * cnt], `${per}개씩 ${cnt}묶음이니까 곱셈이에요.\n${per} × ${cnt} = ${per * cnt}개`),
         { visual: V.array(it.e, cnt, per), unit: "개", skill: SK_WORD }
       );
     }
     const total = per * cnt;
     return numQ(
-      `${who}이(가) ${it.n} ${total}개를 ${cnt}명에게 똑같이 나누어 주려고 해요.\n한 명이 몇 개씩 받을까요?`,
+      tp("242af461", [who, it.n, total, cnt], `${who}이(가) ${it.n} ${total}개를 ${cnt}명에게 똑같이 나누어 주려고 해요.\n한 명이 몇 개씩 받을까요?`),
       per,
-      `똑같이 나누니까 나눗셈이에요.\n${total} ÷ ${cnt} = ${per}개\n확인: ${cnt} × ${per} = ${total}`,
+      tp("ffbb559e", [total, cnt, per, cnt, per, total], `똑같이 나누니까 나눗셈이에요.\n${total} ÷ ${cnt} = ${per}개\n확인: ${cnt} × ${per} = ${total}`),
       { visual: V.array(it.e, cnt, per), unit: "개", skill: SK_WORD }
     );
   });
@@ -72,9 +72,9 @@ function wordTwoStep() {
     const cnt = rint(3, 12);
     const used = rint(2, per * cnt - 1);
     return numQ(
-      `${who}이(가) ${it.n}을 한 상자에 ${per}개씩 ${cnt}상자 샀어요.\n그중 ${used}개를 나누어 주었다면 남은 것은 몇 개일까요?`,
+      tp("064cd500", [who, it.n, per, cnt, used], `${who}이(가) ${it.n}을 한 상자에 ${per}개씩 ${cnt}상자 샀어요.\n그중 ${used}개를 나누어 주었다면 남은 것은 몇 개일까요?`),
       per * cnt - used,
-      `먼저 전체를 구해요. ${per} × ${cnt} = ${per * cnt}개\n나누어 준 것을 빼요. ${per * cnt} - ${used} = ${per * cnt - used}개`,
+      tp("b142acbe", [per, cnt, per * cnt, per * cnt, used, per * cnt - used], `먼저 전체를 구해요. ${per} × ${cnt} = ${per * cnt}개\n나누어 준 것을 빼요. ${per * cnt} - ${used} = ${per * cnt - used}개`),
       { unit: "개", skill: SK_WORD }
     );
   });
@@ -96,18 +96,18 @@ function wordAverageRatio() {
       if (rest < 0 || rest > 100) return null;
       vals.push(rest);
       return numQ(
-        `시험 점수가 ${vals.slice(0, n - 1).join(", ")}점이고 마지막 점수가 ${rest}점이에요.\n평균은 몇 점일까요?`,
+        tp("68b2417e", [vals.slice(0, n - 1).join(", "), rest], `시험 점수가 ${vals.slice(0, n - 1).join(", ")}점이고 마지막 점수가 ${rest}점이에요.\n평균은 몇 점일까요?`),
         avg,
-        `모두 더하면 ${vals.reduce((s, v) => s + v, 0)}점이에요.\n과목이 ${n}개니까 ${vals.reduce((s, v) => s + v, 0)} ÷ ${n} = ${avg}점`,
+        tp("8f5202e0", [vals.reduce((s, v) => s + v, 0), n, vals.reduce((s, v) => s + v, 0), n, avg], `모두 더하면 ${vals.reduce((s, v) => s + v, 0)}점이에요.\n과목이 ${n}개니까 ${vals.reduce((s, v) => s + v, 0)} ÷ ${n} = ${avg}점`),
         { visual: V.barGraph(vals.map((_, i) => `${i + 1}`), vals), unit: "점", skill: SK_WORD }
       );
     }
     const total = rint(2, 20) * 10;
     const pct = rint(1, 9) * 10;
     return numQ(
-      `전체 ${total}명 중 ${pct}%가 안경을 썼어요.\n안경을 쓴 사람은 몇 명일까요?`,
+      tp("5391d387", [total, pct], `전체 ${total}명 중 ${pct}%가 안경을 썼어요.\n안경을 쓴 사람은 몇 명일까요?`),
       (total * pct) / 100,
-      `${pct}% = ${pct}/100 이에요.\n${total} × ${pct} ÷ 100 = ${(total * pct) / 100}명`,
+      tp("d85fd41b", [pct, pct, total, pct, (total * pct) / 100], `${pct}% = ${pct}/100 이에요.\n${total} × ${pct} ÷ 100 = ${(total * pct) / 100}명`),
       { unit: "명", skill: SK_WORD }
     );
   });
@@ -122,9 +122,9 @@ function wordEquation() {
       const x = rint(3, 30);
       const a = rint(2, 6), b = rint(1, 20);
       return numQ(
-        `어떤 수에 ${a}를 곱하고 ${b}를 더했더니 ${a * x + b}이 되었어요.\n어떤 수는 얼마일까요?`,
+        tp("97c89890", [a, b, a * x + b], `어떤 수에 ${a}를 곱하고 ${b}를 더했더니 ${a * x + b}이 되었어요.\n어떤 수는 얼마일까요?`),
         x,
-        `어떤 수를 x라 하면 ${a}x + ${b} = ${a * x + b}\n${a}x = ${a * x}\nx = ${x}`,
+        tp("ce982230", [a, b, a * x + b, a, a * x, x], `어떤 수를 x라 하면 ${a}x + ${b} = ${a * x + b}\n${a}x = ${a * x}\nx = ${x}`),
         { skill: SK_WORD }
       );
     }
@@ -132,17 +132,17 @@ function wordEquation() {
       const apple = rint(2, 9), pear = rint(2, 9);
       const na = rint(2, 8), np = rint(2, 8);
       return numQ(
-        `사과 한 개는 ${apple}00원, 배 한 개는 ${pear}00원이에요.\n사과 ${na}개와 배 ${np}개를 사면 모두 얼마일까요?`,
+        tp("a8920713", [apple, pear, na, np], `사과 한 개는 ${apple}00원, 배 한 개는 ${pear}00원이에요.\n사과 ${na}개와 배 ${np}개를 사면 모두 얼마일까요?`),
         (apple * na + pear * np) * 100,
-        `사과: ${apple}00 × ${na} = ${apple * na * 100}원\n배: ${pear}00 × ${np} = ${pear * np * 100}원\n합: ${(apple * na + pear * np) * 100}원`,
+        tp("c592e397", [apple, na, apple * na * 100, pear, np, pear * np * 100, (apple * na + pear * np) * 100], `사과: ${apple}00 × ${na} = ${apple * na * 100}원\n배: ${pear}00 × ${np} = ${pear * np * 100}원\n합: ${(apple * na + pear * np) * 100}원`),
         { unit: "원", skill: SK_WORD }
       );
     }
     const speed = rint(3, 12), time = rint(2, 9);
     return numQ(
-      `${who}이(가) 시속 ${speed}km로 ${time}시간 동안 걸었어요.\n몇 km를 갔을까요?`,
+      tp("dbc6233c", [who, speed, time], `${who}이(가) 시속 ${speed}km로 ${time}시간 동안 걸었어요.\n몇 km를 갔을까요?`),
       speed * time,
-      `거리 = 속력 × 시간\n${speed} × ${time} = ${speed * time}km`,
+      tp("ddc5e7db", [speed, time, speed * time], `거리 = 속력 × 시간\n${speed} × ${time} = ${speed * time}km`),
       { unit: "km", skill: SK_WORD }
     );
   });

@@ -65,4 +65,385 @@
     <string name="stats_badges">Lencana</string>
     <string name="placement_title">Tes level</string>
     <string name="placement_quit_ask">Keluar dari tes level?</string>
+    <string name="mkind_clock">🕐 Membaca jam</string>
+    <string name="mkind_clock_set">🕐 Atur jarum jam</string>
+    <string name="mkind_group">🧺 Bagi rata</string>
+    <string name="mkind_frac_paint">🍰 Warnai pecahan</string>
+    <string name="mkind_shape_sort">🔺 Kelompokkan bangun</string>
+    <string name="mkind_numline_drag">📏 Cari di garis bilangan</string>
+    <string name="mkind_angle_set">📐 Buat sudut</string>
+    <string name="mkind_balance">⚖️ Seimbangkan timbangan</string>
+    <string name="mkind_bar_build">📊 Bangun diagram</string>
+    <string name="mkind_take_out">➖ Ambil lalu hitung</string>
+    <string name="mkind_gather">➕ Kumpulkan lalu hitung</string>
+    <string name="mkind_shapes">🔺 Bangun</string>
+    <string name="mkind_fraction">🍰 Pecahan</string>
+    <string name="mkind_bar_graph">📊 Diagram</string>
+    <string name="mkind_numline">📏 Garis bilangan</string>
+    <string name="mkind_geom">📐 Geometri</string>
+    <string name="mkind_coord3d">🧊 Koordinat 3D</string>
+    <string name="mkind_coord2d">📈 Bidang koordinat</string>
+    <string name="mkind_angle">📐 Sudut</string>
+    <string name="mkind_div">➗ Pembagian</string>
+    <string name="mkind_mul">✖️ Perkalian</string>
+    <string name="mkind_sub">➖ Pengurangan</string>
+    <string name="mkind_add">➕ Penjumlahan</string>
+    <string name="mkind_math">🔢 Matematika</string>
+    <string name="mkind_picture">🐥 Soal bergambar</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_24083678">Tulis %1$s : %2$s sebagai perbandingan bilangan asli paling sederhana: %3$s : ?</string>
+    <string name="tpl_33585846">Faktor prima terbesar dari %1$s adalah?</string>
+    <string name="tpl_35882540">Penyebutnya sama, jadi jumlahkan pembilangnya. %1$s + %2$s = %3$s, hasilnya %4$s/%5$s.</string>
+    <string name="tpl_66531960">Satuan: %1$s + %2$s = %3$s %4$s\nJawabannya %5$s.</string>
+    <string name="tpl_93741444">Pangkat dari pangkat: kalikan eksponennya. %1$s × %2$s = %3$s</string>
+    <string name="tpl_a84fb314">Ada %2$s kelompok berisi %1$s. %3$s = %4$s\nPerkalian %5$s: %6$s×%7$s=%8$s</string>
+    <string name="tpl_40b5583a">Hitung gambarnya. Ada berapa semuanya?</string>
+    <string name="tpl_4426d4f7">%1$s ditambah %2$s jadi %3$s. Mulai dari %4$s lalu hitung %5$s lagi.</string>
+    <string name="tpl_e8755f8c">Hitung satu per satu: %1$s. Semuanya %2$s. %3$s</string>
+    <string name="tpl_412438c7">%1$s dikurangi %2$s sisa %3$s.</string>
+    <string name="tpl_83f30dfe">%1$s Jawabannya %2$s.</string>
+    <string name="tpl_bf977bf4">Bagi %1$s menjadi %2$s kelompok sama banyak: %3$s tiap kelompok.\nPeriksa: %4$s × %5$s = %6$s</string>
+    <string name="tpl_9391fb31">Buat satu puluhan lalu hitung sisanya: 10 + %1$s = %2$s.</string>
+    <string name="tpl_9e616d48">Hitung ada berapa gambar semuanya.</string>
+    <string name="tpl_e94b638c">Sisi mana yang lebih banyak?</string>
+    <string name="tpl_56861fce">Seret tiap bangun ke keranjang bernama sesuai. (%1$s)</string>
+    <string name="tpl_e2813a9a">%1$s = %2$s\nFaktor prima terbesar adalah %3$s.</string>
+    <string name="tpl_97c89890">Suatu bilangan dikali %1$s lalu ditambah %2$s hasilnya %3$s.\nBilangan itu berapa?</string>
+    <string name="tpl_ce982230">Misalkan bilangan itu x: %1$sx + %2$s = %3$s\n%4$sx = %5$s\nx = %6$s</string>
+    <string name="tpl_1fa89b68">Jika f(x) = %1$s + %2$s %3$s, berapa f\'(%4$s)?</string>
+    <string name="tpl_91bf4e00">Jika %1$sx %2$s = %3$s, berapa x?</string>
+    <string name="tpl_ee5eec9f">%2$s %1$s di kedua ruas: %3$sx = %4$s\nBagi kedua ruas dengan %5$s: x = %6$s.</string>
+    <string name="tpl_5c41b06f">Kalikan dulu: %1$s × %2$s = %3$s, lalu %4$s + %5$s = %6$s</string>
+    <string name="tpl_6a454edc">Berapa sisa pembagian f(x) = %1$s %2$sx %3$s oleh x %4$s?</string>
+    <string name="tpl_dd646a18">Teorema sisa: f(x) dibagi (x - k) bersisa f(k).\nf(%1$s) = %2$s×%3$s %4$s %5$s×%6$s %7$s %8$s = %9$s</string>
+    <string name="tpl_e163b535">%1$s/%2$s ÷ %3$s/%4$s = ? (pembilang pecahan paling sederhana)</string>
+    <string name="tpl_f64e7111">Untuk membagi, balik pecahan kedua lalu kalikan. %1$s/%2$s × %3$s/%4$s = %5$s/%6$s\nDisederhanakan menjadi %7$s/%8$s.</string>
+    <string name="tpl_593dd3e4">Hilangkan y dengan eliminasi.\nKalikan persamaan pertama dengan %1$s dan kedua dengan %2$s lalu kurangkan: x = %3$s\nSubstitusi menghasilkan y = %4$s.</string>
+    <string name="tpl_69c8bd83">%1$sx + %2$sy = %3$s\n%4$sx + %5$sy = %6$s\nBerapa nilai x?</string>
+    <string name="tpl_856c631f">Pembagi bersama terbesar dari %1$s dan %2$s adalah %3$s.</string>
+    <string name="tpl_860d863a">Pecah %1$s menjadi %2$s dan %3$s lalu kalikan.\n%4$s×%5$s=%6$s, %7$s×%8$s=%9$s\nDijumlahkan hasilnya %10$s.</string>
+    <string name="tpl_d0025612">Berapa FPB dari %1$s dan %2$s?</string>
+    <string name="tpl_f0f11947">Berapa diskriminan D dari %1$s %2$sx %3$s = 0?</string>
+    <string name="tpl_2a17168e">%1$s punya %3$s %2$s.\nTemannya memberi %4$s lagi.\nAda berapa %5$s semuanya?</string>
+    <string name="tpl_4b6b9472">Mendapat tambahan berarti penjumlahan.\n%1$s + %2$s = %3$s</string>
+    <string name="tpl_7182fe6c">Mana yang lebih besar, %1$s atau %2$s?</string>
+    <string name="tpl_064cd500">%1$s membeli %4$s kotak %2$s, tiap kotak berisi %3$s.\nJika %5$s dibagikan, sisa berapa?</string>
+    <string name="tpl_b142acbe">Cari totalnya dulu: %1$s × %2$s = %3$s\nLalu kurangi yang dibagikan: %4$s - %5$s = %6$s</string>
+    <string name="tpl_09881b6d">Sederhanakan %1$s/%2$s. Berapa pembilangnya?</string>
+    <string name="tpl_b9de180a">Bagi pembilang dan penyebut dengan FPB %1$s: %2$s÷%3$s=%4$s, %5$s÷%6$s=%7$s\nJawabannya %8$s/%9$s.</string>
+    <string name="tpl_104b2419">%2$s %1$s di kedua ruas: %3$sx &gt; %4$s\nBagi dengan bilangan positif %5$s: x &gt; %6$s\n(Membagi dengan bilangan negatif membalik tanda!)</string>
+    <string name="tpl_302b4ab7">Berapa sisa dari %1$s ÷ %2$s?</string>
+    <string name="tpl_7781a29b">%1$s ÷ %2$s = %3$s sisa %4$s\nPeriksa: %5$s × %6$s + %7$s = %8$s</string>
+    <string name="tpl_421eaae2">Saat x = %1$s, berapa nilai %2$sx + %3$s?</string>
+    <string name="tpl_c746b533">Ganti x dengan %1$s: %2$s × %3$s + %4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_520190ba">Berapa nilai lim(x→%1$s) (%2$s %3$s)?</string>
+    <string name="tpl_97b6e789">Fungsi polinomial kontinu, jadi tinggal substitusi. %1$s×%2$s %3$s %4$s = %5$s</string>
+    <string name="tpl_8154d16f">%1$s/%2$s × %3$s/%4$s = ? (pembilang pecahan paling sederhana)</string>
+    <string name="tpl_8c032f04">Kalikan pembilang dengan pembilang, penyebut dengan penyebut. %1$s×%2$s=%3$s, %4$s×%5$s=%6$s\n%7$s/%8$s disederhanakan menjadi %9$s/%10$s.</string>
+    <string name="tpl_7b8145cd">%1$s × %2$s = %3$s\n%4$s × %5$s = %6$s\nDijumlahkan hasilnya %7$s.</string>
+    <string name="tpl_d091ab21">Geser koma desimalnya lalu bagi. %1$s ÷ %2$s = %3$s</string>
+    <string name="tpl_f5c65837">Untuk x berapa %1$sx %2$s &gt; %3$s berlaku? x &gt; ?</string>
+    <string name="tpl_af55c367">%1$s punya %3$s %2$s.\nDiberikan %4$s kepada adiknya.\nSisa berapa %5$s?</string>
+    <string name="tpl_836b321c">Memberi berarti pengurangan.\n%1$s - %2$s = %3$s</string>
+    <string name="tpl_e48e2ef1">Ada berapa angka nol pada %1$s puluh ribu? (1 = 10000)</string>
+    <string name="tpl_2526ffa7">1 puluh ribu = 10000, ada empat nol. Jadi %1$s = %2$s.</string>
+    <string name="tpl_dbc6233c">%1$s berjalan %3$s jam dengan kecepatan %2$s km per jam.\nBerapa km yang ditempuh?</string>
+    <string name="tpl_ddc5e7db">Jarak = kecepatan × waktu\n%1$s × %2$s = %3$s km</string>
+    <string name="tpl_220e81e1">Tinggi batang %1$s pada skala adalah %2$s.</string>
+    <string name="tpl_c72ea029">Berapa nilai untuk %1$s?</string>
+    <string name="tpl_3256a913">Urutkan nilainya; yang di tengah adalah median, yaitu nilai ketiga %1$s.</string>
+    <string name="tpl_36f716a4">Berapa median dari %1$s?</string>
+    <string name="tpl_829dc879">Berapa rata-rata dari %1$s?</string>
+    <string name="tpl_8caeb0c9">Jumlahnya %1$s dan ada %2$s data, jadi %3$s ÷ %4$s = %5$s.</string>
+    <string name="tpl_3662d39b">%1$s + %2$s + %3$s = %4$s.</string>
+    <string name="tpl_4729593b">%1$s m %2$s cm sama dengan berapa cm?</string>
+    <string name="tpl_bc1684cd">1 m adalah 100 cm. %1$s m = %2$s cm, ditambah %3$s cm jadi %4$s cm.</string>
+    <string name="tpl_a04ee28d">Berapa %% dari %1$s adalah %2$s?</string>
+    <string name="tpl_50dc7e5e">Rasio = %1$s ÷ %2$s = %3$s\nKalikan 100 menjadi %4$s%%.</string>
+    <string name="tpl_8d5a1394">Sejajarkan koma desimalnya lalu jumlahkan. %1$s + %2$s = %3$s</string>
+    <string name="tpl_c4b2f470">Bilangan berapa yang terdiri dari %1$s ratusan, %2$s puluhan, dan %3$s satuan?</string>
+    <string name="tpl_efe178f9">Gambar mana yang datang setelah %1$s?</string>
+    <string name="tpl_3a5ccfd2">Mana yang paling banyak?</string>
+    <string name="tpl_f9b576f1">Jumlahkan siswa keempat kelas. Ada berapa orang?</string>
+    <string name="tpl_afd6159f">%1$s = %2$s orang.</string>
+    <string name="tpl_0c5cc77b">Lengkapi diagram batang dari hasil survei.\n%1$s</string>
+    <string name="tpl_35d42406">Lengkapi diagram batang dari tabel.\n%1$s</string>
+    <string name="tpl_811c3b3f">Tinggi tiap batang adalah jumlahnya.\n%1$s</string>
+    <string name="tpl_214da790">Tinggi tiap batang adalah jumlah orang.\nTertinggi %1$s dan terendah %2$s.</string>
+    <string name="tpl_93ad49ff">Berapa frekuensi relatif %1$s? (dua angka desimal)</string>
+    <string name="tpl_d02e9c3e">Frekuensi relatif = frekuensi kelas ÷ frekuensi total = %1$s ÷ %2$s ≈ %3$s</string>
+    <string name="tpl_2baf4762">Jam menunjukkan pukul %1$s lewat berapa menit? (tulis menitnya saja)</string>
+    <string name="tpl_0b6616c7">Saat jarum panjang menunjuk %1$s, itu %2$s × 5 = %3$s menit.</string>
+    <string name="tpl_516a736a">Seret jarum jam untuk menunjukkan pukul %1$s:%2$s.</string>
+    <string name="tpl_5485a85b">Jarum panjang ke %1$s ÷ 5 = %2$s, yaitu angka %3$s.\nJarum pendek di %4$s, jadi pukul %5$s:%6$s.</string>
+    <string name="tpl_a546bcec">Masukkan %2$s dan %3$s %1$s ke dalam kotak. Ada berapa semuanya? (%4$s + %5$s)</string>
+    <string name="tpl_fcc08c5c">Dari %2$s %1$s, %3$s pulang ke rumah. Pulangkan %4$s lalu hitung sisanya. (%5$s - %6$s)</string>
+    <string name="tpl_e21a2df7">Atur x agar timbangan seimbang. (%1$sx + %2$s = %3$s)</string>
+    <string name="tpl_a8920713">Satu apel harganya %1$s00 won dan satu pir %2$s00 won.\nBerapa harga %3$s apel dan %4$s pir?</string>
+    <string name="tpl_c592e397">Apel: %1$s00 × %2$s = %3$s won\nPir: %4$s00 × %5$s = %6$s won\nTotal: %7$s won</string>
+    <string name="tpl_f2a44920">Berapa absis titik puncak y = %1$s(x %2$s)² %3$s?</string>
+    <string name="tpl_accf5550">Dalam bentuk y = a(x-p)² + q, titik puncaknya (p, q).\nDi sini puncaknya (%1$s, %2$s), jadi absisnya %3$s.</string>
+    <string name="tpl_ee1f2bd2">Berapa jari-jari lingkaran (x %1$s)² + (y %2$s)² = %3$s?</string>
+    <string name="tpl_c74c8c70">Dalam bentuk (x-a)² + (y-b)² = r², r² = %1$s sehingga jari-jarinya %2$s. Pusatnya (%3$s, %4$s).</string>
+    <string name="tpl_da4a9448">Berapa suku ke-%3$s barisan aritmetika dengan suku pertama %1$s dan beda %2$s?</string>
+    <string name="tpl_6eddd33a">Berapa jumlah %3$s suku pertama barisan aritmetika dengan suku pertama %1$s dan beda %2$s?</string>
+    <string name="tpl_bfcac252">Jika %1$s^%2$s × %3$s^%4$s ditulis sebagai %5$s^k, berapa k?</string>
+    <string name="tpl_b12f4a19">Perkalian pangkat dengan basis sama: jumlahkan eksponennya. %1$s + %2$s = %3$s</string>
+    <string name="tpl_770018a9">Berapa nilai ∫₀^%1$s %2$s^%3$s dx?</string>
+    <string name="tpl_8934d567">Antiturunannya adalah %1$sx^%2$s/%3$s.\nSubstitusi %4$s: %5$s×%6$s/%7$s = %8$s</string>
+    <string name="tpl_09b4928a">%1$s/%2$s + %3$s/%4$s = ? (tulis pembilangnya saja)</string>
+    <string name="tpl_60f9ab29">Perhatikan tandanya. %1$s + %2$s = %3$s\n%4$s</string>
+    <string name="tpl_2b4e8c2f">Aturan tanda: (−)×(−)=(+), (−)×(+)=(−)\n%1$s × %2$s = %3$s</string>
+    <string name="tpl_f01075e0">Pada y = %1$sx %2$s, berapa y saat x = %3$s?</string>
+    <string name="tpl_eb66f38d">Substitusi x = %1$s. y = %2$s×%3$s %4$s = %5$s</string>
+    <string name="tpl_242af461">%1$s ingin membagi %3$s %2$s sama rata kepada %4$s orang.\nTiap orang dapat berapa?</string>
+    <string name="tpl_ffbb559e">Membagi rata berarti pembagian.\n%1$s ÷ %2$s = %3$s\nPeriksa: %4$s × %5$s = %6$s</string>
+    <string name="tpl_534edc60">Bagi %1$s menjadi %2$s kelompok sama: %3$s tiap kelompok.\nPeriksa: %4$s × %5$s = %6$s\nJadi %7$s ÷ %8$s = %9$s.</string>
+    <string name="tpl_d1ce02ac">Bagi %2$s %1$s sama rata ke %3$s keranjang. (%4$s ÷ %5$s)</string>
+    <string name="tpl_83a279a5">Jika (%1$s^%2$s)^%3$s ditulis sebagai %4$s^k, berapa k?</string>
+    <string name="tpl_8bf8943f">Berapa volume tabung dengan jari-jari alas %1$s dan tinggi %2$s? (π = 3,14)</string>
+    <string name="tpl_239800f8">Volume tabung = luas alas × tinggi = (%1$s×%2$s×3,14) × %3$s = %4$s</string>
+    <string name="tpl_5391d387">Dari %1$s orang, %2$s%% memakai kacamata.\nBerapa orang yang memakai kacamata?</string>
+    <string name="tpl_d85fd41b">%1$s%% = %2$s/100.\n%3$s × %4$s ÷ 100 = %5$s orang</string>
+    <string name="tpl_4ea5fbe9">Berapa lim(n→∞) (%1$s + 5)/(%2$s + 2)? (tiga angka desimal)</string>
+    <string name="tpl_29d9a332">Bagi pembilang dan penyebut dengan n. (%1$s + 5/n)/(%2$s + 2/n) → %3$s/%4$s = %5$s\nJawabannya adalah rasio koefisien pangkat tertinggi.</string>
+    <string name="tpl_11a006ee">Berapa titik potong sumbu y dari y = %1$sx %2$s?</string>
+    <string name="tpl_98d506d9">Titik potong sumbu y adalah nilai y saat x = 0: y = %1$s.\nGradiennya %2$s.</string>
+    <string name="tpl_a90c36e4">Berapa hasil kali titik vektor (%1$s, %2$s) dan (%3$s, %4$s)?</string>
+    <string name="tpl_896140d8">Hasil kali titik = x₁x₂ + y₁y₂ = %1$s×%2$s + %3$s×%4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_f47fb815">Berapa volume balok dengan panjang %1$s cm, lebar %2$s cm, dan tinggi %3$s cm?</string>
+    <string name="tpl_4784c950">Volume = panjang × lebar × tinggi = %1$s × %2$s × %3$s = %4$s cm³</string>
+    <string name="tpl_c2343df6">Berapa luas permukaan balok dengan panjang %1$s cm, lebar %2$s cm, dan tinggi %3$s cm?</string>
+    <string name="tpl_6584d973">Luas permukaan = 2 × (%1$s×%2$s + %3$s×%4$s + %5$s×%6$s) = 2 × %7$s = %8$s cm²</string>
+    <string name="tpl_b34194c1">Berapa bilangan dari %1$s puluhan dan %2$s satuan?</string>
+    <string name="tpl_d700c926">%1$s puluhan adalah %2$s, ditambah %3$s menjadi %4$s.</string>
+    <string name="tpl_ab5407fa">%1$s menit %2$s detik sama dengan berapa detik?</string>
+    <string name="tpl_102513fd">1 menit adalah 60 detik. %1$s×60 = %2$s, dan %3$s + %4$s = %5$s detik.</string>
+    <string name="tpl_acf035bc">Berapa kuadrat jarak titik (%1$s, %2$s, %3$s) ke titik asal?</string>
+    <string name="tpl_77d91bdd">Jarak² = x² + y² + z² = %1$s + %2$s + %3$s = %4$s</string>
+    <string name="tpl_e10f7183">Berapa kuadrat jarak antara titik (%1$s, %2$s) dan (%3$s, %4$s)?</string>
+    <string name="tpl_6fb38da8">Jarak² = (x₂-x₁)² + (y₂-y₁)² = %1$s + %2$s = %3$s</string>
+    <string name="tpl_ef261058">Berapa sisi yang dimiliki %1$s?</string>
+    <string name="tpl_435ec8ca">%1$s memiliki %2$s sisi dan %3$s titik sudut.</string>
+    <string name="tpl_68b2417e">Nilai ujiannya %1$s dan nilai terakhir %2$s.\nBerapa rata-ratanya?</string>
+    <string name="tpl_8f5202e0">Totalnya %1$s poin.\nAda %2$s mata pelajaran, jadi %3$s ÷ %4$s = %5$s poin.</string>
+    <string name="tpl_b6ff7f67">Bagi kedua bilangan dengan FPB %1$s: %2$s÷%3$s=1, %4$s÷%5$s=%6$s\nJawabannya 1 : %7$s.</string>
+    <string name="tpl_4f8bebb2">Dalam lingkaran, berapa sudut keliling untuk busur dengan sudut pusat %1$s°? (derajat)</string>
+    <string name="tpl_1f65cd70">Sudut keliling adalah setengah sudut pusat. %1$s° ÷ 2 = %2$s°</string>
+    <string name="tpl_27d389ab">Pada y = %1$s/x, berapa y saat x = %2$s?</string>
+    <string name="tpl_3b064960">Substitusi x = %1$s ke perbandingan berbalik nilai. y = %2$s ÷ %3$s = %4$s</string>
+    <string name="tpl_881817d7">Pada y = %1$sx, berapa y saat x = %2$s?</string>
+    <string name="tpl_5e387d7d">Substitusi x = %1$s ke perbandingan senilai. y = %2$s × %3$s = %4$s</string>
+    <string name="tpl_9474bd1b">%1$s mengumpulkan %3$s %2$s, lalu temannya memberi %4$s lagi. Ada berapa semuanya? (%5$s + %6$s)</string>
+    <string name="tpl_7b0eb00c">Di keranjang ada %2$s %1$s dan di kotak ada %3$s. Ada berapa semuanya? (%4$s + %5$s)</string>
+    <string name="tpl_577e9a0b">%1$s memakan %4$s dari %3$s %2$s. Sisa berapa? (%5$s - %6$s)</string>
+    <string name="tpl_8835a548">Dari %2$s %1$s, %3$s diberikan ke adik. Sisa berapa? (%4$s - %5$s)</string>
+    <string name="tpl_52fb8304">Jika %1$s dimasukkan %2$s per kotak dalam %3$s kotak, ada berapa semuanya? (%4$s × %5$s)</string>
+    <string name="tpl_cd5e1743">%2$s anak di kelas %1$s masing-masing punya %4$s %3$s. Ada berapa semuanya? (%5$s × %6$s)</string>
+    <string name="tpl_0689d7b0">Setiap %1$s berisi %3$s %2$s.\nJika ada %5$s %4$s, ada berapa %6$s semuanya?</string>
+    <string name="tpl_fabb8c01">%2$s kelompok berisi %1$s berarti perkalian.\n%3$s × %4$s = %5$s</string>
+    <string name="tpl_bd90a3bf">Pindahkan semua %1$s ke dalam kotak lalu hitung ada berapa.</string>
+    <string name="tpl_26640a33">Hitung sambil memindahkan: %1$s — semuanya %2$s.</string>
+    <string name="tpl_c1d7f847">Berapa luas persegi panjang %1$s cm × %2$s cm?</string>
+    <string name="tpl_68f81799">Luas persegi panjang = panjang × lebar = %1$s × %2$s = %3$s cm²</string>
+    <string name="tpl_f56a2f41">Berapa luas segitiga dengan alas %1$s cm dan tinggi %2$s cm?</string>
+    <string name="tpl_cfead5b7">Luas segitiga = alas × tinggi ÷ 2 = %1$s × %2$s ÷ 2 = %3$s cm²</string>
+    <string name="tpl_03b2cec2">Berapa luas trapesium dengan sisi sejajar %1$s cm dan %2$s cm serta tinggi %3$s cm?</string>
+    <string name="tpl_812652c8">Luas trapesium = (jumlah sisi sejajar) × tinggi ÷ 2 = (%1$s+%2$s) × %3$s ÷ 2 = %4$s cm²</string>
+    <string name="tpl_2ac20dea">%1$s kg %2$s g sama dengan berapa g?</string>
+    <string name="tpl_8adee8d9">1 kg adalah 1000 g. %1$s + %2$s = %3$s g</string>
+    <string name="tpl_1a1b845d">%1$s km %2$s m sama dengan berapa m?</string>
+    <string name="tpl_bc396cec">1 km adalah 1000 m. %1$s + %2$s = %3$s m</string>
+    <string name="tpl_5bb097dd">%1$s L %2$s mL sama dengan berapa mL?</string>
+    <string name="tpl_58e342da">1 L adalah 1000 mL. %1$s + %2$s = %3$s mL</string>
+    <string name="tpl_7fa435ba">Jika √%1$s = k√%2$s, berapa k?</string>
+    <string name="tpl_4bd516c4">√%1$s = √(%2$s × %3$s) = %4$s√%5$s\nJadi k = %6$s.</string>
+    <string name="tpl_fdef4e9b">Faktorkan x² + %1$sx + %2$s. (mis. (x+2)(x+3))</string>
+    <string name="tpl_7fc38659">Cari dua bilangan dengan jumlah %1$s dan hasil kali %2$s → %3$s dan %4$s\nJawaban: (x+%5$s)(x+%6$s)</string>
+    <string name="tpl_ed66d760">Berapa akar terbesar dari x² - %1$sx + %2$s = 0?</string>
+    <string name="tpl_20a81651">Difaktorkan menjadi (x-%1$s)(x-%2$s) = 0\nAkarnya %3$s dan %4$s, yang terbesar %5$s.</string>
+    <string name="tpl_f666532f">Pada y = %1$sx², berapa y saat x = %2$s?</string>
+    <string name="tpl_03a38c23">Substitusi x = %1$s. y = %2$s × %3$s² = %4$s × %5$s = %6$s</string>
+    <string name="tpl_05d5a936">Dua bangun sebangun dengan rasio 1 : %1$s. Jika satu sisi bangun kecil %2$s, berapa sisi bersesuaian pada bangun besar?</string>
+    <string name="tpl_101dec85">Rasionya 1 : %1$s, jadi sisi bersesuaian %2$s kali lebih panjang. %3$s × %4$s = %5$s\n(Luasnya menjadi %6$s kali lipat.)</string>
+    <string name="tpl_34aaa693">Sebuah kantong berisi %1$s bola merah dan %2$s biru. Berapa peluang terambil merah? (pembilang pecahan paling sederhana)</string>
+    <string name="tpl_bbcd0e09">Dari total %1$s, ada %2$s yang merah. %3$s/%4$s = %5$s/%6$s</string>
+    <string name="tpl_be363966">Gambar dibagi menjadi %1$s bagian sama besar. Warnai %2$s/%3$s.</string>
+    <string name="tpl_822bd5c1">%1$s/%2$s berarti %4$s bagian dari %3$s bagian sama besar.\nKetuk %5$s potong untuk mewarnainya.</string>
+    <string name="tpl_b1b8ddf9">Temukan %1$s pada garis bilangan lalu letakkan titiknya.</string>
+    <string name="tpl_72ed475e">Berapa panjang sumbu mayor elips x²/%1$s + y²/%2$s = 1?</string>
+    <string name="tpl_9323580e">Pada x²/a² + y²/b² = 1, a = %1$s dan b = %2$s.\nSumbu mayornya 2a = %3$s.</string>
+    <string name="tpl_526c1433">Sudut apa ini? (%1$s°)</string>
+    <string name="tpl_0352c1ec">Jika f(x) = %1$s, berapa f\'(%2$s)?</string>
+    <string name="tpl_0a772723">Gradien garis singgung adalah f\'(%1$s). Karena f\'(x) = %2$sx, maka %3$s×%4$s = %5$s.</string>
+    <string name="tpl_0e6df588">Jika f(x) = %1$s, berapa gradien garis singgung di x = %2$s?</string>
+    <string name="tpl_65303faf">Putar tuasnya hingga membentuk %1$s°.</string>
+    <string name="tpl_2bb14977">Berapa bagian dari keseluruhan yang diwarnai? (tulis pembilangnya saja)</string>
+    <string name="tpl_386d8a5c">Keseluruhan dibagi %1$s bagian sama besar dan %2$s diwarnai, jadi %3$s/%4$s.</string>
+    <string name="tpl_e22b23c2">Berapa luas daerah yang dibatasi kurva y = %1$s, sumbu x, dan x = %2$s? (tiga angka desimal)</string>
+    <string name="tpl_702f39e6">Luas = ∫₀^%1$s %2$sx² dx = %3$sx³/3, disubstitusi %4$s = %5$s×%6$s/3 = %7$s</string>
+    <string name="tpl_12d53984">Seret jarum jam untuk menunjukkan %1$s.</string>
+    <string name="tpl_59f3bbde">Lihat jamnya lalu pilih waktunya.</string>
+    <string name="tpl_6a049195">Letakkan jarum pendek di %1$s dan jarum panjang di %2$s, jadi %3$s.</string>
+    <string name="tpl_421f0115">Berapa nilai √%1$s?</string>
+    <string name="tpl_c10c073d">Karena %1$s × %2$s = %3$s, maka √%4$s = %5$s.</string>
+    <string name="tpl_04ad73bd">Berapa nilai log_%1$s %2$s?</string>
+    <string name="tpl_1a575d20">log_%1$s %2$s menanyakan \"berapa kali %3$s dikalikan agar menjadi %4$s?\" Karena %5$s^%6$s = %7$s, jawabannya %8$s.</string>
+    <string name="tpl_40e43c86">Berapa nilai %1$s^%2$s?</string>
+    <string name="tpl_8ad8bef1">Kalikan %1$s dengan dirinya sendiri %2$s kali. %3$s = %4$s</string>
+    <string name="tpl_9236cec8">Setiap garis bernilai 5. Karena %1$s ÷ 5 = %2$s, majulah %3$s garis dari 0.</string>
+    <string name="tpl_9b01b011">Segitiga siku-siku punya sisi %1$s dan %2$s. Berapa panjang sisi miringnya? (lihat gambar)</string>
+    <string name="tpl_29b3af3f">Teorema Pythagoras: a² + b² = c²\n%1$s² + %2$s² = %3$s + %4$s = %5$s\nSisi miring = %6$s</string>
+    <string name="tpl_05c967bb">Segitiga siku-siku punya sisi miring %1$s dan satu sisi %2$s. Berapa sisi lainnya?</string>
+    <string name="tpl_bc1b4161">c² - a² = b²\n%1$s - %2$s = %3$s\nSisi lainnya = %4$s</string>
+    <string name="tpl_22a9acd5">Ada berapa cara memilih %2$s dari %1$s orang?</string>
+    <string name="tpl_de1537f4">%1$sC%2$s = %3$s ÷ %4$s = %5$s cara</string>
+    <string name="tpl_133b1724">Ada berapa cara memilih %2$s dari %1$s benda berbeda tanpa memperhatikan urutan? (%3$sC%4$s)</string>
+    <string name="tpl_e5f765f4">Ada berapa cara memilih %2$s dari %1$s benda berbeda lalu menyusunnya berurutan? (%3$sP%4$s)</string>
+    <string name="tpl_ee0c3706">Yang mana %1$s?</string>
+    <string name="tpl_18800cab">Berapa keliling lingkaran berjari-jari %1$s cm? (π = 3,14)</string>
+    <string name="tpl_af15f6d2">Keliling = diameter × 3,14 = %1$s × 3,14 = %2$s cm</string>
+    <string name="tpl_a145b736">Berapa luas lingkaran berjari-jari %1$s cm? (π = 3,14)</string>
+    <string name="tpl_5844f447">Luas lingkaran = jari-jari × jari-jari × 3,14 = %1$s × %2$s × 3,14 = %3$s cm²</string>
+    <string name="tpl_e25a121a">%1$s, %2$s, %3$s — bilangan berikutnya apa?</string>
+    <string name="tpl_c074ed4d">Aturannya bertambah 1 tiap kali. Setelah %1$s adalah %2$s.</string>
+    <string name="tpl_ac380a89">%1$s ditambah %2$s jadi 10. Memecah 10 menghasilkan %3$s dan %4$s.</string>
+    <string name="tpl_08b9cc90">Jika kejadian berpeluang 1/%1$s terjadi %2$s kali berturut-turut, peluangnya 1/k. Berapa k?</string>
+    <string name="tpl_e6dd2bae">Percobaannya saling bebas, jadi dikalikan. (1/%1$s)^%2$s = 1/%3$s\nk = %4$s</string>
+    <string name="tpl_ab3d2f03">Berapa jumlah sudut dalam segi-%1$s? (derajat)</string>
+    <string name="tpl_50ddbff4">Jumlah sudut dalam segi-n = (n - 2) × 180°\n(%1$s - 2) × 180 = %2$s°</string>
+    <string name="tpl_a257284f">Berapa banyak diagonal segi-%1$s?</string>
+    <string name="tpl_6fa548ec">Banyak diagonal = n(n-3)/2 = %1$s×%2$s/2 = %3$s</string>
+    <string name="tpl_076280c4">Warnai 0,%1$s. (keseluruhan dibagi 10 bagian sama besar)</string>
+    <string name="tpl_3601a2fc">%1$s dari 10 bagian, jadi %2$s/10 = 0,%3$s.</string>
+    <string name="tpl_d91eef04">Berapa desimal dari %1$s bagian dari sepuluh bagian sama besar dari 1?</string>
+    <string name="tpl_5b3eb8ba">Temukan 0,%1$s pada garis bilangan lalu letakkan titiknya.</string>
+    <string name="tpl_b54eb50c">Jarak antara 0 dan 1 dibagi menjadi 10 langkah sama.\n0,%1$s berada %2$s langkah dari 0.</string>
+    <string name="tpl_74d583e3">Berapa nilai %1$s %2$s°?</string>
+    <string name="tpl_f0bf458a">Pikirkan letak %1$s° pada lingkaran satuan. %2$s%3$s° = %4$s</string>
+    <string name="tpl_f339376b">0,%1$s sama dengan %2$s/10.\nWarnai %3$s dari 10 bagian.</string>
+    <string name="tpl_d6fcc9c2">Berapa nilai %1$s %2$s°? (tulis pecahan seperti 1/2)</string>
+    <string name="tpl_2d7284ee">Ini perbandingan trigonometri sudut istimewa. %1$s%2$s° = %3$s\nSebaiknya hafalkan nilai 30°, 45°, dan 60°.</string>
+    <string name="tpl_f046f32a">Berapa banyak himpunan bagian dari himpunan dengan %1$s anggota?</string>
+    <string name="tpl_710ba473">Banyak himpunan bagian = 2ⁿ = 2^%1$s = %2$s.\n(Ada %3$s himpunan bagian sejati.)</string>
+    <string name="tpl_fb01043c">Berapa peluang muncul mata dadu paling banyak %1$s pada satu lemparan? (pembilang pecahan paling sederhana)</string>
+    <string name="tpl_4fcaf9c5">Ada %2$s hasil dengan nilai paling banyak %1$s dari total 6. %3$s/6 = %4$s/%5$s</string>
+    <string name="tpl_7e93d243">Di kiri ada %1$s dan di kanan ada %2$s. %3$s lebih besar dari %4$s, jadi %5$s lebih banyak.</string>
+    <string name="tpl_0782d5d6">Bandingkan puluhannya dulu. %1$s lebih besar.</string>
+    <string name="tpl_303e5331">Cari batang tertinggi. %1$s paling banyak, yaitu %2$s.</string>
+    <string name="tpl_1f33664e">Masukkan %1$s lalu %2$s lagi, kotak berisi %3$s.\nMenghitung %5$s dari %4$s menghasilkan %6$s.</string>
+    <string name="tpl_eb12d4e3">Dari %1$s, %2$s pergi dan sisa %3$s.\nMenggabungkan yang pergi dan yang tersisa kembali menjadi %4$s.</string>
+    <string name="tpl_d35868f6">Di kiri ada %1$s kotak x dan %2$s anak timbangan 1; di kanan %3$s anak timbangan 1.\nAmbil %4$s dari kedua sisi: %5$sx = %6$s\nBagi menjadi %7$s kelompok sama: x = %8$s.</string>
+    <string name="tpl_74cc085d">%1$s\nMeski warnanya berbeda, bentuk yang sama masuk ke keranjang yang sama.</string>
+    <string name="tpl_28a6838e">%1$s° adalah %2$s.</string>
+    <string name="tpl_394c5f1b">%1$s° adalah %2$s.\nItu %3$s° lebih kecil dari sudut siku-siku (90°).</string>
+    <string name="tpl_9e6c9d79">%1$s° adalah %2$s.\nItu %3$s° lebih besar dari sudut siku-siku (90°).</string>
+    <string name="tpl_b0aed67a">%1$s° adalah %2$s.\nSudutnya berdiri tegak sempurna.</string>
+    <string name="tpl_54ac9abe">Aturannya %1$s dan %2$s bergantian. Setelah %3$s adalah %4$s.</string>
+    <string name="tpl_5c76e40f">Itu %1$s. Nomor %2$s.</string>
+    <string name="tpl_1c847ed5">Jarum pendek menunjuk %1$s dan jarum panjang menunjuk 12, jadi pukul %2$s tepat.</string>
+    <string name="tpl_ed836a0a">Jarum pendek di antara %1$s dan %2$s, jarum panjang menunjuk 6, jadi pukul %3$s:30.</string>
+    <string name="tpl_cc9224e2">Letaknya %1$s langkah ke kanan dari 0.\n%2$s lebih kecil dari 10.</string>
+    <string name="tpl_298087b1">Letaknya %1$s langkah ke kanan dari 0.\n%2$s lebih besar dari 10.</string>
+    <string name="tpl_c9b3271e">Letaknya %1$s langkah ke kanan dari 0.\n%2$s tepat 10.</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+        <item>사과|apel</item>
+        <item>딸기|stroberi</item>
+        <item>포도|anggur</item>
+        <item>바나나|pisang</item>
+        <item>귤|jeruk</item>
+        <item>쿠키|kue</item>
+        <item>사탕|permen</item>
+        <item>구슬|kelereng</item>
+        <item>스티커|stiker</item>
+        <item>풍선|balon</item>
+        <item>블록|balok</item>
+        <item>도토리|biji ek</item>
+        <item>색연필|pensil warna</item>
+        <item>상자|kotak</item>
+        <item>접시|piring</item>
+        <item>바구니|keranjang</item>
+        <item>봉지|kantong</item>
+        <item>가방|tas</item>
+        <item>원|lingkaran</item>
+        <item>삼각형|segitiga</item>
+        <item>사각형|persegi</item>
+        <item>오각형|segilima</item>
+        <item>육각형|segienam</item>
+        <item>예각|sudut lancip</item>
+        <item>직각|sudut siku-siku</item>
+        <item>둔각|sudut tumpul</item>
+        <item>평각|sudut lurus</item>
+        <item>축구|sepak bola</item>
+        <item>야구|bisbol</item>
+        <item>농구|bola basket</item>
+        <item>수영|renang</item>
+        <item>달리기|lari</item>
+        <item>삐약이|Piyak</item>
+        <item>토끼|Kelinci</item>
+        <item>펭귄|Penguin</item>
+        <item>고양이|Kucing</item>
+        <item>곰돌이|Beruang</item>
+        <item>다람쥐|Tupai</item>
+        <item>서연|Seoyeon</item>
+        <item>수아|Sua</item>
+        <item>시우|Siu</item>
+        <item>채원|Chaewon</item>
+        <item>도윤|Doyun</item>
+        <item>예린|Yerin</item>
+        <item>은우|Eunu</item>
+        <item>지우|Jiu</item>
+        <item>민수|Minsu</item>
+        <item>하준|Hajun</item>
+        <item>월|Sen</item>
+        <item>화|Sel</item>
+        <item>수|Rab</item>
+        <item>목|Kam</item>
+        <item>금|Jum</item>
+        <item>영|nol</item>
+        <item>하나|satu</item>
+        <item>둘|dua</item>
+        <item>셋|tiga</item>
+        <item>넷|empat</item>
+        <item>다섯|lima</item>
+        <item>여섯|enam</item>
+        <item>일곱|tujuh</item>
+        <item>여덟|delapan</item>
+        <item>아홉|sembilan</item>
+        <item>열|sepuluh</item>
+        <item>왼쪽|Kiri</item>
+        <item>오른쪽|Kanan</item>
+        <item>같아요|Sama</item>
+        <item>모르겠어요|Tidak tahu</item>
+        <item>없어요|Tidak ada</item>
+        <item>모으는 상자|Kumpulkan</item>
+        <item>집으로|Pulang</item>
+        <item>반|</item>
+        <item>대|-an</item>
+        <item>시|j</item>
+        <item>분|m</item>
+        <item>원은 뾰족한 곳이 없고 동그란 모양이에요.|Lingkaran tidak punya sudut dan bentuknya bulat.</item>
+        <item>삼각형은 뾰족한 곳이 3개 모양이에요.|Segitiga punya 3 sudut.</item>
+        <item>사각형은 뾰족한 곳이 4개 모양이에요.|Persegi punya 4 sudut.</item>
+        <item>D &gt; 0 이므로 서로 다른 두 실근|D &gt; 0, jadi ada dua akar real berbeda</item>
+        <item>D = 0 이므로 중근|D = 0, jadi akarnya kembar</item>
+        <item>D &lt; 0 이므로 실근이 없어요|D &lt; 0, jadi tidak ada akar real</item>
+        <item>빼면|Kurangi</item>
+        <item>더하면|Tambah</item>
+        <item>(10 넘으면 십의 자리로 받아올림!)|(lebih dari 10 — simpan 1 ke puluhan!)</item>
+        <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|Satuan tidak cukup, jadi pinjam 10 dari puluhan.</item>
+        <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|Jika tandanya berbeda, hasilnya mengikuti tanda nilai mutlak yang lebih besar.</item>
+        <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|Jika keduanya negatif, jumlahkan nilai mutlaknya lalu beri tanda minus.</item>
+    </string-array>
+    <string-array name="tpl_units">
+        <item>개|buah</item>
+        <item>명|orang</item>
+        <item>분|menit</item>
+        <item>초|detik</item>
+        <item>점|poin</item>
+        <item>원|won</item>
+    </string-array>
 </resources>

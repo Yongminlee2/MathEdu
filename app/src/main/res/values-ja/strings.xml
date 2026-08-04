@@ -65,4 +65,385 @@
     <string name="stats_badges">バッジ</string>
     <string name="placement_title">レベルテスト</string>
     <string name="placement_quit_ask">レベルテストをやめますか？</string>
+    <string name="mkind_clock">🕐 とけいを よむ</string>
+    <string name="mkind_clock_set">🕐 はりを まわす</string>
+    <string name="mkind_group">🧺 同じに わける</string>
+    <string name="mkind_frac_paint">🍰 分だけ ぬる</string>
+    <string name="mkind_shape_sort">🔺 かたち わけ</string>
+    <string name="mkind_numline_drag">📏 数直線で さがす</string>
+    <string name="mkind_angle_set">📐 角を つくる</string>
+    <string name="mkind_balance">⚖️ てんびん つりあい</string>
+    <string name="mkind_bar_build">📊 グラフを つくる</string>
+    <string name="mkind_take_out">➖ へらして かぞえる</string>
+    <string name="mkind_gather">➕ あつめて かぞえる</string>
+    <string name="mkind_shapes">🔺 かたち</string>
+    <string name="mkind_fraction">🍰 分数</string>
+    <string name="mkind_bar_graph">📊 グラフ</string>
+    <string name="mkind_numline">📏 数直線</string>
+    <string name="mkind_geom">📐 図形</string>
+    <string name="mkind_coord3d">🧊 空間座標</string>
+    <string name="mkind_coord2d">📈 座標平面</string>
+    <string name="mkind_angle">📐 角度</string>
+    <string name="mkind_div">➗ わり算</string>
+    <string name="mkind_mul">✖️ かけ算</string>
+    <string name="mkind_sub">➖ ひき算</string>
+    <string name="mkind_add">➕ たし算</string>
+    <string name="mkind_math">🔢 さんすう</string>
+    <string name="mkind_picture">🐥 えの もんだい</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_24083678">%1$s : %2$s をもっとも簡単な自然数の比で表すと %3$s : ?</string>
+    <string name="tpl_33585846">%1$s を素因数分解したとき、いちばん大きい素因数は?</string>
+    <string name="tpl_35882540">分母が同じなので分子どうしをたします。%1$s + %2$s = %3$s、こたえは %4$s/%5$s です。</string>
+    <string name="tpl_66531960">一のくらい %1$s + %2$s = %3$s %4$s\nこたえは %5$s です。</string>
+    <string name="tpl_93741444">累乗の累乗は指数をかけます。%1$s × %2$s = %3$s</string>
+    <string name="tpl_a84fb314">%1$s ずつ %2$s たばです。%3$s = %4$s\n%5$s のだん: %6$s×%7$s=%8$s</string>
+    <string name="tpl_40b5583a">えを かぞえて みましょう。ぜんぶで いくつですか?</string>
+    <string name="tpl_4426d4f7">%1$s に %2$s を たすと %3$s です。%4$s から %5$s だけ かぞえて みましょう。</string>
+    <string name="tpl_e8755f8c">ひとつずつ かぞえると %1$s、ぜんぶで %2$s こ です。%3$s</string>
+    <string name="tpl_412438c7">%1$s こ から %2$s こ を ひくと %3$s こ のこります。</string>
+    <string name="tpl_83f30dfe">%1$s こたえは %2$s です。</string>
+    <string name="tpl_bf977bf4">%1$s こ を %2$s たばに 同じように わけると 1たばは %3$s こ です。\nたしかめ: %4$s × %5$s = %6$s</string>
+    <string name="tpl_9391fb31">10 ずつ たばねて のこりを かぞえると 10 + %1$s = %2$s こ です。</string>
+    <string name="tpl_9e616d48">えが ぜんぶで いくつ あるか かぞえましょう。</string>
+    <string name="tpl_e94b638c">どちらが おおいですか?</string>
+    <string name="tpl_56861fce">かたちを 名前の あう かごへ ドラッグしましょう。(%1$s)</string>
+    <string name="tpl_e2813a9a">%1$s = %2$s\nいちばん大きい素因数は %3$s です。</string>
+    <string name="tpl_97c89890">ある数に %1$s をかけて %2$s をたしたら %3$s になりました。\nある数はいくつでしょう?</string>
+    <string name="tpl_ce982230">ある数を x とすると %1$sx + %2$s = %3$s\n%4$sx = %5$s\nx = %6$s</string>
+    <string name="tpl_1fa89b68">f(x) = %1$s + %2$s %3$s のとき f\'(%4$s) の値は?</string>
+    <string name="tpl_91bf4e00">%1$sx %2$s = %3$s のとき x は?</string>
+    <string name="tpl_ee5eec9f">両辺から %1$s を%2$sと %3$sx = %4$s\n両辺を %5$s でわると x = %6$s です。</string>
+    <string name="tpl_5c41b06f">かけ算を先にします。%1$s × %2$s = %3$s、つぎに %4$s + %5$s = %6$s</string>
+    <string name="tpl_6a454edc">f(x) = %1$s %2$sx %3$s を x %4$s でわった余りは?</string>
+    <string name="tpl_dd646a18">剰余の定理: f(x) を (x - k) でわった余りは f(k) です。\nf(%1$s) = %2$s×%3$s %4$s %5$s×%6$s %7$s %8$s = %9$s</string>
+    <string name="tpl_e163b535">%1$s/%2$s ÷ %3$s/%4$s = ? (既約分数の分子)</string>
+    <string name="tpl_f64e7111">わり算はうしろの分数をひっくり返してかけます。%1$s/%2$s × %3$s/%4$s = %5$s/%6$s\n約分すると %7$s/%8$s です。</string>
+    <string name="tpl_593dd3e4">加減法で y を消します。\n1つ目の式 × %1$s、2つ目の式 × %2$s をしてひくと x = %3$s\n代入すると y = %4$s です。</string>
+    <string name="tpl_69c8bd83">%1$sx + %2$sy = %3$s\n%4$sx + %5$sy = %6$s\nのとき x の値は?</string>
+    <string name="tpl_856c631f">%1$s の約数と %2$s の約数のうち、いちばん大きい共通の約数は %3$s です。</string>
+    <string name="tpl_860d863a">%1$s を %2$s と %3$s にわけてかけます。\n%4$s×%5$s=%6$s、%7$s×%8$s=%9$s\nあわせると %10$s です。</string>
+    <string name="tpl_d0025612">%1$s と %2$s の最大公約数は?</string>
+    <string name="tpl_f0f11947">%1$s %2$sx %3$s = 0 の判別式 D の値は?</string>
+    <string name="tpl_2a17168e">%1$s は %2$s を %3$s こ もっています。\nともだちから %4$s こ もらいました。\n%5$s は ぜんぶで いくつでしょう?</string>
+    <string name="tpl_4b6b9472">もらったので たし算です。\n%1$s + %2$s = %3$s こ</string>
+    <string name="tpl_7182fe6c">%1$s と %2$s のうち 大きい数は?</string>
+    <string name="tpl_064cd500">%1$s は %2$s を 1はこに %3$s こずつ %4$s はこ 買いました。\nそのうち %5$s こ を くばったら のこりは いくつでしょう?</string>
+    <string name="tpl_b142acbe">まず ぜんぶを もとめます。%1$s × %2$s = %3$s こ\nくばった ぶんを ひきます。%4$s - %5$s = %6$s こ</string>
+    <string name="tpl_09881b6d">%1$s/%2$s を既約分数にすると分子は?</string>
+    <string name="tpl_b9de180a">分子と分母を最大公約数 %1$s でわります。%2$s÷%3$s=%4$s、%5$s÷%6$s=%7$s\nこたえは %8$s/%9$s です。</string>
+    <string name="tpl_104b2419">両辺から %1$s を%2$sと %3$sx &gt; %4$s\n両辺を正の数 %5$s でわると x &gt; %6$s\n(負の数でわるときは不等号の向きが変わります!)</string>
+    <string name="tpl_302b4ab7">%1$s ÷ %2$s の余りは?</string>
+    <string name="tpl_7781a29b">%1$s ÷ %2$s = %3$s あまり %4$s\nたしかめ: %5$s × %6$s + %7$s = %8$s</string>
+    <string name="tpl_421eaae2">x = %1$s のとき、%2$sx + %3$s の値は?</string>
+    <string name="tpl_c746b533">x のところに %1$s を入れます。%2$s × %3$s + %4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_520190ba">lim(x→%1$s) (%2$s %3$s) の値は?</string>
+    <string name="tpl_97b6e789">多項式関数は連続なのでそのまま代入します。%1$s×%2$s %3$s %4$s = %5$s</string>
+    <string name="tpl_8154d16f">%1$s/%2$s × %3$s/%4$s = ? (既約分数の分子)</string>
+    <string name="tpl_8c032f04">分子どうし、分母どうしをかけます。%1$s×%2$s=%3$s、%4$s×%5$s=%6$s\n%7$s/%8$s を約分すると %9$s/%10$s です。</string>
+    <string name="tpl_7b8145cd">%1$s × %2$s = %3$s\n%4$s × %5$s = %6$s\nあわせると %7$s です。</string>
+    <string name="tpl_d091ab21">小数点を動かして計算します。%1$s ÷ %2$s = %3$s</string>
+    <string name="tpl_f5c65837">%1$sx %2$s &gt; %3$s を満たす x の範囲は x &gt; ?</string>
+    <string name="tpl_af55c367">%1$s は %2$s を %3$s こ もっています。\nそのうち %4$s こ を おとうとに あげました。\nのこった %5$s は いくつでしょう?</string>
+    <string name="tpl_836b321c">あげたので ひき算です。\n%1$s - %2$s = %3$s こ</string>
+    <string name="tpl_e48e2ef1">%1$s万 は 0 が いくつ つくでしょう? (1万 = 10000)</string>
+    <string name="tpl_2526ffa7">1万 = 10000 で 0 が 4つです。%1$s万 = %2$s</string>
+    <string name="tpl_dbc6233c">%1$s は 時速 %2$skm で %3$s 時間 歩きました。\n何 km 進んだでしょう?</string>
+    <string name="tpl_ddc5e7db">きょり = 速さ × 時間\n%1$s × %2$s = %3$skm</string>
+    <string name="tpl_220e81e1">%1$s ようびの ぼうの 高さを めもりで 読むと %2$s です。</string>
+    <string name="tpl_c72ea029">%1$s ようびの 数は いくつでしょう?</string>
+    <string name="tpl_3256a913">大きさの順にならべたとき、まん中の値が中央値です。3番目の値 %1$s です。</string>
+    <string name="tpl_36f716a4">%1$s の中央値は?</string>
+    <string name="tpl_829dc879">%1$s の平均は?</string>
+    <string name="tpl_8caeb0c9">全部たすと %1$s、データが %2$s 個なので %3$s ÷ %4$s = %5$s です。</string>
+    <string name="tpl_3662d39b">%1$s + %2$s + %3$s = %4$s です。</string>
+    <string name="tpl_4729593b">%1$sm %2$scm は 何 cm でしょう?</string>
+    <string name="tpl_bc1684cd">1m は 100cm です。%1$sm = %2$scm、そこに %3$scm を たすと %4$scm です。</string>
+    <string name="tpl_a04ee28d">全体 %1$s のうち %2$s は 何 %% でしょう?</string>
+    <string name="tpl_50dc7e5e">割合 = %1$s ÷ %2$s = %3$s\n100 をかけて百分率は %4$s%% です。</string>
+    <string name="tpl_8d5a1394">小数点の位置をそろえてたします。%1$s + %2$s = %3$s</string>
+    <string name="tpl_c4b2f470">100 が %1$s こ、10 が %2$s こ、1 が %3$s この 数は?</string>
+    <string name="tpl_efe178f9">%1$s の つぎに くる えは?</string>
+    <string name="tpl_3a5ccfd2">いちばん おおいのは どれでしょう?</string>
+    <string name="tpl_f9b576f1">4つの クラスの 人数を ぜんぶ たすと 何人でしょう?</string>
+    <string name="tpl_afd6159f">%1$s = %2$s 人です。</string>
+    <string name="tpl_0c5cc77b">しらべた けっかを 見て ぼうグラフを かんせいさせましょう。\n%1$s</string>
+    <string name="tpl_35d42406">ひょうを 見て ぼうグラフを かんせいさせましょう。\n%1$s</string>
+    <string name="tpl_811c3b3f">ぼうの 高さが そのまま 数です。\n%1$s</string>
+    <string name="tpl_214da790">ぼうの 高さが そのまま 人数です。\nいちばん 高いのは %1$s、いちばん ひくいのは %2$s です。</string>
+    <string name="tpl_93ad49ff">%1$s の相対度数は? (小数第2位まで)</string>
+    <string name="tpl_d02e9c3e">相対度数 = その階級の度数 ÷ 全体の度数 = %1$s ÷ %2$s ≈ %3$s</string>
+    <string name="tpl_2baf4762">とけいは %1$s 時 何分を さしているでしょう? (分だけ 書きます)</string>
+    <string name="tpl_0b6616c7">長いはりが %1$s を さしていると %2$s × 5 = %3$s 分です。</string>
+    <string name="tpl_516a736a">とけいの はりを ドラッグして %1$s 時 %2$s 分に しましょう。</string>
+    <string name="tpl_5485a85b">長いはりは %1$s ÷ 5 = %2$s、つまり 数字の %3$s に おきます。\n短いはりを %4$s に おくと %5$s 時 %6$s 分です。</string>
+    <string name="tpl_a546bcec">%1$s を %2$s ひきと %3$s ひき、ぜんぶ はこに あつめましょう。ぜんぶで 何びきでしょう? (%4$s + %5$s)</string>
+    <string name="tpl_fcc08c5c">%1$s %2$s ひきの うち %3$s ひきが おうちへ かえりました。%4$s ひきを おうちへ おくって、のこりを かぞえましょう。(%5$s - %6$s)</string>
+    <string name="tpl_e21a2df7">てんびんが つりあうように x を あわせましょう。(%1$sx + %2$s = %3$s)</string>
+    <string name="tpl_a8920713">りんご 1こは %1$s00 ウォン、なし 1こは %2$s00 ウォンです。\nりんご %3$s こと なし %4$s こを 買うと ぜんぶで いくらでしょう?</string>
+    <string name="tpl_c592e397">りんご: %1$s00 × %2$s = %3$s ウォン\nなし: %4$s00 × %5$s = %6$s ウォン\nあわせて: %7$s ウォン</string>
+    <string name="tpl_f2a44920">y = %1$s(x %2$s)² %3$s の頂点の x 座標は?</string>
+    <string name="tpl_accf5550">y = a(x-p)² + q の形では頂点は (p, q) です。\n頂点は (%1$s, %2$s) で、x 座標は %3$s です。</string>
+    <string name="tpl_ee1f2bd2">円 (x %1$s)² + (y %2$s)² = %3$s の半径は?</string>
+    <string name="tpl_c74c8c70">標準形 (x-a)² + (y-b)² = r² で r² = %1$s なので半径は %2$s です。中心は (%3$s, %4$s) です。</string>
+    <string name="tpl_da4a9448">初項 %1$s、公差 %2$s の等差数列の第 %3$s 項は?</string>
+    <string name="tpl_6eddd33a">初項 %1$s、公差 %2$s の等差数列の最初の %3$s 項の和は?</string>
+    <string name="tpl_bfcac252">%1$s^%2$s × %3$s^%4$s を %5$s^k で表すとき k は?</string>
+    <string name="tpl_b12f4a19">底が同じ累乗の積は指数をたします。%1$s + %2$s = %3$s</string>
+    <string name="tpl_770018a9">∫₀^%1$s %2$s^%3$s dx の値は?</string>
+    <string name="tpl_8934d567">不定積分は %1$sx^%2$s/%3$s です。\n%4$s を代入: %5$s×%6$s/%7$s = %8$s</string>
+    <string name="tpl_09b4928a">%1$s/%2$s + %3$s/%4$s = ? (分子だけ 書きます)</string>
+    <string name="tpl_60f9ab29">符号を見ます。%1$s + %2$s = %3$s\n%4$s</string>
+    <string name="tpl_2b4e8c2f">符号のきまり: (負)×(負)=(正)、(負)×(正)=(負)\n%1$s × %2$s = %3$s</string>
+    <string name="tpl_f01075e0">y = %1$sx %2$s で x = %3$s のとき y は?</string>
+    <string name="tpl_eb66f38d">x = %1$s を代入します。y = %2$s×%3$s %4$s = %5$s</string>
+    <string name="tpl_242af461">%1$s は %2$s %3$s こを %4$s 人に 同じように くばろうと しています。\n1人 何こずつ もらえるでしょう?</string>
+    <string name="tpl_ffbb559e">同じように わけるので わり算です。\n%1$s ÷ %2$s = %3$s こ\nたしかめ: %4$s × %5$s = %6$s</string>
+    <string name="tpl_534edc60">%1$s こを %2$s たばに 同じように わけると 1たば %3$s こです。\nたしかめ: %4$s × %5$s = %6$s\nだから %7$s ÷ %8$s = %9$s です。</string>
+    <string name="tpl_d1ce02ac">%1$s %2$s ひきを かご %3$s こに 同じように わけて 入れましょう。(%4$s ÷ %5$s)</string>
+    <string name="tpl_83a279a5">(%1$s^%2$s)^%3$s を %4$s^k で表すとき k は?</string>
+    <string name="tpl_8bf8943f">底面の半径 %1$s、高さ %2$s の円柱の体積は? (円周率 3.14)</string>
+    <string name="tpl_239800f8">円柱の体積 = 底面積 × 高さ = (%1$s×%2$s×3.14) × %3$s = %4$s</string>
+    <string name="tpl_5391d387">ぜんぶで %1$s 人のうち %2$s%% がめがねをかけています。\nめがねをかけた人は何人でしょう?</string>
+    <string name="tpl_d85fd41b">%1$s%% = %2$s/100 です。\n%3$s × %4$s ÷ 100 = %5$s 人</string>
+    <string name="tpl_4ea5fbe9">lim(n→∞) (%1$s + 5)/(%2$s + 2) の値は? (小数第3位まで)</string>
+    <string name="tpl_29d9a332">分子・分母を n でわります。(%1$s + 5/n)/(%2$s + 2/n) → %3$s/%4$s = %5$s\n最高次の項の係数の比が答えです。</string>
+    <string name="tpl_11a006ee">y = %1$sx %2$s の y 切片は?</string>
+    <string name="tpl_98d506d9">y 切片は x = 0 のときの y の値です。y = %1$s\nかたむきは %2$s です。</string>
+    <string name="tpl_a90c36e4">2つのベクトル (%1$s, %2$s) と (%3$s, %4$s) の内積は?</string>
+    <string name="tpl_896140d8">内積 = x₁x₂ + y₁y₂ = %1$s×%2$s + %3$s×%4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_f47fb815">たて %1$scm、よこ %2$scm、高さ %3$scm の直方体の体積は?</string>
+    <string name="tpl_4784c950">体積 = たて × よこ × 高さ = %1$s × %2$s × %3$s = %4$scm³</string>
+    <string name="tpl_c2343df6">たて %1$scm、よこ %2$scm、高さ %3$scm の直方体の表面積は?</string>
+    <string name="tpl_6584d973">表面積 = 2 × (%1$s×%2$s + %3$s×%4$s + %5$s×%6$s) = 2 × %7$s = %8$scm²</string>
+    <string name="tpl_b34194c1">10 が %1$s たばと ばらが %2$s こで いくつでしょう?</string>
+    <string name="tpl_d700c926">10 が %1$s こで %2$s、そこに %3$s を たすと %4$s です。</string>
+    <string name="tpl_ab5407fa">%1$s 分 %2$s 秒は 何秒でしょう?</string>
+    <string name="tpl_102513fd">1分は 60秒です。%1$s×60 = %2$s、%3$s + %4$s = %5$s 秒</string>
+    <string name="tpl_acf035bc">点 (%1$s, %2$s, %3$s) と原点の距離の2乗は?</string>
+    <string name="tpl_77d91bdd">距離² = x² + y² + z² = %1$s + %2$s + %3$s = %4$s</string>
+    <string name="tpl_e10f7183">2点 (%1$s, %2$s)、(%3$s, %4$s) の距離の2乗は?</string>
+    <string name="tpl_6fb38da8">距離² = (x₂-x₁)² + (y₂-y₁)² = %1$s + %2$s = %3$s</string>
+    <string name="tpl_ef261058">%1$s の へんは いくつでしょう?</string>
+    <string name="tpl_435ec8ca">%1$s は へんが %2$s こ、ちょう点も %3$s こです。</string>
+    <string name="tpl_68b2417e">テストの点が %1$s 点で、さいごの点が %2$s 点です。\n平均は 何点でしょう?</string>
+    <string name="tpl_8f5202e0">全部たすと %1$s 点です。\n科目が %2$s つなので %3$s ÷ %4$s = %5$s 点</string>
+    <string name="tpl_b6ff7f67">2つの数を最大公約数 %1$s でわります。%2$s÷%3$s=1、%4$s÷%5$s=%6$s\nこたえは 1 : %7$s です。</string>
+    <string name="tpl_4f8bebb2">円で 中心角が %1$s° の弧に対する円周角は? (単位 °)</string>
+    <string name="tpl_1f65cd70">円周角は中心角の半分です。%1$s° ÷ 2 = %2$s°</string>
+    <string name="tpl_27d389ab">y = %1$s/x で x = %2$s のとき y は?</string>
+    <string name="tpl_3b064960">反比例の式に x = %1$s を入れます。y = %2$s ÷ %3$s = %4$s</string>
+    <string name="tpl_881817d7">y = %1$sx で x = %2$s のとき y は?</string>
+    <string name="tpl_5e387d7d">比例の式に x = %1$s を入れます。y = %2$s × %3$s = %4$s</string>
+    <string name="tpl_9474bd1b">%1$s が %2$s を %3$s こ あつめたところ、ともだちが %4$s こ くれました。ぜんぶで いくつ? (%5$s + %6$s)</string>
+    <string name="tpl_7b0eb00c">かごに %1$s が %2$s こ、はこに %3$s こ あります。ぜんぶで いくつ? (%4$s + %5$s)</string>
+    <string name="tpl_577e9a0b">%1$s が %2$s %3$s この うち %4$s こを たべました。のこりは いくつ? (%5$s - %6$s)</string>
+    <string name="tpl_8835a548">%1$s %2$s この うち %3$s こを おとうとに あげました。のこりは いくつ? (%4$s - %5$s)</string>
+    <string name="tpl_52fb8304">%1$s を 1はこに %2$s こずつ %3$s はこに 入れると ぜんぶで いくつ? (%4$s × %5$s)</string>
+    <string name="tpl_cd5e1743">%1$s の クラスの %2$s 人が %3$s を %4$s こずつ もっています。ぜんぶで いくつ? (%5$s × %6$s)</string>
+    <string name="tpl_0689d7b0">%1$s 1つに %2$s が %3$s こずつ 入っています。\n%4$s が %5$s こ あると %6$s は ぜんぶで いくつでしょう?</string>
+    <string name="tpl_fabb8c01">%1$s こずつ %2$s たばなので かけ算です。\n%3$s × %4$s = %5$s こ</string>
+    <string name="tpl_bd90a3bf">%1$s を ぜんぶ はこに うつして、何びきか かぞえましょう。</string>
+    <string name="tpl_26640a33">ひとつずつ うつしながら かぞえると %1$s — ぜんぶで %2$s ひきです。</string>
+    <string name="tpl_c1d7f847">たて %1$scm、よこ %2$scm の長方形の面積は?</string>
+    <string name="tpl_68f81799">長方形の面積 = たて × よこ = %1$s × %2$s = %3$scm²</string>
+    <string name="tpl_f56a2f41">底辺 %1$scm、高さ %2$scm の三角形の面積は?</string>
+    <string name="tpl_cfead5b7">三角形の面積 = 底辺 × 高さ ÷ 2 = %1$s × %2$s ÷ 2 = %3$scm²</string>
+    <string name="tpl_03b2cec2">上底 %1$scm、下底 %2$scm、高さ %3$scm の台形の面積は?</string>
+    <string name="tpl_812652c8">台形の面積 = (上底 + 下底) × 高さ ÷ 2 = (%1$s+%2$s) × %3$s ÷ 2 = %4$scm²</string>
+    <string name="tpl_2ac20dea">%1$skg %2$sg は 何 g でしょう?</string>
+    <string name="tpl_8adee8d9">1kg は 1000g です。%1$s + %2$s = %3$sg</string>
+    <string name="tpl_1a1b845d">%1$skm %2$sm は 何 m でしょう?</string>
+    <string name="tpl_bc396cec">1km は 1000m です。%1$s + %2$s = %3$sm</string>
+    <string name="tpl_5bb097dd">%1$sL %2$smL は 何 mL でしょう?</string>
+    <string name="tpl_58e342da">1L は 1000mL です。%1$s + %2$s = %3$smL</string>
+    <string name="tpl_7fa435ba">√%1$s = k√%2$s のとき k は?</string>
+    <string name="tpl_4bd516c4">√%1$s = √(%2$s × %3$s) = %4$s√%5$s\nk = %6$s です。</string>
+    <string name="tpl_fdef4e9b">x² + %1$sx + %2$s を因数分解すると? (例: (x+2)(x+3))</string>
+    <string name="tpl_7fc38659">和が %1$s、積が %2$s の2数をさがします → %3$s と %4$s\nこたえ: (x+%5$s)(x+%6$s)</string>
+    <string name="tpl_ed66d760">x² - %1$sx + %2$s = 0 の2つの解のうち大きいほうは?</string>
+    <string name="tpl_20a81651">因数分解すると (x-%1$s)(x-%2$s) = 0\n解は %3$s と %4$s、大きいほうは %5$s です。</string>
+    <string name="tpl_f666532f">y = %1$sx² で x = %2$s のとき y は?</string>
+    <string name="tpl_03a38c23">x = %1$s を代入します。y = %2$s × %3$s² = %4$s × %5$s = %6$s</string>
+    <string name="tpl_05d5a936">相似比が 1 : %1$s の2つの図形で、小さい図形の1辺が %2$s のとき、大きい図形の対応する辺は?</string>
+    <string name="tpl_101dec85">相似比が 1 : %1$s なので対応する辺も %2$s 倍です。%3$s × %4$s = %5$s\n(面積は %6$s 倍になります)</string>
+    <string name="tpl_34aaa693">赤 %1$s こ、青 %2$s この ふくろから 1つ 取り出すとき、赤である確率は? (既約分数の分子)</string>
+    <string name="tpl_bbcd0e09">ぜんぶで %1$s この うち 赤は %2$s こです。%3$s/%4$s = %5$s/%6$s</string>
+    <string name="tpl_be363966">ぜんたいを 同じように %1$s に わけた えです。%2$s/%3$s だけ 色を ぬりましょう。</string>
+    <string name="tpl_822bd5c1">%1$s/%2$s は 同じように わけた %3$s こ のうち %4$s こ です。\nピースを %5$s こ おして ぬれば いいです。</string>
+    <string name="tpl_b1b8ddf9">数直線で %1$s を さがして 点を おきましょう。</string>
+    <string name="tpl_72ed475e">楕円 x²/%1$s + y²/%2$s = 1 の長軸の長さは?</string>
+    <string name="tpl_9323580e">x²/a² + y²/b² = 1 で a = %1$s、b = %2$s です。\n長軸の長さは 2a = %3$s です。</string>
+    <string name="tpl_526c1433">この角は どんな角でしょう? (%1$s°)</string>
+    <string name="tpl_0352c1ec">f(x) = %1$s のとき f\'(%2$s) の値は?</string>
+    <string name="tpl_0a772723">接線のかたむきは f\'(%1$s) です。f\'(x) = %2$sx なので %3$s×%4$s = %5$s</string>
+    <string name="tpl_0e6df588">f(x) = %1$s のとき x = %2$s での接線のかたむきは?</string>
+    <string name="tpl_65303faf">%1$s° に なるように ハンドルを まわしましょう。</string>
+    <string name="tpl_2bb14977">色を ぬった ぶぶんは ぜんたいの 何分の何でしょう? (分子だけ 書きます)</string>
+    <string name="tpl_386d8a5c">ぜんたいを 同じように %1$s に わけたうち %2$s こが 色ぬりされています。だから %3$s/%4$s です。</string>
+    <string name="tpl_e22b23c2">曲線 y = %1$s と x 軸、x = %2$s で囲まれた部分の面積は? (小数第3位まで)</string>
+    <string name="tpl_702f39e6">面積 = ∫₀^%1$s %2$sx² dx = %3$sx³/3 に %4$s を代入 = %5$s×%6$s/3 = %7$s</string>
+    <string name="tpl_12d53984">とけいの はりを ドラッグして %1$s に しましょう。</string>
+    <string name="tpl_59f3bbde">とけいを 見て 何時か えらびましょう。</string>
+    <string name="tpl_6a049195">短いはりを %1$s に、長いはりを %2$s に おくと %3$s です。</string>
+    <string name="tpl_421f0115">√%1$s の値は?</string>
+    <string name="tpl_c10c073d">%1$s × %2$s = %3$s なので √%4$s = %5$s です。</string>
+    <string name="tpl_04ad73bd">log_%1$s %2$s の値は?</string>
+    <string name="tpl_1a575d20">log_%1$s %2$s は「%3$s を何回かけたら %4$s になるか」です。%5$s^%6$s = %7$s なので答えは %8$s です。</string>
+    <string name="tpl_40e43c86">%1$s^%2$s の値は?</string>
+    <string name="tpl_8ad8bef1">%1$s を %2$s 回かけます。%3$s = %4$s</string>
+    <string name="tpl_9236cec8">めもり 1つが 5 です。%1$s ÷ 5 = %2$s なので 0 から %3$s めもり すすみます。</string>
+    <string name="tpl_9b01b011">直角三角形の2辺が %1$s、%2$s のとき斜辺の長さは? (図を見てください)</string>
+    <string name="tpl_29b3af3f">三平方の定理: a² + b² = c²\n%1$s² + %2$s² = %3$s + %4$s = %5$s\n斜辺 = %6$s</string>
+    <string name="tpl_05c967bb">斜辺が %1$s、1辺が %2$s の直角三角形の残りの辺は?</string>
+    <string name="tpl_bc1b4161">c² - a² = b²\n%1$s - %2$s = %3$s\n残りの辺 = %4$s</string>
+    <string name="tpl_22a9acd5">%1$s 人から %2$s 人をえらぶ方法の数は?</string>
+    <string name="tpl_de1537f4">%1$sC%2$s = %3$s ÷ %4$s = %5$s とおり</string>
+    <string name="tpl_133b1724">異なる %1$s 個から %2$s 個を順序なしでえらぶ場合の数は? (%3$sC%4$s)</string>
+    <string name="tpl_e5f765f4">異なる %1$s 個から %2$s 個をえらんで順に並べる場合の数は? (%3$sP%4$s)</string>
+    <string name="tpl_ee0c3706">%1$s の かたちは 何ばんでしょう?</string>
+    <string name="tpl_18800cab">半径が %1$scm の円の周りの長さは? (円周率 3.14)</string>
+    <string name="tpl_af15f6d2">円周 = 直径 × 3.14 = %1$s × 3.14 = %2$scm</string>
+    <string name="tpl_a145b736">半径が %1$scm の円の面積は? (円周率 3.14)</string>
+    <string name="tpl_5844f447">円の面積 = 半径 × 半径 × 3.14 = %1$s × %2$s × 3.14 = %3$scm²</string>
+    <string name="tpl_e25a121a">%1$s、%2$s、%3$s、つぎに くる 数は?</string>
+    <string name="tpl_c074ed4d">1 ずつ 大きくなる きまりです。%1$s の つぎは %2$s です。</string>
+    <string name="tpl_ac380a89">%1$s に %2$s を たすと 10 に なります。10 を わけると %3$s と %4$s です。</string>
+    <string name="tpl_08b9cc90">確率が 1/%1$s のことが %2$s 回続けて起こる確率が 1/k のとき k は?</string>
+    <string name="tpl_e6dd2bae">独立試行なのでかけます。(1/%1$s)^%2$s = 1/%3$s\nk = %4$s</string>
+    <string name="tpl_ab3d2f03">%1$s角形の内角の和は? (単位 °)</string>
+    <string name="tpl_50ddbff4">n角形の内角の和 = (n - 2) × 180°\n(%1$s - 2) × 180 = %2$s°</string>
+    <string name="tpl_a257284f">%1$s角形の対角線の本数は?</string>
+    <string name="tpl_6fa548ec">対角線の本数 = n(n-3)/2 = %1$s×%2$s/2 = %3$s 本</string>
+    <string name="tpl_076280c4">0.%1$s だけ 色を ぬりましょう。(ぜんたいを 同じ 10 こに わけました)</string>
+    <string name="tpl_3601a2fc">10 こ のうち %1$s こ なので %2$s/10 = 0.%3$s です。</string>
+    <string name="tpl_d91eef04">1 を 同じ 10 に わけたうち %1$s こは 小数で いくつでしょう?</string>
+    <string name="tpl_5b3eb8ba">数直線で 0.%1$s を さがして 点を おきましょう。</string>
+    <string name="tpl_b54eb50c">0 と 1 の あいだを 同じ 10 に わけました。\n0.%1$s は 0 から %2$s めもり すすんだ ところです。</string>
+    <string name="tpl_74d583e3">%1$s %2$s° の値は?</string>
+    <string name="tpl_f0bf458a">単位円で %1$s° の位置を考えます。%2$s%3$s° = %4$s</string>
+    <string name="tpl_f339376b">0.%1$s は %2$s/10 と同じです。\n10 こ のうち %3$s こを ぬれば いいです。</string>
+    <string name="tpl_d6fcc9c2">%1$s %2$s° の値は? (分数は 1/2 のように)</string>
+    <string name="tpl_2d7284ee">特殊角の三角比です。%1$s%2$s° = %3$s\n30°・45°・60° の値は覚えておくと便利です。</string>
+    <string name="tpl_f046f32a">要素が %1$s 個の集合の部分集合の個数は?</string>
+    <string name="tpl_710ba473">部分集合の個数 = 2ⁿ = 2^%1$s = %2$s 個です。\n(真部分集合は %3$s 個)</string>
+    <string name="tpl_fb01043c">さいころを1回投げて %1$s 以下の目が出る確率は? (既約分数の分子)</string>
+    <string name="tpl_4fcaf9c5">%1$s 以下は %2$s とおり、全体は 6 とおりです。%3$s/6 = %4$s/%5$s</string>
+    <string name="tpl_7e93d243">左は %1$s こ、右は %2$s こです。%3$s が %4$s より 大きいので %5$s の ほうが おおいです。</string>
+    <string name="tpl_0782d5d6">十のくらいから くらべます。%1$s の ほうが 大きいです。</string>
+    <string name="tpl_303e5331">ぼうが いちばん 高いものを さがします。%1$s が %2$s こで いちばん おおいです。</string>
+    <string name="tpl_1f33664e">%1$s ひきを 入れて %2$s ひきを もっと 入れると はこは %3$s ひきに なります。\n%4$s から %5$s だけ 数えると %6$s です。</string>
+    <string name="tpl_eb12d4e3">%1$s ひきから %2$s ひきを おくると %3$s ひき のこります。\nおくった ぶんと のこった ぶんを あわせると また %4$s ひきです。</string>
+    <string name="tpl_d35868f6">左は x の はこ %1$s こと 1 の おもり %2$s こ、右は 1 の おもり %3$s こです。\n両方から %4$s を とりのぞくと %5$sx = %6$s\n%7$s たばに 同じように わけると x = %8$s です。</string>
+    <string name="tpl_74cc085d">%1$s\n色が ちがっても かたちが 同じなら 同じ かごです。</string>
+    <string name="tpl_28a6838e">%1$s° は %2$s です。</string>
+    <string name="tpl_394c5f1b">%1$s° は %2$s です。\n直角(90°)より %3$s° せまいです。</string>
+    <string name="tpl_9e6c9d79">%1$s° は %2$s です。\n直角(90°)より %3$s° ひろいです。</string>
+    <string name="tpl_b0aed67a">%1$s° は %2$s です。\nまっすぐ 立った 角です。</string>
+    <string name="tpl_54ac9abe">%1$s と %2$s が こうごに でてくる きまりです。%3$s の つぎは %4$s です。</string>
+    <string name="tpl_5c76e40f">%1$s の かたちです。%2$s ばんです。</string>
+    <string name="tpl_1c847ed5">短いはりが %1$s、長いはりが 12 を さしているので %2$s 時です。</string>
+    <string name="tpl_ed836a0a">短いはりが %1$s と %2$s の あいだ、長いはりが 6 を さしているので %3$s 時 30 分です。</string>
+    <string name="tpl_cc9224e2">0 から 右へ %1$s めもり すすんだ ところです。\n%2$s は 10 より 小さいです。</string>
+    <string name="tpl_298087b1">0 から 右へ %1$s めもり すすんだ ところです。\n%2$s は 10 より 大きいです。</string>
+    <string name="tpl_c9b3271e">0 から 右へ %1$s めもり すすんだ ところです。\n%2$s は ちょうど 10 です。</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+        <item>사과|りんご</item>
+        <item>딸기|いちご</item>
+        <item>포도|ぶどう</item>
+        <item>바나나|バナナ</item>
+        <item>귤|みかん</item>
+        <item>쿠키|クッキー</item>
+        <item>사탕|あめ</item>
+        <item>구슬|ビー玉</item>
+        <item>스티커|シール</item>
+        <item>풍선|ふうせん</item>
+        <item>블록|ブロック</item>
+        <item>도토리|どんぐり</item>
+        <item>색연필|いろえんぴつ</item>
+        <item>상자|はこ</item>
+        <item>접시|おさら</item>
+        <item>바구니|かご</item>
+        <item>봉지|ふくろ</item>
+        <item>가방|かばん</item>
+        <item>원|円</item>
+        <item>삼각형|三角形</item>
+        <item>사각형|四角形</item>
+        <item>오각형|五角形</item>
+        <item>육각형|六角形</item>
+        <item>예각|鋭角</item>
+        <item>직각|直角</item>
+        <item>둔각|鈍角</item>
+        <item>평각|平角</item>
+        <item>축구|サッカー</item>
+        <item>야구|野球</item>
+        <item>농구|バスケ</item>
+        <item>수영|水泳</item>
+        <item>달리기|かけっこ</item>
+        <item>삐약이|ピヤック</item>
+        <item>토끼|うさぎ</item>
+        <item>펭귄|ペンギン</item>
+        <item>고양이|ねこ</item>
+        <item>곰돌이|くまさん</item>
+        <item>다람쥐|りす</item>
+        <item>서연|ソヨン</item>
+        <item>수아|スア</item>
+        <item>시우|シウ</item>
+        <item>채원|チェウォン</item>
+        <item>도윤|ドユン</item>
+        <item>예린|イェリン</item>
+        <item>은우|ウヌ</item>
+        <item>지우|ジウ</item>
+        <item>민수|ミンス</item>
+        <item>하준|ハジュン</item>
+        <item>월|月</item>
+        <item>화|火</item>
+        <item>수|水</item>
+        <item>목|木</item>
+        <item>금|金</item>
+        <item>영|ゼロ</item>
+        <item>하나|いち</item>
+        <item>둘|に</item>
+        <item>셋|さん</item>
+        <item>넷|し</item>
+        <item>다섯|ご</item>
+        <item>여섯|ろく</item>
+        <item>일곱|なな</item>
+        <item>여덟|はち</item>
+        <item>아홉|きゅう</item>
+        <item>열|じゅう</item>
+        <item>왼쪽|左</item>
+        <item>오른쪽|右</item>
+        <item>같아요|同じ</item>
+        <item>모르겠어요|わからない</item>
+        <item>없어요|ない</item>
+        <item>모으는 상자|あつめる</item>
+        <item>집으로|おうちへ</item>
+        <item>반|組</item>
+        <item>대|代</item>
+        <item>시|時</item>
+        <item>분|分</item>
+        <item>원은 뾰족한 곳이 없고 동그란 모양이에요.|円は とがった ところが なくて まるい かたちです。</item>
+        <item>삼각형은 뾰족한 곳이 3개 모양이에요.|三角形は とがった ところが 3つ あります。</item>
+        <item>사각형은 뾰족한 곳이 4개 모양이에요.|四角形は とがった ところが 4つ あります。</item>
+        <item>D &gt; 0 이므로 서로 다른 두 실근|D &gt; 0 なので異なる2つの実数解</item>
+        <item>D = 0 이므로 중근|D = 0 なので重解</item>
+        <item>D &lt; 0 이므로 실근이 없어요|D &lt; 0 なので実数解はありません</item>
+        <item>빼면|引く</item>
+        <item>더하면|足す</item>
+        <item>(10 넘으면 십의 자리로 받아올림!)|(10 をこえたら十のくらいにくり上がり!)</item>
+        <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|一のくらいが引けないので、十のくらいから 10 を借ります。</item>
+        <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|符号がちがうときは、絶対値が大きいほうの符号になります。</item>
+        <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|どちらも負のときは、絶対値をたしてマイナスをつけます。</item>
+    </string-array>
+    <string-array name="tpl_units">
+        <item>개|個</item>
+        <item>명|人</item>
+        <item>분|分</item>
+        <item>초|秒</item>
+        <item>점|点</item>
+        <item>원|ウォン</item>
+    </string-array>
 </resources>
