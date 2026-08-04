@@ -65,6 +65,10 @@
     <string name="stats_badges">Badges</string>
     <string name="placement_title">Test de niveau</string>
     <string name="placement_quit_ask">Quitter le test de niveau ?</string>
+    <string name="tts_blank">combien</string>
+    <string name="hint_none">Plus d\'indices. Tu peux en acheter dans la boutique ! 💡</string>
+    <string name="hint_choice_only">Les indices ne marchent que sur les questions à choix multiples</string>
+    <string name="hint_already">Tu as déjà utilisé un indice sur cette question</string>
     <string name="mkind_clock">🕐 Lire l\'heure</string>
     <string name="mkind_clock_set">🕐 Régler l\'horloge</string>
     <string name="mkind_group">🧺 Partager également</string>

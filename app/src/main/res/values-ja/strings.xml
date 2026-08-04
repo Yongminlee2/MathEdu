@@ -65,6 +65,10 @@
     <string name="stats_badges">バッジ</string>
     <string name="placement_title">レベルテスト</string>
     <string name="placement_quit_ask">レベルテストをやめますか？</string>
+    <string name="tts_blank">なに</string>
+    <string name="hint_none">ヒント券がありません。ショップで買えます! 💡</string>
+    <string name="hint_choice_only">ヒントは4択問題でだけ使えます</string>
+    <string name="hint_already">この問題ではもうヒントを使いました</string>
     <string name="mkind_clock">🕐 とけいを よむ</string>
     <string name="mkind_clock_set">🕐 はりを まわす</string>
     <string name="mkind_group">🧺 同じに わける</string>

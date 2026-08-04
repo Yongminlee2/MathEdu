@@ -65,6 +65,10 @@
     <string name="stats_badges">Medalhas</string>
     <string name="placement_title">Teste de nível</string>
     <string name="placement_quit_ask">Sair do teste de nível?</string>
+    <string name="tts_blank">quanto</string>
+    <string name="hint_none">Sem dicas. Você pode comprar na loja! 💡</string>
+    <string name="hint_choice_only">As dicas só funcionam em questões de múltipla escolha</string>
+    <string name="hint_already">Você já usou uma dica nesta questão</string>
     <string name="mkind_clock">🕐 Ler o relógio</string>
     <string name="mkind_clock_set">🕐 Ajustar o relógio</string>
     <string name="mkind_group">🧺 Dividir por igual</string>

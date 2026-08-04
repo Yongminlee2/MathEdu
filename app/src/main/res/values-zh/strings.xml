@@ -65,6 +65,10 @@
     <string name="stats_badges">徽章</string>
     <string name="placement_title">水平测试</string>
     <string name="placement_quit_ask">要退出水平测试吗？</string>
+    <string name="tts_blank">多少</string>
+    <string name="hint_none">没有提示券了。可以在商店购买! 💡</string>
+    <string name="hint_choice_only">提示只能用于四选一的题目</string>
+    <string name="hint_already">这道题已经用过提示了</string>
     <string name="mkind_clock">🕐 看时钟</string>
     <string name="mkind_clock_set">🕐 拨动指针</string>
     <string name="mkind_group">🧺 平均分</string>

@@ -65,6 +65,10 @@
     <string name="stats_badges">배지</string>
     <string name="placement_title">레벨테스트</string>
     <string name="placement_quit_ask">레벨테스트를 그만둘까요?</string>
+    <string name="tts_blank">몇</string>
+    <string name="hint_none">힌트권이 없어요. 상점에서 살 수 있어요! 💡</string>
+    <string name="hint_choice_only">힌트는 4지선다 문제에서만 쓸 수 있어요</string>
+    <string name="hint_already">이 문제에는 이미 힌트를 썼어요</string>
     <string name="mkind_clock">🕐 시계 보기</string>
     <string name="mkind_clock_set">🕐 시계 바늘 돌리기</string>
     <string name="mkind_group">🧺 끌어서 똑같이 나누기</string>

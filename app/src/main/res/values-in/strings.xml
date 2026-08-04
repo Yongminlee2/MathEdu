@@ -65,6 +65,10 @@
     <string name="stats_badges">Lencana</string>
     <string name="placement_title">Tes level</string>
     <string name="placement_quit_ask">Keluar dari tes level?</string>
+    <string name="tts_blank">berapa</string>
+    <string name="hint_none">Tidak ada tiket petunjuk. Beli di toko! 💡</string>
+    <string name="hint_choice_only">Petunjuk hanya untuk soal pilihan ganda</string>
+    <string name="hint_already">Kamu sudah memakai petunjuk di soal ini</string>
     <string name="mkind_clock">🕐 Membaca jam</string>
     <string name="mkind_clock_set">🕐 Atur jarum jam</string>
     <string name="mkind_group">🧺 Bagi rata</string>
