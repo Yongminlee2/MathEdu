@@ -386,6 +386,10 @@
     <string name="stats_counters">📚 Lecciones completadas  %1$d\n💯 Lecciones perfectas  %2$d\n💊 Errores superados  %3$d\n🗓 Días estudiados  %4$d</string>
     <string name="result_stats">%1$d%% de acierto · +%2$d XP</string>
     <string name="box">Caja</string>
+    <string name="ma_listen">🔊 Escuchar</string>
+    <string name="ma_track">Pista</string>
+    <string name="ma_sfx_note">Si está muy alto, la voz que lee se oye mal</string>
+    <string name="ma_about">Piyak Math 🐥 tu propia app de mates</string>
     <string-array name="weekday_short">
         <item>Dom</item>
         <item>Lun</item>

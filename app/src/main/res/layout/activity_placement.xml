@@ -27,7 +27,7 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <Button android:id="@+id/btnPlay" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp" android:text="🔊 듣기" android:visibility="gone"
+                    android:layout_marginTop="10dp" android:text="@string/ma_listen" android:visibility="gone"
                     android:backgroundTint="@color/sky" android:textColor="@color/brown_text" />
                 <TextView android:id="@+id/txtPrompt" android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:layout_marginTop="14dp" android:textSize="21sp" android:textStyle="bold"

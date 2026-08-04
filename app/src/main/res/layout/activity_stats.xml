@@ -15,7 +15,7 @@
         </LinearLayout>
 
         <TextView android:id="@+id/txtLevelBig" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginTop="12dp" android:textSize="24sp" android:textStyle="bold" android:text="⭐ Lv.0" />
+            android:layout_marginTop="12dp" android:textSize="24sp" android:textStyle="bold" android:text="" />
         <ProgressBar android:id="@+id/xpBar" style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent" android:layout_height="12dp" android:layout_marginTop="6dp"
             android:max="100" android:progressTint="@color/chick_yellow_deep"

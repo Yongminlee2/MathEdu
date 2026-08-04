@@ -24,7 +24,7 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="@string/wallet_saved" android:textSize="14sp" android:textColor="@color/brown_soft" />
             <TextView android:id="@+id/txtBalance" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="0원" android:textSize="40sp" android:textStyle="bold"
+                android:text="0" android:textSize="40sp" android:textStyle="bold"
                 android:textColor="@color/brown_text" />
             <TextView android:id="@+id/txtSummary" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="6dp" android:gravity="center"

@@ -386,6 +386,10 @@
     <string name="stats_counters">📚 完成的课程  %1$d\n💯 满分课程  %2$d\n💊 攻克的错题  %3$d\n🗓 学习天数  %4$d</string>
     <string name="result_stats">正确率 %1$d%% · +%2$d XP</string>
     <string name="box">盒子</string>
+    <string name="ma_listen">🔊 听</string>
+    <string name="ma_track">轨道</string>
+    <string name="ma_sfx_note">太大声会听不清读题的声音</string>
+    <string name="ma_about">啾啾数学 🐥 属于你的数学学习应用</string>
     <string-array name="weekday_short">
         <item>日</item>
         <item>一</item>
