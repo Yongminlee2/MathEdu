@@ -392,32 +392,32 @@ class LessonActivity : AppCompatActivity() {
             txtPrompt.text = q.prompt
         }
         v.findViewById<TextView>(R.id.txtKind).text = when (q.visual?.kind) {
-            com.piyak.english.model.MathVisual.CLOCK -> "🕐 시계 보기"
-            com.piyak.english.model.MathVisual.CLOCK_SET -> "🕐 시계 바늘 돌리기"
-            com.piyak.english.model.MathVisual.GROUP -> "🧺 끌어서 똑같이 나누기"
-            com.piyak.english.model.MathVisual.FRACTION_PAINT -> "🍰 분수만큼 색칠하기"
-            com.piyak.english.model.MathVisual.SHAPE_SORT -> "🔺 도형 분류하기"
-            com.piyak.english.model.MathVisual.NUMBER_LINE_DRAG -> "📏 수직선에서 찾기"
-            com.piyak.english.model.MathVisual.ANGLE_SET -> "📐 각도 만들기"
-            com.piyak.english.model.MathVisual.BALANCE -> "⚖️ 저울 맞추기"
-            com.piyak.english.model.MathVisual.BAR_BUILD -> "📊 그래프 세우기"
+            com.piyak.english.model.MathVisual.CLOCK -> getString(R.string.mkind_clock)
+            com.piyak.english.model.MathVisual.CLOCK_SET -> getString(R.string.mkind_clock_set)
+            com.piyak.english.model.MathVisual.GROUP -> getString(R.string.mkind_group)
+            com.piyak.english.model.MathVisual.FRACTION_PAINT -> getString(R.string.mkind_frac_paint)
+            com.piyak.english.model.MathVisual.SHAPE_SORT -> getString(R.string.mkind_shape_sort)
+            com.piyak.english.model.MathVisual.NUMBER_LINE_DRAG -> getString(R.string.mkind_numline_drag)
+            com.piyak.english.model.MathVisual.ANGLE_SET -> getString(R.string.mkind_angle_set)
+            com.piyak.english.model.MathVisual.BALANCE -> getString(R.string.mkind_balance)
+            com.piyak.english.model.MathVisual.BAR_BUILD -> getString(R.string.mkind_bar_build)
             com.piyak.english.model.MathVisual.GATHER ->
-                if (q.prompt.contains("-")) "➖ 덜어내고 세기" else "➕ 모아서 세기"
-            com.piyak.english.model.MathVisual.SHAPES -> "🔺 도형"
-            com.piyak.english.model.MathVisual.FRACTION -> "🍰 분수"
-            com.piyak.english.model.MathVisual.BAR_GRAPH -> "📊 그래프"
-            com.piyak.english.model.MathVisual.NUMBER_LINE -> "📏 수직선"
-            com.piyak.english.model.MathVisual.GEOM -> "📐 도형"
-            com.piyak.english.model.MathVisual.COORD3D -> "🧊 공간좌표"
-            com.piyak.english.model.MathVisual.COORD2D -> "📈 좌표평면"
-            com.piyak.english.model.MathVisual.ANGLE -> "📐 각도"
+                if (q.promptKo.contains("-")) getString(R.string.mkind_take_out) else getString(R.string.mkind_gather)
+            com.piyak.english.model.MathVisual.SHAPES -> getString(R.string.mkind_shapes)
+            com.piyak.english.model.MathVisual.FRACTION -> getString(R.string.mkind_fraction)
+            com.piyak.english.model.MathVisual.BAR_GRAPH -> getString(R.string.mkind_bar_graph)
+            com.piyak.english.model.MathVisual.NUMBER_LINE -> getString(R.string.mkind_numline)
+            com.piyak.english.model.MathVisual.GEOM -> getString(R.string.mkind_geom)
+            com.piyak.english.model.MathVisual.COORD3D -> getString(R.string.mkind_coord3d)
+            com.piyak.english.model.MathVisual.COORD2D -> getString(R.string.mkind_coord2d)
+            com.piyak.english.model.MathVisual.ANGLE -> getString(R.string.mkind_angle)
             // 배열 그림은 곱셈·나눗셈에 모두 쓰인다 — 문제 기호로 구분한다
             com.piyak.english.model.MathVisual.ARRAY ->
-                if (q.prompt.contains("÷")) "➗ 나눗셈" else "✖️ 곱셈"
+                if (q.promptKo.contains("÷")) getString(R.string.mkind_div) else getString(R.string.mkind_mul)
             com.piyak.english.model.MathVisual.EMOJI_OP ->
-                if (q.prompt.contains("-")) "➖ 빼기" else "➕ 더하기"
-            null -> "🔢 수학"
-            else -> "🐥 그림 문제"
+                if (q.promptKo.contains("-")) getString(R.string.mkind_sub) else getString(R.string.mkind_add)
+            null -> getString(R.string.mkind_math)
+            else -> getString(R.string.mkind_picture)
         }
 
         val visualView = v.findViewById<MathVisualView>(R.id.visual)
@@ -426,7 +426,7 @@ class LessonActivity : AppCompatActivity() {
             // 그림 없는 문제도 글만 덜렁 있지 않게.
             // 이야기 속 사물·동물(쿠키·토끼…)이 그림 사전에 있으면 진짜 일러스트를,
             // 없으면 영역 테마 이모지를 쓴다.
-            val storyImg = storyArt(q.prompt)
+            val storyImg = storyArt(q.promptKo)
             if (storyImg != 0) {
                 val img = android.widget.ImageView(this).apply {
                     layoutParams = android.widget.LinearLayout.LayoutParams(dp(155), dp(155))
@@ -1056,7 +1056,7 @@ class LessonActivity : AppCompatActivity() {
             "m_word" -> listOf("ck_book", "ck_idle")
             else -> listOf("ck_idle")
         }
-        val name = names[Math.abs(q.prompt.hashCode()) % names.size]
+        val name = names[Math.abs(q.promptKo.hashCode()) % names.size]
         return resources.getIdentifier(name, "drawable", packageName)
     }
 

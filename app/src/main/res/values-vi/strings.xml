@@ -65,4 +65,385 @@
     <string name="stats_badges">Huy hiệu</string>
     <string name="placement_title">Kiểm tra trình độ</string>
     <string name="placement_quit_ask">Dừng bài kiểm tra trình độ?</string>
+    <string name="mkind_clock">🕐 Xem đồng hồ</string>
+    <string name="mkind_clock_set">🕐 Chỉnh kim đồng hồ</string>
+    <string name="mkind_group">🧺 Chia đều</string>
+    <string name="mkind_frac_paint">🍰 Tô phân số</string>
+    <string name="mkind_shape_sort">🔺 Phân loại hình</string>
+    <string name="mkind_numline_drag">📏 Tìm trên trục số</string>
+    <string name="mkind_angle_set">📐 Tạo góc</string>
+    <string name="mkind_balance">⚖️ Cân thăng bằng</string>
+    <string name="mkind_bar_build">📊 Dựng biểu đồ</string>
+    <string name="mkind_take_out">➖ Bớt rồi đếm</string>
+    <string name="mkind_gather">➕ Gom rồi đếm</string>
+    <string name="mkind_shapes">🔺 Hình học</string>
+    <string name="mkind_fraction">🍰 Phân số</string>
+    <string name="mkind_bar_graph">📊 Biểu đồ</string>
+    <string name="mkind_numline">📏 Trục số</string>
+    <string name="mkind_geom">📐 Hình học</string>
+    <string name="mkind_coord3d">🧊 Tọa độ không gian</string>
+    <string name="mkind_coord2d">📈 Mặt phẳng tọa độ</string>
+    <string name="mkind_angle">📐 Góc</string>
+    <string name="mkind_div">➗ Phép chia</string>
+    <string name="mkind_mul">✖️ Phép nhân</string>
+    <string name="mkind_sub">➖ Phép trừ</string>
+    <string name="mkind_add">➕ Phép cộng</string>
+    <string name="mkind_math">🔢 Toán</string>
+    <string name="mkind_picture">🐥 Câu hỏi có hình</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_24083678">Viết %1$s : %2$s thành tỉ số các số tự nhiên đơn giản nhất: %3$s : ?</string>
+    <string name="tpl_33585846">Thừa số nguyên tố lớn nhất của %1$s là bao nhiêu?</string>
+    <string name="tpl_35882540">Cùng mẫu số nên cộng tử số. %1$s + %2$s = %3$s, đáp án %4$s/%5$s.</string>
+    <string name="tpl_66531960">Hàng đơn vị: %1$s + %2$s = %3$s %4$s\nĐáp án là %5$s.</string>
+    <string name="tpl_93741444">Lũy thừa của lũy thừa thì nhân số mũ. %1$s × %2$s = %3$s</string>
+    <string name="tpl_a84fb314">Có %2$s nhóm, mỗi nhóm %1$s. %3$s = %4$s\nBảng %5$s: %6$s×%7$s=%8$s</string>
+    <string name="tpl_40b5583a">Đếm các hình. Tất cả có bao nhiêu?</string>
+    <string name="tpl_4426d4f7">%1$s cộng %2$s bằng %3$s. Bắt đầu từ %4$s rồi đếm thêm %5$s.</string>
+    <string name="tpl_e8755f8c">Đếm từng cái: %1$s. Tất cả là %2$s. %3$s</string>
+    <string name="tpl_412438c7">Lấy %1$s trừ đi %2$s thì còn %3$s.</string>
+    <string name="tpl_83f30dfe">%1$s Đáp án là %2$s.</string>
+    <string name="tpl_bf977bf4">Chia %1$s thành %2$s nhóm bằng nhau, mỗi nhóm %3$s.\nKiểm tra: %4$s × %5$s = %6$s</string>
+    <string name="tpl_9391fb31">Gom thành một chục rồi đếm phần còn lại: 10 + %1$s = %2$s.</string>
+    <string name="tpl_9e616d48">Đếm xem tất cả có bao nhiêu hình.</string>
+    <string name="tpl_e94b638c">Bên nào nhiều hơn?</string>
+    <string name="tpl_56861fce">Kéo mỗi hình vào giỏ có tên tương ứng. (%1$s)</string>
+    <string name="tpl_e2813a9a">%1$s = %2$s\nThừa số nguyên tố lớn nhất là %3$s.</string>
+    <string name="tpl_97c89890">Một số nhân với %1$s rồi cộng %2$s được %3$s.\nSố đó là bao nhiêu?</string>
+    <string name="tpl_ce982230">Gọi số đó là x: %1$sx + %2$s = %3$s\n%4$sx = %5$s\nx = %6$s</string>
+    <string name="tpl_1fa89b68">Nếu f(x) = %1$s + %2$s %3$s thì f\'(%4$s) bằng bao nhiêu?</string>
+    <string name="tpl_91bf4e00">Nếu %1$sx %2$s = %3$s thì x bằng bao nhiêu?</string>
+    <string name="tpl_ee5eec9f">%2$s %1$s ở cả hai vế: %3$sx = %4$s\nChia hai vế cho %5$s: x = %6$s.</string>
+    <string name="tpl_5c41b06f">Nhân trước: %1$s × %2$s = %3$s, rồi %4$s + %5$s = %6$s</string>
+    <string name="tpl_6a454edc">Số dư khi chia f(x) = %1$s %2$sx %3$s cho x %4$s là bao nhiêu?</string>
+    <string name="tpl_dd646a18">Định lý số dư: chia f(x) cho (x - k) được số dư f(k).\nf(%1$s) = %2$s×%3$s %4$s %5$s×%6$s %7$s %8$s = %9$s</string>
+    <string name="tpl_e163b535">%1$s/%2$s ÷ %3$s/%4$s = ? (tử số của phân số tối giản)</string>
+    <string name="tpl_f64e7111">Chia thì lật phân số sau rồi nhân. %1$s/%2$s × %3$s/%4$s = %5$s/%6$s\nRút gọn được %7$s/%8$s.</string>
+    <string name="tpl_593dd3e4">Khử y bằng phương pháp cộng đại số.\nNhân phương trình đầu với %1$s, phương trình sau với %2$s rồi trừ: x = %3$s\nThế vào được y = %4$s.</string>
+    <string name="tpl_69c8bd83">%1$sx + %2$sy = %3$s\n%4$sx + %5$sy = %6$s\nGiá trị của x là bao nhiêu?</string>
+    <string name="tpl_856c631f">Ước chung lớn nhất của %1$s và %2$s là %3$s.</string>
+    <string name="tpl_860d863a">Tách %1$s thành %2$s và %3$s rồi nhân.\n%4$s×%5$s=%6$s, %7$s×%8$s=%9$s\nCộng lại được %10$s.</string>
+    <string name="tpl_d0025612">Ước chung lớn nhất của %1$s và %2$s là bao nhiêu?</string>
+    <string name="tpl_f0f11947">Biệt thức D của %1$s %2$sx %3$s = 0 bằng bao nhiêu?</string>
+    <string name="tpl_2a17168e">%1$s có %3$s %2$s.\nBạn cho thêm %4$s nữa.\nTất cả có bao nhiêu %5$s?</string>
+    <string name="tpl_4b6b9472">Được cho thêm nghĩa là phép cộng.\n%1$s + %2$s = %3$s</string>
+    <string name="tpl_7182fe6c">Số nào lớn hơn, %1$s hay %2$s?</string>
+    <string name="tpl_064cd500">%1$s mua %4$s hộp %2$s, mỗi hộp %3$s cái.\nNếu cho đi %5$s cái thì còn lại bao nhiêu?</string>
+    <string name="tpl_b142acbe">Trước hết tính tổng: %1$s × %2$s = %3$s\nRồi trừ phần đã cho: %4$s - %5$s = %6$s</string>
+    <string name="tpl_09881b6d">Rút gọn %1$s/%2$s. Tử số là bao nhiêu?</string>
+    <string name="tpl_b9de180a">Chia tử và mẫu cho ƯCLN %1$s: %2$s÷%3$s=%4$s, %5$s÷%6$s=%7$s\nĐáp án là %8$s/%9$s.</string>
+    <string name="tpl_104b2419">%2$s %1$s ở cả hai vế: %3$sx &gt; %4$s\nChia cho số dương %5$s: x &gt; %6$s\n(Chia cho số âm thì đổi chiều bất đẳng thức!)</string>
+    <string name="tpl_302b4ab7">Số dư của %1$s ÷ %2$s là bao nhiêu?</string>
+    <string name="tpl_7781a29b">%1$s ÷ %2$s = %3$s dư %4$s\nKiểm tra: %5$s × %6$s + %7$s = %8$s</string>
+    <string name="tpl_421eaae2">Khi x = %1$s, giá trị của %2$sx + %3$s là bao nhiêu?</string>
+    <string name="tpl_c746b533">Thay x bằng %1$s: %2$s × %3$s + %4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_520190ba">lim(x→%1$s) (%2$s %3$s) bằng bao nhiêu?</string>
+    <string name="tpl_97b6e789">Hàm đa thức liên tục nên thay trực tiếp. %1$s×%2$s %3$s %4$s = %5$s</string>
+    <string name="tpl_8154d16f">%1$s/%2$s × %3$s/%4$s = ? (tử số của phân số tối giản)</string>
+    <string name="tpl_8c032f04">Nhân tử với tử, mẫu với mẫu. %1$s×%2$s=%3$s, %4$s×%5$s=%6$s\nRút gọn %7$s/%8$s được %9$s/%10$s.</string>
+    <string name="tpl_7b8145cd">%1$s × %2$s = %3$s\n%4$s × %5$s = %6$s\nCộng lại được %7$s.</string>
+    <string name="tpl_d091ab21">Dời dấu phẩy rồi chia. %1$s ÷ %2$s = %3$s</string>
+    <string name="tpl_f5c65837">Với x nào thì %1$sx %2$s &gt; %3$s? x &gt; ?</string>
+    <string name="tpl_af55c367">%1$s có %3$s %2$s.\nĐã cho em trai %4$s cái.\nCòn lại bao nhiêu %5$s?</string>
+    <string name="tpl_836b321c">Cho đi nghĩa là phép trừ.\n%1$s - %2$s = %3$s</string>
+    <string name="tpl_e48e2ef1">%1$s vạn có bao nhiêu số 0? (1 vạn = 10000)</string>
+    <string name="tpl_2526ffa7">1 vạn = 10000, có bốn số 0. Vậy %1$s vạn = %2$s.</string>
+    <string name="tpl_dbc6233c">%1$s đi bộ %3$s giờ với vận tốc %2$s km/giờ.\nĐã đi được bao nhiêu km?</string>
+    <string name="tpl_ddc5e7db">Quãng đường = vận tốc × thời gian\n%1$s × %2$s = %3$s km</string>
+    <string name="tpl_220e81e1">Đọc chiều cao cột %1$s trên vạch chia được %2$s.</string>
+    <string name="tpl_c72ea029">Giá trị của %1$s là bao nhiêu?</string>
+    <string name="tpl_3256a913">Sắp xếp theo thứ tự, giá trị ở giữa là trung vị: giá trị thứ ba %1$s.</string>
+    <string name="tpl_36f716a4">Trung vị của %1$s là bao nhiêu?</string>
+    <string name="tpl_829dc879">Trung bình của %1$s là bao nhiêu?</string>
+    <string name="tpl_8caeb0c9">Tổng là %1$s và có %2$s số liệu, nên %3$s ÷ %4$s = %5$s.</string>
+    <string name="tpl_3662d39b">%1$s + %2$s + %3$s = %4$s.</string>
+    <string name="tpl_4729593b">%1$s m %2$s cm bằng bao nhiêu cm?</string>
+    <string name="tpl_bc1684cd">1 m bằng 100 cm. %1$s m = %2$s cm, cộng %3$s cm được %4$s cm.</string>
+    <string name="tpl_a04ee28d">%2$s chiếm bao nhiêu %% của %1$s?</string>
+    <string name="tpl_50dc7e5e">Tỉ số = %1$s ÷ %2$s = %3$s\nNhân 100 được %4$s%%.</string>
+    <string name="tpl_8d5a1394">Đặt thẳng dấu phẩy rồi cộng. %1$s + %2$s = %3$s</string>
+    <string name="tpl_c4b2f470">Số nào gồm %1$s trăm, %2$s chục và %3$s đơn vị?</string>
+    <string name="tpl_efe178f9">Hình nào tiếp theo sau %1$s?</string>
+    <string name="tpl_3a5ccfd2">Cái nào nhiều nhất?</string>
+    <string name="tpl_f9b576f1">Cộng số học sinh của cả bốn lớp. Tất cả là bao nhiêu?</string>
+    <string name="tpl_afd6159f">%1$s = %2$s người.</string>
+    <string name="tpl_0c5cc77b">Dựa vào kết quả khảo sát để hoàn thành biểu đồ cột.\n%1$s</string>
+    <string name="tpl_35d42406">Dựa vào bảng để hoàn thành biểu đồ cột.\n%1$s</string>
+    <string name="tpl_811c3b3f">Chiều cao mỗi cột chính là số lượng.\n%1$s</string>
+    <string name="tpl_214da790">Chiều cao mỗi cột là số người.\nCao nhất là %1$s, thấp nhất là %2$s.</string>
+    <string name="tpl_93ad49ff">Tần suất tương đối của %1$s là bao nhiêu? (đến hai chữ số thập phân)</string>
+    <string name="tpl_d02e9c3e">Tần suất tương đối = tần số của lớp ÷ tổng tần số = %1$s ÷ %2$s ≈ %3$s</string>
+    <string name="tpl_2baf4762">Đồng hồ chỉ %1$s giờ mấy phút? (chỉ viết số phút)</string>
+    <string name="tpl_0b6616c7">Khi kim dài chỉ vào %1$s thì đó là %2$s × 5 = %3$s phút.</string>
+    <string name="tpl_516a736a">Kéo kim đồng hồ để chỉ %1$s giờ %2$s phút.</string>
+    <string name="tpl_5485a85b">Kim dài đặt ở %1$s ÷ 5 = %2$s, tức số %3$s.\nKim ngắn đặt ở %4$s thì được %5$s giờ %6$s phút.</string>
+    <string name="tpl_a546bcec">Cho %2$s con và %3$s con %1$s vào hộp. Tất cả có bao nhiêu con? (%4$s + %5$s)</string>
+    <string name="tpl_fcc08c5c">Trong %2$s con %1$s có %3$s con về nhà. Cho %4$s con về rồi đếm số còn lại. (%5$s - %6$s)</string>
+    <string name="tpl_e21a2df7">Chỉnh x sao cho cân thăng bằng. (%1$sx + %2$s = %3$s)</string>
+    <string name="tpl_a8920713">Một quả táo giá %1$s00 won, một quả lê giá %2$s00 won.\nMua %3$s quả táo và %4$s quả lê hết bao nhiêu?</string>
+    <string name="tpl_c592e397">Táo: %1$s00 × %2$s = %3$s won\nLê: %4$s00 × %5$s = %6$s won\nTổng: %7$s won</string>
+    <string name="tpl_f2a44920">Hoành độ đỉnh của y = %1$s(x %2$s)² %3$s là bao nhiêu?</string>
+    <string name="tpl_accf5550">Ở dạng y = a(x-p)² + q, đỉnh là (p, q).\nỞ đây đỉnh là (%1$s, %2$s) nên hoành độ là %3$s.</string>
+    <string name="tpl_ee1f2bd2">Bán kính của đường tròn (x %1$s)² + (y %2$s)² = %3$s là bao nhiêu?</string>
+    <string name="tpl_c74c8c70">Ở dạng chuẩn (x-a)² + (y-b)² = r², r² = %1$s nên bán kính là %2$s. Tâm là (%3$s, %4$s).</string>
+    <string name="tpl_da4a9448">Số hạng thứ %3$s của cấp số cộng có số hạng đầu %1$s và công sai %2$s là bao nhiêu?</string>
+    <string name="tpl_6eddd33a">Tổng %3$s số hạng đầu của cấp số cộng có số hạng đầu %1$s và công sai %2$s là bao nhiêu?</string>
+    <string name="tpl_bfcac252">Nếu viết %1$s^%2$s × %3$s^%4$s thành %5$s^k thì k bằng bao nhiêu?</string>
+    <string name="tpl_b12f4a19">Nhân các lũy thừa cùng cơ số thì cộng số mũ. %1$s + %2$s = %3$s</string>
+    <string name="tpl_770018a9">Giá trị của ∫₀^%1$s %2$s^%3$s dx là bao nhiêu?</string>
+    <string name="tpl_8934d567">Nguyên hàm là %1$sx^%2$s/%3$s.\nThay %4$s: %5$s×%6$s/%7$s = %8$s</string>
+    <string name="tpl_09b4928a">%1$s/%2$s + %3$s/%4$s = ? (chỉ viết tử số)</string>
+    <string name="tpl_60f9ab29">Xem dấu trước. %1$s + %2$s = %3$s\n%4$s</string>
+    <string name="tpl_2b4e8c2f">Quy tắc dấu: (−)×(−)=(+), (−)×(+)=(−)\n%1$s × %2$s = %3$s</string>
+    <string name="tpl_f01075e0">Với y = %1$sx %2$s, khi x = %3$s thì y bằng bao nhiêu?</string>
+    <string name="tpl_eb66f38d">Thay x = %1$s. y = %2$s×%3$s %4$s = %5$s</string>
+    <string name="tpl_242af461">%1$s muốn chia đều %3$s %2$s cho %4$s người.\nMỗi người được bao nhiêu?</string>
+    <string name="tpl_ffbb559e">Chia đều nghĩa là phép chia.\n%1$s ÷ %2$s = %3$s\nKiểm tra: %4$s × %5$s = %6$s</string>
+    <string name="tpl_534edc60">Chia %1$s thành %2$s nhóm bằng nhau, mỗi nhóm %3$s.\nKiểm tra: %4$s × %5$s = %6$s\nVậy %7$s ÷ %8$s = %9$s.</string>
+    <string name="tpl_d1ce02ac">Chia đều %2$s con %1$s vào %3$s cái giỏ. (%4$s ÷ %5$s)</string>
+    <string name="tpl_83a279a5">Nếu viết (%1$s^%2$s)^%3$s thành %4$s^k thì k bằng bao nhiêu?</string>
+    <string name="tpl_8bf8943f">Thể tích hình trụ có bán kính đáy %1$s và chiều cao %2$s là bao nhiêu? (π = 3,14)</string>
+    <string name="tpl_239800f8">Thể tích hình trụ = diện tích đáy × chiều cao = (%1$s×%2$s×3,14) × %3$s = %4$s</string>
+    <string name="tpl_5391d387">Trong %1$s người có %2$s%% đeo kính.\nCó bao nhiêu người đeo kính?</string>
+    <string name="tpl_d85fd41b">%1$s%% = %2$s/100.\n%3$s × %4$s ÷ 100 = %5$s người</string>
+    <string name="tpl_4ea5fbe9">lim(n→∞) (%1$s + 5)/(%2$s + 2) bằng bao nhiêu? (đến ba chữ số thập phân)</string>
+    <string name="tpl_29d9a332">Chia tử và mẫu cho n. (%1$s + 5/n)/(%2$s + 2/n) → %3$s/%4$s = %5$s\nĐáp án là tỉ số các hệ số bậc cao nhất.</string>
+    <string name="tpl_11a006ee">Giao điểm với trục y của y = %1$sx %2$s là bao nhiêu?</string>
+    <string name="tpl_98d506d9">Giao điểm với trục y là giá trị y khi x = 0: y = %1$s.\nHệ số góc là %2$s.</string>
+    <string name="tpl_a90c36e4">Tích vô hướng của hai vectơ (%1$s, %2$s) và (%3$s, %4$s) là bao nhiêu?</string>
+    <string name="tpl_896140d8">Tích vô hướng = x₁x₂ + y₁y₂ = %1$s×%2$s + %3$s×%4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_f47fb815">Thể tích hình hộp chữ nhật dài %1$s cm, rộng %2$s cm, cao %3$s cm là bao nhiêu?</string>
+    <string name="tpl_4784c950">Thể tích = dài × rộng × cao = %1$s × %2$s × %3$s = %4$s cm³</string>
+    <string name="tpl_c2343df6">Diện tích toàn phần của hình hộp chữ nhật dài %1$s cm, rộng %2$s cm, cao %3$s cm là bao nhiêu?</string>
+    <string name="tpl_6584d973">Diện tích toàn phần = 2 × (%1$s×%2$s + %3$s×%4$s + %5$s×%6$s) = 2 × %7$s = %8$s cm²</string>
+    <string name="tpl_b34194c1">%1$s chục và %2$s đơn vị là số nào?</string>
+    <string name="tpl_d700c926">%1$s chục là %2$s, cộng %3$s được %4$s.</string>
+    <string name="tpl_ab5407fa">%1$s phút %2$s giây bằng bao nhiêu giây?</string>
+    <string name="tpl_102513fd">1 phút bằng 60 giây. %1$s×60 = %2$s, và %3$s + %4$s = %5$s giây.</string>
+    <string name="tpl_acf035bc">Bình phương khoảng cách từ điểm (%1$s, %2$s, %3$s) đến gốc tọa độ là bao nhiêu?</string>
+    <string name="tpl_77d91bdd">Khoảng cách² = x² + y² + z² = %1$s + %2$s + %3$s = %4$s</string>
+    <string name="tpl_e10f7183">Bình phương khoảng cách giữa hai điểm (%1$s, %2$s) và (%3$s, %4$s) là bao nhiêu?</string>
+    <string name="tpl_6fb38da8">Khoảng cách² = (x₂-x₁)² + (y₂-y₁)² = %1$s + %2$s = %3$s</string>
+    <string name="tpl_ef261058">Hình %1$s có bao nhiêu cạnh?</string>
+    <string name="tpl_435ec8ca">Hình %1$s có %2$s cạnh và %3$s đỉnh.</string>
+    <string name="tpl_68b2417e">Điểm các bài là %1$s và điểm cuối là %2$s.\nĐiểm trung bình là bao nhiêu?</string>
+    <string name="tpl_8f5202e0">Tổng là %1$s điểm.\nCó %2$s môn nên %3$s ÷ %4$s = %5$s điểm.</string>
+    <string name="tpl_b6ff7f67">Chia cả hai số cho ƯCLN %1$s: %2$s÷%3$s=1, %4$s÷%5$s=%6$s\nĐáp án là 1 : %7$s.</string>
+    <string name="tpl_4f8bebb2">Trong đường tròn, góc nội tiếp chắn cung có góc ở tâm %1$s° bằng bao nhiêu? (độ)</string>
+    <string name="tpl_1f65cd70">Góc nội tiếp bằng nửa góc ở tâm. %1$s° ÷ 2 = %2$s°</string>
+    <string name="tpl_27d389ab">Với y = %1$s/x, khi x = %2$s thì y bằng bao nhiêu?</string>
+    <string name="tpl_3b064960">Thay x = %1$s vào công thức tỉ lệ nghịch. y = %2$s ÷ %3$s = %4$s</string>
+    <string name="tpl_881817d7">Với y = %1$sx, khi x = %2$s thì y bằng bao nhiêu?</string>
+    <string name="tpl_5e387d7d">Thay x = %1$s vào công thức tỉ lệ thuận. y = %2$s × %3$s = %4$s</string>
+    <string name="tpl_9474bd1b">%1$s gom được %3$s %2$s, bạn cho thêm %4$s nữa. Tất cả bao nhiêu? (%5$s + %6$s)</string>
+    <string name="tpl_7b0eb00c">Trong giỏ có %2$s %1$s, trong hộp có %3$s. Tất cả bao nhiêu? (%4$s + %5$s)</string>
+    <string name="tpl_577e9a0b">%1$s đã ăn %4$s trong %3$s %2$s. Còn lại bao nhiêu? (%5$s - %6$s)</string>
+    <string name="tpl_8835a548">Trong %2$s %1$s đã cho em trai %3$s. Còn lại bao nhiêu? (%4$s - %5$s)</string>
+    <string name="tpl_52fb8304">Nếu xếp %1$s mỗi hộp %2$s cái vào %3$s hộp thì tất cả bao nhiêu? (%4$s × %5$s)</string>
+    <string name="tpl_cd5e1743">%2$s bạn trong lớp của %1$s mỗi bạn có %4$s %3$s. Tất cả bao nhiêu? (%5$s × %6$s)</string>
+    <string name="tpl_0689d7b0">Mỗi %1$s chứa %3$s %2$s.\nNếu có %5$s %4$s thì tất cả có bao nhiêu %6$s?</string>
+    <string name="tpl_fabb8c01">%2$s nhóm mỗi nhóm %1$s nghĩa là phép nhân.\n%3$s × %4$s = %5$s</string>
+    <string name="tpl_bd90a3bf">Chuyển hết %1$s vào hộp rồi đếm xem có bao nhiêu con.</string>
+    <string name="tpl_26640a33">Vừa chuyển vừa đếm: %1$s — tất cả %2$s con.</string>
+    <string name="tpl_c1d7f847">Diện tích hình chữ nhật %1$s cm × %2$s cm là bao nhiêu?</string>
+    <string name="tpl_68f81799">Diện tích hình chữ nhật = dài × rộng = %1$s × %2$s = %3$s cm²</string>
+    <string name="tpl_f56a2f41">Diện tích tam giác có đáy %1$s cm và chiều cao %2$s cm là bao nhiêu?</string>
+    <string name="tpl_cfead5b7">Diện tích tam giác = đáy × cao ÷ 2 = %1$s × %2$s ÷ 2 = %3$s cm²</string>
+    <string name="tpl_03b2cec2">Diện tích hình thang có hai đáy %1$s cm và %2$s cm, cao %3$s cm là bao nhiêu?</string>
+    <string name="tpl_812652c8">Diện tích hình thang = (đáy lớn + đáy bé) × cao ÷ 2 = (%1$s+%2$s) × %3$s ÷ 2 = %4$s cm²</string>
+    <string name="tpl_2ac20dea">%1$s kg %2$s g bằng bao nhiêu g?</string>
+    <string name="tpl_8adee8d9">1 kg bằng 1000 g. %1$s + %2$s = %3$s g</string>
+    <string name="tpl_1a1b845d">%1$s km %2$s m bằng bao nhiêu m?</string>
+    <string name="tpl_bc396cec">1 km bằng 1000 m. %1$s + %2$s = %3$s m</string>
+    <string name="tpl_5bb097dd">%1$s L %2$s mL bằng bao nhiêu mL?</string>
+    <string name="tpl_58e342da">1 L bằng 1000 mL. %1$s + %2$s = %3$s mL</string>
+    <string name="tpl_7fa435ba">Nếu √%1$s = k√%2$s thì k bằng bao nhiêu?</string>
+    <string name="tpl_4bd516c4">√%1$s = √(%2$s × %3$s) = %4$s√%5$s\nVậy k = %6$s.</string>
+    <string name="tpl_fdef4e9b">Phân tích x² + %1$sx + %2$s thành nhân tử. (ví dụ: (x+2)(x+3))</string>
+    <string name="tpl_7fc38659">Tìm hai số có tổng %1$s và tích %2$s → %3$s và %4$s\nĐáp án: (x+%5$s)(x+%6$s)</string>
+    <string name="tpl_ed66d760">Nghiệm lớn hơn trong hai nghiệm của x² - %1$sx + %2$s = 0 là bao nhiêu?</string>
+    <string name="tpl_20a81651">Phân tích được (x-%1$s)(x-%2$s) = 0\nNghiệm là %3$s và %4$s, nghiệm lớn hơn là %5$s.</string>
+    <string name="tpl_f666532f">Với y = %1$sx², khi x = %2$s thì y bằng bao nhiêu?</string>
+    <string name="tpl_03a38c23">Thay x = %1$s. y = %2$s × %3$s² = %4$s × %5$s = %6$s</string>
+    <string name="tpl_05d5a936">Hai hình đồng dạng tỉ số 1 : %1$s. Nếu một cạnh của hình nhỏ là %2$s thì cạnh tương ứng của hình lớn là bao nhiêu?</string>
+    <string name="tpl_101dec85">Tỉ số là 1 : %1$s nên cạnh tương ứng gấp %2$s lần. %3$s × %4$s = %5$s\n(Diện tích gấp %6$s lần.)</string>
+    <string name="tpl_34aaa693">Túi có %1$s bi đỏ và %2$s bi xanh. Xác suất lấy được bi đỏ là bao nhiêu? (tử số của phân số tối giản)</string>
+    <string name="tpl_bbcd0e09">Trong %1$s viên có %2$s viên đỏ. %3$s/%4$s = %5$s/%6$s</string>
+    <string name="tpl_be363966">Hình được chia thành %1$s phần bằng nhau. Hãy tô %2$s/%3$s.</string>
+    <string name="tpl_822bd5c1">%1$s/%2$s nghĩa là %4$s phần trong %3$s phần bằng nhau.\nHãy chạm %5$s mảnh để tô màu.</string>
+    <string name="tpl_b1b8ddf9">Tìm %1$s trên trục số rồi đặt điểm vào đó.</string>
+    <string name="tpl_72ed475e">Độ dài trục lớn của elip x²/%1$s + y²/%2$s = 1 là bao nhiêu?</string>
+    <string name="tpl_9323580e">Trong x²/a² + y²/b² = 1 có a = %1$s và b = %2$s.\nTrục lớn là 2a = %3$s.</string>
+    <string name="tpl_526c1433">Đây là góc gì? (%1$s°)</string>
+    <string name="tpl_0352c1ec">Nếu f(x) = %1$s thì f\'(%2$s) bằng bao nhiêu?</string>
+    <string name="tpl_0a772723">Hệ số góc tiếp tuyến là f\'(%1$s). Vì f\'(x) = %2$sx nên %3$s×%4$s = %5$s.</string>
+    <string name="tpl_0e6df588">Nếu f(x) = %1$s thì hệ số góc tiếp tuyến tại x = %2$s là bao nhiêu?</string>
+    <string name="tpl_65303faf">Xoay tay cầm để tạo góc %1$s°.</string>
+    <string name="tpl_2bb14977">Phần được tô chiếm mấy phần mấy của tổng thể? (chỉ viết tử số)</string>
+    <string name="tpl_386d8a5c">Tổng thể chia thành %1$s phần bằng nhau, tô %2$s phần nên là %3$s/%4$s.</string>
+    <string name="tpl_e22b23c2">Diện tích giới hạn bởi đường cong y = %1$s, trục x và x = %2$s là bao nhiêu? (ba chữ số thập phân)</string>
+    <string name="tpl_702f39e6">Diện tích = ∫₀^%1$s %2$sx² dx = %3$sx³/3, thay %4$s = %5$s×%6$s/3 = %7$s</string>
+    <string name="tpl_12d53984">Kéo kim đồng hồ để chỉ %1$s.</string>
+    <string name="tpl_59f3bbde">Nhìn đồng hồ và chọn giờ đúng.</string>
+    <string name="tpl_6a049195">Đặt kim ngắn ở %1$s và kim dài ở %2$s thì được %3$s.</string>
+    <string name="tpl_421f0115">√%1$s bằng bao nhiêu?</string>
+    <string name="tpl_c10c073d">Vì %1$s × %2$s = %3$s nên √%4$s = %5$s.</string>
+    <string name="tpl_04ad73bd">log_%1$s %2$s bằng bao nhiêu?</string>
+    <string name="tpl_1a575d20">log_%1$s %2$s hỏi \"phải nhân %3$s bao nhiêu lần để được %4$s?\" Vì %5$s^%6$s = %7$s nên đáp án là %8$s.</string>
+    <string name="tpl_40e43c86">%1$s^%2$s bằng bao nhiêu?</string>
+    <string name="tpl_8ad8bef1">Nhân %1$s với chính nó %2$s lần. %3$s = %4$s</string>
+    <string name="tpl_9236cec8">Mỗi vạch là 5. Vì %1$s ÷ 5 = %2$s nên đi %3$s vạch từ 0.</string>
+    <string name="tpl_9b01b011">Tam giác vuông có hai cạnh góc vuông %1$s và %2$s. Cạnh huyền dài bao nhiêu? (xem hình)</string>
+    <string name="tpl_29b3af3f">Định lý Pythagoras: a² + b² = c²\n%1$s² + %2$s² = %3$s + %4$s = %5$s\nCạnh huyền = %6$s</string>
+    <string name="tpl_05c967bb">Tam giác vuông có cạnh huyền %1$s và một cạnh góc vuông %2$s. Cạnh còn lại dài bao nhiêu?</string>
+    <string name="tpl_bc1b4161">c² - a² = b²\n%1$s - %2$s = %3$s\nCạnh còn lại = %4$s</string>
+    <string name="tpl_22a9acd5">Có bao nhiêu cách chọn %2$s người từ %1$s người?</string>
+    <string name="tpl_de1537f4">%1$sC%2$s = %3$s ÷ %4$s = %5$s cách</string>
+    <string name="tpl_133b1724">Có bao nhiêu cách chọn %2$s vật từ %1$s vật khác nhau, không kể thứ tự? (%3$sC%4$s)</string>
+    <string name="tpl_e5f765f4">Có bao nhiêu cách chọn %2$s vật từ %1$s vật khác nhau rồi sắp xếp theo thứ tự? (%3$sP%4$s)</string>
+    <string name="tpl_ee0c3706">Hình nào là %1$s?</string>
+    <string name="tpl_18800cab">Chu vi hình tròn bán kính %1$s cm là bao nhiêu? (π = 3,14)</string>
+    <string name="tpl_af15f6d2">Chu vi = đường kính × 3,14 = %1$s × 3,14 = %2$s cm</string>
+    <string name="tpl_a145b736">Diện tích hình tròn bán kính %1$s cm là bao nhiêu? (π = 3,14)</string>
+    <string name="tpl_5844f447">Diện tích hình tròn = bán kính × bán kính × 3,14 = %1$s × %2$s × 3,14 = %3$s cm²</string>
+    <string name="tpl_e25a121a">%1$s, %2$s, %3$s — số tiếp theo là gì?</string>
+    <string name="tpl_c074ed4d">Quy luật là mỗi lần cộng 1. Sau %1$s là %2$s.</string>
+    <string name="tpl_ac380a89">%1$s cộng %2$s bằng 10. Tách 10 được %3$s và %4$s.</string>
+    <string name="tpl_08b9cc90">Nếu một biến cố có xác suất 1/%1$s xảy ra %2$s lần liên tiếp thì xác suất là 1/k. k bằng bao nhiêu?</string>
+    <string name="tpl_e6dd2bae">Các phép thử độc lập nên ta nhân. (1/%1$s)^%2$s = 1/%3$s\nk = %4$s</string>
+    <string name="tpl_ab3d2f03">Tổng các góc trong của đa giác %1$s cạnh là bao nhiêu? (độ)</string>
+    <string name="tpl_50ddbff4">Tổng góc trong của đa giác n cạnh = (n - 2) × 180°\n(%1$s - 2) × 180 = %2$s°</string>
+    <string name="tpl_a257284f">Đa giác %1$s cạnh có bao nhiêu đường chéo?</string>
+    <string name="tpl_6fa548ec">Số đường chéo = n(n-3)/2 = %1$s×%2$s/2 = %3$s</string>
+    <string name="tpl_076280c4">Hãy tô 0,%1$s. (tổng thể được chia thành 10 phần bằng nhau)</string>
+    <string name="tpl_3601a2fc">%1$s trong 10 phần, nên %2$s/10 = 0,%3$s.</string>
+    <string name="tpl_d91eef04">%1$s trong mười phần bằng nhau của 1 là số thập phân nào?</string>
+    <string name="tpl_5b3eb8ba">Tìm 0,%1$s trên trục số rồi đặt điểm vào đó.</string>
+    <string name="tpl_b54eb50c">Khoảng từ 0 đến 1 được chia thành 10 bước bằng nhau.\n0,%1$s cách 0 đúng %2$s bước.</string>
+    <string name="tpl_74d583e3">%1$s %2$s° bằng bao nhiêu?</string>
+    <string name="tpl_f0bf458a">Hãy nghĩ xem %1$s° nằm ở đâu trên đường tròn đơn vị. %2$s%3$s° = %4$s</string>
+    <string name="tpl_f339376b">0,%1$s bằng %2$s/10.\nHãy tô %3$s trong 10 phần.</string>
+    <string name="tpl_d6fcc9c2">%1$s %2$s° bằng bao nhiêu? (viết phân số dạng 1/2)</string>
+    <string name="tpl_2d7284ee">Đây là tỉ số lượng giác của góc đặc biệt. %1$s%2$s° = %3$s\nNên thuộc các giá trị của 30°, 45° và 60°.</string>
+    <string name="tpl_f046f32a">Tập hợp có %1$s phần tử có bao nhiêu tập con?</string>
+    <string name="tpl_710ba473">Số tập con = 2ⁿ = 2^%1$s = %2$s.\n(Có %3$s tập con thực sự.)</string>
+    <string name="tpl_fb01043c">Xác suất gieo một con xúc xắc được số không quá %1$s là bao nhiêu? (tử số của phân số tối giản)</string>
+    <string name="tpl_4fcaf9c5">Có %2$s kết quả không quá %1$s, trong tổng số 6. %3$s/6 = %4$s/%5$s</string>
+    <string name="tpl_7e93d243">Bên trái có %1$s, bên phải có %2$s. %3$s lớn hơn %4$s nên %5$s nhiều hơn.</string>
+    <string name="tpl_0782d5d6">So sánh hàng chục trước. %1$s lớn hơn.</string>
+    <string name="tpl_303e5331">Tìm cột cao nhất. %1$s nhiều nhất với %2$s.</string>
+    <string name="tpl_1f33664e">Bỏ vào %1$s con rồi thêm %2$s con nữa thì hộp có %3$s con.\nĐếm thêm %5$s từ %4$s được %6$s.</string>
+    <string name="tpl_eb12d4e3">Từ %1$s con cho đi %2$s con thì còn %3$s con.\nGộp số đã đi và số còn lại thì vẫn là %4$s con.</string>
+    <string name="tpl_d35868f6">Bên trái có %1$s hộp x và %2$s quả cân 1; bên phải có %3$s quả cân 1.\nBớt %4$s ở cả hai bên: %5$sx = %6$s\nChia thành %7$s nhóm bằng nhau: x = %8$s.</string>
+    <string name="tpl_74cc085d">%1$s\nDù khác màu, hình giống nhau thì vào cùng một giỏ.</string>
+    <string name="tpl_28a6838e">%1$s° là %2$s.</string>
+    <string name="tpl_394c5f1b">%1$s° là %2$s.\nNhỏ hơn góc vuông (90°) %3$s°.</string>
+    <string name="tpl_9e6c9d79">%1$s° là %2$s.\nLớn hơn góc vuông (90°) %3$s°.</string>
+    <string name="tpl_b0aed67a">%1$s° là %2$s.\nĐó là góc dựng thẳng đứng.</string>
+    <string name="tpl_54ac9abe">Quy luật là %1$s và %2$s xen kẽ nhau. Sau %3$s là %4$s.</string>
+    <string name="tpl_5c76e40f">Đó là %1$s. Là số %2$s.</string>
+    <string name="tpl_1c847ed5">Kim ngắn chỉ %1$s, kim dài chỉ 12, nên là %2$s giờ đúng.</string>
+    <string name="tpl_ed836a0a">Kim ngắn nằm giữa %1$s và %2$s, kim dài chỉ 6, nên là %3$s giờ 30 phút.</string>
+    <string name="tpl_cc9224e2">Đó là %1$s bước sang phải kể từ 0.\n%2$s nhỏ hơn 10.</string>
+    <string name="tpl_298087b1">Đó là %1$s bước sang phải kể từ 0.\n%2$s lớn hơn 10.</string>
+    <string name="tpl_c9b3271e">Đó là %1$s bước sang phải kể từ 0.\n%2$s đúng bằng 10.</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+        <item>사과|táo</item>
+        <item>딸기|dâu</item>
+        <item>포도|nho</item>
+        <item>바나나|chuối</item>
+        <item>귤|quýt</item>
+        <item>쿠키|bánh quy</item>
+        <item>사탕|kẹo</item>
+        <item>구슬|viên bi</item>
+        <item>스티커|hình dán</item>
+        <item>풍선|bóng bay</item>
+        <item>블록|khối</item>
+        <item>도토리|hạt sồi</item>
+        <item>색연필|bút chì màu</item>
+        <item>상자|hộp</item>
+        <item>접시|đĩa</item>
+        <item>바구니|giỏ</item>
+        <item>봉지|túi</item>
+        <item>가방|cặp</item>
+        <item>원|hình tròn</item>
+        <item>삼각형|tam giác</item>
+        <item>사각형|hình vuông</item>
+        <item>오각형|ngũ giác</item>
+        <item>육각형|lục giác</item>
+        <item>예각|góc nhọn</item>
+        <item>직각|góc vuông</item>
+        <item>둔각|góc tù</item>
+        <item>평각|góc bẹt</item>
+        <item>축구|bóng đá</item>
+        <item>야구|bóng chày</item>
+        <item>농구|bóng rổ</item>
+        <item>수영|bơi lội</item>
+        <item>달리기|chạy</item>
+        <item>삐약이|Piyak</item>
+        <item>토끼|Thỏ</item>
+        <item>펭귄|Chim cánh cụt</item>
+        <item>고양이|Mèo</item>
+        <item>곰돌이|Gấu</item>
+        <item>다람쥐|Sóc</item>
+        <item>서연|Seoyeon</item>
+        <item>수아|Sua</item>
+        <item>시우|Siu</item>
+        <item>채원|Chaewon</item>
+        <item>도윤|Doyun</item>
+        <item>예린|Yerin</item>
+        <item>은우|Eunu</item>
+        <item>지우|Jiu</item>
+        <item>민수|Minsu</item>
+        <item>하준|Hajun</item>
+        <item>월|T2</item>
+        <item>화|T3</item>
+        <item>수|T4</item>
+        <item>목|T5</item>
+        <item>금|T6</item>
+        <item>영|không</item>
+        <item>하나|một</item>
+        <item>둘|hai</item>
+        <item>셋|ba</item>
+        <item>넷|bốn</item>
+        <item>다섯|năm</item>
+        <item>여섯|sáu</item>
+        <item>일곱|bảy</item>
+        <item>여덟|tám</item>
+        <item>아홉|chín</item>
+        <item>열|mười</item>
+        <item>왼쪽|Bên trái</item>
+        <item>오른쪽|Bên phải</item>
+        <item>같아요|Bằng nhau</item>
+        <item>모르겠어요|Không biết</item>
+        <item>없어요|Không có</item>
+        <item>모으는 상자|Gom lại</item>
+        <item>집으로|Về nhà</item>
+        <item>반|</item>
+        <item>대|tuổi</item>
+        <item>시|giờ</item>
+        <item>분|phút</item>
+        <item>원은 뾰족한 곳이 없고 동그란 모양이에요.|Hình tròn không có góc nhọn và tròn đều.</item>
+        <item>삼각형은 뾰족한 곳이 3개 모양이에요.|Hình tam giác có 3 góc nhọn.</item>
+        <item>사각형은 뾰족한 곳이 4개 모양이에요.|Hình vuông có 4 góc nhọn.</item>
+        <item>D &gt; 0 이므로 서로 다른 두 실근|D &gt; 0 nên có hai nghiệm thực phân biệt</item>
+        <item>D = 0 이므로 중근|D = 0 nên có nghiệm kép</item>
+        <item>D &lt; 0 이므로 실근이 없어요|D &lt; 0 nên không có nghiệm thực</item>
+        <item>빼면|Trừ</item>
+        <item>더하면|Cộng</item>
+        <item>(10 넘으면 십의 자리로 받아올림!)|(quá 10 — nhớ 1 sang hàng chục!)</item>
+        <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|Hàng đơn vị không đủ trừ, nên mượn 10 từ hàng chục.</item>
+        <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|Khi khác dấu, kết quả mang dấu của số có trị tuyệt đối lớn hơn.</item>
+        <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|Khi cả hai đều âm, cộng trị tuyệt đối rồi giữ dấu trừ.</item>
+    </string-array>
+    <string-array name="tpl_units">
+        <item>개|cái</item>
+        <item>명|người</item>
+        <item>분|phút</item>
+        <item>초|giây</item>
+        <item>점|điểm</item>
+        <item>원|won</item>
+    </string-array>
 </resources>

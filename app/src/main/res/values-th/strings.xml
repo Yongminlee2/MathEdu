@@ -65,4 +65,385 @@
     <string name="stats_badges">เหรียญ</string>
     <string name="placement_title">แบบทดสอบระดับ</string>
     <string name="placement_quit_ask">ออกจากแบบทดสอบระดับ?</string>
+    <string name="mkind_clock">🕐 อ่านนาฬิกา</string>
+    <string name="mkind_clock_set">🕐 ตั้งเวลานาฬิกา</string>
+    <string name="mkind_group">🧺 แบ่งเท่า ๆ กัน</string>
+    <string name="mkind_frac_paint">🍰 ระบายเศษส่วน</string>
+    <string name="mkind_shape_sort">🔺 จำแนกรูปทรง</string>
+    <string name="mkind_numline_drag">📏 หาบนเส้นจำนวน</string>
+    <string name="mkind_angle_set">📐 สร้างมุม</string>
+    <string name="mkind_balance">⚖️ ทำให้ตาชั่งสมดุล</string>
+    <string name="mkind_bar_build">📊 สร้างกราฟ</string>
+    <string name="mkind_take_out">➖ เอาออกแล้วนับ</string>
+    <string name="mkind_gather">➕ รวมแล้วนับ</string>
+    <string name="mkind_shapes">🔺 รูปทรง</string>
+    <string name="mkind_fraction">🍰 เศษส่วน</string>
+    <string name="mkind_bar_graph">📊 กราฟ</string>
+    <string name="mkind_numline">📏 เส้นจำนวน</string>
+    <string name="mkind_geom">📐 เรขาคณิต</string>
+    <string name="mkind_coord3d">🧊 พิกัดสามมิติ</string>
+    <string name="mkind_coord2d">📈 ระนาบพิกัด</string>
+    <string name="mkind_angle">📐 มุม</string>
+    <string name="mkind_div">➗ การหาร</string>
+    <string name="mkind_mul">✖️ การคูณ</string>
+    <string name="mkind_sub">➖ การลบ</string>
+    <string name="mkind_add">➕ การบวก</string>
+    <string name="mkind_math">🔢 คณิตศาสตร์</string>
+    <string name="mkind_picture">🐥 โจทย์รูปภาพ</string>
+
+    <!-- 문제·해설 뼈대 -->
+    <string name="tpl_24083678">เขียน %1$s : %2$s เป็นอัตราส่วนจำนวนนับอย่างต่ำ: %3$s : ?</string>
+    <string name="tpl_33585846">ตัวประกอบเฉพาะที่มากที่สุดของ %1$s คือ?</string>
+    <string name="tpl_35882540">ตัวส่วนเท่ากันจึงบวกตัวเศษ %1$s + %2$s = %3$s ได้ %4$s/%5$s</string>
+    <string name="tpl_66531960">หลักหน่วย: %1$s + %2$s = %3$s %4$s\nคำตอบคือ %5$s</string>
+    <string name="tpl_93741444">เลขยกกำลังของเลขยกกำลัง ให้คูณเลขชี้กำลัง %1$s × %2$s = %3$s</string>
+    <string name="tpl_a84fb314">มี %2$s กลุ่ม กลุ่มละ %1$s %3$s = %4$s\nสูตรคูณ %5$s: %6$s×%7$s=%8$s</string>
+    <string name="tpl_40b5583a">นับรูปภาพ ทั้งหมดมีกี่ชิ้น?</string>
+    <string name="tpl_4426d4f7">%1$s บวก %2$s ได้ %3$s เริ่มจาก %4$s แล้วนับต่อไปอีก %5$s</string>
+    <string name="tpl_e8755f8c">นับทีละชิ้น: %1$s ทั้งหมด %2$s ชิ้น %3$s</string>
+    <string name="tpl_412438c7">%1$s ลบ %2$s เหลือ %3$s</string>
+    <string name="tpl_83f30dfe">%1$s คำตอบคือ %2$s</string>
+    <string name="tpl_bf977bf4">แบ่ง %1$s ออกเป็น %2$s กลุ่มเท่า ๆ กัน กลุ่มละ %3$s\nตรวจสอบ: %4$s × %5$s = %6$s</string>
+    <string name="tpl_9391fb31">จับกลุ่มละสิบแล้วนับที่เหลือ: 10 + %1$s = %2$s</string>
+    <string name="tpl_9e616d48">นับดูว่ามีรูปทั้งหมดกี่รูป</string>
+    <string name="tpl_e94b638c">ข้างไหนมากกว่ากัน?</string>
+    <string name="tpl_56861fce">ลากรูปทรงไปใส่ตะกร้าที่มีชื่อตรงกัน (%1$s)</string>
+    <string name="tpl_e2813a9a">%1$s = %2$s\nตัวประกอบเฉพาะที่มากที่สุดคือ %3$s</string>
+    <string name="tpl_97c89890">จำนวนหนึ่งคูณด้วย %1$s แล้วบวก %2$s ได้ %3$s\nจำนวนนั้นคือเท่าใด?</string>
+    <string name="tpl_ce982230">ให้จำนวนนั้นเป็น x: %1$sx + %2$s = %3$s\n%4$sx = %5$s\nx = %6$s</string>
+    <string name="tpl_1fa89b68">ถ้า f(x) = %1$s + %2$s %3$s แล้ว f\'(%4$s) มีค่าเท่าใด?</string>
+    <string name="tpl_91bf4e00">ถ้า %1$sx %2$s = %3$s แล้ว x เท่ากับเท่าใด?</string>
+    <string name="tpl_ee5eec9f">%2$s %1$s ทั้งสองข้าง: %3$sx = %4$s\nหารทั้งสองข้างด้วย %5$s: x = %6$s</string>
+    <string name="tpl_5c41b06f">คูณก่อน: %1$s × %2$s = %3$s แล้วจึง %4$s + %5$s = %6$s</string>
+    <string name="tpl_6a454edc">เศษจากการหาร f(x) = %1$s %2$sx %3$s ด้วย x %4$s คือ?</string>
+    <string name="tpl_dd646a18">ทฤษฎีบทเศษเหลือ: หาร f(x) ด้วย (x - k) จะเหลือ f(k)\nf(%1$s) = %2$s×%3$s %4$s %5$s×%6$s %7$s %8$s = %9$s</string>
+    <string name="tpl_e163b535">%1$s/%2$s ÷ %3$s/%4$s = ? (ตัวเศษของเศษส่วนอย่างต่ำ)</string>
+    <string name="tpl_f64e7111">การหารให้กลับเศษส่วนตัวหลังแล้วคูณ %1$s/%2$s × %3$s/%4$s = %5$s/%6$s\nทำให้เป็นอย่างต่ำได้ %7$s/%8$s</string>
+    <string name="tpl_593dd3e4">กำจัด y ด้วยวิธีบวกลบ\nคูณสมการแรกด้วย %1$s สมการที่สองด้วย %2$s แล้วลบกัน: x = %3$s\nแทนค่าได้ y = %4$s</string>
+    <string name="tpl_69c8bd83">%1$sx + %2$sy = %3$s\n%4$sx + %5$sy = %6$s\nค่าของ x คือ?</string>
+    <string name="tpl_856c631f">ตัวหารร่วมที่มากที่สุดของ %1$s และ %2$s คือ %3$s</string>
+    <string name="tpl_860d863a">แยก %1$s เป็น %2$s กับ %3$s แล้วคูณ\n%4$s×%5$s=%6$s, %7$s×%8$s=%9$s\nรวมกันได้ %10$s</string>
+    <string name="tpl_d0025612">ห.ร.ม. ของ %1$s และ %2$s คือ?</string>
+    <string name="tpl_f0f11947">ค่าดิสคริมิแนนต์ D ของ %1$s %2$sx %3$s = 0 คือ?</string>
+    <string name="tpl_2a17168e">%1$s มี %2$s %3$s ชิ้น\nเพื่อนให้เพิ่มอีก %4$s ชิ้น\nตอนนี้มี %5$s ทั้งหมดกี่ชิ้น?</string>
+    <string name="tpl_4b6b9472">ได้เพิ่มจึงใช้การบวก\n%1$s + %2$s = %3$s</string>
+    <string name="tpl_7182fe6c">ระหว่าง %1$s กับ %2$s จำนวนใดมากกว่า?</string>
+    <string name="tpl_064cd500">%1$s ซื้อ %2$s %4$s กล่อง กล่องละ %3$s ชิ้น\nถ้าแจกไป %5$s ชิ้น จะเหลือกี่ชิ้น?</string>
+    <string name="tpl_b142acbe">หาจำนวนทั้งหมดก่อน: %1$s × %2$s = %3$s\nแล้วลบส่วนที่แจกไป: %4$s - %5$s = %6$s</string>
+    <string name="tpl_09881b6d">ทำ %1$s/%2$s ให้เป็นเศษส่วนอย่างต่ำ ตัวเศษคือ?</string>
+    <string name="tpl_b9de180a">หารตัวเศษและตัวส่วนด้วย ห.ร.ม. %1$s: %2$s÷%3$s=%4$s, %5$s÷%6$s=%7$s\nคำตอบคือ %8$s/%9$s</string>
+    <string name="tpl_104b2419">%2$s %1$s ทั้งสองข้าง: %3$sx &gt; %4$s\nหารด้วยจำนวนบวก %5$s: x &gt; %6$s\n(ถ้าหารด้วยจำนวนลบ ต้องกลับเครื่องหมาย!)</string>
+    <string name="tpl_302b4ab7">เศษของ %1$s ÷ %2$s คือ?</string>
+    <string name="tpl_7781a29b">%1$s ÷ %2$s = %3$s เศษ %4$s\nตรวจสอบ: %5$s × %6$s + %7$s = %8$s</string>
+    <string name="tpl_421eaae2">เมื่อ x = %1$s ค่าของ %2$sx + %3$s คือ?</string>
+    <string name="tpl_c746b533">แทน x ด้วย %1$s: %2$s × %3$s + %4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_520190ba">lim(x→%1$s) (%2$s %3$s) มีค่าเท่าใด?</string>
+    <string name="tpl_97b6e789">ฟังก์ชันพหุนามต่อเนื่อง จึงแทนค่าได้เลย %1$s×%2$s %3$s %4$s = %5$s</string>
+    <string name="tpl_8154d16f">%1$s/%2$s × %3$s/%4$s = ? (ตัวเศษของเศษส่วนอย่างต่ำ)</string>
+    <string name="tpl_8c032f04">คูณตัวเศษกับตัวเศษ ตัวส่วนกับตัวส่วน %1$s×%2$s=%3$s, %4$s×%5$s=%6$s\nทำ %7$s/%8$s ให้เป็นอย่างต่ำได้ %9$s/%10$s</string>
+    <string name="tpl_7b8145cd">%1$s × %2$s = %3$s\n%4$s × %5$s = %6$s\nรวมกันได้ %7$s</string>
+    <string name="tpl_d091ab21">เลื่อนจุดทศนิยมแล้วหาร %1$s ÷ %2$s = %3$s</string>
+    <string name="tpl_f5c65837">x ที่ทำให้ %1$sx %2$s &gt; %3$s เป็นจริงคือ x &gt; ?</string>
+    <string name="tpl_af55c367">%1$s มี %2$s %3$s ชิ้น\nให้น้องชายไป %4$s ชิ้น\nเหลือ %5$s กี่ชิ้น?</string>
+    <string name="tpl_836b321c">ให้ไปจึงใช้การลบ\n%1$s - %2$s = %3$s</string>
+    <string name="tpl_e48e2ef1">%1$s หมื่น มีเลข 0 กี่ตัว? (1 หมื่น = 10000)</string>
+    <string name="tpl_2526ffa7">1 หมื่น = 10000 มีเลข 0 สี่ตัว ดังนั้น %1$s หมื่น = %2$s</string>
+    <string name="tpl_dbc6233c">%1$s เดินด้วยความเร็ว %2$s กม./ชม. เป็นเวลา %3$s ชั่วโมง\nเดินได้กี่กิโลเมตร?</string>
+    <string name="tpl_ddc5e7db">ระยะทาง = ความเร็ว × เวลา\n%1$s × %2$s = %3$s กม.</string>
+    <string name="tpl_220e81e1">อ่านความสูงของแท่ง %1$s จากสเกลได้ %2$s</string>
+    <string name="tpl_c72ea029">ค่าของวัน %1$s คือเท่าใด?</string>
+    <string name="tpl_3256a913">เรียงค่าตามลำดับ ค่ากลางคือมัธยฐาน นั่นคือค่าที่สาม %1$s</string>
+    <string name="tpl_36f716a4">มัธยฐานของ %1$s คือ?</string>
+    <string name="tpl_829dc879">ค่าเฉลี่ยของ %1$s คือ?</string>
+    <string name="tpl_8caeb0c9">ผลรวมคือ %1$s มีข้อมูล %2$s ตัว ดังนั้น %3$s ÷ %4$s = %5$s</string>
+    <string name="tpl_3662d39b">%1$s + %2$s + %3$s = %4$s</string>
+    <string name="tpl_4729593b">%1$s เมตร %2$s เซนติเมตร เท่ากับกี่เซนติเมตร?</string>
+    <string name="tpl_bc1684cd">1 เมตรเท่ากับ 100 เซนติเมตร %1$s ม. = %2$s ซม. บวกอีก %3$s ซม. ได้ %4$s ซม.</string>
+    <string name="tpl_a04ee28d">%2$s คิดเป็นกี่ %% ของ %1$s?</string>
+    <string name="tpl_50dc7e5e">อัตราส่วน = %1$s ÷ %2$s = %3$s\nคูณ 100 ได้ %4$s%%</string>
+    <string name="tpl_8d5a1394">จัดจุดทศนิยมให้ตรงกันแล้วบวก %1$s + %2$s = %3$s</string>
+    <string name="tpl_c4b2f470">จำนวนที่มีร้อย %1$s สิบ %2$s และหน่วย %3$s คือ?</string>
+    <string name="tpl_efe178f9">รูปใดมาต่อจาก %1$s?</string>
+    <string name="tpl_3a5ccfd2">อันไหนมากที่สุด?</string>
+    <string name="tpl_f9b576f1">บวกจำนวนนักเรียนทั้งสี่ห้อง รวมได้กี่คน?</string>
+    <string name="tpl_afd6159f">%1$s = %2$s คน</string>
+    <string name="tpl_0c5cc77b">ใช้ผลสำรวจเติมกราฟแท่งให้สมบูรณ์\n%1$s</string>
+    <string name="tpl_35d42406">ใช้ตารางเติมกราฟแท่งให้สมบูรณ์\n%1$s</string>
+    <string name="tpl_811c3b3f">ความสูงของแท่งคือจำนวน\n%1$s</string>
+    <string name="tpl_214da790">ความสูงของแท่งคือจำนวนคน\nสูงที่สุดคือ %1$s ต่ำที่สุดคือ %2$s</string>
+    <string name="tpl_93ad49ff">ความถี่สัมพัทธ์ของ %1$s คือ? (ทศนิยม 2 ตำแหน่ง)</string>
+    <string name="tpl_d02e9c3e">ความถี่สัมพัทธ์ = ความถี่ของชั้น ÷ ความถี่รวม = %1$s ÷ %2$s ≈ %3$s</string>
+    <string name="tpl_2baf4762">นาฬิกาชี้ %1$s นาฬิกากี่นาที? (เขียนเฉพาะนาที)</string>
+    <string name="tpl_0b6616c7">เมื่อเข็มยาวชี้ที่ %1$s หมายถึง %2$s × 5 = %3$s นาที</string>
+    <string name="tpl_516a736a">ลากเข็มนาฬิกาให้เป็นเวลา %1$s:%2$s</string>
+    <string name="tpl_5485a85b">เข็มยาวไปที่ %1$s ÷ 5 = %2$s คือเลข %3$s\nวางเข็มสั้นที่ %4$s จะได้ %5$s:%6$s</string>
+    <string name="tpl_a546bcec">ใส่ %1$s %2$s ตัวและ %3$s ตัวลงในกล่อง รวมมีกี่ตัว? (%4$s + %5$s)</string>
+    <string name="tpl_fcc08c5c">%1$s %2$s ตัว มี %3$s ตัวกลับบ้าน ส่ง %4$s ตัวกลับบ้านแล้วนับที่เหลือ (%5$s - %6$s)</string>
+    <string name="tpl_e21a2df7">ปรับ x ให้ตาชั่งสมดุล (%1$sx + %2$s = %3$s)</string>
+    <string name="tpl_a8920713">แอปเปิลลูกละ %1$s00 วอน สาลี่ลูกละ %2$s00 วอน\nซื้อแอปเปิล %3$s ลูกกับสาลี่ %4$s ลูก รวมเท่าไร?</string>
+    <string name="tpl_c592e397">แอปเปิล: %1$s00 × %2$s = %3$s วอน\nสาลี่: %4$s00 × %5$s = %6$s วอน\nรวม: %7$s วอน</string>
+    <string name="tpl_f2a44920">พิกัด x ของจุดยอดของ y = %1$s(x %2$s)² %3$s คือ?</string>
+    <string name="tpl_accf5550">ในรูป y = a(x-p)² + q จุดยอดคือ (p, q)\nที่นี่จุดยอดคือ (%1$s, %2$s) พิกัด x จึงเป็น %3$s</string>
+    <string name="tpl_ee1f2bd2">รัศมีของวงกลม (x %1$s)² + (y %2$s)² = %3$s คือ?</string>
+    <string name="tpl_c74c8c70">ในรูปมาตรฐาน (x-a)² + (y-b)² = r² มี r² = %1$s รัศมีจึงเป็น %2$s จุดศูนย์กลางคือ (%3$s, %4$s)</string>
+    <string name="tpl_da4a9448">พจน์ที่ %3$s ของลำดับเลขคณิตที่มีพจน์แรก %1$s และผลต่างร่วม %2$s คือ?</string>
+    <string name="tpl_6eddd33a">ผลบวก %3$s พจน์แรกของลำดับเลขคณิตที่มีพจน์แรก %1$s และผลต่างร่วม %2$s คือ?</string>
+    <string name="tpl_bfcac252">ถ้าเขียน %1$s^%2$s × %3$s^%4$s เป็น %5$s^k แล้ว k คือ?</string>
+    <string name="tpl_b12f4a19">คูณเลขยกกำลังฐานเดียวกัน ให้บวกเลขชี้กำลัง %1$s + %2$s = %3$s</string>
+    <string name="tpl_770018a9">ค่าของ ∫₀^%1$s %2$s^%3$s dx คือ?</string>
+    <string name="tpl_8934d567">ปฏิยานุพันธ์คือ %1$sx^%2$s/%3$s\nแทน %4$s: %5$s×%6$s/%7$s = %8$s</string>
+    <string name="tpl_09b4928a">%1$s/%2$s + %3$s/%4$s = ? (เขียนเฉพาะตัวเศษ)</string>
+    <string name="tpl_60f9ab29">ดูเครื่องหมายก่อน %1$s + %2$s = %3$s\n%4$s</string>
+    <string name="tpl_2b4e8c2f">กฎเครื่องหมาย: (−)×(−)=(+), (−)×(+)=(−)\n%1$s × %2$s = %3$s</string>
+    <string name="tpl_f01075e0">ใน y = %1$sx %2$s เมื่อ x = %3$s แล้ว y เท่ากับเท่าใด?</string>
+    <string name="tpl_eb66f38d">แทน x = %1$s จะได้ y = %2$s×%3$s %4$s = %5$s</string>
+    <string name="tpl_242af461">%1$s ต้องการแบ่ง %2$s %3$s ชิ้นให้ %4$s คนเท่า ๆ กัน\nแต่ละคนได้กี่ชิ้น?</string>
+    <string name="tpl_ffbb559e">แบ่งเท่า ๆ กันคือการหาร\n%1$s ÷ %2$s = %3$s\nตรวจสอบ: %4$s × %5$s = %6$s</string>
+    <string name="tpl_534edc60">แบ่ง %1$s เป็น %2$s กลุ่มเท่า ๆ กัน กลุ่มละ %3$s\nตรวจสอบ: %4$s × %5$s = %6$s\nดังนั้น %7$s ÷ %8$s = %9$s</string>
+    <string name="tpl_d1ce02ac">แบ่ง %1$s %2$s ตัวใส่ตะกร้า %3$s ใบเท่า ๆ กัน (%4$s ÷ %5$s)</string>
+    <string name="tpl_83a279a5">ถ้าเขียน (%1$s^%2$s)^%3$s เป็น %4$s^k แล้ว k คือ?</string>
+    <string name="tpl_8bf8943f">ปริมาตรทรงกระบอกที่มีรัศมีฐาน %1$s สูง %2$s คือ? (π = 3.14)</string>
+    <string name="tpl_239800f8">ปริมาตรทรงกระบอก = พื้นที่ฐาน × สูง = (%1$s×%2$s×3.14) × %3$s = %4$s</string>
+    <string name="tpl_5391d387">จากทั้งหมด %1$s คน มี %2$s%% ที่ใส่แว่น\nมีกี่คนที่ใส่แว่น?</string>
+    <string name="tpl_d85fd41b">%1$s%% = %2$s/100\n%3$s × %4$s ÷ 100 = %5$s คน</string>
+    <string name="tpl_4ea5fbe9">lim(n→∞) (%1$s + 5)/(%2$s + 2) มีค่าเท่าใด? (ทศนิยม 3 ตำแหน่ง)</string>
+    <string name="tpl_29d9a332">หารตัวเศษและตัวส่วนด้วย n (%1$s + 5/n)/(%2$s + 2/n) → %3$s/%4$s = %5$s\nคำตอบคืออัตราส่วนของสัมประสิทธิ์พจน์สูงสุด</string>
+    <string name="tpl_11a006ee">จุดตัดแกน y ของ y = %1$sx %2$s คือ?</string>
+    <string name="tpl_98d506d9">จุดตัดแกน y คือค่า y เมื่อ x = 0: y = %1$s\nความชันคือ %2$s</string>
+    <string name="tpl_a90c36e4">ผลคูณเชิงสเกลาร์ของเวกเตอร์ (%1$s, %2$s) และ (%3$s, %4$s) คือ?</string>
+    <string name="tpl_896140d8">ผลคูณเชิงสเกลาร์ = x₁x₂ + y₁y₂ = %1$s×%2$s + %3$s×%4$s = %5$s + %6$s = %7$s</string>
+    <string name="tpl_f47fb815">ปริมาตรทรงสี่เหลี่ยมมุมฉากกว้าง %1$s ซม. ยาว %2$s ซม. สูง %3$s ซม. คือ?</string>
+    <string name="tpl_4784c950">ปริมาตร = กว้าง × ยาว × สูง = %1$s × %2$s × %3$s = %4$s ซม.³</string>
+    <string name="tpl_c2343df6">พื้นที่ผิวของทรงสี่เหลี่ยมมุมฉากกว้าง %1$s ซม. ยาว %2$s ซม. สูง %3$s ซม. คือ?</string>
+    <string name="tpl_6584d973">พื้นที่ผิว = 2 × (%1$s×%2$s + %3$s×%4$s + %5$s×%6$s) = 2 × %7$s = %8$s ซม.²</string>
+    <string name="tpl_b34194c1">สิบ %1$s กลุ่ม กับหน่วยอีก %2$s เป็นจำนวนเท่าใด?</string>
+    <string name="tpl_d700c926">สิบ %1$s กลุ่มคือ %2$s บวกอีก %3$s ได้ %4$s</string>
+    <string name="tpl_ab5407fa">%1$s นาที %2$s วินาที เท่ากับกี่วินาที?</string>
+    <string name="tpl_102513fd">1 นาทีเท่ากับ 60 วินาที %1$s×60 = %2$s, %3$s + %4$s = %5$s วินาที</string>
+    <string name="tpl_acf035bc">กำลังสองของระยะทางจากจุด (%1$s, %2$s, %3$s) ถึงจุดกำเนิดคือ?</string>
+    <string name="tpl_77d91bdd">ระยะทาง² = x² + y² + z² = %1$s + %2$s + %3$s = %4$s</string>
+    <string name="tpl_e10f7183">กำลังสองของระยะทางระหว่างจุด (%1$s, %2$s) กับ (%3$s, %4$s) คือ?</string>
+    <string name="tpl_6fb38da8">ระยะทาง² = (x₂-x₁)² + (y₂-y₁)² = %1$s + %2$s = %3$s</string>
+    <string name="tpl_ef261058">%1$s มีกี่ด้าน?</string>
+    <string name="tpl_435ec8ca">%1$s มี %2$s ด้าน และ %3$s จุดยอด</string>
+    <string name="tpl_68b2417e">คะแนนสอบคือ %1$s และคะแนนสุดท้ายคือ %2$s\nค่าเฉลี่ยเป็นเท่าใด?</string>
+    <string name="tpl_8f5202e0">รวมได้ %1$s คะแนน\nมี %2$s วิชา ดังนั้น %3$s ÷ %4$s = %5$s คะแนน</string>
+    <string name="tpl_b6ff7f67">หารทั้งสองจำนวนด้วย ห.ร.ม. %1$s: %2$s÷%3$s=1, %4$s÷%5$s=%6$s\nคำตอบคือ 1 : %7$s</string>
+    <string name="tpl_4f8bebb2">ในวงกลม มุมในส่วนโค้งที่มีมุมที่จุดศูนย์กลาง %1$s° คือ? (หน่วยองศา)</string>
+    <string name="tpl_1f65cd70">มุมในส่วนโค้งเป็นครึ่งหนึ่งของมุมที่จุดศูนย์กลาง %1$s° ÷ 2 = %2$s°</string>
+    <string name="tpl_27d389ab">ใน y = %1$s/x เมื่อ x = %2$s แล้ว y เท่ากับเท่าใด?</string>
+    <string name="tpl_3b064960">แทน x = %1$s ในสมการแปรผกผัน y = %2$s ÷ %3$s = %4$s</string>
+    <string name="tpl_881817d7">ใน y = %1$sx เมื่อ x = %2$s แล้ว y เท่ากับเท่าใด?</string>
+    <string name="tpl_5e387d7d">แทน x = %1$s ในสมการแปรผันตรง y = %2$s × %3$s = %4$s</string>
+    <string name="tpl_9474bd1b">%1$s เก็บ %2$s ได้ %3$s ชิ้น เพื่อนให้อีก %4$s ชิ้น รวมกี่ชิ้น? (%5$s + %6$s)</string>
+    <string name="tpl_7b0eb00c">ในตะกร้ามี %1$s %2$s ชิ้น ในกล่องมี %3$s ชิ้น รวมกี่ชิ้น? (%4$s + %5$s)</string>
+    <string name="tpl_577e9a0b">%1$s กิน %2$s ไป %4$s ชิ้นจาก %3$s ชิ้น เหลือกี่ชิ้น? (%5$s - %6$s)</string>
+    <string name="tpl_8835a548">%1$s %2$s ชิ้น ให้น้องไป %3$s ชิ้น เหลือกี่ชิ้น? (%4$s - %5$s)</string>
+    <string name="tpl_52fb8304">ถ้าใส่ %1$s กล่องละ %2$s ชิ้น จำนวน %3$s กล่อง รวมกี่ชิ้น? (%4$s × %5$s)</string>
+    <string name="tpl_cd5e1743">เพื่อน %2$s คนในห้องของ %1$s มี %3$s คนละ %4$s ชิ้น รวมกี่ชิ้น? (%5$s × %6$s)</string>
+    <string name="tpl_0689d7b0">%1$s แต่ละอันมี %2$s %3$s ชิ้น\nถ้ามี %4$s %5$s อัน จะมี %6$s ทั้งหมดกี่ชิ้น?</string>
+    <string name="tpl_fabb8c01">%2$s กลุ่ม กลุ่มละ %1$s จึงใช้การคูณ\n%3$s × %4$s = %5$s</string>
+    <string name="tpl_bd90a3bf">ย้าย %1$s ทั้งหมดลงกล่องแล้วนับว่ามีกี่ตัว</string>
+    <string name="tpl_26640a33">นับไปพร้อมกับย้าย: %1$s — ทั้งหมด %2$s ตัว</string>
+    <string name="tpl_c1d7f847">พื้นที่สี่เหลี่ยมผืนผ้ากว้าง %1$s ซม. ยาว %2$s ซม. คือ?</string>
+    <string name="tpl_68f81799">พื้นที่สี่เหลี่ยมผืนผ้า = กว้าง × ยาว = %1$s × %2$s = %3$s ซม.²</string>
+    <string name="tpl_f56a2f41">พื้นที่สามเหลี่ยมฐาน %1$s ซม. สูง %2$s ซม. คือ?</string>
+    <string name="tpl_cfead5b7">พื้นที่สามเหลี่ยม = ฐาน × สูง ÷ 2 = %1$s × %2$s ÷ 2 = %3$s ซม.²</string>
+    <string name="tpl_03b2cec2">พื้นที่สี่เหลี่ยมคางหมูที่มีด้านคู่ขนาน %1$s ซม. และ %2$s ซม. สูง %3$s ซม. คือ?</string>
+    <string name="tpl_812652c8">พื้นที่สี่เหลี่ยมคางหมู = (ด้านคู่ขนานรวม) × สูง ÷ 2 = (%1$s+%2$s) × %3$s ÷ 2 = %4$s ซม.²</string>
+    <string name="tpl_2ac20dea">%1$s กก. %2$s ก. เท่ากับกี่กรัม?</string>
+    <string name="tpl_8adee8d9">1 กก. เท่ากับ 1000 ก. %1$s + %2$s = %3$s ก.</string>
+    <string name="tpl_1a1b845d">%1$s กม. %2$s ม. เท่ากับกี่เมตร?</string>
+    <string name="tpl_bc396cec">1 กม. เท่ากับ 1000 ม. %1$s + %2$s = %3$s ม.</string>
+    <string name="tpl_5bb097dd">%1$s ล. %2$s มล. เท่ากับกี่มิลลิลิตร?</string>
+    <string name="tpl_58e342da">1 ล. เท่ากับ 1000 มล. %1$s + %2$s = %3$s มล.</string>
+    <string name="tpl_7fa435ba">ถ้า √%1$s = k√%2$s แล้ว k คือ?</string>
+    <string name="tpl_4bd516c4">√%1$s = √(%2$s × %3$s) = %4$s√%5$s\nดังนั้น k = %6$s</string>
+    <string name="tpl_fdef4e9b">แยกตัวประกอบ x² + %1$sx + %2$s (เช่น (x+2)(x+3))</string>
+    <string name="tpl_7fc38659">หาสองจำนวนที่บวกกันได้ %1$s และคูณกันได้ %2$s → %3$s กับ %4$s\nคำตอบ: (x+%5$s)(x+%6$s)</string>
+    <string name="tpl_ed66d760">รากที่มากกว่าของ x² - %1$sx + %2$s = 0 คือ?</string>
+    <string name="tpl_20a81651">แยกตัวประกอบได้ (x-%1$s)(x-%2$s) = 0\nรากคือ %3$s และ %4$s รากที่มากกว่าคือ %5$s</string>
+    <string name="tpl_f666532f">ใน y = %1$sx² เมื่อ x = %2$s แล้ว y เท่ากับเท่าใด?</string>
+    <string name="tpl_03a38c23">แทน x = %1$s: y = %2$s × %3$s² = %4$s × %5$s = %6$s</string>
+    <string name="tpl_05d5a936">รูปคล้ายสองรูปมีอัตราส่วน 1 : %1$s ถ้าด้านหนึ่งของรูปเล็กยาว %2$s ด้านที่สมนัยของรูปใหญ่ยาวเท่าใด?</string>
+    <string name="tpl_101dec85">อัตราส่วนคือ 1 : %1$s ด้านที่สมนัยจึงยาวเป็น %2$s เท่า %3$s × %4$s = %5$s\n(พื้นที่เป็น %6$s เท่า)</string>
+    <string name="tpl_34aaa693">ในถุงมีลูกบอลแดง %1$s ลูกและน้ำเงิน %2$s ลูก ความน่าจะเป็นที่หยิบได้สีแดงคือ? (ตัวเศษของเศษส่วนอย่างต่ำ)</string>
+    <string name="tpl_bbcd0e09">จากทั้งหมด %1$s ลูก เป็นสีแดง %2$s ลูก %3$s/%4$s = %5$s/%6$s</string>
+    <string name="tpl_be363966">ภาพถูกแบ่งเป็น %1$s ส่วนเท่า ๆ กัน ระบายสี %2$s/%3$s</string>
+    <string name="tpl_822bd5c1">%1$s/%2$s หมายถึง %4$s ส่วนจาก %3$s ส่วนเท่า ๆ กัน\nแตะ %5$s ชิ้นเพื่อระบายสี</string>
+    <string name="tpl_b1b8ddf9">หา %1$s บนเส้นจำนวนแล้ววางจุดลงไป</string>
+    <string name="tpl_72ed475e">ความยาวแกนเอกของวงรี x²/%1$s + y²/%2$s = 1 คือ?</string>
+    <string name="tpl_9323580e">ใน x²/a² + y²/b² = 1 มี a = %1$s และ b = %2$s\nแกนเอกยาว 2a = %3$s</string>
+    <string name="tpl_526c1433">มุมนี้เป็นมุมชนิดใด? (%1$s°)</string>
+    <string name="tpl_0352c1ec">ถ้า f(x) = %1$s แล้ว f\'(%2$s) มีค่าเท่าใด?</string>
+    <string name="tpl_0a772723">ความชันของเส้นสัมผัสคือ f\'(%1$s) เนื่องจาก f\'(x) = %2$sx จึงได้ %3$s×%4$s = %5$s</string>
+    <string name="tpl_0e6df588">ถ้า f(x) = %1$s ความชันของเส้นสัมผัสที่ x = %2$s คือ?</string>
+    <string name="tpl_65303faf">หมุนคันโยกให้ได้ %1$s°</string>
+    <string name="tpl_2bb14977">ส่วนที่ระบายสีเป็นเศษส่วนเท่าใดของทั้งหมด? (เขียนเฉพาะตัวเศษ)</string>
+    <string name="tpl_386d8a5c">ทั้งหมดแบ่งเป็น %1$s ส่วนเท่า ๆ กัน ระบายสี %2$s ส่วน จึงเป็น %3$s/%4$s</string>
+    <string name="tpl_e22b23c2">พื้นที่ที่ล้อมรอบด้วยเส้นโค้ง y = %1$s แกน x และ x = %2$s คือ? (ทศนิยม 3 ตำแหน่ง)</string>
+    <string name="tpl_702f39e6">พื้นที่ = ∫₀^%1$s %2$sx² dx = %3$sx³/3 แทน %4$s = %5$s×%6$s/3 = %7$s</string>
+    <string name="tpl_12d53984">ลากเข็มนาฬิกาให้เป็น %1$s</string>
+    <string name="tpl_59f3bbde">ดูนาฬิกาแล้วเลือกเวลา</string>
+    <string name="tpl_6a049195">วางเข็มสั้นที่ %1$s และเข็มยาวที่ %2$s จะได้ %3$s</string>
+    <string name="tpl_421f0115">√%1$s มีค่าเท่าใด?</string>
+    <string name="tpl_c10c073d">เนื่องจาก %1$s × %2$s = %3$s จึงได้ √%4$s = %5$s</string>
+    <string name="tpl_04ad73bd">log_%1$s %2$s มีค่าเท่าใด?</string>
+    <string name="tpl_1a575d20">log_%1$s %2$s ถามว่า \"ต้องคูณ %3$s กี่ครั้งจึงได้ %4$s\" เนื่องจาก %5$s^%6$s = %7$s คำตอบคือ %8$s</string>
+    <string name="tpl_40e43c86">%1$s^%2$s มีค่าเท่าใด?</string>
+    <string name="tpl_8ad8bef1">คูณ %1$s กับตัวเอง %2$s ครั้ง %3$s = %4$s</string>
+    <string name="tpl_9236cec8">หนึ่งช่องเท่ากับ 5 เนื่องจาก %1$s ÷ 5 = %2$s จึงเดินจาก 0 ไป %3$s ช่อง</string>
+    <string name="tpl_9b01b011">สามเหลี่ยมมุมฉากมีด้านประกอบมุมฉาก %1$s และ %2$s ด้านตรงข้ามมุมฉากยาวเท่าใด? (ดูรูป)</string>
+    <string name="tpl_29b3af3f">ทฤษฎีบทพีทาโกรัส: a² + b² = c²\n%1$s² + %2$s² = %3$s + %4$s = %5$s\nด้านตรงข้ามมุมฉาก = %6$s</string>
+    <string name="tpl_05c967bb">สามเหลี่ยมมุมฉากมีด้านตรงข้ามมุมฉาก %1$s และด้านหนึ่ง %2$s ด้านที่เหลือยาวเท่าใด?</string>
+    <string name="tpl_bc1b4161">c² - a² = b²\n%1$s - %2$s = %3$s\nด้านที่เหลือ = %4$s</string>
+    <string name="tpl_22a9acd5">เลือก %2$s คนจาก %1$s คนได้กี่วิธี?</string>
+    <string name="tpl_de1537f4">%1$sC%2$s = %3$s ÷ %4$s = %5$s วิธี</string>
+    <string name="tpl_133b1724">เลือก %2$s สิ่งจาก %1$s สิ่งที่ต่างกันโดยไม่คำนึงลำดับได้กี่วิธี? (%3$sC%4$s)</string>
+    <string name="tpl_e5f765f4">เลือก %2$s สิ่งจาก %1$s สิ่งแล้วเรียงลำดับได้กี่วิธี? (%3$sP%4$s)</string>
+    <string name="tpl_ee0c3706">อันไหนคือ %1$s?</string>
+    <string name="tpl_18800cab">เส้นรอบวงของวงกลมรัศมี %1$s ซม. คือ? (π = 3.14)</string>
+    <string name="tpl_af15f6d2">เส้นรอบวง = เส้นผ่านศูนย์กลาง × 3.14 = %1$s × 3.14 = %2$s ซม.</string>
+    <string name="tpl_a145b736">พื้นที่วงกลมรัศมี %1$s ซม. คือ? (π = 3.14)</string>
+    <string name="tpl_5844f447">พื้นที่วงกลม = รัศมี × รัศมี × 3.14 = %1$s × %2$s × 3.14 = %3$s ซม.²</string>
+    <string name="tpl_e25a121a">%1$s, %2$s, %3$s — จำนวนถัดไปคือ?</string>
+    <string name="tpl_c074ed4d">กฎคือเพิ่มทีละ 1 หลัง %1$s คือ %2$s</string>
+    <string name="tpl_ac380a89">%1$s บวก %2$s ได้ 10 แยก 10 ได้ %3$s กับ %4$s</string>
+    <string name="tpl_08b9cc90">ถ้าเหตุการณ์ที่มีความน่าจะเป็น 1/%1$s เกิดติดต่อกัน %2$s ครั้ง ความน่าจะเป็นคือ 1/k แล้ว k คือ?</string>
+    <string name="tpl_e6dd2bae">เป็นการทดลองอิสระจึงคูณกัน (1/%1$s)^%2$s = 1/%3$s\nk = %4$s</string>
+    <string name="tpl_ab3d2f03">ผลรวมมุมภายในของรูป %1$s เหลี่ยมคือ? (หน่วยองศา)</string>
+    <string name="tpl_50ddbff4">ผลรวมมุมภายในของรูป n เหลี่ยม = (n - 2) × 180°\n(%1$s - 2) × 180 = %2$s°</string>
+    <string name="tpl_a257284f">รูป %1$s เหลี่ยมมีเส้นทแยงมุมกี่เส้น?</string>
+    <string name="tpl_6fa548ec">จำนวนเส้นทแยงมุม = n(n-3)/2 = %1$s×%2$s/2 = %3$s</string>
+    <string name="tpl_076280c4">ระบายสี 0.%1$s (ทั้งหมดแบ่งเป็น 10 ส่วนเท่ากัน)</string>
+    <string name="tpl_3601a2fc">%1$s จาก 10 ส่วน จึงเป็น %2$s/10 = 0.%3$s</string>
+    <string name="tpl_d91eef04">%1$s ส่วนจากสิบส่วนเท่ากันของ 1 เป็นทศนิยมเท่าใด?</string>
+    <string name="tpl_5b3eb8ba">หา 0.%1$s บนเส้นจำนวนแล้ววางจุดลงไป</string>
+    <string name="tpl_b54eb50c">ช่วงระหว่าง 0 ถึง 1 แบ่งเป็น 10 ช่องเท่ากัน\n0.%1$s อยู่ห่างจาก 0 ไป %2$s ช่อง</string>
+    <string name="tpl_74d583e3">%1$s %2$s° มีค่าเท่าใด?</string>
+    <string name="tpl_f0bf458a">ลองนึกว่า %1$s° อยู่ตรงไหนบนวงกลมหนึ่งหน่วย %2$s%3$s° = %4$s</string>
+    <string name="tpl_f339376b">0.%1$s เท่ากับ %2$s/10\nระบายสี %3$s ช่องจาก 10 ช่อง</string>
+    <string name="tpl_d6fcc9c2">%1$s %2$s° มีค่าเท่าใด? (เขียนเศษส่วนแบบ 1/2)</string>
+    <string name="tpl_2d7284ee">นี่คืออัตราส่วนตรีโกณมิติของมุมพิเศษ %1$s%2$s° = %3$s\nควรจำค่าของ 30°, 45° และ 60° ไว้</string>
+    <string name="tpl_f046f32a">เซตที่มีสมาชิก %1$s ตัว มีสับเซตกี่เซต?</string>
+    <string name="tpl_710ba473">จำนวนสับเซต = 2ⁿ = 2^%1$s = %2$s เซต\n(สับเซตแท้มี %3$s เซต)</string>
+    <string name="tpl_fb01043c">ความน่าจะเป็นที่ทอยลูกเต๋าหนึ่งครั้งแล้วได้แต้มไม่เกิน %1$s คือ? (ตัวเศษของเศษส่วนอย่างต่ำ)</string>
+    <string name="tpl_4fcaf9c5">มี %2$s แบบที่ไม่เกิน %1$s จากทั้งหมด 6 แบบ %3$s/6 = %4$s/%5$s</string>
+    <string name="tpl_7e93d243">ด้านซ้ายมี %1$s ด้านขวามี %2$s เนื่องจาก %3$s มากกว่า %4$s ดังนั้น %5$s จึงมากกว่า</string>
+    <string name="tpl_0782d5d6">เปรียบเทียบหลักสิบก่อน %1$s มากกว่า</string>
+    <string name="tpl_303e5331">หาแท่งที่สูงที่สุด %1$s มีมากที่สุดคือ %2$s</string>
+    <string name="tpl_1f33664e">ใส่ %1$s ตัวแล้วใส่เพิ่มอีก %2$s ตัว กล่องจะมี %3$s ตัว\nนับต่อจาก %4$s ไปอีก %5$s ได้ %6$s</string>
+    <string name="tpl_eb12d4e3">จาก %1$s ตัว ส่งไป %2$s ตัว เหลือ %3$s ตัว\nรวมตัวที่ส่งไปกับที่เหลือก็กลับเป็น %4$s ตัวอีกครั้ง</string>
+    <string name="tpl_d35868f6">ด้านซ้ายมีกล่อง x %1$s กล่องและตุ้มน้ำหนัก 1 จำนวน %2$s ลูก ด้านขวามีตุ้ม 1 จำนวน %3$s ลูก\nเอา %4$s ออกทั้งสองข้าง: %5$sx = %6$s\nแบ่งเป็น %7$s กลุ่มเท่ากัน: x = %8$s</string>
+    <string name="tpl_74cc085d">%1$s\nแม้สีต่างกัน ถ้ารูปทรงเหมือนกันก็ใส่ตะกร้าเดียวกัน</string>
+    <string name="tpl_28a6838e">%1$s° คือ%2$s</string>
+    <string name="tpl_394c5f1b">%1$s° คือ%2$s\nแคบกว่ามุมฉาก (90°) อยู่ %3$s°</string>
+    <string name="tpl_9e6c9d79">%1$s° คือ%2$s\nกว้างกว่ามุมฉาก (90°) อยู่ %3$s°</string>
+    <string name="tpl_b0aed67a">%1$s° คือ%2$s\nเป็นมุมที่ตั้งตรงพอดี</string>
+    <string name="tpl_54ac9abe">กฎคือ %1$s กับ %2$s สลับกัน หลัง %3$s คือ %4$s</string>
+    <string name="tpl_5c76e40f">นั่นคือ%1$s อยู่ลำดับที่ %2$s</string>
+    <string name="tpl_1c847ed5">เข็มสั้นชี้ที่ %1$s เข็มยาวชี้ที่ 12 จึงเป็นเวลา %2$s นาฬิกาตรง</string>
+    <string name="tpl_ed836a0a">เข็มสั้นอยู่ระหว่าง %1$s กับ %2$s และเข็มยาวชี้ที่ 6 จึงเป็นเวลา %3$s:30</string>
+    <string name="tpl_cc9224e2">อยู่ห่างจาก 0 ไปทางขวา %1$s ช่อง\n%2$s น้อยกว่า 10</string>
+    <string name="tpl_298087b1">อยู่ห่างจาก 0 ไปทางขวา %1$s ช่อง\n%2$s มากกว่า 10</string>
+    <string name="tpl_c9b3271e">อยู่ห่างจาก 0 ไปทางขวา %1$s ช่อง\n%2$s เท่ากับ 10 พอดี</string>
+
+    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->
+    <string-array name="tpl_words">
+        <item>사과|แอปเปิล</item>
+        <item>딸기|สตรอว์เบอร์รี</item>
+        <item>포도|องุ่น</item>
+        <item>바나나|กล้วย</item>
+        <item>귤|ส้ม</item>
+        <item>쿠키|คุกกี้</item>
+        <item>사탕|ลูกอม</item>
+        <item>구슬|ลูกแก้ว</item>
+        <item>스티커|สติกเกอร์</item>
+        <item>풍선|ลูกโป่ง</item>
+        <item>블록|บล็อก</item>
+        <item>도토리|ลูกโอ๊ก</item>
+        <item>색연필|ดินสอสี</item>
+        <item>상자|กล่อง</item>
+        <item>접시|จาน</item>
+        <item>바구니|ตะกร้า</item>
+        <item>봉지|ถุง</item>
+        <item>가방|กระเป๋า</item>
+        <item>원|วงกลม</item>
+        <item>삼각형|สามเหลี่ยม</item>
+        <item>사각형|สี่เหลี่ยม</item>
+        <item>오각형|ห้าเหลี่ยม</item>
+        <item>육각형|หกเหลี่ยม</item>
+        <item>예각|มุมแหลม</item>
+        <item>직각|มุมฉาก</item>
+        <item>둔각|มุมป้าน</item>
+        <item>평각|มุมตรง</item>
+        <item>축구|ฟุตบอล</item>
+        <item>야구|เบสบอล</item>
+        <item>농구|บาสเกตบอล</item>
+        <item>수영|ว่ายน้ำ</item>
+        <item>달리기|วิ่ง</item>
+        <item>삐약이|พียัค</item>
+        <item>토끼|กระต่าย</item>
+        <item>펭귄|เพนกวิน</item>
+        <item>고양이|แมว</item>
+        <item>곰돌이|หมี</item>
+        <item>다람쥐|กระรอก</item>
+        <item>서연|ซอยอน</item>
+        <item>수아|ซูอา</item>
+        <item>시우|ซีอู</item>
+        <item>채원|แชวอน</item>
+        <item>도윤|โดยุน</item>
+        <item>예린|เยริน</item>
+        <item>은우|อึนอู</item>
+        <item>지우|จีอู</item>
+        <item>민수|มินซู</item>
+        <item>하준|ฮาจุน</item>
+        <item>월|จ.</item>
+        <item>화|อ.</item>
+        <item>수|พ.</item>
+        <item>목|พฤ.</item>
+        <item>금|ศ.</item>
+        <item>영|ศูนย์</item>
+        <item>하나|หนึ่ง</item>
+        <item>둘|สอง</item>
+        <item>셋|สาม</item>
+        <item>넷|สี่</item>
+        <item>다섯|ห้า</item>
+        <item>여섯|หก</item>
+        <item>일곱|เจ็ด</item>
+        <item>여덟|แปด</item>
+        <item>아홉|เก้า</item>
+        <item>열|สิบ</item>
+        <item>왼쪽|ซ้าย</item>
+        <item>오른쪽|ขวา</item>
+        <item>같아요|เท่ากัน</item>
+        <item>모르겠어요|ไม่รู้</item>
+        <item>없어요|ไม่มี</item>
+        <item>모으는 상자|รวบรวม</item>
+        <item>집으로|กลับบ้าน</item>
+        <item>반|</item>
+        <item>대|ปี</item>
+        <item>시|น.</item>
+        <item>분|นาที</item>
+        <item>원은 뾰족한 곳이 없고 동그란 모양이에요.|วงกลมไม่มีมุมแหลม เป็นรูปกลม ๆ</item>
+        <item>삼각형은 뾰족한 곳이 3개 모양이에요.|สามเหลี่ยมมีมุมแหลม 3 มุม</item>
+        <item>사각형은 뾰족한 곳이 4개 모양이에요.|สี่เหลี่ยมมีมุมแหลม 4 มุม</item>
+        <item>D &gt; 0 이므로 서로 다른 두 실근|D &gt; 0 จึงมีรากจริงสองค่าที่ต่างกัน</item>
+        <item>D = 0 이므로 중근|D = 0 จึงมีรากซ้ำ</item>
+        <item>D &lt; 0 이므로 실근이 없어요|D &lt; 0 จึงไม่มีรากจริง</item>
+        <item>빼면|ลบ</item>
+        <item>더하면|บวก</item>
+        <item>(10 넘으면 십의 자리로 받아올림!)|(เกิน 10 ทดไปหลักสิบ 1!)</item>
+        <item>일의 자리를 뺄 수 없으니 십의 자리에서 10을 빌려와요.|หลักหน่วยลบไม่ได้ จึงยืม 10 จากหลักสิบ</item>
+        <item>부호가 다르면 절댓값이 큰 쪽 부호를 따라요.|ถ้าเครื่องหมายต่างกัน ให้ใช้เครื่องหมายของจำนวนที่มีค่าสัมบูรณ์มากกว่า</item>
+        <item>둘 다 음수면 절댓값을 더하고 음수 부호를 붙여요.|ถ้าทั้งคู่เป็นจำนวนลบ ให้บวกค่าสัมบูรณ์แล้วใส่เครื่องหมายลบ</item>
+    </string-array>
+    <string-array name="tpl_units">
+        <item>개|ชิ้น</item>
+        <item>명|คน</item>
+        <item>분|นาที</item>
+        <item>초|วินาที</item>
+        <item>점|คะแนน</item>
+        <item>원|วอน</item>
+    </string-array>
 </resources>

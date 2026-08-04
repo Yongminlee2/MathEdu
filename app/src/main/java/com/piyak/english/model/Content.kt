@@ -40,6 +40,7 @@ object ContentRepo {
     @Synchronized
     fun track(ctx: Context, trackId: String): TrackData? {
         cache[trackId]?.let { return it }
+        com.piyak.english.i18n.Tpl.init(ctx)        // 문제를 만들기 전에 번역표부터 준비
         return try {
             val json = ctx.assets.open("packs/$trackId.json").bufferedReader().use { it.readText() }
             val t = parseTrack(JSONObject(json))
@@ -74,6 +75,7 @@ object ContentRepo {
     @Synchronized
     fun placement(ctx: Context, subject: Subject = Subject.ENGLISH): List<Pair<Int, Question>> {
         val file = if (subject == Subject.MATH) "packs/math_placement.json" else "packs/placement.json"
+        com.piyak.english.i18n.Tpl.init(ctx)
         return try {
             val json = ctx.assets.open(file).bufferedReader().use { it.readText() }
             val arr = JSONObject(json).getJSONArray("questions")

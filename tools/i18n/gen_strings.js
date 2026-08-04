@@ -9,6 +9,10 @@
 const fs = require("fs");
 const path = require("path");
 const { langs, strings } = require("./strings");
+const tplKo = require("./templates.json");          // 뼈대 원문 (한국어)
+const tplTr = require("./templates_i18n");          // 뼈대 번역
+const wordTr = require("./words_i18n");
+const unitTr = require("./units_i18n");            // 답 옆 단위 (개·명·원 …)             // 인자·라벨에 박힌 낱말 번역
 
 const RES = path.join(__dirname, "..", "..", "app", "src", "main", "res");
 
@@ -41,10 +45,59 @@ for (const lang of langs) {
     }
     lines.push(`    <string name="${key}">${esc(v)}</string>`);
   }
+
+  // ---- 문제 뼈대 (tpl_*) ----
+  // 한국어 폰은 팩 원문을 그대로 쓰므로 넣지 않는다 (앱 용량 낭비).
+  // 영어에 없는 뼈대는 어느 언어에도 넣지 않는다 — 그래야 리소스를 못 찾고
+  // 한국어 원문으로 안전하게 떨어진다(반쪽 번역이 섞이는 걸 막는다).
+  if (lang !== "ko") {
+    lines.push("", "    <!-- 문제·해설 뼈대 -->");
+    for (const [key, byLang] of Object.entries(tplTr)) {
+      if (!byLang.en) continue;
+      if (!tplKo[key]) continue;                    // 생성기에서 사라진 뼈대
+      const v = byLang[lang] || byLang.en;
+      lines.push(`    <string name="tpl_${key}">${esc(v)}</string>`);
+    }
+
+    // ---- 인자·라벨 낱말 사전 ----
+    lines.push("", "    <!-- 문제 속 낱말 (사과·쿠키·삼각형 …) -->", '    <string-array name="tpl_words">');
+    for (const [ko, byLang] of Object.entries(wordTr)) {
+      if (byLang.en == null) continue;   // 빈 번역("")은 일부러 지우는 것이라 허용
+      lines.push(`        <item>${esc(ko + "|" + (byLang[lang] || byLang.en))}</item>`);
+    }
+    lines.push("    </string-array>");
+    lines.push('    <string-array name="tpl_units">');
+    for (const [ko, byLang] of Object.entries(unitTr)) {
+      if (byLang.en == null) continue;
+      lines.push(`        <item>${esc(ko + "|" + (byLang[lang] == null ? byLang.en : byLang[lang]))}</item>`);
+    }
+    lines.push("    </string-array>");
+  }
+
   lines.push("</resources>", "");
   fs.writeFileSync(path.join(dir, "strings.xml"), lines.join("\n"), "utf8");
 }
 
 const n = Object.keys(strings).length;
-console.log(`언어 ${langs.length}종 × 문자열 ${n}개 생성`);
-console.log(missing === 0 ? "번역 누락 없음" : `영어로 대체된 항목: ${missing}개`);
+const nTpl = Object.values(tplTr).filter((v) => v.en).length;
+const nWord = Object.values(wordTr).filter((v) => v.en != null).length;
+console.log(`언어 ${langs.length}종 × UI 문자열 ${n}개 생성`);
+console.log(`문제 뼈대 ${nTpl}/${Object.keys(tplKo).length}종 · 낱말 ${nWord}개`);
+console.log(missing === 0 ? "UI 번역 누락 없음" : `UI에서 영어로 대체된 항목: ${missing}개`);
+
+// 뼈대 번역의 서식(%n$s) 개수가 원문과 다르면 앱에서 문장이 깨진다 — 여기서 잡는다
+let bad = 0;
+const slots = (s) => new Set((s.match(/%\d+\$s/g) || [])).size;
+for (const [key, byLang] of Object.entries(tplTr)) {
+  const src = tplKo[key];
+  if (!src) { console.log(`  ⚠ 없는 뼈대: ${key}`); bad++; continue; }
+  const want = slots(src.ko);
+  for (const [lg, v] of Object.entries(byLang)) {
+    if (slots(v) !== want) {
+      console.log(`  ⚠ ${key}(${lg}) 자리값 ${slots(v)}개 — 원문은 ${want}개`);
+      bad++;
+    }
+  }
+}
+if (bad) { console.error(`서식 불일치 ${bad}건 — 고치기 전에는 배포 금지`); process.exit(1); }
+console.log("뼈대 서식 검사 통과");
