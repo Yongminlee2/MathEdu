@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <LinearLayout
@@ -85,11 +86,11 @@
         <Button android:id="@+id/btnEraser" android:layout_width="0dp" android:layout_height="46dp"
             android:layout_weight="1" android:layout_marginEnd="5dp" android:minWidth="0dp"
             android:paddingHorizontal="2dp" android:text="@string/pad_eraser" android:textSize="12sp"
-            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text" />
+            android:backgroundTint="@color/cream_dark" android:textColor="@color/brown_text"  android:maxLines="1" app:autoSizeTextType="uniform" app:autoSizeMinTextSize="9sp" app:autoSizeMaxTextSize="16sp" />
         <Button android:id="@+id/btnUndo" android:layout_width="0dp" android:layout_height="46dp"
             android:layout_weight="1" android:layout_marginEnd="5dp" android:minWidth="0dp"
             android:paddingHorizontal="2dp" android:text="@string/pad_undo" android:textSize="12sp"
-            android:backgroundTint="@color/white" android:textColor="@color/brown_text" />
+            android:backgroundTint="@color/white" android:textColor="@color/brown_text"  android:maxLines="1" app:autoSizeTextType="uniform" app:autoSizeMinTextSize="9sp" app:autoSizeMaxTextSize="16sp" />
         <Button android:id="@+id/btnClearPad" android:layout_width="0dp" android:layout_height="46dp"
             android:layout_weight="1" android:minWidth="0dp"
             android:paddingHorizontal="2dp" android:text="@string/pad_clear" android:textSize="12sp"

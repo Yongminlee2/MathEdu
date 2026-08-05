@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">Piyak Toán</string>
+    <string name="app_name">Peep Toán</string>
     <string name="ok">Xác nhận</string>
     <string name="cancel">Hủy</string>
     <string name="done">Xong</string>
     <string name="start">Bắt đầu</string>
     <string name="back">Quay lại</string>
-    <string name="chick">Piyak</string>
+    <string name="chick">Peep</string>
     <string name="scenery">Phong cảnh</string>
     <string name="home_greeting">Hôm nay cùng học nhé!</string>
     <string name="home_courses">Khoá học</string>
@@ -285,7 +285,7 @@
     <string name="sk_word">Toán đố</string>
     <string name="rk_seed">Mầm trong trứng</string>
     <string name="rk_hatch">Gà con mới nở</string>
-    <string name="rk_piyak">Piyak</string>
+    <string name="rk_piyak">Peep</string>
     <string name="rk_brave">Gà con dũng cảm</string>
     <string name="rk_sparrow">Chim sẻ líu lo</string>
     <string name="rk_dove">Bồ câu tự do</string>
@@ -389,7 +389,7 @@
     <string name="ma_listen">🔊 Nghe</string>
     <string name="ma_track">Lộ trình</string>
     <string name="ma_sfx_note">To quá sẽ khó nghe giọng đọc đề</string>
-    <string name="ma_about">Piyak Math 🐥 ứng dụng toán của riêng bạn</string>
+    <string name="ma_about">Peep Math 🐥 ứng dụng toán của riêng bạn</string>
     <string name="ly_language">Ngôn ngữ</string>
     <string name="ly_lang_system">Theo hệ thống</string>
     <string-array name="weekday_short">
@@ -698,7 +698,7 @@
         <item>농구|bóng rổ</item>
         <item>수영|bơi lội</item>
         <item>달리기|chạy</item>
-        <item>삐약이|Piyak</item>
+        <item>삐약이|Peep</item>
         <item>토끼|Thỏ</item>
         <item>펭귄|Chim cánh cụt</item>
         <item>고양이|Mèo</item>

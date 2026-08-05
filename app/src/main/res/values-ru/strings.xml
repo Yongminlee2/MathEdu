@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">Пияк Математика</string>
+    <string name="app_name">Пип Математика</string>
     <string name="ok">ОК</string>
     <string name="cancel">Отмена</string>
     <string name="done">Готово</string>
     <string name="start">Начать</string>
     <string name="back">Назад</string>
-    <string name="chick">Пияк</string>
+    <string name="chick">Пип</string>
     <string name="scenery">Пейзаж</string>
     <string name="home_greeting">Позанимаемся сегодня вместе!</string>
     <string name="home_courses">Курсы</string>
@@ -285,7 +285,7 @@
     <string name="sk_word">Текстовые задачи</string>
     <string name="rk_seed">Росток в яйце</string>
     <string name="rk_hatch">Только вылупившийся цыплёнок</string>
-    <string name="rk_piyak">Пияк</string>
+    <string name="rk_piyak">Пип</string>
     <string name="rk_brave">Смелый цыплёнок</string>
     <string name="rk_sparrow">Болтливый воробей</string>
     <string name="rk_dove">Свободный голубь</string>
@@ -389,7 +389,7 @@
     <string name="ma_listen">🔊 Слушать</string>
     <string name="ma_track">Трек</string>
     <string name="ma_sfx_note">Слишком громко — голос чтения плохо слышно</string>
-    <string name="ma_about">Piyak Math 🐥 твоё приложение для математики</string>
+    <string name="ma_about">Peep Math 🐥 твоё приложение для математики</string>
     <string name="ly_language">Язык</string>
     <string name="ly_lang_system">Как в системе</string>
     <string-array name="weekday_short">
@@ -698,7 +698,7 @@
         <item>농구|баскетбол</item>
         <item>수영|плавание</item>
         <item>달리기|бег</item>
-        <item>삐약이|Пияк</item>
+        <item>삐약이|Пип</item>
         <item>토끼|Кролик</item>
         <item>펭귄|Пингвин</item>
         <item>고양이|Кот</item>
