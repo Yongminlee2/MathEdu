@@ -1,0 +1,98 @@
+<en-US>
+First release 🐥
+· The grades follow one after another, from counting to grade 12 topics
+· Shapes, clocks, fractions, number lines and charts are drawn on screen
+· A scratch pad to work it out right on top of the question
+· 14 languages, switchable in Settings
+</en-US>
+<de-DE>
+Erste Version 🐥
+· Die Jahrgänge bauen aufeinander auf — vom Zählen bis zur Oberstufe
+· Formen, Uhren, Brüche, Zahlenstrahlen und Diagramme werden auf dem Bildschirm gezeichnet
+· Ein Schmierblatt direkt über der Aufgabe
+· 14 Sprachen, in den Einstellungen umschaltbar
+</de-DE>
+<es-ES>
+Primera versión 🐥
+· Los cursos se encadenan, de contar a temas de bachillerato
+· Figuras, relojes, fracciones, rectas numéricas y gráficos se dibujan en pantalla
+· Una hoja de borrador encima del propio problema
+· 14 idiomas, cambiables en Ajustes
+</es-ES>
+<fr-FR>
+Première version 🐥
+· Les niveaux s'enchaînent, du comptage aux notions du lycée
+· Figures, horloges, fractions, droites graduées et diagrammes dessinés à l'écran
+· Un brouillon directement sur l'énoncé
+· 14 langues, modifiables dans les Réglages
+</fr-FR>
+<id>
+Rilis pertama 🐥
+· Jenjangnya bersambung, dari berhitung sampai materi SMA
+· Bangun, jam, pecahan, garis bilangan, dan diagram digambar di layar
+· Kertas coretan langsung di atas soal
+· 14 bahasa, bisa diganti di Pengaturan
+</id>
+<ja-JP>
+はじめてのリリースです 🐥
+・数かぞえから高校の内容まで学年ごとにつながります
+・図形・時計・分数・数直線・グラフを画面に直接描きます
+・問題の上に直接書ける計算用紙
+・14言語対応(設定でいつでも変更)
+</ja-JP>
+<ko-KR>
+첫 출시입니다 🐥
+· 수 세기부터 고3 과정까지 학년별로 이어져요
+· 도형 · 시계 · 분수 · 수직선 · 그래프를 화면에 직접 그려 줍니다
+· 문제 위에 바로 손으로 풀 수 있는 연습장
+· 14개 언어 지원 (설정에서 언제든 변경)
+</ko-KR>
+<pt-PT>
+Primeira versão 🐥
+· Os anos encadeiam-se, de contar a temas do ensino secundário
+· Formas, relógios, frações, retas numéricas e gráficos desenhados no ecrã
+· Um rascunho por cima da própria questão
+· 14 idiomas, alteráveis nas Definições
+</pt-PT>
+<ru-RU>
+Первый выпуск 🐥
+· Классы идут один за другим — от счёта до тем старшей школы
+· Фигуры, часы, дроби, числовые прямые и диаграммы рисуются на экране
+· Черновик прямо поверх задания
+· 14 языков, переключаются в настройках
+</ru-RU>
+<th>
+เปิดตัวครั้งแรก 🐥
+· ไล่ตามชั้นปีต่อเนื่อง ตั้งแต่การนับจนถึงเนื้อหามัธยมปลาย
+· รูปทรง นาฬิกา เศษส่วน เส้นจำนวน และกราฟ วาดให้บนหน้าจอ
+· กระดาษทดที่เขียนบนตัวโจทย์ได้เลย
+· รองรับ 14 ภาษา เปลี่ยนได้ในการตั้งค่า
+</th>
+<vi>
+Bản phát hành đầu tiên 🐥
+· Các khối lớp nối tiếp nhau, từ đếm số đến nội dung lớp 12
+· Hình học, đồng hồ, phân số, trục số và biểu đồ được vẽ trên màn hình
+· Giấy nháp ngay trên đề bài
+· 14 ngôn ngữ, đổi trong Cài đặt
+</vi>
+<zh-CN>
+首次发布 🐥
+· 按年级依次相连，从数数到高中内容
+· 图形、时钟、分数、数轴、图表直接画在屏幕上
+· 可直接在题目上手写的草稿纸
+· 支持 14 种语言，可在设置中更换
+</zh-CN>
+<zh-HK>
+首次推出 🐥
+· 按年級順住嚟，由數數到中學內容
+· 圖形、時鐘、分數、數線、圖表直接畫喺螢幕上
+· 可以直接喺題目上手寫嘅草稿紙
+· 支援 14 種語言，可喺設定更換
+</zh-HK>
+<zh-TW>
+首次發布 🐥
+· 按年級依序相連，從數數到高中內容
+· 圖形、時鐘、分數、數線、圖表直接畫在螢幕上
+· 可直接在題目上手寫的草稿紙
+· 支援 14 種語言，可在設定中更換
+</zh-TW>
