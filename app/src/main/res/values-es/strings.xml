@@ -390,6 +390,8 @@
     <string name="ma_track">Pista</string>
     <string name="ma_sfx_note">Si está muy alto, la voz que lee se oye mal</string>
     <string name="ma_about">Piyak Math 🐥 tu propia app de mates</string>
+    <string name="ly_language">Idioma</string>
+    <string name="ly_lang_system">Predeterminado del sistema</string>
     <string-array name="weekday_short">
         <item>Dom</item>
         <item>Lun</item>

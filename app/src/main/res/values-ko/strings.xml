@@ -390,6 +390,8 @@
     <string name="ma_track">트랙</string>
     <string name="ma_sfx_note">너무 크면 문제 읽어 주는 소리가 잘 안 들려요</string>
     <string name="ma_about">삐약수학 🐥 나만의 수학 공부 앱</string>
+    <string name="ly_language">언어</string>
+    <string name="ly_lang_system">기기 설정 따름</string>
     <string-array name="weekday_short">
         <item>일</item>
         <item>월</item>

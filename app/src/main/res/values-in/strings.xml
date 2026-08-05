@@ -390,6 +390,8 @@
     <string name="ma_track">Jalur</string>
     <string name="ma_sfx_note">Terlalu keras membuat suara pembaca soal sulit terdengar</string>
     <string name="ma_about">Piyak Math 🐥 aplikasi belajar matematikamu</string>
+    <string name="ly_language">Bahasa</string>
+    <string name="ly_lang_system">Ikuti sistem</string>
     <string-array name="weekday_short">
         <item>Min</item>
         <item>Sen</item>

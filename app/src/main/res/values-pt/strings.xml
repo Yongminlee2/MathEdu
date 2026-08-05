@@ -390,6 +390,8 @@
     <string name="ma_track">Trilha</string>
     <string name="ma_sfx_note">Muito alto atrapalha a voz de leitura</string>
     <string name="ma_about">Piyak Math 🐥 seu app de matemática</string>
+    <string name="ly_language">Idioma</string>
+    <string name="ly_lang_system">Padrão do sistema</string>
     <string-array name="weekday_short">
         <item>Dom</item>
         <item>Seg</item>
