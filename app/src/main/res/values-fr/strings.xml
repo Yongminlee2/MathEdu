@@ -390,6 +390,8 @@
     <string name="ma_track">Piste</string>
     <string name="ma_sfx_note">Trop fort, on entend mal la voix de lecture</string>
     <string name="ma_about">Piyak Math 🐥 ton appli de maths à toi</string>
+    <string name="ly_language">Langue</string>
+    <string name="ly_lang_system">Paramètre du système</string>
     <string-array name="weekday_short">
         <item>Dim</item>
         <item>Lun</item>

@@ -390,6 +390,8 @@
     <string name="ma_track">Трек</string>
     <string name="ma_sfx_note">Слишком громко — голос чтения плохо слышно</string>
     <string name="ma_about">Piyak Math 🐥 твоё приложение для математики</string>
+    <string name="ly_language">Язык</string>
+    <string name="ly_lang_system">Как в системе</string>
     <string-array name="weekday_short">
         <item>Вс</item>
         <item>Пн</item>

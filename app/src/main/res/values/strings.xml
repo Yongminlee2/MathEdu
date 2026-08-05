@@ -390,6 +390,8 @@
     <string name="ma_track">Track</string>
     <string name="ma_sfx_note">If it\'s too loud, the read-aloud voice is hard to hear</string>
     <string name="ma_about">Piyak Math 🐥 your very own math study app</string>
+    <string name="ly_language">Language</string>
+    <string name="ly_lang_system">System default</string>
     <string-array name="weekday_short">
         <item>Sun</item>
         <item>Mon</item>

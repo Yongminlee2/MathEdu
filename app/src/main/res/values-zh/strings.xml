@@ -390,6 +390,8 @@
     <string name="ma_track">轨道</string>
     <string name="ma_sfx_note">太大声会听不清读题的声音</string>
     <string name="ma_about">啾啾数学 🐥 属于你的数学学习应用</string>
+    <string name="ly_language">语言</string>
+    <string name="ly_lang_system">跟随系统设置</string>
     <string-array name="weekday_short">
         <item>日</item>
         <item>一</item>

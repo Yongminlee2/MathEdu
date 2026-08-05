@@ -390,6 +390,8 @@
     <string name="ma_track">Track</string>
     <string name="ma_sfx_note">Zu laut übertönt die Vorlesestimme</string>
     <string name="ma_about">Piyak Math 🐥 deine eigene Mathe-App</string>
+    <string name="ly_language">Sprache</string>
+    <string name="ly_lang_system">Systemstandard</string>
     <string-array name="weekday_short">
         <item>So</item>
         <item>Mo</item>

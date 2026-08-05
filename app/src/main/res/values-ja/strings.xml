@@ -390,6 +390,8 @@
     <string name="ma_track">トラック</string>
     <string name="ma_sfx_note">おおきすぎると もんだいを よむ こえが きこえにくいよ</string>
     <string name="ma_about">ピヤックさんすう 🐥 じぶんだけの さんすう アプリ</string>
+    <string name="ly_language">言語</string>
+    <string name="ly_lang_system">たんまつの せっていに したがう</string>
     <string-array name="weekday_short">
         <item>日</item>
         <item>月</item>

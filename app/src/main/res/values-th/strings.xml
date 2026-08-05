@@ -390,6 +390,8 @@
     <string name="ma_track">คอร์ส</string>
     <string name="ma_sfx_note">ดังเกินไปจะฟังเสียงอ่านโจทย์ไม่ชัด</string>
     <string name="ma_about">Piyak Math 🐥 แอปเรียนคณิตของคุณ</string>
+    <string name="ly_language">ภาษา</string>
+    <string name="ly_lang_system">ตามค่าระบบ</string>
     <string-array name="weekday_short">
         <item>อา</item>
         <item>จ</item>
