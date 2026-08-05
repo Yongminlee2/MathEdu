@@ -49,7 +49,7 @@ module.exports = {
   "달리기": { en: "running",  ja: "かけっこ", zh: "跑步", es: "correr",   fr: "course",  de: "Laufen",    pt: "corrida",  ru: "бег",       vi: "chạy",     th: "วิ่ง",        in: "lari" },
 
   // ---------- 등장인물 ----------
-  "삐약이": { en: "Peep",    ja: "ピープ", zh: "啾啾",  es: "Peep",   fr: "Peep",   de: "Peep",     pt: "Peep",    ru: "Пип",      vi: "Peep",    th: "พียัค",       in: "Peep" },
+  "삐약이": { en: "Peep",    ja: "ピープ", zh: "啾啾",  es: "Peep",   fr: "Peep",   de: "Peep",     pt: "Peep",    ru: "Пип",      vi: "Peep",    th: "พีป",       in: "Peep" },
   "토끼":   { en: "Rabbit",   ja: "うさぎ",   zh: "兔子",  es: "Conejo",  fr: "Lapin",   de: "Hase",      pt: "Coelho",   ru: "Кролик",    vi: "Thỏ",      th: "กระต่าย",     in: "Kelinci" },
   "펭귄":   { en: "Penguin",  ja: "ペンギン", zh: "企鹅",  es: "Pingüino", fr: "Pingouin", de: "Pinguin", pt: "Pinguim",  ru: "Пингвин",   vi: "Chim cánh cụt", th: "เพนกวิน", in: "Penguin" },
   "고양이": { en: "Cat",      ja: "ねこ",     zh: "小猫",  es: "Gato",    fr: "Chat",    de: "Katze",     pt: "Gato",     ru: "Кот",       vi: "Mèo",      th: "แมว",         in: "Kucing" },
