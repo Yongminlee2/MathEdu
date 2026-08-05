@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">Piyak คณิต</string>
+    <string name="app_name">Peep คณิต</string>
     <string name="ok">ตกลง</string>
     <string name="cancel">ยกเลิก</string>
     <string name="done">เสร็จ</string>
     <string name="start">เริ่ม</string>
     <string name="back">กลับ</string>
-    <string name="chick">Piyak</string>
+    <string name="chick">Peep</string>
     <string name="scenery">ทิวทัศน์</string>
     <string name="home_greeting">วันนี้มาเรียนด้วยกันนะ!</string>
     <string name="home_courses">คอร์สเรียน</string>
@@ -389,7 +389,7 @@
     <string name="ma_listen">🔊 ฟัง</string>
     <string name="ma_track">คอร์ส</string>
     <string name="ma_sfx_note">ดังเกินไปจะฟังเสียงอ่านโจทย์ไม่ชัด</string>
-    <string name="ma_about">Piyak Math 🐥 แอปเรียนคณิตของคุณ</string>
+    <string name="ma_about">Peep Math 🐥 แอปเรียนคณิตของคุณ</string>
     <string name="ly_language">ภาษา</string>
     <string name="ly_lang_system">ตามค่าระบบ</string>
     <string-array name="weekday_short">

@@ -16,9 +16,9 @@ module.exports = {
   strings: {
     // ---------- 공통 ----------
     app_name: {
-      en: "Piyak Math", ko: "삐약수학", ja: "ピヤックさんすう", zh: "小鸡数学",
-      es: "Piyak Mates", fr: "Piyak Maths", de: "Piyak Mathe", pt: "Piyak Matemática",
-      ru: "Пияк Математика", vi: "Piyak Toán", th: "Piyak คณิต", in: "Piyak Matematika",
+      en: "Peep Math", ko: "삐약수학", ja: "ピープさんすう", zh: "小鸡数学",
+      es: "Peep Mates", fr: "Peep Maths", de: "Peep Mathe", pt: "Peep Matemática",
+      ru: "Пип Математика", vi: "Peep Toán", th: "Peep คณิต", in: "Peep Matematika",
     },
     ok: { en: "OK", ko: "확인", ja: "確認", zh: "确定", es: "Aceptar", fr: "OK",
           de: "OK", pt: "OK", ru: "ОК", vi: "Xác nhận", th: "ตกลง", in: "OK" },
@@ -32,8 +32,8 @@ module.exports = {
              vi: "Bắt đầu", th: "เริ่ม", in: "Mulai" },
     back: { en: "Back", ko: "뒤로", ja: "戻る", zh: "返回", es: "Atrás", fr: "Retour",
             de: "Zurück", pt: "Voltar", ru: "Назад", vi: "Quay lại", th: "กลับ", in: "Kembali" },
-    chick: { en: "Piyak", ko: "삐약이", ja: "ピヤック", zh: "小鸡", es: "Piyak", fr: "Piyak",
-             de: "Piyak", pt: "Piyak", ru: "Пияк", vi: "Piyak", th: "Piyak", in: "Piyak" },
+    chick: { en: "Peep", ko: "삐약이", ja: "ピープ", zh: "小鸡", es: "Peep", fr: "Peep",
+             de: "Peep", pt: "Peep", ru: "Пип", vi: "Peep", th: "Peep", in: "Peep" },
     scenery: { en: "Scenery", ko: "풍경", ja: "風景", zh: "风景", es: "Paisaje", fr: "Paysage",
                de: "Landschaft", pt: "Paisagem", ru: "Пейзаж", vi: "Phong cảnh",
                th: "ทิวทัศน์", in: "Pemandangan" },

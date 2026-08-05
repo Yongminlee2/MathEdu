@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">Piyak Matemática</string>
+    <string name="app_name">Peep Matemática</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
     <string name="done">Concluído</string>
     <string name="start">Começar</string>
     <string name="back">Voltar</string>
-    <string name="chick">Piyak</string>
+    <string name="chick">Peep</string>
     <string name="scenery">Paisagem</string>
     <string name="home_greeting">Vamos estudar juntos hoje!</string>
     <string name="home_courses">Cursos</string>
@@ -285,7 +285,7 @@
     <string name="sk_word">Problemas</string>
     <string name="rk_seed">Broto no ovo</string>
     <string name="rk_hatch">Pintinho recém-nascido</string>
-    <string name="rk_piyak">Piyak</string>
+    <string name="rk_piyak">Peep</string>
     <string name="rk_brave">Pintinho corajoso</string>
     <string name="rk_sparrow">Pardal tagarela</string>
     <string name="rk_dove">Pomba livre</string>
@@ -389,7 +389,7 @@
     <string name="ma_listen">🔊 Ouvir</string>
     <string name="ma_track">Trilha</string>
     <string name="ma_sfx_note">Muito alto atrapalha a voz de leitura</string>
-    <string name="ma_about">Piyak Math 🐥 seu app de matemática</string>
+    <string name="ma_about">Peep Math 🐥 seu app de matemática</string>
     <string name="ly_language">Idioma</string>
     <string name="ly_lang_system">Padrão do sistema</string>
     <string-array name="weekday_short">
@@ -698,7 +698,7 @@
         <item>농구|basquete</item>
         <item>수영|natação</item>
         <item>달리기|corrida</item>
-        <item>삐약이|Piyak</item>
+        <item>삐약이|Peep</item>
         <item>토끼|Coelho</item>
         <item>펭귄|Pinguim</item>
         <item>고양이|Gato</item>

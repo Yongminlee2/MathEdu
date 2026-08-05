@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: node tools/i18n/gen_strings.js — 직접 고치지 말 것 -->
 <resources>
-    <string name="app_name">ピヤックさんすう</string>
+    <string name="app_name">ピープさんすう</string>
     <string name="ok">確認</string>
     <string name="cancel">キャンセル</string>
     <string name="done">完了</string>
     <string name="start">はじめる</string>
     <string name="back">戻る</string>
-    <string name="chick">ピヤック</string>
+    <string name="chick">ピープ</string>
     <string name="scenery">風景</string>
     <string name="home_greeting">きょうもいっしょにべんきょう！</string>
     <string name="home_courses">コース</string>
@@ -285,7 +285,7 @@
     <string name="sk_word">ぶんしょうだい</string>
     <string name="rk_seed">たまごの中のめ</string>
     <string name="rk_hatch">かえったばかりのひよこ</string>
-    <string name="rk_piyak">ピヤック</string>
+    <string name="rk_piyak">ピープ</string>
     <string name="rk_brave">げんきなひよこ</string>
     <string name="rk_sparrow">おしゃべりすずめ</string>
     <string name="rk_dove">じゆうなはと</string>
@@ -389,7 +389,7 @@
     <string name="ma_listen">🔊 きく</string>
     <string name="ma_track">トラック</string>
     <string name="ma_sfx_note">おおきすぎると もんだいを よむ こえが きこえにくいよ</string>
-    <string name="ma_about">ピヤックさんすう 🐥 じぶんだけの さんすう アプリ</string>
+    <string name="ma_about">ピープさんすう 🐥 じぶんだけの さんすう アプリ</string>
     <string name="ly_language">言語</string>
     <string name="ly_lang_system">たんまつの せっていに したがう</string>
     <string-array name="weekday_short">
@@ -698,7 +698,7 @@
         <item>농구|バスケ</item>
         <item>수영|水泳</item>
         <item>달리기|かけっこ</item>
-        <item>삐약이|ピヤック</item>
+        <item>삐약이|ピープ</item>
         <item>토끼|うさぎ</item>
         <item>펭귄|ペンギン</item>
         <item>고양이|ねこ</item>

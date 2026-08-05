@@ -12,8 +12,8 @@ android {
         applicationId = "com.peep.math"
         minSdk = 26
         targetSdk = 36
-        versionCode = 61
-        versionName = "1.62"
+        versionCode = 62
+        versionName = "1.63"
     }
 
     buildTypes {
