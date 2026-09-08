@@ -24,8 +24,8 @@ android {
         applicationId = "com.peep.math"
         minSdk = 26
         targetSdk = 36
-        versionCode = 65
-        versionName = "1.66"
+        versionCode = 66
+        versionName = "1.67"
     }
 
     signingConfigs {
