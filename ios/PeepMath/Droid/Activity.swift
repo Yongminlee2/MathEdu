@@ -29,12 +29,23 @@ final class Intent {
     @discardableResult func addFlags(_ f: Int) -> Intent { flags |= f; return self }
     @discardableResult func setFlags(_ f: Int) -> Intent { flags = f; return self }
     func hasExtra(_ key: String) -> Bool { extras[key] != nil }
-    func getStringExtra(_ key: String) -> String? { extras[key] as? String }
-    func getIntExtra(_ key: String, _ def: Int) -> Int { extras[key] as? Int ?? def }
-    func getLongExtra(_ key: String, _ def: Int) -> Int { extras[key] as? Int ?? def }
-    func getFloatExtra(_ key: String, _ def: Float) -> Float { extras[key] as? Float ?? def }
-    func getDoubleExtra(_ key: String, _ def: Double) -> Double { extras[key] as? Double ?? def }
-    func getBooleanExtra(_ key: String, _ def: Bool) -> Bool { extras[key] as? Bool ?? def }
+    // 실행 인자(DEBUG)로 넘긴 값은 글자라서, 숫자·참거짓도 글자에서 읽어 준다
+    func getStringExtra(_ key: String) -> String? {
+        switch extras[key] { case let s as String: return s; case let n as Int: return String(n); default: return nil }
+    }
+    func getIntExtra(_ key: String, _ def: Int) -> Int {
+        switch extras[key] { case let n as Int: return n; case let s as String: return Int(s) ?? def; default: return def }
+    }
+    func getLongExtra(_ key: String, _ def: Int) -> Int { getIntExtra(key, def) }
+    func getFloatExtra(_ key: String, _ def: Float) -> Float {
+        switch extras[key] { case let f as Float: return f; case let s as String: return Float(s) ?? def; default: return def }
+    }
+    func getDoubleExtra(_ key: String, _ def: Double) -> Double {
+        switch extras[key] { case let f as Double: return f; case let s as String: return Double(s) ?? def; default: return def }
+    }
+    func getBooleanExtra(_ key: String, _ def: Bool) -> Bool {
+        switch extras[key] { case let b as Bool: return b; case let s as String: return s == "true" || s == "1"; default: return def }
+    }
     func getStringArrayListExtra(_ key: String) -> [String]? { extras[key] as? [String] }
     func getStringArrayExtra(_ key: String) -> [String]? { extras[key] as? [String] }
     func getIntArrayExtra(_ key: String) -> [Int]? { extras[key] as? [Int] }
@@ -181,6 +192,19 @@ class Activity: UIViewController, Context {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         onWindowFocusChanged(true)
+        #if DEBUG
+        // 스크린샷용: -scroll bottom 이면 화면의 스크롤을 끝까지 내린다
+        if let i = ProcessInfo.processInfo.arguments.firstIndex(of: "-scroll"), i + 1 < ProcessInfo.processInfo.arguments.count,
+           ProcessInfo.processInfo.arguments[i + 1] == "bottom" {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                func walk(_ v: View) {
+                    if let s = v as? ScrollView { s.scrollTo(0, Int(s.scroller.contentSize.height)) }
+                    if let g = v as? ViewGroup { g.children.forEach(walk) }
+                }
+                walk(self.decor)
+            }
+        }
+        #endif
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

@@ -231,6 +231,9 @@ final class LessonActivity: AppCompatActivity {
 
     private func renderQuestion(_ q: Question) {
         guard let s = session else { return }
+        #if DEBUG
+        defer { debugShotHook(q) }
+        #endif
         // 응원 타이머 재시작
         b.root.removeCallbacks(encourageRun)
         b.root.removeCallbacks(sleepRun)
@@ -1325,4 +1328,58 @@ private func javaStringHash(_ s: String) -> Int32 {
     var h: Int32 = 0
     for c in s.utf16 { h = h &* 31 &+ Int32(c) }
     return h
+}
+
+extension LessonActivity {
+    #if DEBUG
+    /// 스토어 스크린샷용 (DEBUG 빌드만): -answer 1 정답 화면, -scratch 1 연습장에 써 본 모습
+    static var debugShotDone = false
+    func debugShotHook(_ q: Question) {
+        guard !LessonActivity.debugShotDone else { return }
+        LessonActivity.debugShotDone = true
+        if DebugLaunch.args["answer"] == "1" {
+            b.root.postDelayed({ [weak self] in self?.submitAnswer(true, nil, q.explain) }, 700)
+        }
+        if DebugLaunch.args["scratch"] == "1" {
+            b.root.postDelayed({ [weak self] in
+                guard let self else { return }
+                self.showScratch(true)
+                self.b.root.postDelayed({ [weak self] in self?.debugScratchStrokes() }, 600)
+            }, 700)
+        }
+    }
+
+    private func debugScratchStrokes() {
+        do {
+            do {
+                let pad = self.b.scratchPad
+                let w = Float(pad.width), h = Float(pad.height)
+                // 손글씨 흉내: 물음표 옆에 "16" 을 쓰고, 보기 16 에 빨간 동그라미
+                var strokes: [[(Float, Float)]] = []
+                strokes.append([(0.34, 0.175), (0.36, 0.16), (0.36, 0.225)])                  // 1
+                var six: [(Float, Float)] = [(0.44, 0.16), (0.41, 0.19)]
+                for k in 0...16 {
+                    let a = Float(k) / 16 * 2 * Float.pi + Float.pi
+                    six.append((0.425 + 0.028 * cos(a), 0.205 + 0.018 * sin(a)))
+                }
+                strokes.append(six)                                                           // 6
+                var ring: [(Float, Float)] = []
+                for k in 0...26 {
+                    let a = Float(k) / 24 * 2 * Float.pi - 0.6
+                    ring.append((0.265 + 0.15 * cos(a), 0.495 + 0.065 * sin(a)))
+                }
+                strokes.append(ring)
+                for (i, st) in strokes.enumerated() {
+                    if i == 2 { pad.penColor = Color.parseColor("#E53935") }
+                    for (j, pt) in st.enumerated() {
+                        let a = j == 0 ? MotionEvent.ACTION_DOWN : MotionEvent.ACTION_MOVE
+                        _ = pad.onTouchEvent(MotionEvent(action: a, x: pt.0 * w, y: pt.1 * h, rawX: 0, rawY: 0, downTime: 0))
+                    }
+                    _ = pad.onTouchEvent(MotionEvent(action: MotionEvent.ACTION_UP, x: 0, y: 0, rawX: 0, rawY: 0, downTime: 0))
+                }
+                pad.invalidate()
+            }
+        }
+    }
+    #endif
 }
