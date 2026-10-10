@@ -1354,7 +1354,7 @@ extension LessonActivity {
             do {
                 let pad = self.b.scratchPad
                 let w = Float(pad.width), h = Float(pad.height)
-                // 손글씨 흉내: 물음표 옆에 "16" 을 쓰고, 보기 16 에 빨간 동그라미
+                // 손글씨 흉내: 물음표 옆에 "16" 을 쓰고 빨간 동그라미 (보기는 섞이니 보기에는 안 그린다)
                 var strokes: [[(Float, Float)]] = []
                 strokes.append([(0.34, 0.175), (0.36, 0.16), (0.36, 0.225)])                  // 1
                 var six: [(Float, Float)] = [(0.44, 0.16), (0.41, 0.19)]
@@ -1366,7 +1366,7 @@ extension LessonActivity {
                 var ring: [(Float, Float)] = []
                 for k in 0...26 {
                     let a = Float(k) / 24 * 2 * Float.pi - 0.6
-                    ring.append((0.265 + 0.15 * cos(a), 0.495 + 0.065 * sin(a)))
+                    ring.append((0.40 + 0.09 * cos(a), 0.193 + 0.042 * sin(a)))
                 }
                 strokes.append(ring)
                 for (i, st) in strokes.enumerated() {
