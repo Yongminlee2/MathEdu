@@ -1,0 +1,19 @@
+Hello, thank you for the review. Here is the information you asked for. The attached screen recording (review_peep_math.mp4, 2 min 50 s) was captured on an iPhone 16 Pro running iOS 26.5, from launching the app, with the same code as the submitted build 1.67 (66).
+
+1. Screen recording
+The recording starts at launch and shows the typical flow: home screen → Kindergarten course → first lesson → four questions answered (correct/incorrect feedback with explanation) → the Scratchpad (writing on top of a question) → quitting a lesson → the Level test → My wallet and Shop → My stats and badges → Settings. The app has no account registration or login, no user-generated content shared with others, and no paid content or in-app purchases.
+
+2. Purpose and audience
+Peep Math is a math practice app covering the curriculum from counting through grade 12, for learners age 13 and up who want to review math step by step (and for families studying together). Every question first shows a picture or diagram (counting objects, clocks, fractions, number lines, bar charts, angles, balance scales), so the concept is visible before it is asked. Learners can work by hand on the scratchpad, see their level in six skill areas, and review their mistakes.
+
+3. How to use
+No login or setup is needed. Open the app → pick a grade under "Courses" (or take the "Level test" to find a starting grade) → tap the lesson circle → answer and tap "Check". The wallet's "allowance" is only a number stored on the device; "Cash out (parent)" just records that pocket money was handed over in real life, and the optional 4-digit PIN (My wallet → "Parent settings" → "Set a PIN (locks cash payouts)") protects that record. No payment is processed anywhere.
+
+4. External services
+None. The app has no networking code, no analytics, no ads and no third-party SDKs. All content (about 13,000 questions) is bundled in the app, and progress is stored only on the device.
+
+5. Regional differences
+The app works the same in all regions. The interface and questions are available in 14 languages, chosen from the device language or in Settings → Language.
+
+6. Regulated industry / third-party material
+Not applicable. All questions, illustrations and sounds were created for this app by the developer.
